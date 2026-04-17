@@ -10,30 +10,51 @@ use CodeIgniter\Router\RouteCollection;
 $authFilter = ['filter' => 'auth'];
 
 // Variabel Role
-$admin     = ['filter' => 'role:admin'];
-$petugas     = ['filter' => 'role:petugas'];
-$anggota     = ['filter' => 'role:anggota'];
-$intRole   = ['filter' => 'role:admin, petugas'];
-$allRole   = ['filter' => 'role:admin, petugas, anggota'];
+$admin    = ['filter' => 'role:admin'];
+$petugas  = ['filter' => 'role:petugas'];
+$anggota  = ['filter' => 'role:anggota'];
+$intRole  = ['filter' => 'role:admin,petugas'];
+$allRole  = ['filter' => 'role:admin,petugas,anggota'];
 
 
-// Login
+// ================== AUTH ==================
 $routes->get('/login', 'Auth::login');
 $routes->post('/proses-login', 'Auth::prosesLogin');
 $routes->get('/logout', 'Auth::logout');
 
-// Halaman utama
+// ================== DASHBOARD ==================
 $routes->get('/', 'Home::index', $authFilter);
 $routes->get('/dashboard', 'Home::index', $authFilter);
 
-//users
-$routes->get('/users/create', 'Users::create');  // form tambah user
-$routes->post('/users/store', 'Users::store');   // aksi simpan user
-$routes->get('/users', 'Users::index', $intRole); // menampilkan data user hanya untuk admin dan petugas
-$routes->get('/users/edit/(:num)', 'Users::edit/$1', $allRole); // form edit user
-$routes->post('/users/update/(:num)', 'Users::update/$1', $allRole); // aksi update user
-$routes->get('/users/delete/(:num)', 'Users::delete/$1', $allRole); // aksi hapus user
 
-$routes->get('users/detail/(:num)', 'Users::detail/$1', $allRole); // aksi detail user
-$routes->get('users/print', 'Users::print', $allRole); // aksi print data user
-$routes->get('users/wa/(:num)', 'Users::wa/$1', $allRole); // aksi kirim ke whatsapp
+// ================== USERS ==================
+$routes->get('/users', 'Users::index', $intRole);
+$routes->get('/users/create', 'Users::create');
+$routes->post('/users/store', 'Users::store');
+$routes->get('/users/edit/(:num)', 'Users::edit/$1', $allRole);
+$routes->post('/users/update/(:num)', 'Users::update/$1', $allRole);
+$routes->get('/users/delete/(:num)', 'Users::delete/$1', $allRole);
+
+$routes->get('/users/detail/(:num)', 'Users::detail/$1', $allRole);
+$routes->get('/users/print', 'Users::print', $allRole);
+$routes->get('/users/wa/(:num)', 'Users::wa/$1', $allRole);
+
+
+$routes->get('buku', 'Buku::index');
+$routes->get('buku/create', 'Buku::create');
+$routes->post('buku/store', 'Buku::store');
+$routes->get('buku/detail/(:num)', 'Buku::detail/$1');
+$routes->get('buku/edit/(:num)', 'Buku::edit/$1');
+$routes->post('buku/update/(:num)', 'Buku::update/$1');
+$routes->get('buku/delete/(:num)', 'Buku::delete/$1');
+$routes->get('buku/print', 'Buku::print');
+$routes->get('buku/wa/(:num)', 'Buku::wa/$1');
+
+//peminajamn
+$routes->get('peminjaman', 'Peminjaman::index');
+$routes->get('peminjaman/create', 'Peminjaman::create');
+$routes->post('peminjaman/store', 'Peminjaman::store');
+$routes->get('peminjaman/edit/(:num)', 'Peminjaman::edit/$1');
+$routes->post('peminjaman/update/(:num)', 'Peminjaman::update/$1');
+$routes->get('peminjaman/delete/(:num)', 'Peminjaman::delete/$1');
+$routes->get('peminjaman/(:num)', 'Peminjaman::show/$1');
