@@ -3,113 +3,94 @@
 namespace App\Controllers;
 
 use App\Models\PenulisModel;
-use CodeIgniter\Exceptions\PageNotFoundException;
 
 class Penulis extends BaseController
 {
-    protected $penulisModel;
+    protected $penulis;
 
     public function __construct()
     {
-        $this->penulisModel = new PenulisModel();
+        $this->penulis = new PenulisModel();
     }
 
+    // =========================
+    // LIST + SEARCH
+    // =========================
     public function index()
     {
-        $data = [
-            'title' => 'Data Penulis',
-            'penulis' => $this->penulisModel->getPenulisPaginated(10),
-            'pager' => $this->penulisModel->pager
-        ];
+        $keyword = $this->request->getGet('keyword');
 
-        return view('penulis/index', $data);
+        if ($keyword) {
+            $penulis = $this->penulis
+                ->like('nama_penulis', $keyword)
+                ->findAll();
+        } else {
+            $penulis = $this->penulis->findAll();
+        }
+
+        return view('penulis/index', [
+            'penulis' => $penulis,
+            'keyword' => $keyword
+        ]);
     }
 
+    // =========================
+    // CREATE
+    // =========================
     public function create()
     {
-        $data = [
-            'title' => 'Tambah Penulis Baru',
-            'validation' => \Config\Services::validation()
-        ];
-
-        return view('penulis/create', $data);
+        return view('penulis/create');
     }
 
+    // =========================
+    // STORE
+    // =========================
     public function store()
     {
-        if (!$this->validateData()) {
-            return redirect()->back()->withInput();
+        $nama = $this->request->getPost('nama_penulis');
+
+        // anti duplikat
+        $existing = $this->penulis
+            ->where('nama_penulis', $nama)
+            ->first();
+
+        if (!$existing && $nama != '') {
+            $this->penulis->insert([
+                'nama_penulis' => $nama
+            ]);
         }
 
-        $data = $this->request->getPost('nama_penulis');
-
-        $this->penulisModel->insert($data);
-
-        return redirect()->to('/penulis')->with('success', 'Penulis berhasil ditambahkan!');
+        return redirect()->to('/penulis');
     }
 
-    public function edit($id = null)
+    // =========================
+    // EDIT
+    // =========================
+    public function edit($id)
     {
-        $penulis = $this->penulisModel->find($id);
-
-        if (!$penulis) {
-            throw new PageNotFoundException('Penulis tidak ditemukan.');
-        }
-
-        $data = [
-            'title' => 'Edit Penulis',
-            'penulis' => $penulis,
-            'validation' => \Config\Services::validation()
-        ];
-
-        return view('penulis/edit', $data);
+        return view('penulis/edit', [
+            'penulis' => $this->penulis->find($id)
+        ]);
     }
 
-    public function update($id = null)
+    // =========================
+    // UPDATE
+    // =========================
+    public function update($id)
     {
-        $penulis = $this->penulisModel->find($id);
+        $this->penulis->update($id, [
+            'nama_penulis' => $this->request->getPost('nama_penulis')
+        ]);
 
-        if (!$penulis) {
-            throw new PageNotFoundException('Penulis tidak ditemukan.');
-        }
-
-        if (!$this->validateData($id)) {
-            return redirect()->to("/penulis/edit/$id")->withInput();
-        }
-
-        $data = $this->request->getPost('nama_penulis');
-
-        $this->penulisModel->update($id, $data);
-
-        return redirect()->to('/penulis')->with('success', 'Penulis berhasil diupdate!');
+        return redirect()->to('/penulis');
     }
 
-    public function delete($id = null)
+    // =========================
+    // DELETE
+    // =========================
+    public function delete($id)
     {
-        $penulis = $this->penulisModel->find($id);
-
-        if (!$penulis) {
-            throw new PageNotFoundException('Penulis tidak ditemukan.');
-        }
-
-        $this->penulisModel->delete($id);
-
-        return redirect()->to('/penulis')->with('success', 'Penulis berhasil dihapus!');
-    }
-
-    private function validateData($id = null)
-    {
-        $rules = [
-            'nama_penulis' => 'required|min_length[3]|max_length[100]'
-        ];
-
-        // Tambahkan unique rule kecuali saat edit
-        if ($id) {
-            $rules['nama_penulis'] .= "|is_unique[penulis.nama_penulis,id_penulis,$id]";
-        } else {
-            $rules['nama_penulis'] .= "|is_unique[penulis.nama_penulis]";
-        }
-
-        return $this->validate($rules);
+        $this->penulis->delete($id);
+        return redirect()->to('/penulis');
     }
 }

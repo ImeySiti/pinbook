@@ -1,88 +1,120 @@
 <?= $this->extend('layouts/main') ?>
 <?= $this->section('content') ?>
+
 <h3>Edit Buku</h3>
 
-<form method="post" action="<?= base_url('buku/update/' . $buku['id_buku']) ?>" enctype="multipart/form-data">
+<form action="<?= base_url('buku/update/' . $buku['id_buku']) ?>" method="post" enctype="multipart/form-data">
 
-    Judul:<br>
-    <input type="text" name="judul" value="<?= $buku['judul'] ?>"><br><br>
+    <div>
+        <label>Judul</label><br>
+        <input type="text" name="judul" value="<?= $buku['judul'] ?>" required>
+    </div>
 
-    ISBN:<br>
-    <input type="text" name="isbn" value="<?= $buku['isbn'] ?>"><br><br>
+    <div>
+        <label>ISBN</label><br>
+        <input type="text" name="isbn" value="<?= $buku['isbn'] ?>">
+    </div>
 
-    Kategori:<br>
-    <select name="id_kategori">
-        <?php foreach ($kategori as $k): ?>
-            <option value="<?= $k['id_kategori'] ?>"
-                <?= $buku['id_kategori'] == $k['id_kategori'] ? 'selected' : '' ?>>
-                <?= $k['nama_kategori'] ?>
-            </option>
-        <?php endforeach; ?>
-    </select><br><br>
+    <!-- KATEGORI -->
+    <div>
+        <label>Kategori</label><br>
+        <select name="id_kategori" required>
+    <option value="">Pilih Kategori</option>
+    <?php foreach ($kategori as $k): ?>
+        <option value="<?= $k['id_kategori'] ?>">
+            <?= $k['nama_kategori'] ?>
+        </option>
+    <?php endforeach; ?>
+</select>
+        <br>
+        <input type="text" name="kategori_baru" placeholder="Atau tambah kategori baru">
+    </div>
 
-    Penulis:<br>
-    <select name="id_penulis">
-        <?php foreach ($penulis as $p): ?>
-            <option value="<?= $p['id_penulis'] ?>"
-                <?= $buku['id_penulis'] == $p['id_penulis'] ? 'selected' : '' ?>>
-                <?= $p['nama_penulis'] ?>
-            </option>
-        <?php endforeach; ?>
-    </select><br><br>
+    <!-- PENULIS -->
+    <div>
+        <label>Penulis</label><br>
+        <select name="id_penulis">
+            <option value="">-- Pilih --</option>
+            <?php foreach ($penulis as $p): ?>
+                <option value="<?= $p['id_penulis'] ?>"
+                    <?= ($buku['id_penulis'] == $p['id_penulis']) ? 'selected' : '' ?>>
+                    <?= $p['nama_penulis'] ?>
+                </option>
+            <?php endforeach; ?>
+        </select>
 
-    Penerbit:<br>
-    <select name="id_penerbit">
-        <?php foreach ($penerbit as $p): ?>
-            <option value="<?= $p['id_penerbit'] ?>"
-                <?= $buku['id_penerbit'] == $p['id_penerbit'] ? 'selected' : '' ?>>
-                <?= $p['nama_penerbit'] ?>
-            </option>
-        <?php endforeach; ?>
-    </select><br><br>
+        <br>
+        <input type="text" name="penulis_baru" placeholder="Atau tambah penulis baru">
+    </div>
 
-    Rak:<br>
-    <select name="id_rak">
-        <?php foreach ($rak as $r): ?>
-            <option value="<?= $r['id_rak'] ?>">
-                <?= $r['nama_rak'] ?> - <?= $r['lokasi'] ?>
-            </option>
-        <?php endforeach; ?>
-    </select><br><br>
+    <!-- PENERBIT -->
+    <div>
+        <label>Penerbit</label><br>
+        <select name="id_penerbit">
+            <option value="">-- Pilih --</option>
+            <?php foreach ($penerbit as $p): ?>
+                <option value="<?= $p['id_penerbit'] ?>"
+                    <?= ($buku['id_penerbit'] == $p['id_penerbit']) ? 'selected' : '' ?>>
+                    <?= $p['nama_penerbit'] ?>
+                </option>
+            <?php endforeach; ?>
+        </select>
 
-    Tahun:<br>
-    <input type="number" name="tahun_terbit" value="<?= $buku['tahun_terbit'] ?>"><br><br>
+        <br>
+        <input type="text" name="penerbit_baru" placeholder="Atau tambah penerbit baru">
+    </div>
 
-    Jumlah:<br>
-    <input type="number" name="jumlah" value="<?= $buku['jumlah'] ?>"><br><br>
+    <!-- rak -->
+    <div>
+        <label>Rak</label><br>
+        <select name="id_rak">
+            <option value="">-- Pilih Rak --</option>
+            <?php foreach ($rak as $r): ?>
+                <option value="<?= $r['id_rak'] ?>"
+                    <?= ($buku['id_rak'] ?? '') == $r['id_rak'] ? 'selected' : '' ?>>
+                    <?= $r['nama_rak'] ?> - <?= $r['lokasi'] ?>
+                </option>
+            <?php endforeach; ?>
+        </select>
+    </div>
 
-    Tersedia:<br>
-    <input type="number" name="tersedia" value="<?= $buku['tersedia'] ?>"><br><br>
+    <div>
+        <label>Tahun Terbit</label><br>
+        <input type="number" name="tahun_terbit" value="<?= $buku['tahun_terbit'] ?>">
+    </div>
 
-    Deskripsi:<br>
-    <textarea name="deskripsi"><?= $buku['deskripsi'] ?></textarea><br><br>
+    <div>
+        <label>Jumlah</label><br>
+        <input type="number" name="jumlah" value="<?= $buku['jumlah'] ?>">
+    </div>
 
-    Cover:<br>
-    <input type="file" name="cover"><br><br>
+    <div>
+        <label>Tersedia</label><br>
+        <input type="number" name="tersedia" value="<?= $buku['tersedia'] ?>">
+    </div>
 
-    Cover Saat Ini:<br>
-    <?php if ($buku['cover']): ?>
+    <div>
+        <label>Deskripsi</label><br>
+        <textarea name="deskripsi"><?= $buku['deskripsi'] ?></textarea>
+    </div>
 
-        <?php
-        $ext = pathinfo($buku['cover'], PATHINFO_EXTENSION);
-        ?>
+    <input type="hidden" name="old_cover" value="<?= $buku['cover'] ?>">
+    <!-- COVER -->
+    <div>
+        <label>Cover</label><br>
 
-        <?php if (in_array($ext, ['jpg', 'jpeg', 'png', 'gif'])): ?>
-            <img src="<?= base_url('uploads/buku/' . $buku['cover']) ?>" width="100"><br>
-        <?php else: ?>
-            <a href="<?= base_url('uploads/buku/' . $buku['cover']) ?>" target="_blank">Lihat File</a><br>
+        <?php if ($buku['cover']): ?>
+            <img src="<?= base_url('uploads/buku/' . $buku['cover']) ?>" width="80"><br>
         <?php endif; ?>
 
-    <?php else: ?>
-        -
-    <?php endif; ?>
+        <input type="file" name="cover">
+        <small>Biarkan kosong jika tidak ingin ganti cover</small>
+    </div>
 
+    <br>
     <button type="submit">Update</button>
     <a href="<?= base_url('buku') ?>">Kembali</a>
 
 </form>
+
 <?= $this->endSection() ?>

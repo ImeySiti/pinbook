@@ -56,8 +56,7 @@
 
                 <?php if (in_array($ext, ['jpg', 'jpeg', 'png', 'gif'])): ?>
                     <img src="<?= base_url('uploads/buku/' . $buku['cover']) ?>" width="150">
-                <?php else: ?>
-                    <a href="<?= base_url('uploads/buku/' . $buku['cover']) ?>" target="_blank">Lihat File</a>
+
                 <?php endif; ?>
 
             <?php else: ?>
@@ -69,6 +68,21 @@
 
 <br>
 
-<a href="<?= base_url('buku') ?>">Kembali</a>
-<a href="<?= base_url('buku/wa/' . $buku['id_buku']) ?>" target="_blank">Kirim WA</a>
+<br><br>
+
+<br><br>
+
+<?php if (session()->get('role') == 'admin'): ?>
+    <a href="<?= base_url('buku') ?>">⬅ Kembali</a>
+<?php else: ?>
+    <a href="<?= base_url('peminjaman/create') ?>">⬅ Kembali</a>
+<?php endif; ?>
+</a>
+<?php if (session()->get('role') == 'admin'): ?>
+    <a href="<?= base_url('buku/wa/' . $buku['id_buku']) ?>" target="_blank">
+        Kirim WA
+    </a>
+
+<?php endif; ?>
+
 <?= $this->endSection() ?>

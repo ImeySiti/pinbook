@@ -1,0 +1,1708 @@
+DEBUG - 2026-04-19 06:27:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 06:27:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 06:27:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 06:27:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 06:27:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 06:27:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2026-04-19 06:29:52 --> mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`pinbook`.`buku`, CONSTRAINT `buku_ibfk_3` FOREIGN KEY (`id_penerbit`) REFERENCES `penerbit` (`id_penerbit`)) in C:\xampp\htdocs\pinbook\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp\htdocs\pinbook\system\Database\MySQLi\Connection.php(327): mysqli->query('INSERT INTO `bu...', 0)
+#1 C:\xampp\htdocs\pinbook\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `bu...')
+#2 C:\xampp\htdocs\pinbook\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `bu...')
+#3 C:\xampp\htdocs\pinbook\system\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `bu...', Array, false)
+#4 C:\xampp\htdocs\pinbook\system\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\xampp\htdocs\pinbook\system\BaseModel.php(838): CodeIgniter\Model->doInsert(Array)
+#6 C:\xampp\htdocs\pinbook\system\Model.php(797): CodeIgniter\BaseModel->insert(Array, true)
+#7 C:\xampp\htdocs\pinbook\app\Controllers\Buku.php(132): CodeIgniter\Model->insert(Array)
+#8 C:\xampp\htdocs\pinbook\system\CodeIgniter.php(933): App\Controllers\Buku->store()
+#9 C:\xampp\htdocs\pinbook\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Buku))
+#10 C:\xampp\htdocs\pinbook\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\pinbook\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#12 C:\xampp\htdocs\pinbook\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 C:\xampp\htdocs\pinbook\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 {main}
+CRITICAL - 2026-04-19 06:29:52 --> CodeIgniter\Database\Exceptions\DatabaseException: Cannot add or update a child row: a foreign key constraint fails (`pinbook`.`buku`, CONSTRAINT `buku_ibfk_3` FOREIGN KEY (`id_penerbit`) REFERENCES `penerbit` (`id_penerbit`))
+[Method: POST, Route: buku/store]
+in SYSTEMPATH\Database\BaseConnection.php on line 684.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `buku` (`judul`, `isbn`, `id_kategori`, `id_penulis`, `id_penerbit`, `tahun_terbit`, `jumlah`, `tersedia`, `deskripsi`, `cover`) VALUES (:judul:, :isbn:, :id_kategori:, :id_penulis:, :id_penerbit:, :tahun_terbit:, :jumlah:, :tersedia:, :deskripsi:, :cover:)', [...], false)
+ 2 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 3 SYSTEMPATH\BaseModel.php(838): CodeIgniter\Model->doInsert([...])
+ 4 SYSTEMPATH\Model.php(797): CodeIgniter\BaseModel->insert([...], true)
+ 5 APPPATH\Controllers\Buku.php(132): CodeIgniter\Model->insert([...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Buku->store()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Buku))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-19 06:29:52 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Cannot add or update a child row: a foreign key constraint fails (`pinbook`.`buku`, CONSTRAINT `buku_ibfk_3` FOREIGN KEY (`id_penerbit`) REFERENCES `penerbit` (`id_penerbit`))
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `buku` (`judul`, `isbn`, `id_kategori`, `id_penulis`, `id_penerbit`, `tahun_terbit`, `jumlah`, `tersedia`, `deskripsi`, `cover`) VALUES (\'Tentang Hujan\', \'9786239987879\', \'1\', \'1\', \'Sabak Grip\', \'2022\', \'10\', \'10\', \'Novel Hujan merupakan novel yang mengisahkan kisah cinta serta perjuangan hidup Lail. Saat usianya baru menginjak 13 tahun, Lail menjadi seorang yatim piatu akibat ayah dan ibu Lail yang terkena letusan Gunung Api Purba dan gempa yang membuat kota tempat mereka tinggal hancur.\', \'1776580192_da16363510dd50dc8484.jpg\')')
+ 2 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `buku` (`judul`, `isbn`, `id_kategori`, `id_penulis`, `id_penerbit`, `tahun_terbit`, `jumlah`, `tersedia`, `deskripsi`, `cover`) VALUES (\'Tentang Hujan\', \'9786239987879\', \'1\', \'1\', \'Sabak Grip\', \'2022\', \'10\', \'10\', \'Novel Hujan merupakan novel yang mengisahkan kisah cinta serta perjuangan hidup Lail. Saat usianya baru menginjak 13 tahun, Lail menjadi seorang yatim piatu akibat ayah dan ibu Lail yang terkena letusan Gunung Api Purba dan gempa yang membuat kota tempat mereka tinggal hancur.\', \'1776580192_da16363510dd50dc8484.jpg\')')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `buku` (`judul`, `isbn`, `id_kategori`, `id_penulis`, `id_penerbit`, `tahun_terbit`, `jumlah`, `tersedia`, `deskripsi`, `cover`) VALUES (:judul:, :isbn:, :id_kategori:, :id_penulis:, :id_penerbit:, :tahun_terbit:, :jumlah:, :tersedia:, :deskripsi:, :cover:)', [...], false)
+ 4 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 5 SYSTEMPATH\BaseModel.php(838): CodeIgniter\Model->doInsert([...])
+ 6 SYSTEMPATH\Model.php(797): CodeIgniter\BaseModel->insert([...], true)
+ 7 APPPATH\Controllers\Buku.php(132): CodeIgniter\Model->insert([...])
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Buku->store()
+ 9 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Buku))
+10 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-19 06:29:52 --> [Caused by] mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`pinbook`.`buku`, CONSTRAINT `buku_ibfk_3` FOREIGN KEY (`id_penerbit`) REFERENCES `penerbit` (`id_penerbit`))
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('INSERT INTO `buku` (`judul`, `isbn`, `id_kategori`, `id_penulis`, `id_penerbit`, `tahun_terbit`, `jumlah`, `tersedia`, `deskripsi`, `cover`) VALUES (\'Tentang Hujan\', \'9786239987879\', \'1\', \'1\', \'Sabak Grip\', \'2022\', \'10\', \'10\', \'Novel Hujan merupakan novel yang mengisahkan kisah cinta serta perjuangan hidup Lail. Saat usianya baru menginjak 13 tahun, Lail menjadi seorang yatim piatu akibat ayah dan ibu Lail yang terkena letusan Gunung Api Purba dan gempa yang membuat kota tempat mereka tinggal hancur.\', \'1776580192_da16363510dd50dc8484.jpg\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `buku` (`judul`, `isbn`, `id_kategori`, `id_penulis`, `id_penerbit`, `tahun_terbit`, `jumlah`, `tersedia`, `deskripsi`, `cover`) VALUES (\'Tentang Hujan\', \'9786239987879\', \'1\', \'1\', \'Sabak Grip\', \'2022\', \'10\', \'10\', \'Novel Hujan merupakan novel yang mengisahkan kisah cinta serta perjuangan hidup Lail. Saat usianya baru menginjak 13 tahun, Lail menjadi seorang yatim piatu akibat ayah dan ibu Lail yang terkena letusan Gunung Api Purba dan gempa yang membuat kota tempat mereka tinggal hancur.\', \'1776580192_da16363510dd50dc8484.jpg\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `buku` (`judul`, `isbn`, `id_kategori`, `id_penulis`, `id_penerbit`, `tahun_terbit`, `jumlah`, `tersedia`, `deskripsi`, `cover`) VALUES (\'Tentang Hujan\', \'9786239987879\', \'1\', \'1\', \'Sabak Grip\', \'2022\', \'10\', \'10\', \'Novel Hujan merupakan novel yang mengisahkan kisah cinta serta perjuangan hidup Lail. Saat usianya baru menginjak 13 tahun, Lail menjadi seorang yatim piatu akibat ayah dan ibu Lail yang terkena letusan Gunung Api Purba dan gempa yang membuat kota tempat mereka tinggal hancur.\', \'1776580192_da16363510dd50dc8484.jpg\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `buku` (`judul`, `isbn`, `id_kategori`, `id_penulis`, `id_penerbit`, `tahun_terbit`, `jumlah`, `tersedia`, `deskripsi`, `cover`) VALUES (:judul:, :isbn:, :id_kategori:, :id_penulis:, :id_penerbit:, :tahun_terbit:, :jumlah:, :tersedia:, :deskripsi:, :cover:)', [...], false)
+ 5 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH\BaseModel.php(838): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH\Model.php(797): CodeIgniter\BaseModel->insert([...], true)
+ 8 APPPATH\Controllers\Buku.php(132): CodeIgniter\Model->insert([...])
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Buku->store()
+10 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Buku))
+11 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-19 06:30:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 06:30:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 06:30:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 06:30:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 06:31:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 06:31:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 06:31:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 06:32:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 06:35:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 06:36:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 06:37:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 06:37:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 06:37:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 06:38:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 06:38:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 06:38:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 06:38:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 06:38:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 06:39:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 06:39:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2026-04-19 06:41:47 --> mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`pinbook`.`buku`, CONSTRAINT `buku_ibfk_3` FOREIGN KEY (`id_penerbit`) REFERENCES `penerbit` (`id_penerbit`)) in C:\xampp\htdocs\pinbook\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp\htdocs\pinbook\system\Database\MySQLi\Connection.php(327): mysqli->query('INSERT INTO `bu...', 0)
+#1 C:\xampp\htdocs\pinbook\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `bu...')
+#2 C:\xampp\htdocs\pinbook\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `bu...')
+#3 C:\xampp\htdocs\pinbook\system\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `bu...', Array, false)
+#4 C:\xampp\htdocs\pinbook\system\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\xampp\htdocs\pinbook\system\BaseModel.php(838): CodeIgniter\Model->doInsert(Array)
+#6 C:\xampp\htdocs\pinbook\system\Model.php(797): CodeIgniter\BaseModel->insert(Array, true)
+#7 C:\xampp\htdocs\pinbook\app\Controllers\Buku.php(132): CodeIgniter\Model->insert(Array)
+#8 C:\xampp\htdocs\pinbook\system\CodeIgniter.php(933): App\Controllers\Buku->store()
+#9 C:\xampp\htdocs\pinbook\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Buku))
+#10 C:\xampp\htdocs\pinbook\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\pinbook\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#12 C:\xampp\htdocs\pinbook\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 C:\xampp\htdocs\pinbook\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 {main}
+CRITICAL - 2026-04-19 06:41:47 --> CodeIgniter\Database\Exceptions\DatabaseException: Cannot add or update a child row: a foreign key constraint fails (`pinbook`.`buku`, CONSTRAINT `buku_ibfk_3` FOREIGN KEY (`id_penerbit`) REFERENCES `penerbit` (`id_penerbit`))
+[Method: POST, Route: buku/store]
+in SYSTEMPATH\Database\BaseConnection.php on line 684.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `buku` (`judul`, `isbn`, `id_kategori`, `id_penulis`, `id_penerbit`, `tahun_terbit`, `jumlah`, `tersedia`, `deskripsi`, `cover`) VALUES (:judul:, :isbn:, :id_kategori:, :id_penulis:, :id_penerbit:, :tahun_terbit:, :jumlah:, :tersedia:, :deskripsi:, :cover:)', [...], false)
+ 2 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 3 SYSTEMPATH\BaseModel.php(838): CodeIgniter\Model->doInsert([...])
+ 4 SYSTEMPATH\Model.php(797): CodeIgniter\BaseModel->insert([...], true)
+ 5 APPPATH\Controllers\Buku.php(132): CodeIgniter\Model->insert([...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Buku->store()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Buku))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-19 06:41:47 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Cannot add or update a child row: a foreign key constraint fails (`pinbook`.`buku`, CONSTRAINT `buku_ibfk_3` FOREIGN KEY (`id_penerbit`) REFERENCES `penerbit` (`id_penerbit`))
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `buku` (`judul`, `isbn`, `id_kategori`, `id_penulis`, `id_penerbit`, `tahun_terbit`, `jumlah`, `tersedia`, `deskripsi`, `cover`) VALUES (\'Laskar Pelangi\', \'9793062797\', \'1\', 6, \'\', \'\', \'\', \'\', \'\', NULL)')
+ 2 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `buku` (`judul`, `isbn`, `id_kategori`, `id_penulis`, `id_penerbit`, `tahun_terbit`, `jumlah`, `tersedia`, `deskripsi`, `cover`) VALUES (\'Laskar Pelangi\', \'9793062797\', \'1\', 6, \'\', \'\', \'\', \'\', \'\', NULL)')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `buku` (`judul`, `isbn`, `id_kategori`, `id_penulis`, `id_penerbit`, `tahun_terbit`, `jumlah`, `tersedia`, `deskripsi`, `cover`) VALUES (:judul:, :isbn:, :id_kategori:, :id_penulis:, :id_penerbit:, :tahun_terbit:, :jumlah:, :tersedia:, :deskripsi:, :cover:)', [...], false)
+ 4 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 5 SYSTEMPATH\BaseModel.php(838): CodeIgniter\Model->doInsert([...])
+ 6 SYSTEMPATH\Model.php(797): CodeIgniter\BaseModel->insert([...], true)
+ 7 APPPATH\Controllers\Buku.php(132): CodeIgniter\Model->insert([...])
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Buku->store()
+ 9 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Buku))
+10 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-19 06:41:47 --> [Caused by] mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`pinbook`.`buku`, CONSTRAINT `buku_ibfk_3` FOREIGN KEY (`id_penerbit`) REFERENCES `penerbit` (`id_penerbit`))
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('INSERT INTO `buku` (`judul`, `isbn`, `id_kategori`, `id_penulis`, `id_penerbit`, `tahun_terbit`, `jumlah`, `tersedia`, `deskripsi`, `cover`) VALUES (\'Laskar Pelangi\', \'9793062797\', \'1\', 6, \'\', \'\', \'\', \'\', \'\', NULL)', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `buku` (`judul`, `isbn`, `id_kategori`, `id_penulis`, `id_penerbit`, `tahun_terbit`, `jumlah`, `tersedia`, `deskripsi`, `cover`) VALUES (\'Laskar Pelangi\', \'9793062797\', \'1\', 6, \'\', \'\', \'\', \'\', \'\', NULL)')
+ 3 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `buku` (`judul`, `isbn`, `id_kategori`, `id_penulis`, `id_penerbit`, `tahun_terbit`, `jumlah`, `tersedia`, `deskripsi`, `cover`) VALUES (\'Laskar Pelangi\', \'9793062797\', \'1\', 6, \'\', \'\', \'\', \'\', \'\', NULL)')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `buku` (`judul`, `isbn`, `id_kategori`, `id_penulis`, `id_penerbit`, `tahun_terbit`, `jumlah`, `tersedia`, `deskripsi`, `cover`) VALUES (:judul:, :isbn:, :id_kategori:, :id_penulis:, :id_penerbit:, :tahun_terbit:, :jumlah:, :tersedia:, :deskripsi:, :cover:)', [...], false)
+ 5 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH\BaseModel.php(838): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH\Model.php(797): CodeIgniter\BaseModel->insert([...], true)
+ 8 APPPATH\Controllers\Buku.php(132): CodeIgniter\Model->insert([...])
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Buku->store()
+10 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Buku))
+11 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2026-04-19 06:42:46 --> mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`pinbook`.`buku`, CONSTRAINT `buku_ibfk_2` FOREIGN KEY (`id_penulis`) REFERENCES `penulis` (`id_penulis`)) in C:\xampp\htdocs\pinbook\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp\htdocs\pinbook\system\Database\MySQLi\Connection.php(327): mysqli->query('INSERT INTO `bu...', 0)
+#1 C:\xampp\htdocs\pinbook\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `bu...')
+#2 C:\xampp\htdocs\pinbook\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `bu...')
+#3 C:\xampp\htdocs\pinbook\system\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `bu...', Array, false)
+#4 C:\xampp\htdocs\pinbook\system\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\xampp\htdocs\pinbook\system\BaseModel.php(838): CodeIgniter\Model->doInsert(Array)
+#6 C:\xampp\htdocs\pinbook\system\Model.php(797): CodeIgniter\BaseModel->insert(Array, true)
+#7 C:\xampp\htdocs\pinbook\app\Controllers\Buku.php(132): CodeIgniter\Model->insert(Array)
+#8 C:\xampp\htdocs\pinbook\system\CodeIgniter.php(933): App\Controllers\Buku->store()
+#9 C:\xampp\htdocs\pinbook\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Buku))
+#10 C:\xampp\htdocs\pinbook\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\pinbook\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#12 C:\xampp\htdocs\pinbook\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 C:\xampp\htdocs\pinbook\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 {main}
+CRITICAL - 2026-04-19 06:42:46 --> CodeIgniter\Database\Exceptions\DatabaseException: Cannot add or update a child row: a foreign key constraint fails (`pinbook`.`buku`, CONSTRAINT `buku_ibfk_2` FOREIGN KEY (`id_penulis`) REFERENCES `penulis` (`id_penulis`))
+[Method: POST, Route: buku/store]
+in SYSTEMPATH\Database\BaseConnection.php on line 684.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `buku` (`judul`, `isbn`, `id_kategori`, `id_penulis`, `id_penerbit`, `tahun_terbit`, `jumlah`, `tersedia`, `deskripsi`, `cover`) VALUES (:judul:, :isbn:, :id_kategori:, :id_penulis:, :id_penerbit:, :tahun_terbit:, :jumlah:, :tersedia:, :deskripsi:, :cover:)', [...], false)
+ 2 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 3 SYSTEMPATH\BaseModel.php(838): CodeIgniter\Model->doInsert([...])
+ 4 SYSTEMPATH\Model.php(797): CodeIgniter\BaseModel->insert([...], true)
+ 5 APPPATH\Controllers\Buku.php(132): CodeIgniter\Model->insert([...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Buku->store()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Buku))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-19 06:42:46 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Cannot add or update a child row: a foreign key constraint fails (`pinbook`.`buku`, CONSTRAINT `buku_ibfk_2` FOREIGN KEY (`id_penulis`) REFERENCES `penulis` (`id_penulis`))
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `buku` (`judul`, `isbn`, `id_kategori`, `id_penulis`, `id_penerbit`, `tahun_terbit`, `jumlah`, `tersedia`, `deskripsi`, `cover`) VALUES (\'Laskar Pelangi\', \'9793062797\', \'1\', 0, 5, \'2005\', \'10\', \'10\', \'Laskar Pelangi adalah novel pertama karya Andrea Hirata yang diterbitkan oleh Bentang Pustaka pada tahun 2005. Novel ini mengisahkan perjalanan sepuluh anak dari keluarga kurang mampu yang menempuh pendidikan di sebuah sekolah Muhammadiyah di Pulau Belitung dengan segala keterbatasan yang ada.\', NULL)')
+ 2 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `buku` (`judul`, `isbn`, `id_kategori`, `id_penulis`, `id_penerbit`, `tahun_terbit`, `jumlah`, `tersedia`, `deskripsi`, `cover`) VALUES (\'Laskar Pelangi\', \'9793062797\', \'1\', 0, 5, \'2005\', \'10\', \'10\', \'Laskar Pelangi adalah novel pertama karya Andrea Hirata yang diterbitkan oleh Bentang Pustaka pada tahun 2005. Novel ini mengisahkan perjalanan sepuluh anak dari keluarga kurang mampu yang menempuh pendidikan di sebuah sekolah Muhammadiyah di Pulau Belitung dengan segala keterbatasan yang ada.\', NULL)')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `buku` (`judul`, `isbn`, `id_kategori`, `id_penulis`, `id_penerbit`, `tahun_terbit`, `jumlah`, `tersedia`, `deskripsi`, `cover`) VALUES (:judul:, :isbn:, :id_kategori:, :id_penulis:, :id_penerbit:, :tahun_terbit:, :jumlah:, :tersedia:, :deskripsi:, :cover:)', [...], false)
+ 4 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 5 SYSTEMPATH\BaseModel.php(838): CodeIgniter\Model->doInsert([...])
+ 6 SYSTEMPATH\Model.php(797): CodeIgniter\BaseModel->insert([...], true)
+ 7 APPPATH\Controllers\Buku.php(132): CodeIgniter\Model->insert([...])
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Buku->store()
+ 9 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Buku))
+10 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-19 06:42:46 --> [Caused by] mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`pinbook`.`buku`, CONSTRAINT `buku_ibfk_2` FOREIGN KEY (`id_penulis`) REFERENCES `penulis` (`id_penulis`))
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('INSERT INTO `buku` (`judul`, `isbn`, `id_kategori`, `id_penulis`, `id_penerbit`, `tahun_terbit`, `jumlah`, `tersedia`, `deskripsi`, `cover`) VALUES (\'Laskar Pelangi\', \'9793062797\', \'1\', 0, 5, \'2005\', \'10\', \'10\', \'Laskar Pelangi adalah novel pertama karya Andrea Hirata yang diterbitkan oleh Bentang Pustaka pada tahun 2005. Novel ini mengisahkan perjalanan sepuluh anak dari keluarga kurang mampu yang menempuh pendidikan di sebuah sekolah Muhammadiyah di Pulau Belitung dengan segala keterbatasan yang ada.\', NULL)', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `buku` (`judul`, `isbn`, `id_kategori`, `id_penulis`, `id_penerbit`, `tahun_terbit`, `jumlah`, `tersedia`, `deskripsi`, `cover`) VALUES (\'Laskar Pelangi\', \'9793062797\', \'1\', 0, 5, \'2005\', \'10\', \'10\', \'Laskar Pelangi adalah novel pertama karya Andrea Hirata yang diterbitkan oleh Bentang Pustaka pada tahun 2005. Novel ini mengisahkan perjalanan sepuluh anak dari keluarga kurang mampu yang menempuh pendidikan di sebuah sekolah Muhammadiyah di Pulau Belitung dengan segala keterbatasan yang ada.\', NULL)')
+ 3 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `buku` (`judul`, `isbn`, `id_kategori`, `id_penulis`, `id_penerbit`, `tahun_terbit`, `jumlah`, `tersedia`, `deskripsi`, `cover`) VALUES (\'Laskar Pelangi\', \'9793062797\', \'1\', 0, 5, \'2005\', \'10\', \'10\', \'Laskar Pelangi adalah novel pertama karya Andrea Hirata yang diterbitkan oleh Bentang Pustaka pada tahun 2005. Novel ini mengisahkan perjalanan sepuluh anak dari keluarga kurang mampu yang menempuh pendidikan di sebuah sekolah Muhammadiyah di Pulau Belitung dengan segala keterbatasan yang ada.\', NULL)')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `buku` (`judul`, `isbn`, `id_kategori`, `id_penulis`, `id_penerbit`, `tahun_terbit`, `jumlah`, `tersedia`, `deskripsi`, `cover`) VALUES (:judul:, :isbn:, :id_kategori:, :id_penulis:, :id_penerbit:, :tahun_terbit:, :jumlah:, :tersedia:, :deskripsi:, :cover:)', [...], false)
+ 5 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH\BaseModel.php(838): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH\Model.php(797): CodeIgniter\BaseModel->insert([...], true)
+ 8 APPPATH\Controllers\Buku.php(132): CodeIgniter\Model->insert([...])
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Buku->store()
+10 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Buku))
+11 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-19 06:43:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 06:43:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 06:43:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 06:43:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 06:43:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 06:43:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 06:44:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 06:47:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 06:47:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 06:48:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 06:49:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 06:49:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 06:49:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 06:51:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 06:51:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2026-04-19 06:51:40 --> mysqli_sql_exception: Cannot delete or update a parent row: a foreign key constraint fails (`pinbook`.`buku`, CONSTRAINT `buku_ibfk_2` FOREIGN KEY (`id_penulis`) REFERENCES `penulis` (`id_penulis`)) in C:\xampp\htdocs\pinbook\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp\htdocs\pinbook\system\Database\MySQLi\Connection.php(327): mysqli->query('DELETE FROM `pe...', 0)
+#1 C:\xampp\htdocs\pinbook\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('DELETE FROM `pe...')
+#2 C:\xampp\htdocs\pinbook\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('DELETE FROM `pe...')
+#3 C:\xampp\htdocs\pinbook\system\Database\BaseBuilder.php(2848): CodeIgniter\Database\BaseConnection->query('DELETE FROM `pe...', Array, false)
+#4 C:\xampp\htdocs\pinbook\system\Model.php(521): CodeIgniter\Database\BaseBuilder->delete()
+#5 C:\xampp\htdocs\pinbook\system\BaseModel.php(1152): CodeIgniter\Model->doDelete(Array, false)
+#6 C:\xampp\htdocs\pinbook\app\Controllers\Penulis.php(65): CodeIgniter\BaseModel->delete(Array)
+#7 C:\xampp\htdocs\pinbook\system\CodeIgniter.php(933): App\Controllers\Penulis->delete('7')
+#8 C:\xampp\htdocs\pinbook\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Penulis))
+#9 C:\xampp\htdocs\pinbook\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\pinbook\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#11 C:\xampp\htdocs\pinbook\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\xampp\htdocs\pinbook\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 {main}
+CRITICAL - 2026-04-19 06:51:40 --> CodeIgniter\Database\Exceptions\DatabaseException: Cannot delete or update a parent row: a foreign key constraint fails (`pinbook`.`buku`, CONSTRAINT `buku_ibfk_2` FOREIGN KEY (`id_penulis`) REFERENCES `penulis` (`id_penulis`))
+[Method: GET, Route: penulis/delete/7]
+in SYSTEMPATH\Database\BaseConnection.php on line 684.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2848): CodeIgniter\Database\BaseConnection->query('DELETE FROM `penulis`
+WHERE `id_penulis` IN :id_penulis:', [...], false)
+ 2 SYSTEMPATH\Model.php(521): CodeIgniter\Database\BaseBuilder->delete()
+ 3 SYSTEMPATH\BaseModel.php(1152): CodeIgniter\Model->doDelete([...], false)
+ 4 APPPATH\Controllers\Penulis.php(65): CodeIgniter\BaseModel->delete([...])
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Penulis->delete('7')
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Penulis))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-19 06:51:40 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Cannot delete or update a parent row: a foreign key constraint fails (`pinbook`.`buku`, CONSTRAINT `buku_ibfk_2` FOREIGN KEY (`id_penulis`) REFERENCES `penulis` (`id_penulis`))
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('DELETE FROM `penulis`
+WHERE `id_penulis` IN (\'7\')')
+ 2 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('DELETE FROM `penulis`
+WHERE `id_penulis` IN (\'7\')')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2848): CodeIgniter\Database\BaseConnection->query('DELETE FROM `penulis`
+WHERE `id_penulis` IN :id_penulis:', [...], false)
+ 4 SYSTEMPATH\Model.php(521): CodeIgniter\Database\BaseBuilder->delete()
+ 5 SYSTEMPATH\BaseModel.php(1152): CodeIgniter\Model->doDelete([...], false)
+ 6 APPPATH\Controllers\Penulis.php(65): CodeIgniter\BaseModel->delete([...])
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Penulis->delete('7')
+ 8 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Penulis))
+ 9 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-19 06:51:40 --> [Caused by] mysqli_sql_exception: Cannot delete or update a parent row: a foreign key constraint fails (`pinbook`.`buku`, CONSTRAINT `buku_ibfk_2` FOREIGN KEY (`id_penulis`) REFERENCES `penulis` (`id_penulis`))
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('DELETE FROM `penulis`
+WHERE `id_penulis` IN (\'7\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('DELETE FROM `penulis`
+WHERE `id_penulis` IN (\'7\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('DELETE FROM `penulis`
+WHERE `id_penulis` IN (\'7\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2848): CodeIgniter\Database\BaseConnection->query('DELETE FROM `penulis`
+WHERE `id_penulis` IN :id_penulis:', [...], false)
+ 5 SYSTEMPATH\Model.php(521): CodeIgniter\Database\BaseBuilder->delete()
+ 6 SYSTEMPATH\BaseModel.php(1152): CodeIgniter\Model->doDelete([...], false)
+ 7 APPPATH\Controllers\Penulis.php(65): CodeIgniter\BaseModel->delete([...])
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Penulis->delete('7')
+ 9 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Penulis))
+10 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-19 06:51:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 06:51:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2026-04-19 06:51:52 --> mysqli_sql_exception: Cannot delete or update a parent row: a foreign key constraint fails (`pinbook`.`buku`, CONSTRAINT `buku_ibfk_2` FOREIGN KEY (`id_penulis`) REFERENCES `penulis` (`id_penulis`)) in C:\xampp\htdocs\pinbook\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp\htdocs\pinbook\system\Database\MySQLi\Connection.php(327): mysqli->query('DELETE FROM `pe...', 0)
+#1 C:\xampp\htdocs\pinbook\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('DELETE FROM `pe...')
+#2 C:\xampp\htdocs\pinbook\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('DELETE FROM `pe...')
+#3 C:\xampp\htdocs\pinbook\system\Database\BaseBuilder.php(2848): CodeIgniter\Database\BaseConnection->query('DELETE FROM `pe...', Array, false)
+#4 C:\xampp\htdocs\pinbook\system\Model.php(521): CodeIgniter\Database\BaseBuilder->delete()
+#5 C:\xampp\htdocs\pinbook\system\BaseModel.php(1152): CodeIgniter\Model->doDelete(Array, false)
+#6 C:\xampp\htdocs\pinbook\app\Controllers\Penulis.php(65): CodeIgniter\BaseModel->delete(Array)
+#7 C:\xampp\htdocs\pinbook\system\CodeIgniter.php(933): App\Controllers\Penulis->delete('7')
+#8 C:\xampp\htdocs\pinbook\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Penulis))
+#9 C:\xampp\htdocs\pinbook\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\pinbook\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#11 C:\xampp\htdocs\pinbook\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\xampp\htdocs\pinbook\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 {main}
+CRITICAL - 2026-04-19 06:51:52 --> CodeIgniter\Database\Exceptions\DatabaseException: Cannot delete or update a parent row: a foreign key constraint fails (`pinbook`.`buku`, CONSTRAINT `buku_ibfk_2` FOREIGN KEY (`id_penulis`) REFERENCES `penulis` (`id_penulis`))
+[Method: GET, Route: penulis/delete/7]
+in SYSTEMPATH\Database\BaseConnection.php on line 684.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2848): CodeIgniter\Database\BaseConnection->query('DELETE FROM `penulis`
+WHERE `id_penulis` IN :id_penulis:', [...], false)
+ 2 SYSTEMPATH\Model.php(521): CodeIgniter\Database\BaseBuilder->delete()
+ 3 SYSTEMPATH\BaseModel.php(1152): CodeIgniter\Model->doDelete([...], false)
+ 4 APPPATH\Controllers\Penulis.php(65): CodeIgniter\BaseModel->delete([...])
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Penulis->delete('7')
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Penulis))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-19 06:51:52 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Cannot delete or update a parent row: a foreign key constraint fails (`pinbook`.`buku`, CONSTRAINT `buku_ibfk_2` FOREIGN KEY (`id_penulis`) REFERENCES `penulis` (`id_penulis`))
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('DELETE FROM `penulis`
+WHERE `id_penulis` IN (\'7\')')
+ 2 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('DELETE FROM `penulis`
+WHERE `id_penulis` IN (\'7\')')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2848): CodeIgniter\Database\BaseConnection->query('DELETE FROM `penulis`
+WHERE `id_penulis` IN :id_penulis:', [...], false)
+ 4 SYSTEMPATH\Model.php(521): CodeIgniter\Database\BaseBuilder->delete()
+ 5 SYSTEMPATH\BaseModel.php(1152): CodeIgniter\Model->doDelete([...], false)
+ 6 APPPATH\Controllers\Penulis.php(65): CodeIgniter\BaseModel->delete([...])
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Penulis->delete('7')
+ 8 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Penulis))
+ 9 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-19 06:51:52 --> [Caused by] mysqli_sql_exception: Cannot delete or update a parent row: a foreign key constraint fails (`pinbook`.`buku`, CONSTRAINT `buku_ibfk_2` FOREIGN KEY (`id_penulis`) REFERENCES `penulis` (`id_penulis`))
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('DELETE FROM `penulis`
+WHERE `id_penulis` IN (\'7\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('DELETE FROM `penulis`
+WHERE `id_penulis` IN (\'7\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('DELETE FROM `penulis`
+WHERE `id_penulis` IN (\'7\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2848): CodeIgniter\Database\BaseConnection->query('DELETE FROM `penulis`
+WHERE `id_penulis` IN :id_penulis:', [...], false)
+ 5 SYSTEMPATH\Model.php(521): CodeIgniter\Database\BaseBuilder->delete()
+ 6 SYSTEMPATH\BaseModel.php(1152): CodeIgniter\Model->doDelete([...], false)
+ 7 APPPATH\Controllers\Penulis.php(65): CodeIgniter\BaseModel->delete([...])
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Penulis->delete('7')
+ 9 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Penulis))
+10 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-19 06:52:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 06:57:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 06:58:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 06:58:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 06:58:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 06:59:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 06:59:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 06:59:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 06:59:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 06:59:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 06:59:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 06:59:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 06:59:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 06:59:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 06:59:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2026-04-19 07:00:01 --> mysqli_sql_exception: Cannot delete or update a parent row: a foreign key constraint fails (`pinbook`.`buku`, CONSTRAINT `buku_ibfk_3` FOREIGN KEY (`id_penerbit`) REFERENCES `penerbit` (`id_penerbit`)) in C:\xampp\htdocs\pinbook\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp\htdocs\pinbook\system\Database\MySQLi\Connection.php(327): mysqli->query('DELETE FROM `pe...', 0)
+#1 C:\xampp\htdocs\pinbook\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('DELETE FROM `pe...')
+#2 C:\xampp\htdocs\pinbook\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('DELETE FROM `pe...')
+#3 C:\xampp\htdocs\pinbook\system\Database\BaseBuilder.php(2848): CodeIgniter\Database\BaseConnection->query('DELETE FROM `pe...', Array, false)
+#4 C:\xampp\htdocs\pinbook\system\Model.php(521): CodeIgniter\Database\BaseBuilder->delete()
+#5 C:\xampp\htdocs\pinbook\system\BaseModel.php(1152): CodeIgniter\Model->doDelete(Array, false)
+#6 C:\xampp\htdocs\pinbook\app\Controllers\Penerbit.php(73): CodeIgniter\BaseModel->delete(Array)
+#7 C:\xampp\htdocs\pinbook\system\CodeIgniter.php(933): App\Controllers\Penerbit->delete('6')
+#8 C:\xampp\htdocs\pinbook\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Penerbit))
+#9 C:\xampp\htdocs\pinbook\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\pinbook\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#11 C:\xampp\htdocs\pinbook\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\xampp\htdocs\pinbook\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 {main}
+CRITICAL - 2026-04-19 07:00:01 --> CodeIgniter\Database\Exceptions\DatabaseException: Cannot delete or update a parent row: a foreign key constraint fails (`pinbook`.`buku`, CONSTRAINT `buku_ibfk_3` FOREIGN KEY (`id_penerbit`) REFERENCES `penerbit` (`id_penerbit`))
+[Method: GET, Route: penerbit/delete/6]
+in SYSTEMPATH\Database\BaseConnection.php on line 684.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2848): CodeIgniter\Database\BaseConnection->query('DELETE FROM `penerbit`
+WHERE `id_penerbit` IN :id_penerbit:', [...], false)
+ 2 SYSTEMPATH\Model.php(521): CodeIgniter\Database\BaseBuilder->delete()
+ 3 SYSTEMPATH\BaseModel.php(1152): CodeIgniter\Model->doDelete([...], false)
+ 4 APPPATH\Controllers\Penerbit.php(73): CodeIgniter\BaseModel->delete([...])
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Penerbit->delete('6')
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Penerbit))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-19 07:00:01 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Cannot delete or update a parent row: a foreign key constraint fails (`pinbook`.`buku`, CONSTRAINT `buku_ibfk_3` FOREIGN KEY (`id_penerbit`) REFERENCES `penerbit` (`id_penerbit`))
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('DELETE FROM `penerbit`
+WHERE `id_penerbit` IN (\'6\')')
+ 2 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('DELETE FROM `penerbit`
+WHERE `id_penerbit` IN (\'6\')')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2848): CodeIgniter\Database\BaseConnection->query('DELETE FROM `penerbit`
+WHERE `id_penerbit` IN :id_penerbit:', [...], false)
+ 4 SYSTEMPATH\Model.php(521): CodeIgniter\Database\BaseBuilder->delete()
+ 5 SYSTEMPATH\BaseModel.php(1152): CodeIgniter\Model->doDelete([...], false)
+ 6 APPPATH\Controllers\Penerbit.php(73): CodeIgniter\BaseModel->delete([...])
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Penerbit->delete('6')
+ 8 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Penerbit))
+ 9 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-19 07:00:01 --> [Caused by] mysqli_sql_exception: Cannot delete or update a parent row: a foreign key constraint fails (`pinbook`.`buku`, CONSTRAINT `buku_ibfk_3` FOREIGN KEY (`id_penerbit`) REFERENCES `penerbit` (`id_penerbit`))
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('DELETE FROM `penerbit`
+WHERE `id_penerbit` IN (\'6\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('DELETE FROM `penerbit`
+WHERE `id_penerbit` IN (\'6\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('DELETE FROM `penerbit`
+WHERE `id_penerbit` IN (\'6\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2848): CodeIgniter\Database\BaseConnection->query('DELETE FROM `penerbit`
+WHERE `id_penerbit` IN :id_penerbit:', [...], false)
+ 5 SYSTEMPATH\Model.php(521): CodeIgniter\Database\BaseBuilder->delete()
+ 6 SYSTEMPATH\BaseModel.php(1152): CodeIgniter\Model->doDelete([...], false)
+ 7 APPPATH\Controllers\Penerbit.php(73): CodeIgniter\BaseModel->delete([...])
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Penerbit->delete('6')
+ 9 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Penerbit))
+10 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-19 07:00:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 07:00:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 07:00:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 07:01:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 07:01:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 07:01:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 07:01:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 07:02:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 07:02:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 07:03:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 07:03:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 07:03:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 07:03:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 07:03:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 07:03:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 07:04:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 07:04:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 07:04:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 07:04:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 07:04:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 07:04:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 07:04:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 07:04:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 07:04:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 07:04:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 07:07:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 07:07:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-04-19 07:07:41 --> ErrorException: Undefined property: App\Controllers\Rak::$rak
+[Method: POST, Route: rak/store]
+in APPPATH\Controllers\Rak.php on line 47.
+ 1 APPPATH\Controllers\Rak.php(47): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: App\\Controllers\\Rak::$rak', 'C:\\xampp\\htdocs\\pinbook\\app\\Controllers\\Rak.php', 47)
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Rak->store()
+ 3 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Rak))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-19 07:08:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 07:08:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 07:08:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 07:08:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 07:08:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 07:08:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 07:08:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 07:20:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-04-19 07:32:37 --> Error: Class "App\Models\DetailModel" not found
+[Method: GET, Route: peminjaman]
+in APPPATH\Controllers\Peminjaman.php on line 20.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Peminjaman->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-19 07:33:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 07:33:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 07:33:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 07:34:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 07:34:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 07:34:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 07:34:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 07:34:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-04-19 07:34:48 --> ErrorException: Undefined variable $peminjaman
+[Method: GET, Route: peminjaman/detail/3]
+in APPPATH\Views\peminjaman\detail.php on line 20.
+ 1 APPPATH\Views\peminjaman\detail.php(20): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $peminjaman', 'C:\\xampp\\htdocs\\pinbook\\app\\Views\\peminjaman\\detail.php', 20)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\pinbook\\app\\Views\\peminjaman\\detail.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('peminjaman/detail', [], true)
+ 5 APPPATH\Controllers\Peminjaman.php(96): view('peminjaman/detail', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Peminjaman->detail('3')
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Peminjaman))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-19 07:36:46 --> ErrorException: Undefined variable $peminjaman
+[Method: GET, Route: peminjaman/detail/3]
+in APPPATH\Views\peminjaman\detail.php on line 78.
+ 1 APPPATH\Views\peminjaman\detail.php(78): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $peminjaman', 'C:\\xampp\\htdocs\\pinbook\\app\\Views\\peminjaman\\detail.php', 78)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\pinbook\\app\\Views\\peminjaman\\detail.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('peminjaman/detail', [], true)
+ 5 APPPATH\Controllers\Peminjaman.php(96): view('peminjaman/detail', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Peminjaman->detail('3')
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Peminjaman))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-19 07:38:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 07:38:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 07:38:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 07:38:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 07:38:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 07:38:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 07:39:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 07:39:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 07:39:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 07:40:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 07:40:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 07:40:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 07:40:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 07:40:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 07:40:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 07:42:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 07:42:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 07:42:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 07:44:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 07:44:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 07:44:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 07:44:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 07:44:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 07:45:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 07:45:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 07:45:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 07:45:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 07:45:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 07:45:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 07:46:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 07:50:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 07:50:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 07:50:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 07:51:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 07:51:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 07:51:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 07:51:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 07:51:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 07:51:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 07:51:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 07:51:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 07:52:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 07:52:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 07:52:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 07:53:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 07:53:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 07:53:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 07:53:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 07:53:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 07:55:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 07:55:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 07:55:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 07:55:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 07:57:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 07:57:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 07:57:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 07:57:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 07:57:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 07:57:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 07:57:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 07:57:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 07:57:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 07:57:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 07:57:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 07:57:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 07:57:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 07:58:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 07:58:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 07:58:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 08:00:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 08:00:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 08:00:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 08:00:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 08:01:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 08:01:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 08:01:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 08:01:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 08:01:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 08:01:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 08:01:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 08:01:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 08:01:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 08:01:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 08:01:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 08:02:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 08:02:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 08:02:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 08:02:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 08:02:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 08:02:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 08:02:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 08:02:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 08:02:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 08:03:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 08:03:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 08:03:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 08:03:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 08:03:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 08:03:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 08:03:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 08:05:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 08:05:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 08:07:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 08:07:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 08:07:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 08:08:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 08:08:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 08:08:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 08:08:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 08:08:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 08:08:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 08:08:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 08:08:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 08:17:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 08:17:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 08:17:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 08:17:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 08:17:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 08:17:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 08:17:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 08:17:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 08:17:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 08:17:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 08:17:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-04-19 08:23:07 --> ParseError: syntax error, unexpected variable "$routes"
+[Method: GET, Route: peminjaman/delete/3]
+in APPPATH\Config\Routes.php on line 89.
+ 1 SYSTEMPATH\CodeIgniter.php(821): CodeIgniter\Router\RouteCollection->loadRoutes()
+ 2 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\CodeIgniter->tryToRouteIt(null)
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-19 08:23:42 --> ParseError: syntax error, unexpected variable "$routes"
+[Method: GET, Route: peminjaman/delete/3]
+in APPPATH\Config\Routes.php on line 89.
+ 1 SYSTEMPATH\CodeIgniter.php(821): CodeIgniter\Router\RouteCollection->loadRoutes()
+ 2 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\CodeIgniter->tryToRouteIt(null)
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-19 08:26:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 08:26:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 08:26:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 08:26:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 08:26:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 08:33:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 08:44:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 08:44:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 08:46:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 08:46:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 08:46:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 08:46:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 08:47:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 08:47:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 08:47:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 08:47:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 08:47:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 08:58:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 08:58:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 08:58:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 08:58:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 08:58:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 08:58:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 09:01:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 09:02:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 09:02:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 09:02:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 09:02:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 09:02:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 09:02:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 09:02:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 09:02:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 09:02:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 09:02:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 09:02:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 09:02:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 09:05:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-04-19 09:06:59 --> ParseError: syntax error, unexpected token "<"
+[Method: GET, Route: peminjaman/create]
+in APPPATH\Views\peminjaman\create.php on line 67.
+ 1 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 2 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('peminjaman/create', [], true)
+ 3 APPPATH\Controllers\Peminjaman.php(69): view('peminjaman/create', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Peminjaman->create()
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Peminjaman))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-19 09:08:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 09:08:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 09:08:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 09:08:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 09:08:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 09:08:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 09:08:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 09:09:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 09:09:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 09:09:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 09:09:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 09:09:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 09:09:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 09:09:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 09:09:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-04-19 09:09:16 --> ParseError: syntax error, unexpected token "<"
+[Method: GET, Route: peminjaman/create]
+in APPPATH\Views\peminjaman\create.php on line 67.
+ 1 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 2 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('peminjaman/create', [], true)
+ 3 APPPATH\Controllers\Peminjaman.php(69): view('peminjaman/create', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Peminjaman->create()
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Peminjaman))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-19 09:09:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-04-19 09:11:50 --> ParseError: syntax error, unexpected token "else"
+[Method: GET, Route: peminjaman/create]
+in APPPATH\Views\peminjaman\create.php on line 59.
+ 1 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 2 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('peminjaman/create', [], true)
+ 3 APPPATH\Controllers\Peminjaman.php(69): view('peminjaman/create', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Peminjaman->create()
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Peminjaman))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-19 09:12:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 09:12:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 09:13:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 09:13:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 09:13:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 09:13:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 09:13:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 09:13:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 09:13:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 09:13:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 09:14:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 09:14:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 09:14:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 09:14:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 09:14:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 09:14:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 09:14:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 09:14:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 09:14:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 09:14:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 09:14:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 09:15:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 09:15:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 09:20:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 09:20:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 09:20:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 09:20:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 09:20:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 09:20:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 09:20:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 09:20:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 09:24:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2026-04-19 09:24:58 --> mysqli_sql_exception: Unknown column 'anggota.nama_anggota' in 'field list' in C:\xampp\htdocs\pinbook\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp\htdocs\pinbook\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `peminja...', 0)
+#1 C:\xampp\htdocs\pinbook\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `peminja...')
+#2 C:\xampp\htdocs\pinbook\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `peminja...')
+#3 C:\xampp\htdocs\pinbook\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `peminja...', Array, false)
+#4 C:\xampp\htdocs\pinbook\system\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\pinbook\system\BaseModel.php(677): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\pinbook\app\Controllers\Peminjaman.php(42): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\pinbook\system\CodeIgniter.php(933): App\Controllers\Peminjaman->index()
+#8 C:\xampp\htdocs\pinbook\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Peminjaman))
+#9 C:\xampp\htdocs\pinbook\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\pinbook\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#11 C:\xampp\htdocs\pinbook\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\xampp\htdocs\pinbook\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 {main}
+CRITICAL - 2026-04-19 09:24:58 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'anggota.nama_anggota' in 'field list'
+[Method: GET, Route: peminjaman]
+in SYSTEMPATH\Database\BaseConnection.php on line 684.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `peminjaman`.*, `anggota`.`nama_anggota`, GROUP_CONCAT(buku.judul SEPARATOR ", ") as daftar_buku
+FROM `peminjaman`
+LEFT JOIN `anggota` ON `anggota`.`id_anggota` = `peminjaman`.`id_anggota`
+LEFT JOIN `detail_peminjaman` ON `detail_peminjaman`.`id_peminjaman` = `peminjaman`.`id_peminjaman`
+LEFT JOIN `buku` ON `buku`.`id_buku` = `detail_peminjaman`.`id_buku`
+WHERE `peminjaman`.`id_anggota` IS NULL
+GROUP BY `peminjaman`.`id_peminjaman`', [], false)
+ 2 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(677): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Controllers\Peminjaman.php(42): CodeIgniter\BaseModel->findAll()
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Peminjaman->index()
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Peminjaman))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-19 09:24:58 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'anggota.nama_anggota' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `peminjaman`.*, `anggota`.`nama_anggota`, GROUP_CONCAT(buku.judul SEPARATOR ", ") as daftar_buku
+FROM `peminjaman`
+LEFT JOIN `anggota` ON `anggota`.`id_anggota` = `peminjaman`.`id_anggota`
+LEFT JOIN `detail_peminjaman` ON `detail_peminjaman`.`id_peminjaman` = `peminjaman`.`id_peminjaman`
+LEFT JOIN `buku` ON `buku`.`id_buku` = `detail_peminjaman`.`id_buku`
+WHERE `peminjaman`.`id_anggota` IS NULL
+GROUP BY `peminjaman`.`id_peminjaman`')
+ 2 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `peminjaman`.*, `anggota`.`nama_anggota`, GROUP_CONCAT(buku.judul SEPARATOR ", ") as daftar_buku
+FROM `peminjaman`
+LEFT JOIN `anggota` ON `anggota`.`id_anggota` = `peminjaman`.`id_anggota`
+LEFT JOIN `detail_peminjaman` ON `detail_peminjaman`.`id_peminjaman` = `peminjaman`.`id_peminjaman`
+LEFT JOIN `buku` ON `buku`.`id_buku` = `detail_peminjaman`.`id_buku`
+WHERE `peminjaman`.`id_anggota` IS NULL
+GROUP BY `peminjaman`.`id_peminjaman`')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `peminjaman`.*, `anggota`.`nama_anggota`, GROUP_CONCAT(buku.judul SEPARATOR ", ") as daftar_buku
+FROM `peminjaman`
+LEFT JOIN `anggota` ON `anggota`.`id_anggota` = `peminjaman`.`id_anggota`
+LEFT JOIN `detail_peminjaman` ON `detail_peminjaman`.`id_peminjaman` = `peminjaman`.`id_peminjaman`
+LEFT JOIN `buku` ON `buku`.`id_buku` = `detail_peminjaman`.`id_buku`
+WHERE `peminjaman`.`id_anggota` IS NULL
+GROUP BY `peminjaman`.`id_peminjaman`', [], false)
+ 4 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(677): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Controllers\Peminjaman.php(42): CodeIgniter\BaseModel->findAll()
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Peminjaman->index()
+ 8 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Peminjaman))
+ 9 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-19 09:24:58 --> [Caused by] mysqli_sql_exception: Unknown column 'anggota.nama_anggota' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `peminjaman`.*, `anggota`.`nama_anggota`, GROUP_CONCAT(buku.judul SEPARATOR ", ") as daftar_buku
+FROM `peminjaman`
+LEFT JOIN `anggota` ON `anggota`.`id_anggota` = `peminjaman`.`id_anggota`
+LEFT JOIN `detail_peminjaman` ON `detail_peminjaman`.`id_peminjaman` = `peminjaman`.`id_peminjaman`
+LEFT JOIN `buku` ON `buku`.`id_buku` = `detail_peminjaman`.`id_buku`
+WHERE `peminjaman`.`id_anggota` IS NULL
+GROUP BY `peminjaman`.`id_peminjaman`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `peminjaman`.*, `anggota`.`nama_anggota`, GROUP_CONCAT(buku.judul SEPARATOR ", ") as daftar_buku
+FROM `peminjaman`
+LEFT JOIN `anggota` ON `anggota`.`id_anggota` = `peminjaman`.`id_anggota`
+LEFT JOIN `detail_peminjaman` ON `detail_peminjaman`.`id_peminjaman` = `peminjaman`.`id_peminjaman`
+LEFT JOIN `buku` ON `buku`.`id_buku` = `detail_peminjaman`.`id_buku`
+WHERE `peminjaman`.`id_anggota` IS NULL
+GROUP BY `peminjaman`.`id_peminjaman`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `peminjaman`.*, `anggota`.`nama_anggota`, GROUP_CONCAT(buku.judul SEPARATOR ", ") as daftar_buku
+FROM `peminjaman`
+LEFT JOIN `anggota` ON `anggota`.`id_anggota` = `peminjaman`.`id_anggota`
+LEFT JOIN `detail_peminjaman` ON `detail_peminjaman`.`id_peminjaman` = `peminjaman`.`id_peminjaman`
+LEFT JOIN `buku` ON `buku`.`id_buku` = `detail_peminjaman`.`id_buku`
+WHERE `peminjaman`.`id_anggota` IS NULL
+GROUP BY `peminjaman`.`id_peminjaman`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `peminjaman`.*, `anggota`.`nama_anggota`, GROUP_CONCAT(buku.judul SEPARATOR ", ") as daftar_buku
+FROM `peminjaman`
+LEFT JOIN `anggota` ON `anggota`.`id_anggota` = `peminjaman`.`id_anggota`
+LEFT JOIN `detail_peminjaman` ON `detail_peminjaman`.`id_peminjaman` = `peminjaman`.`id_peminjaman`
+LEFT JOIN `buku` ON `buku`.`id_buku` = `detail_peminjaman`.`id_buku`
+WHERE `peminjaman`.`id_anggota` IS NULL
+GROUP BY `peminjaman`.`id_peminjaman`', [], false)
+ 5 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(677): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Controllers\Peminjaman.php(42): CodeIgniter\BaseModel->findAll()
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Peminjaman->index()
+ 9 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Peminjaman))
+10 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-19 09:26:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2026-04-19 09:26:31 --> mysqli_sql_exception: Unknown column 'anggota.nama_anggota' in 'field list' in C:\xampp\htdocs\pinbook\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp\htdocs\pinbook\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `peminja...', 0)
+#1 C:\xampp\htdocs\pinbook\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `peminja...')
+#2 C:\xampp\htdocs\pinbook\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `peminja...')
+#3 C:\xampp\htdocs\pinbook\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `peminja...', Array, false)
+#4 C:\xampp\htdocs\pinbook\app\Controllers\Peminjaman.php(40): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\pinbook\system\CodeIgniter.php(933): App\Controllers\Peminjaman->index()
+#6 C:\xampp\htdocs\pinbook\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Peminjaman))
+#7 C:\xampp\htdocs\pinbook\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\pinbook\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp\htdocs\pinbook\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#10 C:\xampp\htdocs\pinbook\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#11 {main}
+CRITICAL - 2026-04-19 09:26:31 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'anggota.nama_anggota' in 'field list'
+[Method: GET, Route: peminjaman]
+in SYSTEMPATH\Database\BaseConnection.php on line 684.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `peminjaman`.*, `anggota`.`nama_anggota`, GROUP_CONCAT(buku.judul SEPARATOR ", ") as daftar_buku
+FROM `peminjaman`
+LEFT JOIN `anggota` ON `anggota`.`id_anggota` = `peminjaman`.`id_anggota`
+LEFT JOIN `detail_peminjaman` ON `detail_peminjaman`.`id_peminjaman` = `peminjaman`.`id_peminjaman`
+LEFT JOIN `buku` ON `buku`.`id_buku` = `detail_peminjaman`.`id_buku`
+WHERE `peminjaman`.`id_anggota` IS NULL
+GROUP BY `peminjaman`.`id_peminjaman`', [], false)
+ 2 APPPATH\Controllers\Peminjaman.php(40): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Peminjaman->index()
+ 4 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Peminjaman))
+ 5 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-19 09:26:31 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'anggota.nama_anggota' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `peminjaman`.*, `anggota`.`nama_anggota`, GROUP_CONCAT(buku.judul SEPARATOR ", ") as daftar_buku
+FROM `peminjaman`
+LEFT JOIN `anggota` ON `anggota`.`id_anggota` = `peminjaman`.`id_anggota`
+LEFT JOIN `detail_peminjaman` ON `detail_peminjaman`.`id_peminjaman` = `peminjaman`.`id_peminjaman`
+LEFT JOIN `buku` ON `buku`.`id_buku` = `detail_peminjaman`.`id_buku`
+WHERE `peminjaman`.`id_anggota` IS NULL
+GROUP BY `peminjaman`.`id_peminjaman`')
+ 2 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `peminjaman`.*, `anggota`.`nama_anggota`, GROUP_CONCAT(buku.judul SEPARATOR ", ") as daftar_buku
+FROM `peminjaman`
+LEFT JOIN `anggota` ON `anggota`.`id_anggota` = `peminjaman`.`id_anggota`
+LEFT JOIN `detail_peminjaman` ON `detail_peminjaman`.`id_peminjaman` = `peminjaman`.`id_peminjaman`
+LEFT JOIN `buku` ON `buku`.`id_buku` = `detail_peminjaman`.`id_buku`
+WHERE `peminjaman`.`id_anggota` IS NULL
+GROUP BY `peminjaman`.`id_peminjaman`')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `peminjaman`.*, `anggota`.`nama_anggota`, GROUP_CONCAT(buku.judul SEPARATOR ", ") as daftar_buku
+FROM `peminjaman`
+LEFT JOIN `anggota` ON `anggota`.`id_anggota` = `peminjaman`.`id_anggota`
+LEFT JOIN `detail_peminjaman` ON `detail_peminjaman`.`id_peminjaman` = `peminjaman`.`id_peminjaman`
+LEFT JOIN `buku` ON `buku`.`id_buku` = `detail_peminjaman`.`id_buku`
+WHERE `peminjaman`.`id_anggota` IS NULL
+GROUP BY `peminjaman`.`id_peminjaman`', [], false)
+ 4 APPPATH\Controllers\Peminjaman.php(40): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Peminjaman->index()
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Peminjaman))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-19 09:26:31 --> [Caused by] mysqli_sql_exception: Unknown column 'anggota.nama_anggota' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `peminjaman`.*, `anggota`.`nama_anggota`, GROUP_CONCAT(buku.judul SEPARATOR ", ") as daftar_buku
+FROM `peminjaman`
+LEFT JOIN `anggota` ON `anggota`.`id_anggota` = `peminjaman`.`id_anggota`
+LEFT JOIN `detail_peminjaman` ON `detail_peminjaman`.`id_peminjaman` = `peminjaman`.`id_peminjaman`
+LEFT JOIN `buku` ON `buku`.`id_buku` = `detail_peminjaman`.`id_buku`
+WHERE `peminjaman`.`id_anggota` IS NULL
+GROUP BY `peminjaman`.`id_peminjaman`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `peminjaman`.*, `anggota`.`nama_anggota`, GROUP_CONCAT(buku.judul SEPARATOR ", ") as daftar_buku
+FROM `peminjaman`
+LEFT JOIN `anggota` ON `anggota`.`id_anggota` = `peminjaman`.`id_anggota`
+LEFT JOIN `detail_peminjaman` ON `detail_peminjaman`.`id_peminjaman` = `peminjaman`.`id_peminjaman`
+LEFT JOIN `buku` ON `buku`.`id_buku` = `detail_peminjaman`.`id_buku`
+WHERE `peminjaman`.`id_anggota` IS NULL
+GROUP BY `peminjaman`.`id_peminjaman`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `peminjaman`.*, `anggota`.`nama_anggota`, GROUP_CONCAT(buku.judul SEPARATOR ", ") as daftar_buku
+FROM `peminjaman`
+LEFT JOIN `anggota` ON `anggota`.`id_anggota` = `peminjaman`.`id_anggota`
+LEFT JOIN `detail_peminjaman` ON `detail_peminjaman`.`id_peminjaman` = `peminjaman`.`id_peminjaman`
+LEFT JOIN `buku` ON `buku`.`id_buku` = `detail_peminjaman`.`id_buku`
+WHERE `peminjaman`.`id_anggota` IS NULL
+GROUP BY `peminjaman`.`id_peminjaman`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `peminjaman`.*, `anggota`.`nama_anggota`, GROUP_CONCAT(buku.judul SEPARATOR ", ") as daftar_buku
+FROM `peminjaman`
+LEFT JOIN `anggota` ON `anggota`.`id_anggota` = `peminjaman`.`id_anggota`
+LEFT JOIN `detail_peminjaman` ON `detail_peminjaman`.`id_peminjaman` = `peminjaman`.`id_peminjaman`
+LEFT JOIN `buku` ON `buku`.`id_buku` = `detail_peminjaman`.`id_buku`
+WHERE `peminjaman`.`id_anggota` IS NULL
+GROUP BY `peminjaman`.`id_peminjaman`', [], false)
+ 5 APPPATH\Controllers\Peminjaman.php(40): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Peminjaman->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Peminjaman))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-19 09:26:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2026-04-19 09:26:32 --> mysqli_sql_exception: Unknown column 'anggota.nama_anggota' in 'field list' in C:\xampp\htdocs\pinbook\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp\htdocs\pinbook\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `peminja...', 0)
+#1 C:\xampp\htdocs\pinbook\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `peminja...')
+#2 C:\xampp\htdocs\pinbook\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `peminja...')
+#3 C:\xampp\htdocs\pinbook\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `peminja...', Array, false)
+#4 C:\xampp\htdocs\pinbook\app\Controllers\Peminjaman.php(40): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\pinbook\system\CodeIgniter.php(933): App\Controllers\Peminjaman->index()
+#6 C:\xampp\htdocs\pinbook\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Peminjaman))
+#7 C:\xampp\htdocs\pinbook\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\pinbook\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp\htdocs\pinbook\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#10 C:\xampp\htdocs\pinbook\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#11 {main}
+CRITICAL - 2026-04-19 09:26:32 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'anggota.nama_anggota' in 'field list'
+[Method: GET, Route: peminjaman]
+in SYSTEMPATH\Database\BaseConnection.php on line 684.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `peminjaman`.*, `anggota`.`nama_anggota`, GROUP_CONCAT(buku.judul SEPARATOR ", ") as daftar_buku
+FROM `peminjaman`
+LEFT JOIN `anggota` ON `anggota`.`id_anggota` = `peminjaman`.`id_anggota`
+LEFT JOIN `detail_peminjaman` ON `detail_peminjaman`.`id_peminjaman` = `peminjaman`.`id_peminjaman`
+LEFT JOIN `buku` ON `buku`.`id_buku` = `detail_peminjaman`.`id_buku`
+WHERE `peminjaman`.`id_anggota` IS NULL
+GROUP BY `peminjaman`.`id_peminjaman`', [], false)
+ 2 APPPATH\Controllers\Peminjaman.php(40): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Peminjaman->index()
+ 4 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Peminjaman))
+ 5 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-19 09:26:32 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'anggota.nama_anggota' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `peminjaman`.*, `anggota`.`nama_anggota`, GROUP_CONCAT(buku.judul SEPARATOR ", ") as daftar_buku
+FROM `peminjaman`
+LEFT JOIN `anggota` ON `anggota`.`id_anggota` = `peminjaman`.`id_anggota`
+LEFT JOIN `detail_peminjaman` ON `detail_peminjaman`.`id_peminjaman` = `peminjaman`.`id_peminjaman`
+LEFT JOIN `buku` ON `buku`.`id_buku` = `detail_peminjaman`.`id_buku`
+WHERE `peminjaman`.`id_anggota` IS NULL
+GROUP BY `peminjaman`.`id_peminjaman`')
+ 2 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `peminjaman`.*, `anggota`.`nama_anggota`, GROUP_CONCAT(buku.judul SEPARATOR ", ") as daftar_buku
+FROM `peminjaman`
+LEFT JOIN `anggota` ON `anggota`.`id_anggota` = `peminjaman`.`id_anggota`
+LEFT JOIN `detail_peminjaman` ON `detail_peminjaman`.`id_peminjaman` = `peminjaman`.`id_peminjaman`
+LEFT JOIN `buku` ON `buku`.`id_buku` = `detail_peminjaman`.`id_buku`
+WHERE `peminjaman`.`id_anggota` IS NULL
+GROUP BY `peminjaman`.`id_peminjaman`')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `peminjaman`.*, `anggota`.`nama_anggota`, GROUP_CONCAT(buku.judul SEPARATOR ", ") as daftar_buku
+FROM `peminjaman`
+LEFT JOIN `anggota` ON `anggota`.`id_anggota` = `peminjaman`.`id_anggota`
+LEFT JOIN `detail_peminjaman` ON `detail_peminjaman`.`id_peminjaman` = `peminjaman`.`id_peminjaman`
+LEFT JOIN `buku` ON `buku`.`id_buku` = `detail_peminjaman`.`id_buku`
+WHERE `peminjaman`.`id_anggota` IS NULL
+GROUP BY `peminjaman`.`id_peminjaman`', [], false)
+ 4 APPPATH\Controllers\Peminjaman.php(40): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Peminjaman->index()
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Peminjaman))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-19 09:26:32 --> [Caused by] mysqli_sql_exception: Unknown column 'anggota.nama_anggota' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `peminjaman`.*, `anggota`.`nama_anggota`, GROUP_CONCAT(buku.judul SEPARATOR ", ") as daftar_buku
+FROM `peminjaman`
+LEFT JOIN `anggota` ON `anggota`.`id_anggota` = `peminjaman`.`id_anggota`
+LEFT JOIN `detail_peminjaman` ON `detail_peminjaman`.`id_peminjaman` = `peminjaman`.`id_peminjaman`
+LEFT JOIN `buku` ON `buku`.`id_buku` = `detail_peminjaman`.`id_buku`
+WHERE `peminjaman`.`id_anggota` IS NULL
+GROUP BY `peminjaman`.`id_peminjaman`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `peminjaman`.*, `anggota`.`nama_anggota`, GROUP_CONCAT(buku.judul SEPARATOR ", ") as daftar_buku
+FROM `peminjaman`
+LEFT JOIN `anggota` ON `anggota`.`id_anggota` = `peminjaman`.`id_anggota`
+LEFT JOIN `detail_peminjaman` ON `detail_peminjaman`.`id_peminjaman` = `peminjaman`.`id_peminjaman`
+LEFT JOIN `buku` ON `buku`.`id_buku` = `detail_peminjaman`.`id_buku`
+WHERE `peminjaman`.`id_anggota` IS NULL
+GROUP BY `peminjaman`.`id_peminjaman`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `peminjaman`.*, `anggota`.`nama_anggota`, GROUP_CONCAT(buku.judul SEPARATOR ", ") as daftar_buku
+FROM `peminjaman`
+LEFT JOIN `anggota` ON `anggota`.`id_anggota` = `peminjaman`.`id_anggota`
+LEFT JOIN `detail_peminjaman` ON `detail_peminjaman`.`id_peminjaman` = `peminjaman`.`id_peminjaman`
+LEFT JOIN `buku` ON `buku`.`id_buku` = `detail_peminjaman`.`id_buku`
+WHERE `peminjaman`.`id_anggota` IS NULL
+GROUP BY `peminjaman`.`id_peminjaman`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `peminjaman`.*, `anggota`.`nama_anggota`, GROUP_CONCAT(buku.judul SEPARATOR ", ") as daftar_buku
+FROM `peminjaman`
+LEFT JOIN `anggota` ON `anggota`.`id_anggota` = `peminjaman`.`id_anggota`
+LEFT JOIN `detail_peminjaman` ON `detail_peminjaman`.`id_peminjaman` = `peminjaman`.`id_peminjaman`
+LEFT JOIN `buku` ON `buku`.`id_buku` = `detail_peminjaman`.`id_buku`
+WHERE `peminjaman`.`id_anggota` IS NULL
+GROUP BY `peminjaman`.`id_peminjaman`', [], false)
+ 5 APPPATH\Controllers\Peminjaman.php(40): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Peminjaman->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Peminjaman))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-19 09:26:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2026-04-19 09:26:33 --> mysqli_sql_exception: Unknown column 'anggota.nama_anggota' in 'field list' in C:\xampp\htdocs\pinbook\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp\htdocs\pinbook\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `peminja...', 0)
+#1 C:\xampp\htdocs\pinbook\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `peminja...')
+#2 C:\xampp\htdocs\pinbook\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `peminja...')
+#3 C:\xampp\htdocs\pinbook\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `peminja...', Array, false)
+#4 C:\xampp\htdocs\pinbook\app\Controllers\Peminjaman.php(40): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\pinbook\system\CodeIgniter.php(933): App\Controllers\Peminjaman->index()
+#6 C:\xampp\htdocs\pinbook\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Peminjaman))
+#7 C:\xampp\htdocs\pinbook\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\pinbook\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp\htdocs\pinbook\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#10 C:\xampp\htdocs\pinbook\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#11 {main}
+CRITICAL - 2026-04-19 09:26:33 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'anggota.nama_anggota' in 'field list'
+[Method: GET, Route: peminjaman]
+in SYSTEMPATH\Database\BaseConnection.php on line 684.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `peminjaman`.*, `anggota`.`nama_anggota`, GROUP_CONCAT(buku.judul SEPARATOR ", ") as daftar_buku
+FROM `peminjaman`
+LEFT JOIN `anggota` ON `anggota`.`id_anggota` = `peminjaman`.`id_anggota`
+LEFT JOIN `detail_peminjaman` ON `detail_peminjaman`.`id_peminjaman` = `peminjaman`.`id_peminjaman`
+LEFT JOIN `buku` ON `buku`.`id_buku` = `detail_peminjaman`.`id_buku`
+WHERE `peminjaman`.`id_anggota` IS NULL
+GROUP BY `peminjaman`.`id_peminjaman`', [], false)
+ 2 APPPATH\Controllers\Peminjaman.php(40): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Peminjaman->index()
+ 4 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Peminjaman))
+ 5 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-19 09:26:33 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'anggota.nama_anggota' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `peminjaman`.*, `anggota`.`nama_anggota`, GROUP_CONCAT(buku.judul SEPARATOR ", ") as daftar_buku
+FROM `peminjaman`
+LEFT JOIN `anggota` ON `anggota`.`id_anggota` = `peminjaman`.`id_anggota`
+LEFT JOIN `detail_peminjaman` ON `detail_peminjaman`.`id_peminjaman` = `peminjaman`.`id_peminjaman`
+LEFT JOIN `buku` ON `buku`.`id_buku` = `detail_peminjaman`.`id_buku`
+WHERE `peminjaman`.`id_anggota` IS NULL
+GROUP BY `peminjaman`.`id_peminjaman`')
+ 2 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `peminjaman`.*, `anggota`.`nama_anggota`, GROUP_CONCAT(buku.judul SEPARATOR ", ") as daftar_buku
+FROM `peminjaman`
+LEFT JOIN `anggota` ON `anggota`.`id_anggota` = `peminjaman`.`id_anggota`
+LEFT JOIN `detail_peminjaman` ON `detail_peminjaman`.`id_peminjaman` = `peminjaman`.`id_peminjaman`
+LEFT JOIN `buku` ON `buku`.`id_buku` = `detail_peminjaman`.`id_buku`
+WHERE `peminjaman`.`id_anggota` IS NULL
+GROUP BY `peminjaman`.`id_peminjaman`')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `peminjaman`.*, `anggota`.`nama_anggota`, GROUP_CONCAT(buku.judul SEPARATOR ", ") as daftar_buku
+FROM `peminjaman`
+LEFT JOIN `anggota` ON `anggota`.`id_anggota` = `peminjaman`.`id_anggota`
+LEFT JOIN `detail_peminjaman` ON `detail_peminjaman`.`id_peminjaman` = `peminjaman`.`id_peminjaman`
+LEFT JOIN `buku` ON `buku`.`id_buku` = `detail_peminjaman`.`id_buku`
+WHERE `peminjaman`.`id_anggota` IS NULL
+GROUP BY `peminjaman`.`id_peminjaman`', [], false)
+ 4 APPPATH\Controllers\Peminjaman.php(40): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Peminjaman->index()
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Peminjaman))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-19 09:26:33 --> [Caused by] mysqli_sql_exception: Unknown column 'anggota.nama_anggota' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `peminjaman`.*, `anggota`.`nama_anggota`, GROUP_CONCAT(buku.judul SEPARATOR ", ") as daftar_buku
+FROM `peminjaman`
+LEFT JOIN `anggota` ON `anggota`.`id_anggota` = `peminjaman`.`id_anggota`
+LEFT JOIN `detail_peminjaman` ON `detail_peminjaman`.`id_peminjaman` = `peminjaman`.`id_peminjaman`
+LEFT JOIN `buku` ON `buku`.`id_buku` = `detail_peminjaman`.`id_buku`
+WHERE `peminjaman`.`id_anggota` IS NULL
+GROUP BY `peminjaman`.`id_peminjaman`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `peminjaman`.*, `anggota`.`nama_anggota`, GROUP_CONCAT(buku.judul SEPARATOR ", ") as daftar_buku
+FROM `peminjaman`
+LEFT JOIN `anggota` ON `anggota`.`id_anggota` = `peminjaman`.`id_anggota`
+LEFT JOIN `detail_peminjaman` ON `detail_peminjaman`.`id_peminjaman` = `peminjaman`.`id_peminjaman`
+LEFT JOIN `buku` ON `buku`.`id_buku` = `detail_peminjaman`.`id_buku`
+WHERE `peminjaman`.`id_anggota` IS NULL
+GROUP BY `peminjaman`.`id_peminjaman`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `peminjaman`.*, `anggota`.`nama_anggota`, GROUP_CONCAT(buku.judul SEPARATOR ", ") as daftar_buku
+FROM `peminjaman`
+LEFT JOIN `anggota` ON `anggota`.`id_anggota` = `peminjaman`.`id_anggota`
+LEFT JOIN `detail_peminjaman` ON `detail_peminjaman`.`id_peminjaman` = `peminjaman`.`id_peminjaman`
+LEFT JOIN `buku` ON `buku`.`id_buku` = `detail_peminjaman`.`id_buku`
+WHERE `peminjaman`.`id_anggota` IS NULL
+GROUP BY `peminjaman`.`id_peminjaman`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `peminjaman`.*, `anggota`.`nama_anggota`, GROUP_CONCAT(buku.judul SEPARATOR ", ") as daftar_buku
+FROM `peminjaman`
+LEFT JOIN `anggota` ON `anggota`.`id_anggota` = `peminjaman`.`id_anggota`
+LEFT JOIN `detail_peminjaman` ON `detail_peminjaman`.`id_peminjaman` = `peminjaman`.`id_peminjaman`
+LEFT JOIN `buku` ON `buku`.`id_buku` = `detail_peminjaman`.`id_buku`
+WHERE `peminjaman`.`id_anggota` IS NULL
+GROUP BY `peminjaman`.`id_peminjaman`', [], false)
+ 5 APPPATH\Controllers\Peminjaman.php(40): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Peminjaman->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Peminjaman))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-19 09:26:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 09:26:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 09:26:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 09:26:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-04-19 09:31:38 --> ParseError: syntax error, unexpected token ";", expecting "]"
+[Method: GET, Route: peminjaman]
+in APPPATH\Controllers\Peminjaman.php on line 133.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(295): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\xampp\\htdocs\\pinbook\\app\\Controllers\\Peminjaman.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(271): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\Peminjaman')
+ 3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\Peminjaman')
+ 4 SYSTEMPATH\CodeIgniter.php(885): class_exists('\\App\\Controllers\\Peminjaman', true)
+ 5 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->startController()
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-19 09:32:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 09:32:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 09:33:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 09:33:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 09:33:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 09:33:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 09:33:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 09:33:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 09:33:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 09:33:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 09:33:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 09:33:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 09:33:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-04-19 09:33:31 --> ParseError: syntax error, unexpected token ";", expecting "]"
+[Method: GET, Route: peminjaman/create]
+in APPPATH\Controllers\Peminjaman.php on line 133.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(295): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\xampp\\htdocs\\pinbook\\app\\Controllers\\Peminjaman.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(271): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\Peminjaman')
+ 3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\Peminjaman')
+ 4 SYSTEMPATH\CodeIgniter.php(885): class_exists('\\App\\Controllers\\Peminjaman', true)
+ 5 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->startController()
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-19 09:33:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 09:33:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 09:33:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-04-19 09:35:39 --> ParseError: syntax error, unexpected variable "$id_peminjaman", expecting "function" or "const"
+[Method: GET, Route: peminjaman]
+in APPPATH\Controllers\Peminjaman.php on line 162.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(295): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\xampp\\htdocs\\pinbook\\app\\Controllers\\Peminjaman.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(271): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\Peminjaman')
+ 3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\Peminjaman')
+ 4 SYSTEMPATH\CodeIgniter.php(885): class_exists('\\App\\Controllers\\Peminjaman', true)
+ 5 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->startController()
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-19 09:36:26 --> ParseError: syntax error, unexpected variable "$id_peminjaman", expecting "function" or "const"
+[Method: GET, Route: peminjaman]
+in APPPATH\Controllers\Peminjaman.php on line 155.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(295): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\xampp\\htdocs\\pinbook\\app\\Controllers\\Peminjaman.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(271): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\Peminjaman')
+ 3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\Peminjaman')
+ 4 SYSTEMPATH\CodeIgniter.php(885): class_exists('\\App\\Controllers\\Peminjaman', true)
+ 5 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->startController()
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-19 09:36:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 09:36:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 09:36:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 09:36:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 09:36:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 09:36:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 09:36:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 09:36:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 09:36:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 09:36:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 09:37:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 09:37:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 09:37:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 09:37:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 09:37:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-04-19 09:37:27 --> ErrorException: Undefined variable $anggota
+[Method: GET, Route: peminjaman/edit/1]
+in APPPATH\Views\peminjaman\edit.php on line 11.
+ 1 APPPATH\Views\peminjaman\edit.php(11): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $anggota', 'C:\\xampp\\htdocs\\pinbook\\app\\Views\\peminjaman\\edit.php', 11)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\pinbook\\app\\Views\\peminjaman\\edit.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('peminjaman/edit', [], true)
+ 5 APPPATH\Controllers\Peminjaman.php(168): view('peminjaman/edit', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Peminjaman->edit('1')
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Peminjaman))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-19 09:37:42 --> ErrorException: Undefined variable $anggota
+[Method: GET, Route: peminjaman/edit/1]
+in APPPATH\Views\peminjaman\edit.php on line 11.
+ 1 APPPATH\Views\peminjaman\edit.php(11): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $anggota', 'C:\\xampp\\htdocs\\pinbook\\app\\Views\\peminjaman\\edit.php', 11)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\pinbook\\app\\Views\\peminjaman\\edit.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('peminjaman/edit', [], true)
+ 5 APPPATH\Controllers\Peminjaman.php(168): view('peminjaman/edit', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Peminjaman->edit('1')
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Peminjaman))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-19 09:38:42 --> ErrorException: Undefined variable $anggota
+[Method: GET, Route: peminjaman/edit/1]
+in APPPATH\Views\peminjaman\edit.php on line 11.
+ 1 APPPATH\Views\peminjaman\edit.php(11): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $anggota', 'C:\\xampp\\htdocs\\pinbook\\app\\Views\\peminjaman\\edit.php', 11)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\pinbook\\app\\Views\\peminjaman\\edit.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('peminjaman/edit', [], true)
+ 5 APPPATH\Controllers\Peminjaman.php(168): view('peminjaman/edit', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Peminjaman->edit('1')
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Peminjaman))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-19 09:38:43 --> ErrorException: Undefined variable $anggota
+[Method: GET, Route: peminjaman/edit/1]
+in APPPATH\Views\peminjaman\edit.php on line 11.
+ 1 APPPATH\Views\peminjaman\edit.php(11): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $anggota', 'C:\\xampp\\htdocs\\pinbook\\app\\Views\\peminjaman\\edit.php', 11)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\pinbook\\app\\Views\\peminjaman\\edit.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('peminjaman/edit', [], true)
+ 5 APPPATH\Controllers\Peminjaman.php(168): view('peminjaman/edit', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Peminjaman->edit('1')
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Peminjaman))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-19 09:39:15 --> ErrorException: Undefined variable $anggota
+[Method: GET, Route: peminjaman/edit/1]
+in APPPATH\Views\peminjaman\edit.php on line 11.
+ 1 APPPATH\Views\peminjaman\edit.php(11): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $anggota', 'C:\\xampp\\htdocs\\pinbook\\app\\Views\\peminjaman\\edit.php', 11)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\pinbook\\app\\Views\\peminjaman\\edit.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('peminjaman/edit', [], true)
+ 5 APPPATH\Controllers\Peminjaman.php(168): view('peminjaman/edit', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Peminjaman->edit('1')
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Peminjaman))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-19 09:39:16 --> ErrorException: Undefined variable $anggota
+[Method: GET, Route: peminjaman/edit/1]
+in APPPATH\Views\peminjaman\edit.php on line 11.
+ 1 APPPATH\Views\peminjaman\edit.php(11): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $anggota', 'C:\\xampp\\htdocs\\pinbook\\app\\Views\\peminjaman\\edit.php', 11)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\pinbook\\app\\Views\\peminjaman\\edit.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('peminjaman/edit', [], true)
+ 5 APPPATH\Controllers\Peminjaman.php(168): view('peminjaman/edit', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Peminjaman->edit('1')
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Peminjaman))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-19 09:39:18 --> ErrorException: Undefined variable $anggota
+[Method: GET, Route: peminjaman/edit/1]
+in APPPATH\Views\peminjaman\edit.php on line 11.
+ 1 APPPATH\Views\peminjaman\edit.php(11): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $anggota', 'C:\\xampp\\htdocs\\pinbook\\app\\Views\\peminjaman\\edit.php', 11)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\pinbook\\app\\Views\\peminjaman\\edit.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('peminjaman/edit', [], true)
+ 5 APPPATH\Controllers\Peminjaman.php(168): view('peminjaman/edit', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Peminjaman->edit('1')
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Peminjaman))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-19 09:40:02 --> ErrorException: Undefined property: App\Controllers\Peminjaman::$db
+[Method: GET, Route: peminjaman/edit/1]
+in APPPATH\Controllers\Peminjaman.php on line 168.
+ 1 APPPATH\Controllers\Peminjaman.php(168): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: App\\Controllers\\Peminjaman::$db', 'C:\\xampp\\htdocs\\pinbook\\app\\Controllers\\Peminjaman.php', 168)
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Peminjaman->edit('1')
+ 3 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Peminjaman))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-19 09:40:03 --> ErrorException: Undefined property: App\Controllers\Peminjaman::$db
+[Method: GET, Route: peminjaman/edit/1]
+in APPPATH\Controllers\Peminjaman.php on line 168.
+ 1 APPPATH\Controllers\Peminjaman.php(168): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: App\\Controllers\\Peminjaman::$db', 'C:\\xampp\\htdocs\\pinbook\\app\\Controllers\\Peminjaman.php', 168)
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Peminjaman->edit('1')
+ 3 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Peminjaman))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-19 09:40:22 --> ErrorException: Undefined property: App\Controllers\Peminjaman::$db
+[Method: GET, Route: peminjaman/edit/1]
+in APPPATH\Controllers\Peminjaman.php on line 169.
+ 1 APPPATH\Controllers\Peminjaman.php(169): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: App\\Controllers\\Peminjaman::$db', 'C:\\xampp\\htdocs\\pinbook\\app\\Controllers\\Peminjaman.php', 169)
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Peminjaman->edit('1')
+ 3 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Peminjaman))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-19 09:40:23 --> ErrorException: Undefined property: App\Controllers\Peminjaman::$db
+[Method: GET, Route: peminjaman/edit/1]
+in APPPATH\Controllers\Peminjaman.php on line 169.
+ 1 APPPATH\Controllers\Peminjaman.php(169): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: App\\Controllers\\Peminjaman::$db', 'C:\\xampp\\htdocs\\pinbook\\app\\Controllers\\Peminjaman.php', 169)
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Peminjaman->edit('1')
+ 3 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Peminjaman))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-19 09:41:09 --> ErrorException: Undefined property: App\Controllers\Peminjaman::$db
+[Method: GET, Route: peminjaman/edit/1]
+in APPPATH\Controllers\Peminjaman.php on line 169.
+ 1 APPPATH\Controllers\Peminjaman.php(169): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: App\\Controllers\\Peminjaman::$db', 'C:\\xampp\\htdocs\\pinbook\\app\\Controllers\\Peminjaman.php', 169)
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Peminjaman->edit('1')
+ 3 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Peminjaman))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-19 09:41:10 --> ErrorException: Undefined property: App\Controllers\Peminjaman::$db
+[Method: GET, Route: peminjaman/edit/1]
+in APPPATH\Controllers\Peminjaman.php on line 169.
+ 1 APPPATH\Controllers\Peminjaman.php(169): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: App\\Controllers\\Peminjaman::$db', 'C:\\xampp\\htdocs\\pinbook\\app\\Controllers\\Peminjaman.php', 169)
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Peminjaman->edit('1')
+ 3 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Peminjaman))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-19 09:42:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 09:42:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2026-04-19 09:42:12 --> mysqli_sql_exception: Unknown column 'anggota.nama_anggota' in 'field list' in C:\xampp\htdocs\pinbook\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp\htdocs\pinbook\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `peminja...', 0)
+#1 C:\xampp\htdocs\pinbook\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `peminja...')
+#2 C:\xampp\htdocs\pinbook\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `peminja...')
+#3 C:\xampp\htdocs\pinbook\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `peminja...', Array, false)
+#4 C:\xampp\htdocs\pinbook\app\Controllers\Peminjaman.php(43): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\pinbook\system\CodeIgniter.php(933): App\Controllers\Peminjaman->index()
+#6 C:\xampp\htdocs\pinbook\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Peminjaman))
+#7 C:\xampp\htdocs\pinbook\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\pinbook\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp\htdocs\pinbook\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#10 C:\xampp\htdocs\pinbook\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#11 {main}
+CRITICAL - 2026-04-19 09:42:12 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'anggota.nama_anggota' in 'field list'
+[Method: GET, Route: peminjaman]
+in SYSTEMPATH\Database\BaseConnection.php on line 684.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `peminjaman`.*, `anggota`.`nama_anggota`, GROUP_CONCAT(buku.judul SEPARATOR ", ") as daftar_buku
+FROM `peminjaman`
+LEFT JOIN `anggota` ON `anggota`.`id_anggota` = `peminjaman`.`id_anggota`
+LEFT JOIN `detail_peminjaman` ON `detail_peminjaman`.`id_peminjaman` = `peminjaman`.`id_peminjaman`
+LEFT JOIN `buku` ON `buku`.`id_buku` = `detail_peminjaman`.`id_buku`
+WHERE `peminjaman`.`id_anggota` IS NULL
+GROUP BY `peminjaman`.`id_peminjaman`', [], false)
+ 2 APPPATH\Controllers\Peminjaman.php(43): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Peminjaman->index()
+ 4 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Peminjaman))
+ 5 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-19 09:42:12 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'anggota.nama_anggota' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `peminjaman`.*, `anggota`.`nama_anggota`, GROUP_CONCAT(buku.judul SEPARATOR ", ") as daftar_buku
+FROM `peminjaman`
+LEFT JOIN `anggota` ON `anggota`.`id_anggota` = `peminjaman`.`id_anggota`
+LEFT JOIN `detail_peminjaman` ON `detail_peminjaman`.`id_peminjaman` = `peminjaman`.`id_peminjaman`
+LEFT JOIN `buku` ON `buku`.`id_buku` = `detail_peminjaman`.`id_buku`
+WHERE `peminjaman`.`id_anggota` IS NULL
+GROUP BY `peminjaman`.`id_peminjaman`')
+ 2 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `peminjaman`.*, `anggota`.`nama_anggota`, GROUP_CONCAT(buku.judul SEPARATOR ", ") as daftar_buku
+FROM `peminjaman`
+LEFT JOIN `anggota` ON `anggota`.`id_anggota` = `peminjaman`.`id_anggota`
+LEFT JOIN `detail_peminjaman` ON `detail_peminjaman`.`id_peminjaman` = `peminjaman`.`id_peminjaman`
+LEFT JOIN `buku` ON `buku`.`id_buku` = `detail_peminjaman`.`id_buku`
+WHERE `peminjaman`.`id_anggota` IS NULL
+GROUP BY `peminjaman`.`id_peminjaman`')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `peminjaman`.*, `anggota`.`nama_anggota`, GROUP_CONCAT(buku.judul SEPARATOR ", ") as daftar_buku
+FROM `peminjaman`
+LEFT JOIN `anggota` ON `anggota`.`id_anggota` = `peminjaman`.`id_anggota`
+LEFT JOIN `detail_peminjaman` ON `detail_peminjaman`.`id_peminjaman` = `peminjaman`.`id_peminjaman`
+LEFT JOIN `buku` ON `buku`.`id_buku` = `detail_peminjaman`.`id_buku`
+WHERE `peminjaman`.`id_anggota` IS NULL
+GROUP BY `peminjaman`.`id_peminjaman`', [], false)
+ 4 APPPATH\Controllers\Peminjaman.php(43): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Peminjaman->index()
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Peminjaman))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-19 09:42:12 --> [Caused by] mysqli_sql_exception: Unknown column 'anggota.nama_anggota' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `peminjaman`.*, `anggota`.`nama_anggota`, GROUP_CONCAT(buku.judul SEPARATOR ", ") as daftar_buku
+FROM `peminjaman`
+LEFT JOIN `anggota` ON `anggota`.`id_anggota` = `peminjaman`.`id_anggota`
+LEFT JOIN `detail_peminjaman` ON `detail_peminjaman`.`id_peminjaman` = `peminjaman`.`id_peminjaman`
+LEFT JOIN `buku` ON `buku`.`id_buku` = `detail_peminjaman`.`id_buku`
+WHERE `peminjaman`.`id_anggota` IS NULL
+GROUP BY `peminjaman`.`id_peminjaman`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `peminjaman`.*, `anggota`.`nama_anggota`, GROUP_CONCAT(buku.judul SEPARATOR ", ") as daftar_buku
+FROM `peminjaman`
+LEFT JOIN `anggota` ON `anggota`.`id_anggota` = `peminjaman`.`id_anggota`
+LEFT JOIN `detail_peminjaman` ON `detail_peminjaman`.`id_peminjaman` = `peminjaman`.`id_peminjaman`
+LEFT JOIN `buku` ON `buku`.`id_buku` = `detail_peminjaman`.`id_buku`
+WHERE `peminjaman`.`id_anggota` IS NULL
+GROUP BY `peminjaman`.`id_peminjaman`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `peminjaman`.*, `anggota`.`nama_anggota`, GROUP_CONCAT(buku.judul SEPARATOR ", ") as daftar_buku
+FROM `peminjaman`
+LEFT JOIN `anggota` ON `anggota`.`id_anggota` = `peminjaman`.`id_anggota`
+LEFT JOIN `detail_peminjaman` ON `detail_peminjaman`.`id_peminjaman` = `peminjaman`.`id_peminjaman`
+LEFT JOIN `buku` ON `buku`.`id_buku` = `detail_peminjaman`.`id_buku`
+WHERE `peminjaman`.`id_anggota` IS NULL
+GROUP BY `peminjaman`.`id_peminjaman`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `peminjaman`.*, `anggota`.`nama_anggota`, GROUP_CONCAT(buku.judul SEPARATOR ", ") as daftar_buku
+FROM `peminjaman`
+LEFT JOIN `anggota` ON `anggota`.`id_anggota` = `peminjaman`.`id_anggota`
+LEFT JOIN `detail_peminjaman` ON `detail_peminjaman`.`id_peminjaman` = `peminjaman`.`id_peminjaman`
+LEFT JOIN `buku` ON `buku`.`id_buku` = `detail_peminjaman`.`id_buku`
+WHERE `peminjaman`.`id_anggota` IS NULL
+GROUP BY `peminjaman`.`id_peminjaman`', [], false)
+ 5 APPPATH\Controllers\Peminjaman.php(43): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Peminjaman->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Peminjaman))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-19 09:42:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 09:42:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2026-04-19 09:42:16 --> mysqli_sql_exception: Unknown column 'anggota.nama_anggota' in 'field list' in C:\xampp\htdocs\pinbook\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp\htdocs\pinbook\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `peminja...', 0)
+#1 C:\xampp\htdocs\pinbook\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `peminja...')
+#2 C:\xampp\htdocs\pinbook\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `peminja...')
+#3 C:\xampp\htdocs\pinbook\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `peminja...', Array, false)
+#4 C:\xampp\htdocs\pinbook\app\Controllers\Peminjaman.php(43): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\pinbook\system\CodeIgniter.php(933): App\Controllers\Peminjaman->index()
+#6 C:\xampp\htdocs\pinbook\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Peminjaman))
+#7 C:\xampp\htdocs\pinbook\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\pinbook\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp\htdocs\pinbook\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#10 C:\xampp\htdocs\pinbook\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#11 {main}
+CRITICAL - 2026-04-19 09:42:16 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'anggota.nama_anggota' in 'field list'
+[Method: GET, Route: peminjaman]
+in SYSTEMPATH\Database\BaseConnection.php on line 684.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `peminjaman`.*, `anggota`.`nama_anggota`, GROUP_CONCAT(buku.judul SEPARATOR ", ") as daftar_buku
+FROM `peminjaman`
+LEFT JOIN `anggota` ON `anggota`.`id_anggota` = `peminjaman`.`id_anggota`
+LEFT JOIN `detail_peminjaman` ON `detail_peminjaman`.`id_peminjaman` = `peminjaman`.`id_peminjaman`
+LEFT JOIN `buku` ON `buku`.`id_buku` = `detail_peminjaman`.`id_buku`
+WHERE `peminjaman`.`id_anggota` IS NULL
+GROUP BY `peminjaman`.`id_peminjaman`', [], false)
+ 2 APPPATH\Controllers\Peminjaman.php(43): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Peminjaman->index()
+ 4 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Peminjaman))
+ 5 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-19 09:42:16 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'anggota.nama_anggota' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `peminjaman`.*, `anggota`.`nama_anggota`, GROUP_CONCAT(buku.judul SEPARATOR ", ") as daftar_buku
+FROM `peminjaman`
+LEFT JOIN `anggota` ON `anggota`.`id_anggota` = `peminjaman`.`id_anggota`
+LEFT JOIN `detail_peminjaman` ON `detail_peminjaman`.`id_peminjaman` = `peminjaman`.`id_peminjaman`
+LEFT JOIN `buku` ON `buku`.`id_buku` = `detail_peminjaman`.`id_buku`
+WHERE `peminjaman`.`id_anggota` IS NULL
+GROUP BY `peminjaman`.`id_peminjaman`')
+ 2 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `peminjaman`.*, `anggota`.`nama_anggota`, GROUP_CONCAT(buku.judul SEPARATOR ", ") as daftar_buku
+FROM `peminjaman`
+LEFT JOIN `anggota` ON `anggota`.`id_anggota` = `peminjaman`.`id_anggota`
+LEFT JOIN `detail_peminjaman` ON `detail_peminjaman`.`id_peminjaman` = `peminjaman`.`id_peminjaman`
+LEFT JOIN `buku` ON `buku`.`id_buku` = `detail_peminjaman`.`id_buku`
+WHERE `peminjaman`.`id_anggota` IS NULL
+GROUP BY `peminjaman`.`id_peminjaman`')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `peminjaman`.*, `anggota`.`nama_anggota`, GROUP_CONCAT(buku.judul SEPARATOR ", ") as daftar_buku
+FROM `peminjaman`
+LEFT JOIN `anggota` ON `anggota`.`id_anggota` = `peminjaman`.`id_anggota`
+LEFT JOIN `detail_peminjaman` ON `detail_peminjaman`.`id_peminjaman` = `peminjaman`.`id_peminjaman`
+LEFT JOIN `buku` ON `buku`.`id_buku` = `detail_peminjaman`.`id_buku`
+WHERE `peminjaman`.`id_anggota` IS NULL
+GROUP BY `peminjaman`.`id_peminjaman`', [], false)
+ 4 APPPATH\Controllers\Peminjaman.php(43): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Peminjaman->index()
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Peminjaman))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-19 09:42:16 --> [Caused by] mysqli_sql_exception: Unknown column 'anggota.nama_anggota' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `peminjaman`.*, `anggota`.`nama_anggota`, GROUP_CONCAT(buku.judul SEPARATOR ", ") as daftar_buku
+FROM `peminjaman`
+LEFT JOIN `anggota` ON `anggota`.`id_anggota` = `peminjaman`.`id_anggota`
+LEFT JOIN `detail_peminjaman` ON `detail_peminjaman`.`id_peminjaman` = `peminjaman`.`id_peminjaman`
+LEFT JOIN `buku` ON `buku`.`id_buku` = `detail_peminjaman`.`id_buku`
+WHERE `peminjaman`.`id_anggota` IS NULL
+GROUP BY `peminjaman`.`id_peminjaman`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `peminjaman`.*, `anggota`.`nama_anggota`, GROUP_CONCAT(buku.judul SEPARATOR ", ") as daftar_buku
+FROM `peminjaman`
+LEFT JOIN `anggota` ON `anggota`.`id_anggota` = `peminjaman`.`id_anggota`
+LEFT JOIN `detail_peminjaman` ON `detail_peminjaman`.`id_peminjaman` = `peminjaman`.`id_peminjaman`
+LEFT JOIN `buku` ON `buku`.`id_buku` = `detail_peminjaman`.`id_buku`
+WHERE `peminjaman`.`id_anggota` IS NULL
+GROUP BY `peminjaman`.`id_peminjaman`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `peminjaman`.*, `anggota`.`nama_anggota`, GROUP_CONCAT(buku.judul SEPARATOR ", ") as daftar_buku
+FROM `peminjaman`
+LEFT JOIN `anggota` ON `anggota`.`id_anggota` = `peminjaman`.`id_anggota`
+LEFT JOIN `detail_peminjaman` ON `detail_peminjaman`.`id_peminjaman` = `peminjaman`.`id_peminjaman`
+LEFT JOIN `buku` ON `buku`.`id_buku` = `detail_peminjaman`.`id_buku`
+WHERE `peminjaman`.`id_anggota` IS NULL
+GROUP BY `peminjaman`.`id_peminjaman`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `peminjaman`.*, `anggota`.`nama_anggota`, GROUP_CONCAT(buku.judul SEPARATOR ", ") as daftar_buku
+FROM `peminjaman`
+LEFT JOIN `anggota` ON `anggota`.`id_anggota` = `peminjaman`.`id_anggota`
+LEFT JOIN `detail_peminjaman` ON `detail_peminjaman`.`id_peminjaman` = `peminjaman`.`id_peminjaman`
+LEFT JOIN `buku` ON `buku`.`id_buku` = `detail_peminjaman`.`id_buku`
+WHERE `peminjaman`.`id_anggota` IS NULL
+GROUP BY `peminjaman`.`id_peminjaman`', [], false)
+ 5 APPPATH\Controllers\Peminjaman.php(43): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Peminjaman->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Peminjaman))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-19 09:42:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 09:42:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-04-19 09:43:02 --> ErrorException: Undefined property: App\Controllers\Peminjaman::$db
+[Method: GET, Route: peminjaman/edit/1]
+in APPPATH\Controllers\Peminjaman.php on line 168.
+ 1 APPPATH\Controllers\Peminjaman.php(168): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: App\\Controllers\\Peminjaman::$db', 'C:\\xampp\\htdocs\\pinbook\\app\\Controllers\\Peminjaman.php', 168)
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Peminjaman->edit('1')
+ 3 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Peminjaman))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-19 09:43:35 --> ErrorException: Undefined property: App\Controllers\Peminjaman::$anggotaModel
+[Method: GET, Route: peminjaman/edit/1]
+in APPPATH\Controllers\Peminjaman.php on line 168.
+ 1 APPPATH\Controllers\Peminjaman.php(168): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: App\\Controllers\\Peminjaman::$anggotaModel', 'C:\\xampp\\htdocs\\pinbook\\app\\Controllers\\Peminjaman.php', 168)
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Peminjaman->edit('1')
+ 3 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Peminjaman))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-19 09:43:37 --> ErrorException: Undefined property: App\Controllers\Peminjaman::$anggotaModel
+[Method: GET, Route: peminjaman/edit/1]
+in APPPATH\Controllers\Peminjaman.php on line 168.
+ 1 APPPATH\Controllers\Peminjaman.php(168): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: App\\Controllers\\Peminjaman::$anggotaModel', 'C:\\xampp\\htdocs\\pinbook\\app\\Controllers\\Peminjaman.php', 168)
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Peminjaman->edit('1')
+ 3 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Peminjaman))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-19 09:45:20 --> Error: Class "App\Controllers\AnggotaModel" not found
+[Method: GET, Route: peminjaman/edit/1]
+in APPPATH\Controllers\Peminjaman.php on line 23.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Peminjaman->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-19 09:45:48 --> ErrorException: Undefined property: App\Controllers\Peminjaman::$db
+[Method: GET, Route: peminjaman/edit/1]
+in APPPATH\Controllers\Peminjaman.php on line 169.
+ 1 APPPATH\Controllers\Peminjaman.php(169): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: App\\Controllers\\Peminjaman::$db', 'C:\\xampp\\htdocs\\pinbook\\app\\Controllers\\Peminjaman.php', 169)
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Peminjaman->edit('1')
+ 3 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Peminjaman))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-19 09:45:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 09:46:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 09:46:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 09:46:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 09:46:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-04-19 09:46:24 --> ErrorException: Undefined property: App\Controllers\Peminjaman::$db
+[Method: GET, Route: peminjaman/edit/1]
+in APPPATH\Controllers\Peminjaman.php on line 169.
+ 1 APPPATH\Controllers\Peminjaman.php(169): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: App\\Controllers\\Peminjaman::$db', 'C:\\xampp\\htdocs\\pinbook\\app\\Controllers\\Peminjaman.php', 169)
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Peminjaman->edit('1')
+ 3 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Peminjaman))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-19 09:46:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 09:46:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-19 09:46:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.

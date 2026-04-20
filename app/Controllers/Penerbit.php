@@ -3,114 +3,74 @@
 namespace App\Controllers;
 
 use App\Models\PenerbitModel;
-use CodeIgniter\Exceptions\PageNotFoundException;
 
 class Penerbit extends BaseController
 {
-    protected $penerbitModel;
+    protected $penerbit;
 
     public function __construct()
     {
-        $this->penerbitModel = new PenerbitModel();
+        $this->penerbit = new PenerbitModel();
     }
 
     public function index()
-    {
-        $data = [
-            'title' => 'Data Penerbit',
-            'penerbit' => $this->penerbitModel->getPenerbitPaginated(10),
-            'pager' => $this->penerbitModel->pager
-        ];
+{
+    $keyword = $this->request->getGet('keyword');
 
-        return view('penerbit/index', $data);
+    $penerbitModel = new \App\Models\PenerbitModel();
+
+    if ($keyword) {
+        $penerbit = $penerbitModel
+            ->like('nama_penerbit', $keyword)
+            ->orLike('alamat', $keyword)
+            ->findAll();
+    } else {
+        $penerbit = $penerbitModel->findAll();
     }
+
+    return view('penerbit/index', [
+        'penerbit' => $penerbit,
+        'keyword'  => $keyword
+    ]);
+}
 
     public function create()
     {
-        $data = [
-            'title' => 'Tambah Penerbit Baru',
-            'validation' => \Config\Services::validation()
-        ];
-
-        return view('penerbit/create', $data);
+        return view('penerbit/create');
     }
 
     public function store()
     {
-        if (!$this->validateData()) {
-            return redirect()->back()->withInput();
-        }
+        $this->penerbit->save([
+            'nama_penerbit' => $this->request->getPost('nama_penerbit'),
+            'alamat'        => $this->request->getPost('alamat')
+        ]);
 
-        $data = $this->request->getPost(['nama_penerbit', 'alamat']);
-
-        $this->penerbitModel->insert($data);
-
-        return redirect()->to('/penerbit')->with('success', 'Penerbit berhasil ditambahkan!');
+        return redirect()->to('/penerbit');
     }
 
-    public function edit($id = null)
+    public function edit($id)
     {
-        $penerbit = $this->penerbitModel->find($id);
-
-        if (!$penerbit) {
-            throw new PageNotFoundException('Penerbit tidak ditemukan.');
-        }
-
         $data = [
-            'title' => 'Edit Penerbit',
-            'penerbit' => $penerbit,
-            'validation' => \Config\Services::validation()
+            'penerbit' => $this->penerbit->find($id)
         ];
 
         return view('penerbit/edit', $data);
     }
 
-    public function update($id = null)
+    public function update($id)
     {
-        $penerbit = $this->penerbitModel->find($id);
+        $this->penerbit->update($id, [
+            'nama_penerbit' => $this->request->getPost('nama_penerbit'),
+            'alamat'        => $this->request->getPost('alamat')
+        ]);
 
-        if (!$penerbit) {
-            throw new PageNotFoundException('Penerbit tidak ditemukan.');
-        }
-
-        if (!$this->validateData($id)) {
-            return redirect()->to("/penerbit/edit/$id")->withInput();
-        }
-
-        $data = $this->request->getPost(['nama_penerbit', 'alamat']);
-
-        $this->penerbitModel->update($id, $data);
-
-        return redirect()->to('/penerbit')->with('success', 'Penerbit berhasil diupdate!');
+        return redirect()->to('/penerbit');
     }
 
-    public function delete($id = null)
+    public function delete($id)
     {
-        $penerbit = $this->penerbitModel->find($id);
-
-        if (!$penerbit) {
-            throw new PageNotFoundException('Penerbit tidak ditemukan.');
-        }
-
-        $this->penerbitModel->delete($id);
-
-        return redirect()->to('/penerbit')->with('success', 'Penerbit berhasil dihapus!');
-    }
-
-    private function validateData($id = null)
-    {
-        $rules = [
-            'nama_penerbit' => 'required|min_length[3]|max_length[100]',
-            'alamat'        => 'permit_empty|max_length[500]'
-        ];
-
-        // Tambahkan unique rule kecuali saat edit
-        if ($id) {
-            $rules['nama_penerbit'] .= "|is_unique[penerbit.nama_penerbit,id_penerbit,$id]";
-        } else {
-            $rules['nama_penerbit'] .= "|is_unique[penerbit.nama_penerbit]";
-        }
-
-        return $this->validate($rules);
+        $this->penerbit->delete($id);
+        return redirect()->to('/penerbit');
     }
 }

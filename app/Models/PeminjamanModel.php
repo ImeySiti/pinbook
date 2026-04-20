@@ -16,12 +16,12 @@ class PeminjamanModel extends Model
         'status'
     ];
 
-    public function getPeminjaman()
+    // 🔥 TAMBAHKAN INI
+    public function getWithAnggota()
     {
         return $this->db->table('peminjaman')
-            ->select('peminjaman.*, anggota.nis, petugas.jabatan')
-            ->join('anggota', 'anggota.id_anggota = peminjaman.id_anggota', 'left')
-            ->join('petugas', 'petugas.id_petugas = peminjaman.id_petugas', 'left')
+            ->select('peminjaman.*, anggota.nama_anggota')
+            ->join('anggota', 'anggota.id_anggota = peminjaman.id_anggota')
             ->get()
             ->getResultArray();
     }

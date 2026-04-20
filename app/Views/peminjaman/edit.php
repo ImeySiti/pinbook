@@ -1,42 +1,74 @@
+<?= $this->extend('layouts/main') ?>
+<?= $this->section('content') ?>
+
 <h2>Edit Peminjaman</h2>
 
-<form action="/peminjaman/update/<?= $peminjaman['id_peminjaman'] ?>" method="post">
+<form method="post" action="<?= base_url('peminjaman/update/'.$peminjaman['id_peminjaman']) ?>">
 
-    <label>Anggota</label>
-    <select name="id_anggota">
+<!-- ANGGOTA -->
+<label>Anggota</label><br>
+<select name="id_anggota">
+    <?php if (!empty($anggota)): ?>
         <?php foreach ($anggota as $a): ?>
             <option value="<?= $a['id_anggota'] ?>"
-                <?= $a['id_anggota'] == $peminjaman['id_anggota'] ? 'selected' : '' ?>>
-                <?= $a['nis'] ?>
+                <?= (isset($peminjaman['id_anggota']) && $peminjaman['id_anggota'] == $a['id_anggota']) ? 'selected' : '' ?>>
+                <?= $a['nama_anggota'] ?> (<?= $a['nis'] ?>)
             </option>
         <?php endforeach; ?>
-    </select>
-    <br>
+    <?php endif; ?>
+</select>
 
-    <label>Petugas</label>
-    <select name="id_petugas">
-        <?php foreach ($petugas as $p): ?>
-            <option value="<?= $p['id_petugas'] ?>"
-                <?= $p['id_petugas'] == $peminjaman['id_petugas'] ? 'selected' : '' ?>>
-                <?= $p['jabatan'] ?>
+<br><br>
+
+<!-- PETUGAS -->
+<label>Petugas</label><br>
+<select name="id_petugas">
+    <?php if (!empty($petugas)): ?>
+        <?php foreach ($petugas as $pt): ?>
+            <option value="<?= $pt['id_petugas'] ?>"
+                <?= (isset($peminjaman['id_petugas']) && $peminjaman['id_petugas'] == $pt['id_petugas']) ? 'selected' : '' ?>>
+                <?= $pt['jabatan'] ?>
             </option>
         <?php endforeach; ?>
-    </select>
-    <br>
+    <?php endif; ?>
+</select>
 
-    <label>Tanggal Pinjam</label>
-    <input type="date" name="tanggal_pinjam" value="<?= $peminjaman['tanggal_pinjam'] ?>"><br>
+<br><br>
 
-    <label>Tanggal Kembali</label>
-    <input type="date" name="tanggal_kembali" value="<?= $peminjaman['tanggal_kembali'] ?>"><br>
+<!-- TANGGAL KEMBALI -->
+<label>Tanggal Kembali</label><br>
+<input type="date" name="tanggal_kembali"
+       value="<?= $peminjaman['tanggal_kembali'] ?? '' ?>">
 
-    <label>Status</label>
-    <select name="status">
-        <option value="dipinjam" <?= $peminjaman['status']=='dipinjam'?'selected':'' ?>>Dipinjam</option>
-        <option value="dikembalikan" <?= $peminjaman['status']=='dikembalikan'?'selected':'' ?>>Dikembalikan</option>
-        <option value="telat" <?= $peminjaman['status']=='telat'?'selected':'' ?>>Telat</option>
-    </select>
+<br><br>
 
-    <br>
-    <button type="submit">Update</button>
+<!-- STATUS -->
+<label>Status</label><br>
+<select name="status">
+    <option value="pinjam" <?= (isset($peminjaman['status']) && $peminjaman['status']=='pinjam') ? 'selected' : '' ?>>Pinjam</option>
+    <option value="kembali" <?= (isset($peminjaman['status']) && $peminjaman['status']=='kembali') ? 'selected' : '' ?>>Kembali</option>
+    <option value="perpanjang" <?= (isset($peminjaman['status']) && $peminjaman['status']=='perpanjang') ? 'selected' : '' ?>>Perpanjang</option>
+</select>
+
+<br><br>
+
+<!-- BUKU -->
+<h3>Edit Buku</h3>
+
+<?php if (!empty($buku)): ?>
+    <?php foreach ($buku as $b): ?>
+        <label>
+            <input type="checkbox" name="id_buku[]" value="<?= $b['id_buku'] ?>"
+                <?= in_array($b['id_buku'], $buku_terpilih ?? []) ? 'checked' : '' ?>>
+            <?= $b['judul'] ?>
+        </label><br>
+    <?php endforeach; ?>
+<?php endif; ?>
+
+<br>
+
+<button type="submit">Update</button>
+
 </form>
+
+<?= $this->endSection() ?>

@@ -3,119 +3,106 @@
 
 <h2>Data Peminjaman</h2>
 
-<?php if (session()->get('role') == 'anggota') : ?>
-    <a href="<?= base_url('peminjaman/create') ?>">+ Tambah</a>
+<?php if (session()->get('role') == 'anggota'): ?>
+    <a href="<?= base_url('peminjaman/create') ?>">+ Pinjam Buku</a>
 <?php endif; ?>
 
 <br><br>
 
-<form method="get">
-    <input type="text" name="keyword" placeholder="Cari status / buku..."
-        value="<?= $_GET['keyword'] ?? '' ?>">
-    <button type="submit">Cari</button>
-
-    <a href="<?= base_url('peminjaman') ?>">Reset</a>
-</form>
-
-<br>
-
-<!-- ================= ADMIN ================= -->
-<?php if (session()->get('role') == 'admin') : ?>
-
-<table border="1" cellpadding="10">
+<table border="1" cellpadding="8" cellspacing="0">
     <tr>
-        <th>ID</th>
-        <th>Anggota</th>
-        <th>Petugas</th>
-        <th>Cover</th>
-        <th>Judul</th>
+        <th>No</th>
+        <th>Nama</th>
+        <th>Buku Dipinjam</th>
         <th>Tanggal Pinjam</th>
-        <th>Tanggal Kembali</th>
+        <th>Jatuh Tempo</th>
         <th>Status</th>
         <th>Aksi</th>
     </tr>
 
-    <?php foreach ($peminjaman as $p) : ?>
-        <tr>
-            <td><?= $p['id_peminjaman'] ?></td>
-            <td><?= $p['nis'] ?? '-' ?></td>
-            <td><?= $p['jabatan'] ?? '-' ?></td>
+    <?php if (!empty($peminjaman)): ?>
+        <?php $no = 1; foreach ($peminjaman as $p): ?>
 
+        <?php
+            $today = date('Y-m-d');
+            $tgl_kembali = $p['tanggal_kembali'] ?? null;
+            $status = $p['status'] ?? 'dipinjam';
+
+            // auto status terlambat
+            if ($status != 'kembali' && $tgl_kembali && $tgl_kembali < $today) {
+                $status = 'terlambat';
+            }
+        ?>
+
+        <tr>
+            <td><?= $no++ ?></td>
+
+            <!-- SEMUA DARI USERS (TIDAK PAKAI SESSION LAGI) -->
+            <td><?= $p['nama_anggota'] ?? '-' ?></td>
+
+            <!-- LIST BUKU -->
             <td>
-                <?php if (!empty($p['cover'])): ?>
-                    <img src="<?= base_url('uploads/cover/' . $p['cover']) ?>" width="60">
+                <?= !empty($p['daftar_buku']) ? $p['daftar_buku'] : '<i>Tidak ada buku</i>' ?>
+            </td>
+
+            <td><?= $p['tanggal_pinjam'] ?? '-' ?></td>
+            <td><?= $p['tanggal_kembali'] ?? '-' ?></td>
+
+            <!-- STATUS -->
+            <td>
+                <?php if ($status == 'kembali'): ?>
+                    <span style="color: green;">Dikembalikan</span>
+
+                <?php elseif ($status == 'diperpanjang'): ?>
+                    <span style="color: blue;">Diperpanjang</span>
+
+                <?php elseif ($status == 'terlambat'): ?>
+                    <span style="color: red;">Terlambat</span>
+
                 <?php else: ?>
-                    -
+                    <span style="color: orange;">Dipinjam</span>
                 <?php endif; ?>
             </td>
 
-            <td><?= $p['judul_buku'] ?? '-' ?></td>
-            <td><?= $p['tanggal_pinjam'] ?></td>
-            <td><?= $p['tanggal_kembali'] ?></td>
-            <td><?= $p['status'] ?></td>
-
+            <!-- AKSI -->
             <td>
-                <a href="<?= base_url('peminjaman/' . $p['id_peminjaman']) ?>">Detail</a> |
-                <a href="<?= base_url('peminjaman/edit/' . $p['id_peminjaman']) ?>">Edit</a> |
-                <a href="<?= base_url('peminjaman/delete/' . $p['id_peminjaman']) ?>"
-                   onclick="return confirm('Hapus data ini?')">
-                    Hapus
-                </a>
-            </td>
-        </tr>
-    <?php endforeach; ?>
+                <a href="<?= base_url('peminjaman/detail/'.$p['id_peminjaman']) ?>">
+                    Detail
+                </a> |
 
-</table>
+                <?php if (session()->get('role') != 'admin'): ?>
 
-<!-- ================= ANGGOTA ================= -->
-<?php else : ?>
+                    <a href="<?= base_url('peminjaman/perpanjang/'.$p['id_peminjaman']) ?>"
+                       onclick="return confirm('Perpanjang 3 hari?')">
+                        Perpanjang
+                    </a> |
 
-    <?php if (empty($peminjaman)) : ?>
-        <p><b>Kamu belum memiliki data peminjaman.</b></p>
-    <?php else : ?>
-
-    <table border="1" cellpadding="10">
-        <tr>
-            <th>ID</th>
-            <th>Cover</th>
-            <th>Judul</th>
-            <th>Tanggal Pinjam</th>
-            <th>Tanggal Kembali</th>
-            <th>Status</th>
-            <th>Aksi</th>
-        </tr>
-
-        <?php foreach ($peminjaman as $p) : ?>
-            <tr>
-                <td><?= $p['id_peminjaman'] ?></td>
-
-                <td>
-                    <?php if (!empty($p['cover'])): ?>
-                        <img src="<?= base_url('uploads/cover/' . $p['cover']) ?>" width="60">
-                    <?php else: ?>
-                        -
+                    <?php if ($status != 'kembali'): ?>
+                        <a href="<?= base_url('peminjaman/kembali/'.$p['id_peminjaman']) ?>">
+                            Kembalikan
+                        </a> |
                     <?php endif; ?>
-                </td>
 
-                <td><?= $p['judul_buku'] ?? '-' ?></td>
-                <td><?= $p['tanggal_pinjam'] ?></td>
-                <td><?= $p['tanggal_kembali'] ?></td>
-                <td><?= $p['status'] ?></td>
+                <?php endif; ?>
 
-                <td>
-                    <a href="<?= base_url('peminjaman/' . $p['id_peminjaman']) ?>">Detail</a> |
-                    <a href="<?= base_url('peminjaman/delete/' . $p['id_peminjaman']) ?>"
-                       onclick="return confirm('Hapus data ini?')">
+                <!-- 🔥 HANYA ADMIN -->
+                <?php if (session()->get('role') == 'admin'): ?>
+                    <a href="<?= base_url('peminjaman/delete/'.$p['id_peminjaman']) ?>" 
+                       onclick="return confirm('Yakin mau hapus data ini?')">
                         Hapus
                     </a>
-                </td>
-            </tr>
+                <?php endif; ?>
+            </td>
+
+        </tr>
+
         <?php endforeach; ?>
-
-    </table>
-
+    <?php else: ?>
+        <tr>
+            <td colspan="7" align="center">Belum ada data</td>
+        </tr>
     <?php endif; ?>
 
-<?php endif; ?>
+</table>
 
 <?= $this->endSection() ?>

@@ -1,60 +1,88 @@
-aaaaaaaaaaaaaaaaaa<?= $this->extend('layouts/main') ?>
+<?= $this->extend('layouts/main') ?>
 <?= $this->section('content') ?>
 
 <h2>Detail Peminjaman</h2>
 
-<table border="1" cellpadding="10">
+<?php if (!empty($peminjaman)): ?>
 
-    <tr>
-        <th>ID</th>
-        <td><?= $peminjaman['id_peminjaman'] ?></td>
-    </tr>
+<?php
+    $today = date('Y-m-d');
+    $status = $peminjaman['status'] ?? 'dipinjam';
+    $tgl_kembali = $peminjaman['tanggal_kembali'] ?? null;
 
-    <tr>
-        <th>Anggota</th>
-        <td><?= $peminjaman['nis'] ?? '-' ?></td>
-    </tr>
+    // 🔥 auto status terlambat
+    if ($status != 'kembali' && $tgl_kembali && $tgl_kembali < $today) {
+        $status = 'terlambat';
+    }
+?>
 
-    <tr>
-        <th>Petugas</th>
-        <td><?= $peminjaman['jabatan'] ?? '-' ?></td>
-    </tr>
+<table border="1" cellpadding="8" cellspacing="0">
 
-    <tr>
-        <th>Buku</th>
-        <td><?= $peminjaman['judul_buku'] ?? '-' ?></td>
-    </tr>
+<tr>
+    <td>Anggota</td>
+    <td><?= $peminjaman['nama_anggota'] ?? '-' ?></td>
+</tr>
 
-    <tr>
-        <th>Cover</th>
-        <td>
-            <?php if (!empty($peminjaman['cover'])): ?>
-                <img src="<?= base_url('uploads/cover/' . $peminjaman['cover']) ?>" width="120">
-            <?php else: ?>
-                -
-            <?php endif; ?>
-        </td>
-    </tr>
+<tr>
+    <td>Petugas</td>
+    <td><?= $peminjaman['jabatan'] ?? '-' ?></td>
+</tr>
 
-    <tr>
-        <th>Tanggal Pinjam</th>
-        <td><?= $peminjaman['tanggal_pinjam'] ?></td>
-    </tr>
+<tr>
+    <td>Tanggal Pinjam</td>
+    <td><?= $peminjaman['tanggal_pinjam'] ?? '-' ?></td>
+</tr>
 
-    <tr>
-        <th>Tanggal Kembali</th>
-        <td><?= $peminjaman['tanggal_kembali'] ?></td>
-    </tr>
+<tr>
+    <td>Jatuh Tempo</td>
+    <td><?= $peminjaman['tanggal_kembali'] ?? '-' ?></td>
+</tr>
 
-    <tr>
-        <th>Status</th>
-        <td><?= $peminjaman['status'] ?></td>
-    </tr>
+<tr>
+    <td>Status</td>
+    <td>
+        <?php if ($status == 'kembali'): ?>
+            <span style="color: green;">Dikembalikan</span>
+
+        <?php elseif ($status == 'diperpanjang'): ?>
+            <span style="color: blue;">Diperpanjang</span>
+
+        <?php elseif ($status == 'terlambat'): ?>
+            <span style="color: red;">Terlambat</span>
+
+        <?php else: ?>
+            <span style="color: orange;">Dipinjam</span>
+        <?php endif; ?>
+    </td>
+</tr>
+
+<tr>
+    <td>Buku Dipinjam</td>
+    <td>
+        <?php if (!empty($buku)): ?>
+            <ul>
+                <?php foreach ($buku as $b): ?>
+                    <li><?= $b['judul'] ?? '-' ?></li>
+                <?php endforeach; ?>
+            </ul>
+        <?php else: ?>
+            <i>Tidak ada buku</i>
+        <?php endif; ?>
+    </td>
+</tr>
 
 </table>
 
 <br>
 
-<a href="<?= base_url('peminjaman') ?>">Kembali</a>
+<!-- 🔥 AKSI -->
+
+<a href="<?= base_url('peminjaman') ?>">
+    ← Kembali
+</a>
+
+<?php else: ?>
+    <p>Data tidak ditemukan</p>
+<?php endif; ?>
 
 <?= $this->endSection() ?>

@@ -3,113 +3,71 @@
 namespace App\Controllers;
 
 use App\Models\KategoriModel;
-use CodeIgniter\Exceptions\PageNotFoundException;
 
 class Kategori extends BaseController
 {
-    protected $kategoriModel;
+    protected $kategori;
 
     public function __construct()
     {
-        $this->kategoriModel = new KategoriModel();
+        $this->kategori = new KategoriModel();
     }
 
-    public function index()
-    {
-        $data = [
-            'title' => 'Data Kategori',
-            'kategori' => $this->kategoriModel->getKategoriPaginated(10),
-            'pager' => $this->kategoriModel->pager
-        ];
+   public function index()
+{
+    $keyword = $this->request->getGet('keyword');
 
-        return view('kategori/index', $data);
+    $kategoriModel = new \App\Models\KategoriModel();
+
+    if ($keyword) {
+        $kategori = $kategoriModel
+            ->like('nama_kategori', $keyword)
+            ->findAll();
+    } else {
+        $kategori = $kategoriModel->findAll();
     }
+
+    return view('kategori/index', [
+        'kategori' => $kategori,
+        'keyword'  => $keyword
+    ]);
+}
 
     public function create()
     {
-        $data = [
-            'title' => 'Tambah Kategori Baru',
-            'validation' => \Config\Services::validation()
-        ];
-
-        return view('kategori/create', $data);
+        return view('kategori/create');
     }
 
     public function store()
     {
-        if (!$this->validateData()) {
-            return redirect()->back()->withInput();
-        }
+        $this->kategori->save([
+            'nama_kategori' => $this->request->getPost('nama_kategori')
+        ]);
 
-        $data = $this->request->getPost('nama_kategori');
-
-        $this->kategoriModel->insert($data);
-
-        return redirect()->to('/kategori')->with('success', 'Kategori berhasil ditambahkan!');
+        return redirect()->to('/kategori');
     }
 
-    public function edit($id = null)
+    public function edit($id)
     {
-        $kategori = $this->kategoriModel->find($id);
-
-        if (!$kategori) {
-            throw new PageNotFoundException('Kategori tidak ditemukan.');
-        }
-
         $data = [
-            'title' => 'Edit Kategori',
-            'kategori' => $kategori,
-            'validation' => \Config\Services::validation()
+            'kategori' => $this->kategori->find($id)
         ];
 
         return view('kategori/edit', $data);
     }
 
-    public function update($id = null)
+    public function update($id)
     {
-        $kategori = $this->kategoriModel->find($id);
+        $this->kategori->update($id, [
+            'nama_kategori' => $this->request->getPost('nama_kategori')
+        ]);
 
-        if (!$kategori) {
-            throw new PageNotFoundException('Kategori tidak ditemukan.');
-        }
-
-        if (!$this->validateData($id)) {
-            return redirect()->to("/kategori/edit/$id")->withInput();
-        }
-
-        $data = $this->request->getPost('nama_kategori');
-
-        $this->kategoriModel->update($id, $data);
-
-        return redirect()->to('/kategori')->with('success', 'Kategori berhasil diupdate!');
+        return redirect()->to('/kategori');
     }
 
-    public function delete($id = null)
+    public function delete($id)
     {
-        $kategori = $this->kategoriModel->find($id);
-
-        if (!$kategori) {
-            throw new PageNotFoundException('Kategori tidak ditemukan.');
-        }
-
-        $this->kategoriModel->delete($id);
-
-        return redirect()->to('/kategori')->with('success', 'Kategori berhasil dihapus!');
-    }
-
-    private function validateData($id = null)
-    {
-        $rules = [
-            'nama_kategori' => 'required|min_length[3]|max_length[100]'
-        ];
-
-        // Tambahkan unique rule kecuali saat edit
-        if ($id) {
-            $rules['nama_kategori'] .= "|is_unique[kategori.nama_kategori,id_kategori,$id]";
-        } else {
-            $rules['nama_kategori'] .= "|is_unique[kategori.nama_kategori]";
-        }
-
-        return $this->validate($rules);
+        $this->kategori->delete($id);
+        return redirect()->to('/kategori');
     }
 }

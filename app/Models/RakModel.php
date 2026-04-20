@@ -10,8 +10,9 @@ class RakModel extends Model
     protected $primaryKey = 'id_rak';
 
     protected $allowedFields = [
-        'nama_rak'
-    ];
+    'nama_rak',
+    'lokasi'
+];
 
     // Ambil semua data rak
     public function getRak()
