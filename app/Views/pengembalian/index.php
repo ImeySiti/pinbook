@@ -10,7 +10,9 @@
     <tr>
         <th>No</th>
 
-        <th>Nama Anggota</th>
+        <?php if ($role == 'admin'): ?>
+            <th>Nama Anggota</th>
+        <?php endif; ?>
 
         <th>Buku</th>
         <th>Tanggal Kembali</th>
@@ -26,14 +28,15 @@
         <tr>
             <td><?= $p['id_pengembalian'] ?></td>
 
-            <!-- 🔥 SELALU TAMPIL (ADMIN & ANGGOTA) -->
-            <td><?= $p['nama_anggota'] ?? '-' ?></td>
+            <?php if ($role == 'admin'): ?>
+                <td><?= $p['nama_anggota'] ?? '-' ?></td>
+            <?php endif; ?>
 
             <td><?= $p['daftar_buku'] ?? '-' ?></td>
             <td><?= $p['tanggal_kembali'] ?? '-' ?></td>
 
             <td>
-                Rp <?= number_format($p['denda'] ?? 0, 0, ',', '.') ?>
+                Rp <?= number_format($p['denda_otomatis'] ?? 0, 0, ',', '.') ?>
             </td>
 
             <?php if ($role == 'admin'): ?>
@@ -48,7 +51,7 @@
         <?php endforeach; ?>
     <?php else: ?>
         <tr>
-            <td colspan="<?= ($role == 'admin') ? 6 : 5 ?>">
+            <td colspan="<?= ($role == 'admin') ? 6 : 4 ?>">
                 Data tidak ditemukan
             </td>
         </tr>
