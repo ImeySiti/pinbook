@@ -2,7 +2,32 @@
 <?= $this->section('content') ?>
 
 <h2>Data Peminjaman</h2>
+<form method="get" action="<?= base_url('peminjaman') ?>">
+    <label>Filter Pengantaran:</label>
 
+    <select name="filter_pengantaran">
+        <option value="">-- Semua --</option>
+        <option value="ambil" <?= (($_GET['filter_pengantaran'] ?? '') == 'ambil') ? 'selected' : '' ?>>
+            Ambil Sendiri
+        </option>
+        <option value="antar" <?= (($_GET['filter_pengantaran'] ?? '') == 'antar') ? 'selected' : '' ?>>
+            Diantar
+        </option>
+        <option value="selesai" <?= (($_GET['filter_pengantaran'] ?? '') == 'selesai') ? 'selected' : '' ?>>
+            Selesai Diantar
+        </option>
+        <option value="proses" <?= (($_GET['filter_pengantaran'] ?? '') == 'proses') ? 'selected' : '' ?>>
+            Proses / Sedang Jalan
+        </option>
+        <option value="konfirmasi" <?= (($_GET['filter_pengantaran'] ?? '') == 'konfirmasi') ? 'selected' : '' ?>>
+    Menunggu Konfirmasi
+</option>
+    </select>
+
+    <button type="submit">Cari</button>
+</form>
+
+<br>
 <?php if (session()->get('role') == 'anggota'): ?>
     <a href="<?= base_url('peminjaman/create') ?>">+ Pinjam Buku</a>
 <?php endif; ?>
@@ -62,23 +87,26 @@ if ($status != 'kembali' && !empty($p['tanggal_kembali']) && $p['tanggal_kembali
 // ================= OVERRIDE STATUS ANTAR =================
 if ($p['metode_pengambilan'] == 'antar') {
 
-    if ($p['status_pengantaran'] == 'menunggu_pembayaran') {
-        $status = 'menunggu_pembayaran';
-    }
+    // 🔥 JANGAN TIMPA kalau sudah kembali
+    if ($status != 'kembali') {
 
-    if ($p['status_pengantaran'] == 'menunggu_konfirmasi') {
-        $status = 'menunggu_konfirmasi';
-    }
+        if ($p['status_pengantaran'] == 'menunggu_pembayaran') {
+            $status = 'menunggu_pembayaran';
 
-    if ($p['status_pengantaran'] == 'siap_diantar') {
-        $status = 'diproses';
-    }
+        } elseif ($p['status_pengantaran'] == 'menunggu_konfirmasi') {
+            $status = 'menunggu_konfirmasi';
 
-    if ($p['status_pengantaran'] == 'dalam_pengantaran') {
-        $status = 'dipinjam';
+        } elseif ($p['status_pengantaran'] == 'siap_diantar') {
+            $status = 'diproses';
+
+        } elseif ($p['status_pengantaran'] == 'dalam_pengantaran') {
+            $status = 'dipinjam';
+
+        } elseif ($p['status_pengantaran'] == 'selesai') {
+            $status = 'dipinjam';
+        }
     }
 }
-
 $metode = $p['metode_pengambilan'] ?? '';
 $sp = $p['status_pengantaran'] ?? '';
 ?>
@@ -156,7 +184,15 @@ $sp = $p['status_pengantaran'] ?? '';
                 <?php endif; ?>
 
             <?php endif; ?>
-
+       <!-- 🔥 MAPS -->
+        <?php if (!empty($p['alamat_pengantaran'])): ?>
+            | <a href="https://www.google.com/maps/search/?api=1&query=<?= urlencode($p['alamat_pengantaran']) ?>" target="_blank">
+                🗺 Maps
+              </a>
+        <?php endif; ?>
+        <?php if ($status != 'kembali'): ?>
+    | <a href="<?= base_url('peminjaman/perpanjang/'.$p['id_peminjaman']) ?>">Perpanjang</a>
+<?php endif; ?>
             <?php if ($status != 'kembali'): ?>
                 | <a href="<?= base_url('peminjaman/kembali/'.$p['id_peminjaman']) ?>">Kembalikan</a>
             <?php endif; ?>

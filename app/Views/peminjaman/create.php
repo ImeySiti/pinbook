@@ -98,7 +98,7 @@ $dataTampil = $isSearching ? $hasil_cari : $rekomendasi;
                    class="bukuCheck"
                    name="buku[]"
                    value="<?= $b['id_buku'] ?>"
-                   onchange="updateKeranjang()">
+                   onchange="updateKeranjang(this)">
             Pilih
         <?php else: ?>
             <span style="color:red">Stok Habis</span>
@@ -143,18 +143,18 @@ $dataTampil = $isSearching ? $hasil_cari : $rekomendasi;
 </form>
 
 <!-- =========================
-SCRIPT
+SCRIPT (SUDAH FIX)
 ========================= -->
 <script>
 
-function updateKeranjang() {
+function updateKeranjang(el) {
 
     let checked = document.querySelectorAll('.bukuCheck:checked');
     let jumlah = checked.length;
 
     if (jumlah > 2) {
         alert('Maksimal 2 buku!');
-        event.target.checked = false;
+        el.checked = false; // ✅ FIX ERROR
         return;
     }
 

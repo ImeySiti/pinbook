@@ -65,34 +65,6 @@ DATA PENULIS
 
 <br><br>
 
-<!-- =========================
-DATA PENGEMBALIAN
-========================= -->
-<h4>Data Pengembalian</h4>
 
-<table border="1" cellpadding="5" cellspacing="0">
-    <tr>
-        <th>No</th>
-        <th>ID Peminjaman</th>
-        <th>Tanggal Kembali</th>
-        <th>Denda</th>
-    </tr>
-
-    <?php if (!empty($pengembalian)) : ?>
-        <?php foreach ($pengembalian as $pg): ?>
-        <tr>
-            <td><?= $pg['id_pengembalian'] ?></td>
-            <td><?= $pg['id_peminjaman'] ?></td>
-            <td><?= $pg['tanggal_kembali'] ?></td>
-            <td>Rp <?= number_format($pg['denda'], 0, ',', '.') ?></td>
-        </tr>
-        <?php endforeach; ?>
-    <?php else: ?>
-        <tr>
-            <td colspan="4">Belum ada data pengembalian</td>
-        </tr>
-    <?php endif; ?>
-
-</table>
 
 <?= $this->endSection() ?>
