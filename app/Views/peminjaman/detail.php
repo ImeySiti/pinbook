@@ -25,7 +25,7 @@
 
 <tr>
     <td>Petugas</td>
-    <td><?= $peminjaman['jabatan'] ?? '-' ?></td>
+    <td><?= $peminjaman['nama_petugas'] ?? '-' ?></td>
 </tr>
 
 <tr>

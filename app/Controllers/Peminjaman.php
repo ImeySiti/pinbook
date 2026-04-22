@@ -6,6 +6,7 @@ use App\Models\PeminjamanModel;
 use App\Models\DetailModel;
 use App\Models\BukuModel;
 use App\Models\PengembalianModel;
+use App\Models\TransaksiModel;
 
 class Peminjaman extends BaseController
 {
@@ -13,6 +14,7 @@ class Peminjaman extends BaseController
     protected $detailModel;
     protected $bukuModel;
     protected $pengembalianModel;
+    protected $transaksiModel;
     protected $db;
 
     public function __construct()
@@ -23,45 +25,57 @@ class Peminjaman extends BaseController
         $this->detailModel = new DetailModel();
         $this->bukuModel = new BukuModel();
         $this->pengembalianModel = new PengembalianModel();
+        $this->transaksiModel = new TransaksiModel();
+    }
+
+    // ================= HITUNG ONGKIR =================
+    private function hitungOngkir($alamat)
+    {
+        $alamat = strtolower($alamat);
+
+        if (str_contains($alamat, 'dekat')) {
+            return 5000;
+        } elseif (str_contains($alamat, 'sedang')) {
+            return 10000;
+        } else {
+            return 15000;
+        }
     }
 
     // ================= INDEX =================
     public function index()
-{
-    $builder = $this->db->table('peminjaman');
+    {
+        $builder = $this->db->table('peminjaman');
 
-    $builder->select('
-        peminjaman.*,
-        u_anggota.nama as nama_anggota,
-        u_petugas.nama as nama_petugas,
-        GROUP_CONCAT(buku.judul SEPARATOR ", ") as daftar_buku
-    ')
-    ->join('anggota', 'anggota.id_anggota = peminjaman.id_anggota', 'left')
-    ->join('users u_anggota', 'u_anggota.id = anggota.user_id', 'left')
+        $builder->select('
+            peminjaman.*,
+            users.nama as nama_anggota,
+            GROUP_CONCAT(buku.judul SEPARATOR ", ") as daftar_buku
+        ')
+        ->join('anggota', 'anggota.id_anggota = peminjaman.id_anggota', 'left')
+        ->join('users', 'users.id = anggota.user_id', 'left')
+        ->join('detail_peminjaman', 'detail_peminjaman.id_peminjaman = peminjaman.id_peminjaman', 'left')
+        ->join('buku', 'buku.id_buku = detail_peminjaman.id_buku', 'left')
+        ->groupBy('peminjaman.id_peminjaman');
 
-    ->join('petugas', 'petugas.id_petugas = peminjaman.id_petugas', 'left')
-    ->join('users u_petugas', 'u_petugas.id = petugas.user_id', 'left')
+        if (session()->get('role') == 'anggota') {
+            $builder->where('peminjaman.id_anggota', session()->get('id_anggota'));
+        }
 
-    ->join('detail_peminjaman', 'detail_peminjaman.id_peminjaman = peminjaman.id_peminjaman', 'left')
-    ->join('buku', 'buku.id_buku = detail_peminjaman.id_buku', 'left')
+        $data['peminjaman'] = $builder->get()->getResultArray();
 
-    ->groupBy('peminjaman.id_peminjaman');
-
-    // 🔥 FILTER ROLE
-    if (session()->get('role') == 'anggota') {
-        $builder->where('peminjaman.id_anggota', session()->get('id_anggota'));
+        return view('peminjaman/index', $data);
     }
 
-    $data['peminjaman'] = $builder->get()->getResultArray();
-
-    return view('peminjaman/index', $data);
-}
-
-public function create()
+    // ================= CREATE =================
+ public function create()
 {
-    $keyword = $this->request->getGet('q');
+    $keyword  = $this->request->getGet('q');
     $kategori = $this->request->getGet('kategori');
 
+    // =========================
+    // QUERY BUKU
+    // =========================
     $query = $this->bukuModel;
 
     if ($keyword) {
@@ -72,183 +86,309 @@ public function create()
         $query = $query->where('id_kategori', $kategori);
     }
 
-    $data['hasil_cari'] = $query->findAll();
+    $data['hasil_cari'] = ($keyword || $kategori)
+        ? $query->findAll()
+        : [];
 
-    // rekomendasi buku
+    // =========================
+    // REKOMENDASI BUKU
+    // =========================
     $data['rekomendasi'] = $this->bukuModel
         ->orderBy('id_buku', 'RANDOM')
         ->limit(5)
         ->findAll();
 
-    // anggota (pakai JOIN users biar nama tampil benar)
+    // =========================
+    // KATEGORI
+    // =========================
+    $kategoriModel = new \App\Models\KategoriModel();
+    $data['kategori_list'] = $kategoriModel->findAll();
+
+    // =========================
+    // ANGGOTA LOGIN
+    // =========================
     $data['anggota'] = $this->db->table('anggota')
-        ->select('anggota.*, users.nama as nama')
-        ->join('users', 'users.id = anggota.user_id', 'left')
+        ->where('id_anggota', session()->get('id_anggota'))
+        ->get()
+        ->getRowArray();
+
+    // =========================
+    // PETUGAS (JOIN USERS)
+    // =========================
+    $data['petugas'] = $this->db->table('petugas p')
+        ->select('p.id_petugas, p.jabatan, u.nama')
+        ->join('users u', 'u.id = p.user_id')
         ->get()
         ->getResultArray();
-        
 
+    // =========================
+    // RETURN VIEW
+    // =========================
     return view('peminjaman/create', $data);
 }
-
-    // ================= DETAIL =================
-   public function detail($id)
+    // ================= PINJAM =================
+  public function pinjamMulti()
 {
-    // ambil data peminjaman + nama user dari tabel users
-    $peminjaman = $this->peminjamanModel
-        ->select('peminjaman.*, users.nama as nama_anggota, petugas.jabatan')
-        ->join('anggota', 'anggota.id_anggota = peminjaman.id_anggota', 'left')
-        ->join('users', 'users.id = anggota.user_id', 'left')
-        ->join('petugas', 'petugas.id_petugas = peminjaman.id_petugas', 'left')
-        ->where('peminjaman.id_peminjaman', $id)
-        ->first();
+    $id_petugas = $this->request->getPost('id_petugas'); 
+    $id_anggota = session()->get('id_anggota');
+    $buku       = $this->request->getPost('buku');
+    $metode     = $this->request->getPost('metode_pengambilan');
+    $alamat     = $this->request->getPost('alamat');
 
-    // kalau data tidak ditemukan
-    if (!$peminjaman) {
-        return redirect()->to('/peminjaman')->with('error', 'Data tidak ditemukan');
+    // ================= VALIDASI DASAR =================
+    if (!$buku) {
+        return redirect()->back()->with('error', 'Pilih buku dulu');
     }
 
-    // ambil buku yang dipinjam
-    $buku = $this->detailModel
-        ->select('buku.judul')
-        ->join('buku', 'buku.id_buku = detail_peminjaman.id_buku', 'left')
-        ->where('detail_peminjaman.id_peminjaman', $id)
-        ->findAll();
+    if (count($buku) > 2) {
+        return redirect()->back()->with('error', 'Maksimal 2 buku');
+    }
+
+    if (!$metode) {
+        return redirect()->back()->with('error', 'Pilih metode pengambilan');
+    }
+
+    if ($metode == 'antar' && empty($alamat)) {
+        return redirect()->back()->with('error', 'Alamat wajib diisi');
+    }
+
+    // ================= LOGIKA PETUGAS =================
+    if ($metode == 'ambil') {
+        // wajib pilih petugas
+        if (empty($id_petugas)) {
+            return redirect()->back()->with('error', 'Pilih petugas');
+        }
+        $status_pengantaran = 'diambil_langsung';
+    } else {
+        // antar → petugas NULL
+        $id_petugas = null;
+        $status_pengantaran = 'menunggu_konfirmasi_petugas';
+    }
+
+    // ================= CEK LIMIT PINJAMAN =================
+    $jumlah = $this->detailModel
+        ->join('peminjaman', 'peminjaman.id_peminjaman = detail_peminjaman.id_peminjaman')
+        ->where('peminjaman.id_anggota', $id_anggota)
+        ->where('peminjaman.status !=', 'kembali')
+        ->countAllResults();
+
+    if (($jumlah + count($buku)) > 2) {
+        return redirect()->back()->with('error', 'Maksimal total 2 buku');
+    }
+
+    // ================= INSERT PEMINJAMAN =================
+    $this->peminjamanModel->insert([
+        'id_anggota' => $id_anggota,
+        'id_petugas' => $id_petugas,
+        'tanggal_pinjam' => date('Y-m-d'),
+        'tanggal_kembali' => date('Y-m-d', strtotime('+7 days')),
+        'status' => 'menunggu',
+        'metode_pengambilan' => $metode,
+        'alamat_pengantaran' => ($metode == 'antar') ? $alamat : null,
+        'status_pengantaran' => $status_pengantaran
+    ]);
+
+    $id_peminjaman = $this->peminjamanModel->insertID();
+
+    // ================= DETAIL & STOK =================
+    foreach ($buku as $id_buku) {
+        $dataBuku = $this->bukuModel->find($id_buku);
+
+        if ($dataBuku && $dataBuku['tersedia'] > 0) {
+
+            // simpan detail
+            $this->detailModel->insert([
+                'id_peminjaman' => $id_peminjaman,
+                'id_buku' => $id_buku,
+                'jumlah' => 1
+            ]);
+
+            // KURANGI STOK
+            $this->bukuModel->update($id_buku, [
+                'tersedia' => $dataBuku['tersedia'] - 1
+            ]);
+        }
+    }
+
+    return redirect()->to('/peminjaman')
+        ->with('success', 'Berhasil pinjam buku');
+}
+    // ================= PEMBAYARAN =================
+    public function pembayaran($id)
+    {
+        $peminjaman = $this->peminjamanModel->find($id);
+
+        if (!$peminjaman) {
+            return redirect()->to('/peminjaman')->with('error', 'Data tidak ditemukan');
+        }
+
+        $ongkir = $this->hitungOngkir($peminjaman['alamat_pengantaran']);
+
+        // 🔥 transaksi (anti dobel)
+        $transaksi = $this->transaksiModel
+            ->where('id_peminjaman', $id)
+            ->where('jenis', 'ongkir')
+            ->first();
+
+        if (!$transaksi) {
+            $this->transaksiModel->insert([
+                'id_peminjaman' => $id,
+                'jenis' => 'ongkir',
+                'jumlah' => $ongkir,
+                'status' => 'pending',
+                'tanggal' => date('Y-m-d H:i:s')
+            ]);
+
+            $id_transaksi = $this->transaksiModel->insertID();
+        } else {
+            $id_transaksi = $transaksi['id_transaksi'];
+            $ongkir = $transaksi['jumlah'];
+        }
+
+        $dataQR = json_encode([
+            'id_transaksi' => $id_transaksi,
+            'nominal' => $ongkir
+        ]);
+
+        return view('peminjaman/pembayaran', [
+            'peminjaman' => $peminjaman,
+            'ongkir' => $ongkir,
+            'dataQR' => $dataQR,
+            'id_transaksi' => $id_transaksi
+        ]);
+    }
+
+    // ================= PROSES BAYAR =================
+  public function prosesBayar($id_transaksi)
+{
+    $file = $this->request->getFile('bukti');
+
+    if (!$file || !$file->isValid()) {
+        return redirect()->back()->with('error', 'Bukti wajib diupload');
+    }
+
+    if (!in_array($file->getExtension(), ['jpg','jpeg','png'])) {
+        return redirect()->back()->with('error', 'Format harus JPG/PNG');
+    }
+
+    // simpan file
+    $namaFile = $file->getRandomName();
+    $file->move('uploads/bukti', $namaFile);
+
+    // ambil transaksi
+    $transaksi = $this->transaksiModel->find($id_transaksi);
+
+    if (!$transaksi) {
+        return redirect()->back()->with('error', 'Transaksi tidak ditemukan');
+    }
+
+    // update transaksi
+    $this->transaksiModel->update($id_transaksi, [
+        'bukti_bayar' => $namaFile,
+        'status' => 'menunggu_verifikasi'
+    ]);
+
+    // 🔥 INI YANG KAMU LUPA (UPDATE PEMINJAMAN)
+    $this->peminjamanModel->update($transaksi['id_peminjaman'], [
+        'status' => 'diproses', // atau "dibayar"
+        'status_pengantaran' => 'menunggu_konfirmasi'
+    ]);
+
+    return redirect()->to('/peminjaman')
+        ->with('success', 'Bukti pembayaran berhasil dikirim');
+}
+
+    public function mulaiAntar($id)
+    {
+        $this->peminjamanModel->update($id, [
+            'status_pengantaran' => 'dalam_pengantaran'
+        ]);
+
+        return redirect()->to('/peminjaman')->with('success', 'Buku sedang diantar');
+    }
+
+    public function selesai($id)
+    {
+        $this->peminjamanModel->update($id, [
+            'status_pengantaran' => 'selesai',
+            'status' => 'dipinjam'
+        ]);
+
+        return redirect()->to('/peminjaman')->with('success', 'Pengantaran selesai');
+    }
+public function detail($id)
+{
+    $db = \Config\Database::connect();
+
+    // =========================
+    // DETAIL PEMINJAMAN
+    // =========================
+    $peminjaman = $db->table('peminjaman pm')
+        ->select('
+            pm.*,
+            u1.nama as nama_anggota,
+            u2.nama as nama_petugas
+        ')
+        ->join('anggota a', 'a.id_anggota = pm.id_anggota', 'left')
+        ->join('users u1', 'u1.id = a.user_id', 'left')
+        ->join('petugas p', 'p.id_petugas = pm.id_petugas', 'left')
+        ->join('users u2', 'u2.id = p.user_id', 'left')
+        ->where('pm.id_peminjaman', $id)
+        ->get()
+        ->getRowArray();
+
+    // =========================
+    // BUKU YANG DIPINJAM
+    // =========================
+    $buku = $db->table('detail_peminjaman dp')
+        ->select('b.judul')
+        ->join('buku b', 'b.id_buku = dp.id_buku')
+        ->where('dp.id_peminjaman', $id)
+        ->get()
+        ->getResultArray();
 
     return view('peminjaman/detail', [
         'peminjaman' => $peminjaman,
         'buku' => $buku
     ]);
 }
-   public function pinjam($id_buku)
-{
-    $buku = $this->bukuModel->find($id_buku);
-
-    if ($buku['tersedia'] <= 0) {
-        return redirect()->back()->with('error', 'Stok habis');
-    }
-
-    // 1. INSERT PEMINJAMAN
-    $this->peminjamanModel->insert([
-        'id_anggota' => session()->get('id_anggota'),
-        'id_petugas' => session()->get('id_petugas'),
-        'tanggal_pinjam' => date('Y-m-d'),
-        'tanggal_kembali' => date('Y-m-d', strtotime('+7 days')),
-        'status' => 'dipinjam'
-    ]);
-
-    // 🔥 AMBIL ID BARU
-    $id_peminjaman = $this->peminjamanModel->insertID();
-
-    // 2. INSERT DETAIL
-    $this->detailModel->insert([
-        'id_peminjaman' => $id_peminjaman,
-        'id_buku' => $id_buku,
-        'jumlah' => 1
-    ]);
-
-    // 3. UPDATE STOK
-    $this->bukuModel->update($id_buku, [
-        'tersedia' => $buku['tersedia'] - 1
-    ]);
-
-    return redirect()->to('/peminjaman');
-}
-
-    // ================= EDIT =================
-    public function edit($id)
-    {
-        $data['peminjaman'] = $this->peminjamanModel->find($id);
-
-        $data['detail'] = $this->detailModel
-            ->select('detail_peminjaman.*, buku.judul')
-            ->join('buku', 'buku.id_buku = detail_peminjaman.id_buku', 'left')
-            ->where('id_peminjaman', $id)
-            ->findAll();
-
-        $data['rekomendasi'] = $this->bukuModel
-            ->orderBy('id_buku', 'RANDOM')
-            ->limit(5)
-            ->findAll();
-
-        $data['anggota'] = $this->db->table('anggota')->get()->getResultArray();
-
-        return view('peminjaman/edit', $data);
-    }
-
-    // ================= UPDATE =================
-    public function update($id)
-    {
-        $aksi = $this->request->getPost('aksi');
-
-        if ($aksi == 'perpanjang') {
-            $p = $this->peminjamanModel->find($id);
-
-            $this->peminjamanModel->update($id, [
-                'tanggal_kembali' => date('Y-m-d', strtotime($p['tanggal_kembali'].' +7 days')),
-                'status' => 'diperpanjang'
-            ]);
-        }
-
-        if ($aksi == 'tambah') {
-            $id_buku = $this->request->getPost('id_buku');
-
-            $buku = $this->bukuModel->find($id_buku);
-
-            if ($buku && $buku['tersedia'] > 0) {
-                $this->detailModel->insert([
-                    'id_peminjaman' => $id,
-                    'id_buku' => $id_buku,
-                    'jumlah' => 1
-                ]);
-
-                $this->bukuModel->update($id_buku, [
-                    'tersedia' => $buku['tersedia'] - 1
-                ]);
-            }
-        }
-
-        return redirect()->to('/peminjaman/edit/'.$id);
-    }
-// perpanjang
-public function perpanjang($id)
+public function konfirmasi($id)
 {
     $peminjaman = $this->peminjamanModel->find($id);
 
     if (!$peminjaman) {
-        return redirect()->back()->with('error', 'Data tidak ditemukan');
+        return redirect()->to('/peminjaman')
+            ->with('error', 'Data tidak ditemukan');
     }
 
-    // contoh: tambah 7 hari
-    $tanggalBaru = date('Y-m-d', strtotime($peminjaman['tanggal_kembali'] . ' +7 days'));
+    // hanya untuk pengantaran
+    if ($peminjaman['metode_pengambilan'] != 'antar') {
+        return redirect()->to('/peminjaman')
+            ->with('error', 'Bukan pengantaran');
+    }
 
+    // update status jadi siap diantar
     $this->peminjamanModel->update($id, [
-        'tanggal_kembali' => $tanggalBaru
+        'status_pengantaran' => 'siap_diantar',
+        'id_petugas' => session()->get('id_petugas')
     ]);
-
-    return redirect()->back()->with('success', 'Berhasil diperpanjang 7 hari');
-}
-    // ================= DELETE =================
-   public function delete($id)
-{
-    // hapus pengembalian dulu
-    $this->pengembalianModel
-        ->where('id_peminjaman', $id)
-        ->delete();
-
-    // hapus detail peminjaman
-    $this->detailModel
-        ->where('id_peminjaman', $id)
-        ->delete();
-
-    // baru hapus peminjaman
-    $this->peminjamanModel->delete($id);
 
     return redirect()->to('/peminjaman')
-        ->with('success', 'Data berhasil dihapus');
+        ->with('success', 'Pengantaran sudah dikonfirmasi');
 }
+    
+    // ================= DELETE =================
+    public function delete($id)
+    {
+        $this->detailModel->where('id_peminjaman', $id)->delete();
+        $this->pengembalianModel->where('id_peminjaman', $id)->delete();
+        $this->peminjamanModel->delete($id);
+
+        return redirect()->to('/peminjaman')->with('success', 'Data berhasil dihapus');
+    }
+
     // ================= KEMBALI =================
-public function kembali($id)
+  public function kembali($id)
 {
     $peminjaman = $this->peminjamanModel->find($id);
 
@@ -256,39 +396,46 @@ public function kembali($id)
         return redirect()->back()->with('error', 'Data tidak ditemukan');
     }
 
-    $bukuModel = new \App\Models\BukuModel();
-    $detailModel = new \App\Models\DetailModel();
-    $pengembalianModel = new \App\Models\PengembalianModel();
+    $tanggal_kembali = date('Y-m-d');
 
-    // ambil semua buku dalam peminjaman
-    $detail = $detailModel->where('id_peminjaman', $id)->findAll();
+    // hitung denda
+    $batas = strtotime($peminjaman['tanggal_kembali']);
+    $kembali = strtotime($tanggal_kembali);
 
-    foreach ($detail as $d) {
-        $buku = $bukuModel->find($d['id_buku']);
+    $denda = 0;
+    if ($kembali > $batas) {
+        $telat = ($kembali - $batas) / 86400;
+        $denda = $telat * 15000;
+    }
 
-        if ($buku) {
-            // 1. tambah stok
-            $bukuModel->update($d['id_buku'], [
-                'tersedia' => $buku['tersedia'] + 1
-            ]);
+    // ================= UPDATE PEMINJAMAN =================
+    $this->peminjamanModel->update($id, [
+        'status' => 'kembali'
+    ]);
 
-            // 2. simpan ke tabel pengembalian
-            $pengembalianModel->insert([
-                'id_peminjaman'   => $id,
-                'id_buku'         => $d['id_buku'],
-                'tanggal_kembali' => date('Y-m-d'),
-                'denda'           => 0,
-                'status'          => 'dikembalikan'
+    // ================= AMBIL DETAIL BUKU =================
+    $buku = $this->detailModel
+        ->where('id_peminjaman', $id)
+        ->findAll();
+
+    // ================= TAMBAH STOK =================
+    foreach ($buku as $b) {
+        $dataBuku = $this->bukuModel->find($b['id_buku']);
+
+        if ($dataBuku) {
+            $this->bukuModel->update($b['id_buku'], [
+                'tersedia' => $dataBuku['tersedia'] + 1
             ]);
         }
     }
 
-    // 3. update status peminjaman
-    $this->peminjamanModel->update($id, [
-        'status' => 'kembali',
-        'tanggal_kembali_real' => date('Y-m-d')
+    // ================= INSERT PENGEMBALIAN =================
+    $this->db->table('pengembalian')->insert([
+        'id_peminjaman' => $id,
+        'tanggal_dikembalikan' => $tanggal_kembali,
+        'denda' => $denda
     ]);
 
-    return redirect()->back()->with('success', 'Buku berhasil dikembalikan & masuk data pengembalian');
-}
+    return redirect()->to('/peminjaman')
+        ->with('success', 'Buku berhasil dikembalikan');
 }

@@ -29,56 +29,80 @@ class Users extends BaseController
     // Menyimpan data user baru
     public function store()
     {
-        // ================= VALIDASI =================
-        // Mengambil service validation dari CodeIgniter
         $validation = \Config\Services::validation();
 
-        // Menentukan aturan validasi
         $validation->setRules([
-            'nama'     => 'required', // wajib diisi
-            'email'    => 'required|valid_email', // wajib & format email valid
-            'username' => 'required|is_unique[users.username]', // unik di tabel users
-            'password' => 'required|min_length[4]', // minimal 4 karakter
-            'role'     => 'required', // wajib diisi
+            'nama'     => 'required',
+            'email'    => 'required|valid_email',
+            'username' => 'required|is_unique[users.username]',
+            'password' => 'required|min_length[4]',
+            'role'     => 'required',
         ]);
 
-        // Jika validasi gagal
         if (!$validation->withRequest($this->request)->run()) {
-            // Kembali ke halaman sebelumnya + tampilkan error
             return redirect()->back()->with('error', implode('<br>', $validation->getErrors()));
         }
 
         // ================= UPLOAD FOTO =================
-        // Mengambil file dari input name="foto"
         $foto = $this->request->getFile('foto');
-
-        // Default nama foto null
         $namaFoto = null;
 
-        // Jika ada file & valid & belum dipindahkan
         if ($foto && $foto->isValid() && !$foto->hasMoved()) {
-            // Generate nama random untuk menghindari konflik nama file
             $namaFoto = $foto->getRandomName();
-
-            // Pindahkan file ke folder public/uploads/users
             $foto->move(FCPATH . 'uploads/users', $namaFoto);
         }
 
-        // ================= SIMPAN DATA =================
-        $this->users->save([
-            'nama'     => $this->request->getPost('nama'), // ambil dari form
+        // ================= TRANSACTION =================
+        $db = \Config\Database::connect();
+        $db->transStart();
+
+        // ================= SIMPAN USERS =================
+        $this->users->insert([
+            'nama'     => $this->request->getPost('nama'),
             'email'    => $this->request->getPost('email'),
             'username' => $this->request->getPost('username'),
-            // Password di-hash untuk keamanan
             'password' => password_hash($this->request->getPost('password'), PASSWORD_DEFAULT),
             'role'     => $this->request->getPost('role'),
-            'foto'     => $namaFoto // simpan nama file foto
+            'foto'     => $namaFoto
         ]);
 
-        // Redirect ke halaman login + pesan sukses
+        // Ambil ID user yang baru dibuat
+        $userId = $this->users->insertID();
+
+        // ================= JIKA ROLE ANGGOTA =================
+        if ($this->request->getPost('role') == 'anggota') {
+
+            $anggotaModel = new \App\Models\AnggotaModel();
+
+            $anggotaModel->insert([
+                'user_id' => $userId,
+                'nis' => $this->request->getPost('nis'), // opsional
+                'alamat' => $this->request->getPost('alamat'),
+                'no_hp' => $this->request->getPost('no_hp'),
+                'tanggal_daftar' => date('Y-m-d')
+            ]);
+        } elseif ($this->request->getPost('role') == 'petugas') {
+
+            $petugasModel = new \App\Models\PetugasModel();
+
+            $petugasModel->insert([
+                'user_id' => $userId,
+                'jabatan' => $this->request->getPost('jabatan'),
+                'tanggal_mulai' => date('Y-m-d')
+            ]);
+        }
+
+
+        // ================= SELESAI TRANSACTION =================
+        $db->transComplete();
+
+        // Jika gagal
+        if ($db->transStatus() === false) {
+            return redirect()->back()->with('error', 'Gagal menyimpan data!');
+        }
+
         return redirect()->to('/login')->with('success', 'User berhasil ditambahkan!');
     }
-
     // Menampilkan daftar user (dengan filter & pagination)
     public function index()
     {

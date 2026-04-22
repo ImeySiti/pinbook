@@ -8,13 +8,17 @@ class PeminjamanModel extends Model
 {
     protected $table = 'peminjaman';
     protected $primaryKey = 'id_peminjaman';
-    protected $allowedFields = [
-        'id_anggota',
-        'id_petugas',
-        'tanggal_pinjam',
-        'tanggal_kembali',
-        'status'
-    ];
+   protected $allowedFields = [
+    'id_anggota',
+    'id_petugas',
+    'tanggal_pinjam',
+    'tanggal_kembali',
+    'status',
+    'status_pengantaran',
+    'bukti_bayar',
+    'metode_pengambilan',
+    'alamat_pengantaran'
+];
 
     // 🔥 TAMBAHKAN INI
     public function getWithAnggota()
@@ -25,4 +29,5 @@ class PeminjamanModel extends Model
             ->get()
             ->getResultArray();
     }
+    
 }

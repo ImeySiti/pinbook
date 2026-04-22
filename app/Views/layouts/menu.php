@@ -41,7 +41,14 @@
 
 <br>
 Masuk sebagai:
-<b><?= session('nama'); ?> (<?= session('role'); ?>)</b>
+<b><?= session('nama'); ?> (<?= session('role'); ?>)
+    <?php if (session()->get('role') == 'anggota') {
+        echo ' - ID Anggota: ' . session('id_anggota');
+    } elseif (session()->get('role') == 'petugas') {
+        echo ' - ID Petugas: ' . session('id_petugas');
+    }
+    ?>
+</b>
 <br><br>
 
 <img src="<?= base_url('uploads/users/' . session()->get('foto')) ?>" height="80" />

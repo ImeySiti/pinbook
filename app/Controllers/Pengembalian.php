@@ -19,57 +19,59 @@ class Pengembalian extends BaseController
     // =========================
     // LIST
     // =========================
-    public function index()
-    {
-        $db = \Config\Database::connect();
+   public function index()
+{
+    $session = session();
+    $role = $session->get('role');
+    $id_anggota = $session->get('id_anggota');
 
-        $data['pengembalian'] = $db->table('pengembalian')
-            ->select('
-                pengembalian.id_pengembalian,
-                pengembalian.tanggal_dikembalikan,
-                pengembalian.denda,
+    $db = \Config\Database::connect();
 
-                peminjaman.id_peminjaman,
-                peminjaman.tanggal_pinjam,
-                peminjaman.tanggal_kembali as batas_kembali,
+    $builder = $db->table('pengembalian')
+        ->select('
+            pengembalian.id_pengembalian,
+            pengembalian.tanggal_dikembalikan,
+            pengembalian.denda,
 
-                u_anggota.nama as nama_anggota,
-                GROUP_CONCAT(buku.judul SEPARATOR ", ") as daftar_buku
-            ')
-            ->join('peminjaman', 'peminjaman.id_peminjaman = pengembalian.id_peminjaman', 'left')
-            ->join('anggota', 'anggota.id_anggota = peminjaman.id_anggota', 'left')
-            ->join('users u_anggota', 'u_anggota.id = anggota.user_id', 'left')
-            ->join('detail_peminjaman', 'detail_peminjaman.id_peminjaman = peminjaman.id_peminjaman', 'left')
-            ->join('buku', 'buku.id_buku = detail_peminjaman.id_buku', 'left')
-            ->groupBy('pengembalian.id_pengembalian')
-            ->get()
-            ->getResultArray();
+            peminjaman.id_peminjaman,
+            peminjaman.tanggal_pinjam,
+            peminjaman.tanggal_kembali as batas_kembali,
 
-        // =========================
-        // HITUNG DENDA (VIEW ONLY)
-        // =========================
-        foreach ($data['pengembalian'] as &$p) {
+            u.nama as nama_anggota,
+            GROUP_CONCAT(buku.judul SEPARATOR ", ") as daftar_buku
+        ')
+        ->join('peminjaman', 'peminjaman.id_peminjaman = pengembalian.id_peminjaman', 'left')
+        ->join('anggota', 'anggota.id_anggota = peminjaman.id_anggota', 'left')
+        ->join('users u', 'u.id = anggota.user_id', 'left')
+        ->join('detail_peminjaman', 'detail_peminjaman.id_peminjaman = peminjaman.id_peminjaman', 'left')
+        ->join('buku', 'buku.id_buku = detail_peminjaman.id_buku', 'left')
+        ->groupBy('pengembalian.id_pengembalian');
 
-            $denda = 0;
-
-            if (!empty($p['batas_kembali']) && !empty($p['tanggal_dikembalikan'])) {
-
-                $batas   = strtotime($p['batas_kembali']);
-                $kembali = strtotime($p['tanggal_dikembalikan']);
-
-                $telat = ($kembali - $batas) / 86400;
-
-                if ($telat > 0) {
-                    $denda = $telat * 15000;
-                }
-            }
-
-            $p['denda_otomatis'] = $denda;
-        }
-
-        return view('pengembalian/index', $data);
+    // 🔥 INI YANG KAMU LUPA
+    if ($role != 'admin') {
+        $builder->where('peminjaman.id_anggota', $id_anggota);
     }
 
+    $data['pengembalian'] = $builder->get()->getResultArray();
+
+    // hitung denda otomatis
+    foreach ($data['pengembalian'] as &$p) {
+        $p['denda_otomatis'] = 0;
+
+        if (!empty($p['batas_kembali']) && !empty($p['tanggal_dikembalikan'])) {
+
+            $batas = strtotime($p['batas_kembali']);
+            $kembali = strtotime($p['tanggal_dikembalikan']);
+
+            if ($kembali > $batas) {
+                $telat = ($kembali - $batas) / 86400;
+                $p['denda_otomatis'] = $telat * 15000;
+            }
+        }
+    }
+
+    return view('pengembalian/index', $data);
+}
     // =========================
     // CREATE FORM
     // =========================
@@ -81,29 +83,16 @@ class Pengembalian extends BaseController
     }
 
     // =========================
-    // STORE (DENDA AUTO)
+    // STORE
     // =========================
     public function store()
     {
         $id_peminjaman = $this->request->getPost('id_peminjaman');
         $tanggal_kembali = $this->request->getPost('tanggal_dikembalikan');
 
-        // ambil data peminjaman
         $pinjam = $this->peminjaman->find($id_peminjaman);
 
-        $denda = 0;
-
-        if (!empty($pinjam['tanggal_kembali'])) {
-
-            $batas   = strtotime($pinjam['tanggal_kembali']);
-            $kembali = strtotime($tanggal_kembali);
-
-            $telat = ($kembali - $batas) / 86400;
-
-            if ($telat > 0) {
-                $denda = $telat * 15000;
-            }
-        }
+        $denda = $this->hitungDenda($pinjam['tanggal_kembali'], $tanggal_kembali);
 
         $this->pengembalian->save([
             'id_peminjaman'        => $id_peminjaman,
@@ -112,17 +101,6 @@ class Pengembalian extends BaseController
         ]);
 
         return redirect()->to('/pengembalian');
-    }
-
-    // =========================
-    // EDIT
-    // =========================
-    public function edit($id)
-    {
-        return view('pengembalian/edit', [
-            'pengembalian' => $this->pengembalian->find($id),
-            'peminjaman'   => $this->peminjaman->findAll()
-        ]);
     }
 
     // =========================
@@ -135,19 +113,7 @@ class Pengembalian extends BaseController
 
         $pinjam = $this->peminjaman->find($id_peminjaman);
 
-        $denda = 0;
-
-        if (!empty($pinjam['tanggal_kembali'])) {
-
-            $batas   = strtotime($pinjam['tanggal_kembali']);
-            $kembali = strtotime($tanggal_kembali);
-
-            $telat = ($kembali - $batas) / 86400;
-
-            if ($telat > 0) {
-                $denda = $telat * 15000;
-            }
-        }
+        $denda = $this->hitungDenda($pinjam['tanggal_kembali'], $tanggal_kembali);
 
         $this->pengembalian->update($id, [
             'id_peminjaman'        => $id_peminjaman,
@@ -156,6 +122,23 @@ class Pengembalian extends BaseController
         ]);
 
         return redirect()->to('/pengembalian');
+    }
+
+    // =========================
+    // FUNCTION DENDA
+    // =========================
+    private function hitungDenda($batas, $kembali)
+    {
+        if (empty($batas) || empty($kembali)) return 0;
+
+        $batas = strtotime($batas);
+        $kembali = strtotime($kembali);
+
+        if ($kembali <= $batas) return 0;
+
+        $telat = ($kembali - $batas) / 86400;
+
+        return $telat * 15000;
     }
 
     // =========================

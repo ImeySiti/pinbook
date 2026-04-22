@@ -62,7 +62,7 @@ $routes->get('penerbit/edit/(:num)', 'Penerbit::edit/$1');
 $routes->post('penerbit/update/(:num)', 'Penerbit::update/$1');
 $routes->get('penerbit/delete/(:num)', 'Penerbit::delete/$1');
 
-//rak
+
 // RAK
 $routes->get('/rak', 'Rak::index');
 $routes->get('/rak/create', 'Rak::create');
@@ -95,6 +95,14 @@ $routes->post('/peminjaman/update/(:num)', 'Peminjaman::update/$1');
 $routes->get('/peminjaman/delete/(:num)', 'Peminjaman::delete/$1');
 $routes->get('/peminjaman/kembali/(:num)', 'Peminjaman::kembali/$1');
 $routes->get('peminjaman/perpanjang/(:num)', 'Peminjaman::perpanjang/$1');
+$routes->post('/peminjaman/pinjamMulti', 'Peminjaman::pinjamMulti');
+$routes->get('peminjaman/pembayaran/(:num)', 'Peminjaman::pembayaran/$1');
+$routes->post('peminjaman/prosesBayar/(:num)', 'Peminjaman::prosesBayar/$1');
+$routes->post('peminjaman/uploadBukti/(:num)', 'Peminjaman::uploadBukti/$1');
+$routes->get('peminjaman/konfirmasi/(:num)', 'Peminjaman::konfirmasi/$1');
+$routes->get('peminjaman/mulaiAntar/(:num)', 'Peminjaman::mulaiAntar/$1');
+$routes->get('peminjaman/selesai/(:num)', 'Peminjaman::selesai/$1');
+$routes->post('peminjaman/pilihMetode/(:num)', 'Peminjaman::pilihMetode/$1');
 
 $routes->group('pengembalian', function($routes) {
 $routes->get('/', 'Pengembalian::index');
