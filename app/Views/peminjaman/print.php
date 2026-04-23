@@ -1,25 +1,34 @@
-<h2>Nota Peminjaman</h2>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Print Peminjaman</title>
+</head>
+<body onload="window.print()">
 
-<p>ID: <?= $peminjaman['id_peminjaman'] ?></p>
-<p>Anggota: <?= $peminjaman['nama_anggota'] ?></p>
-<p>Status: <?= $peminjaman['status'] ?></p>
+<h2>Data Peminjaman</h2>
 
-<hr>
-
-<table border="1" cellpadding="5">
+<table border="1" cellpadding="8" cellspacing="0">
     <tr>
-        <th>Buku</th>
-        <th>Jumlah</th>
+        <th>No</th>
+        <th>Nama Anggota</th>
+        <th>Tgl Pinjam</th>
+        <th>Tgl Kembali</th>
+        <th>Status</th>
+        <th>Metode</th>
     </tr>
 
-    <?php foreach ($detail as $d): ?>
+    <?php $no = 1; foreach ($peminjaman as $p): ?>
     <tr>
-        <td><?= $d['judul'] ?></td>
-        <td><?= $d['jumlah'] ?></td>
+        <td><?= $no++ ?></td>
+        <td><?= $p['nama_anggota'] ?? '-' ?></td>
+        <td><?= $p['tanggal_pinjam'] ?></td>
+        <td><?= $p['tanggal_kembali'] ?></td>
+        <td><?= $p['status'] ?></td>
+        <td><?= $p['metode_pengambilan'] ?></td>
     </tr>
     <?php endforeach; ?>
+
 </table>
 
-<script>
-window.print();
-</script>
+</body>
+</html>

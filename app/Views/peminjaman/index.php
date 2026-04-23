@@ -25,7 +25,9 @@
 <?php endif; ?>
 
 <br><br>
-
+<?php if (session()->get('role') == 'admin'): ?>
+    <a href="<?= base_url('peminjaman/print') ?>" target="_blank">🖨 Print Semua</a>
+<?php endif; ?>
 <?php
 // ================= STATUS UTAMA =================
 $statusText = [
@@ -202,6 +204,7 @@ $map = [
         <?php if (session()->get('role') == 'admin'): ?>
             | <a href="<?= base_url('peminjaman/delete/'.$p['id_peminjaman']) ?>">Hapus</a>
         <?php endif; ?>
+        | <a href="<?= base_url('peminjaman/wa/'.$p['id_peminjaman']) ?>" target="_blank">📱 WA</a>
 
     </td>
 </tr>

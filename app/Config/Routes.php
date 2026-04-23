@@ -114,36 +114,31 @@ $routes->post('buku/search', 'Buku::search');
 // ================== PEMINJAMAN ==================
 $routes->group('peminjaman', ['filter' => 'auth'], function($routes) {
 
-    // ================= LIST & CREATE =================
     $routes->get('/', 'Peminjaman::index');
     $routes->get('create', 'Peminjaman::create');
     $routes->post('pinjamMulti', 'Peminjaman::pinjamMulti');
 
-    // ================= DETAIL =================
     $routes->get('detail/(:num)', 'Peminjaman::detail/$1');
 
-    // ================= PEMBAYARAN =================
     $routes->get('pembayaran/(:num)', 'Peminjaman::bayarView/$1');
     $routes->post('prosesBayar/(:num)', 'Peminjaman::prosesBayar/$1');
 
-    // ================= STATUS PINJAM =================
     $routes->get('kembali/(:num)', 'Peminjaman::kembali/$1');
     $routes->get('selesai/(:num)', 'Peminjaman::selesai/$1');
 
-    // ================= OPSIONAL =================
     $routes->get('konfirmasi/(:num)', 'Peminjaman::konfirmasi/$1');
     $routes->get('mulaiAntar/(:num)', 'Peminjaman::mulaiAntar/$1');
     $routes->get('perpanjang/(:num)', 'Peminjaman::perpanjang/$1');
 
     $routes->get('delete/(:num)', 'Peminjaman::delete/$1');
 
-    // ================= ISI DATA =================
     $routes->get('isiData', 'Peminjaman::isiData');
     $routes->post('simpanData', 'Peminjaman::simpanData');
 
-
+    // ✅ FIX INI
+    $routes->get('print', 'Peminjaman::print');
+    $routes->get('wa/(:num)', 'Peminjaman::wa/$1');
 });
-
 
 // ================== PENGEMBALIAN ==================
 $routes->group('pengembalian', function($routes) {

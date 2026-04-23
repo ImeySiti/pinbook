@@ -94,12 +94,17 @@ if ($this->request->getPost('kategori_baru')) {
     }
 
     // penerbit
-    $id_penerbit = $this->request->getPost('id_penerbit');
-    if ($this->request->getPost('penerbit_baru')) {
-        $id_penerbit = $penerbitModel->insert([
-            'nama_penerbit' => $this->request->getPost('penerbit_baru')
-        ]);
-    }
+   $id_penerbit = $this->request->getPost('id_penerbit');
+
+if (!empty($this->request->getPost('penerbit_baru'))) {
+
+    $penerbitModel->insert([
+        'nama_penerbit' => $this->request->getPost('penerbit_baru'),
+        'alamat'        => $this->request->getPost('alamat_penerbit_baru')
+    ]);
+
+    $id_penerbit = $penerbitModel->getInsertID();
+}
 
     // ambil rak
     $id_rak = $this->request->getPost('id_rak');
@@ -231,13 +236,17 @@ if ($this->request->getPost('kategori_baru')) {
 
         // ======================
         // PENERBIT
-        // ======================
-        $id_penerbit = $this->request->getPost('id_penerbit');
-        if ($this->request->getPost('penerbit_baru')) {
-            $id_penerbit = $penerbitModel->insert([
-                'nama_penerbit' => $this->request->getPost('penerbit_baru')
-            ]);
-        }
+$id_penerbit = $this->request->getPost('id_penerbit');
+
+if (!empty($this->request->getPost('penerbit_baru'))) {
+
+    $penerbitModel->insert([
+        'nama_penerbit' => $this->request->getPost('penerbit_baru'),
+        'alamat'        => $this->request->getPost('alamat_penerbit_baru')
+    ]);
+
+    $id_penerbit = $penerbitModel->getInsertID();
+}
 
         // ======================
         // RAK

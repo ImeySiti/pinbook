@@ -247,7 +247,45 @@ public function detail($id)
 
         return redirect()->to('/peminjaman');
     }
+    //print
+    public function print()
+{
+    $data['peminjaman'] = $this->db->table('peminjaman p')
+        ->select('p.*, u.nama as nama_anggota')
+        ->join('anggota a', 'a.id_anggota = p.id_anggota', 'left')
+        ->join('users u', 'u.id = a.user_id', 'left')
+        ->orderBy('p.id_peminjaman', 'DESC')
+        ->get()->getResultArray();
 
+    return view('peminjaman/print', $data);
+}
+// wa
+public function wa($id)
+{
+    $p = $this->db->table('peminjaman p')
+        ->select('p.*, u.nama as nama_anggota, a.no_hp')
+        ->join('anggota a', 'a.id_anggota = p.id_anggota', 'left')
+        ->join('users u', 'u.id = a.user_id', 'left')
+        ->where('p.id_peminjaman', $id)
+        ->get()->getRowArray();
+
+    if (!$p) {
+        return redirect()->to('/peminjaman');
+    }
+
+    // ambil nomor asli
+    $no = preg_replace('/^0/', '62', $p['no_hp']);
+
+    $pesan = "DATA PEMINJAMAN\n\n";
+    $pesan .= "Nama: " . ($p['nama_anggota'] ?? '-') . "\n";
+    $pesan .= "Tanggal Pinjam: " . $p['tanggal_pinjam'] . "\n";
+    $pesan .= "Tanggal Kembali: " . $p['tanggal_kembali'] . "\n";
+    $pesan .= "Status: " . $p['status'] . "\n";
+    $pesan .= "Metode: " . $p['metode_pengambilan'] . "\n";
+
+    return redirect()->to("https://wa.me/" . $no . "?text=" . urlencode($pesan));
+}
+//kembali
     public function kembali($id)
     {
         $this->peminjamanModel->update($id, [
@@ -257,4 +295,5 @@ public function detail($id)
         return redirect()->to('/peminjaman')
             ->with('success', 'Buku dikembalikan');
     }
+    
 }
