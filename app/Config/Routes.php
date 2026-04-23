@@ -44,12 +44,23 @@ $routes->get('/users/print', 'Users::print', $allRole);
 $routes->get('/users/wa/(:num)', 'Users::wa/$1', $allRole);
 
 
-// ================== DATA ANGGOTA ==================
-$routes->group('anggota', ['filter' => 'auth'], function($routes) {
-    $routes->get('isiData', 'Peminjaman::isiData');
-    $routes->post('simpanData', 'Peminjaman::simpanData');
-});
+// ================= ANGGOTA CRUD =================
+$routes->get('anggota', 'Anggota::index');
+$routes->get('anggota/create', 'Anggota::create');
+$routes->post('anggota/store', 'Anggota::store');
+$routes->get('anggota/edit/(:num)', 'Anggota::edit/$1');
+$routes->post('anggota/update/(:num)', 'Anggota::update/$1');
+$routes->get('anggota/delete/(:num)', 'Anggota::delete/$1');
+$routes->get('anggota/print', 'Anggota::print');
+$routes->get('anggota/print/(:num)', 'Anggota::printDetail/$1');
+$routes->get('anggota/wa/(:num)', 'Anggota::wa/$1');
 
+// ================= ISI DATA ANGGOTA (KHUSUS PEMINJAMAN FLOW) =================
+$routes->group('anggota', ['filter' => 'auth'], function($routes) {
+$routes->get('isiData', 'Peminjaman::isiData');
+$routes->post('simpanData', 'Peminjaman::simpanData');
+
+});
 
 // ================== KATEGORI ==================
 $routes->get('kategori', 'Kategori::index');
