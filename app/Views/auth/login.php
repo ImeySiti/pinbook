@@ -151,8 +151,13 @@
 
                 <div class="text-center footer-text">
                     Belum memiliki akun? 
+                    
                     <a href="<?= base_url('users/create') ?>" class="fw-bold">Daftar Anggota</a>
+                    <a href="<?= base_url('restore') ?>" class="btn btn-outline-danger btn-sm">
+                    <i class="bi bi-database"></i> Restore DB
+                    </a>
                 </div>
+                
             </form>
         </div>
     </div>

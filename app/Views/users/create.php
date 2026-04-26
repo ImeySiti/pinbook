@@ -164,7 +164,9 @@
                         <button type="submit" class="btn btn-register">
                             Daftar Akun <i class="bi bi-arrow-right-short ms-1"></i>
                         </button>
+                        
                     </div>
+                    
                 </div>
 
                 <div class="text-center mt-4 small text-muted">
@@ -172,6 +174,8 @@
                 </div>
             </form>
         </div>
+        
+
     </div>
 
     <script src="<?= base_url('assets/js/bootstrap.bundle.min.js') ?>"></script>
