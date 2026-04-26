@@ -87,6 +87,44 @@ class Peminjaman extends BaseController
         return view('peminjaman/create', $data);
     }
 
+    public function simpan()
+{
+    $id_anggota = session()->get('id_anggota');
+    $id_buku = $this->request->getPost('id_buku');
+
+    if (!$id_buku) {
+        return redirect()->back()->with('error', 'Buku tidak ditemukan.');
+    }
+
+    $this->db->transStart();
+
+    // insert peminjaman
+    $this->peminjamanModel->insert([
+        'id_anggota'      => $id_anggota,
+        'tanggal_pinjam'  => date('Y-m-d'),
+        'tanggal_kembali' => date('Y-m-d', strtotime('+7 days')),
+        'status'          => 'menunggu'
+    ]);
+
+    $id_peminjaman = $this->peminjamanModel->insertID();
+
+    // detail
+    $this->db->table('detail_peminjaman')->insert([
+        'id_peminjaman' => $id_peminjaman,
+        'id_buku'       => $id_buku
+    ]);
+
+    // kurangi stok
+    $this->db->table('buku')
+        ->where('id_buku', $id_buku)
+        ->set('tersedia', 'tersedia - 1', false)
+        ->update();
+
+    $this->db->transComplete();
+
+    return redirect()->to('/peminjaman')->with('success', 'Buku berhasil dipinjam.');
+}
+
     // ================= PINJAM MULTI =================
     public function pinjamMulti()
     {

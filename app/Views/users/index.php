@@ -1,34 +1,170 @@
 <?= $this->extend('layouts/main') ?>
 <?= $this->section('content') ?>
 
+<style>
+    .page-title {
+        font-size: 22px;
+        font-weight: 700;
+        color: #0f766e;
+        margin-bottom: 5px;
+    }
+
+    .sub-title {
+        font-size: 13px;
+        color: #6b7280;
+        margin-bottom: 20px;
+    }
+
+    .card-box {
+        background: #fff;
+        border-radius: 14px;
+        padding: 16px;
+        box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+        margin-bottom: 20px;
+    }
+
+    .form-inline {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+    }
+
+    input, select {
+        padding: 10px;
+        border: 1px solid #e5e7eb;
+        border-radius: 10px;
+        outline: none;
+        font-size: 14px;
+    }
+
+    input:focus, select:focus {
+        border-color: #0f766e;
+    }
+
+    .btn {
+        padding: 10px 14px;
+        border-radius: 10px;
+        border: none;
+        cursor: pointer;
+        font-size: 14px;
+        text-decoration: none;
+        display: inline-block;
+    }
+
+    .btn-green {
+        background: #0f766e;
+        color: #fff;
+    }
+
+    .btn-green:hover {
+        background: #115e59;
+    }
+
+    .btn-gray {
+        background: #f3f4f6;
+        color: #111827;
+    }
+
+    .btn-gray:hover {
+        background: #e5e7eb;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        background: #fff;
+        border-radius: 14px;
+        overflow: hidden;
+        box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+    }
+
+    table thead {
+        background: #0f766e;
+        color: #fff;
+    }
+
+    table th, table td {
+        padding: 12px;
+        font-size: 14px;
+        text-align: left;
+        border-bottom: 1px solid #f1f1f1;
+    }
+
+    table tbody tr:hover {
+        background: #f9fafb;
+    }
+
+    img {
+        border-radius: 8px;
+    }
+
+    .badge {
+        padding: 5px 10px;
+        border-radius: 20px;
+        font-size: 12px;
+        background: #d1fae5;
+        color: #065f46;
+        display: inline-block;
+    }
+
+    .aksi a {
+        margin-right: 6px;
+        font-size: 13px;
+        text-decoration: none;
+        color: #0f766e;
+        font-weight: 500;
+    }
+
+    .aksi a:hover {
+        text-decoration: underline;
+    }
+
+    .pagination {
+        margin-top: 15px;
+        text-align: center;
+    }
+</style>
+
 <div>
 
-    <h3>Data Users</h3>
+    <div class="page-title">👤 Data Users</div>
+    <div class="sub-title">Kelola data pengguna sistem perpustakaan</div>
 
-    <!-- FORM PENCARIAN & FILTER -->
-    <form method="get" action="">
-        <input type="text" name="keyword" placeholder="Cari nama..." value="<?= $_GET['keyword'] ?? '' ?>">
+    <!-- FILTER -->
+    <div class="card-box">
+        <form method="get" class="form-inline">
 
-        <select name="role">
-            <option value="">-- Semua Role --</option>
-            <option value="admin" <?= (($_GET['role'] ?? '') == 'admin') ? 'selected' : '' ?>>Admin</option>
-            <option value="petugas" <?= (($_GET['role'] ?? '') == 'petugas') ? 'selected' : '' ?>>Petugas</option>
-            <option value="anggota" <?= (($_GET['role'] ?? '') == 'anggota') ? 'selected' : '' ?>>Anggota</option>
-        </select>
+            <input type="text" name="keyword" placeholder="Cari nama..." 
+                   value="<?= $_GET['keyword'] ?? '' ?>">
 
-        <button type="submit">Cari</button>
-        <a href="<?= base_url('users') ?>">Reset</a>
-                <a href="<?= base_url('users/print?' . http_build_query($_GET)) ?>" target="_blank">
-            Print </a>
-                </form>
+            <select name="role">
+                <option value="">-- Semua Role --</option>
+                <option value="admin" <?= (($_GET['role'] ?? '') == 'admin') ? 'selected' : '' ?>>Admin</option>
+                <option value="petugas" <?= (($_GET['role'] ?? '') == 'petugas') ? 'selected' : '' ?>>Petugas</option>
+                <option value="anggota" <?= (($_GET['role'] ?? '') == 'anggota') ? 'selected' : '' ?>>Anggota</option>
+            </select>
 
-    <br>
+            <button class="btn btn-green" type="submit">Cari</button>
+
+            <a class="btn btn-gray" href="<?= base_url('users') ?>">Reset</a>
+
+            <a class="btn btn-green" 
+               href="<?= base_url('users/print?' . http_build_query($_GET)) ?>" 
+               target="_blank">
+                Print
+            </a>
+
+        </form>
+    </div>
 
     <?php if (session()->getFlashdata('success')): ?>
-        <div><?= session()->getFlashdata('success') ?></div>
+        <div class="card-box" style="color:green;">
+            <?= session()->getFlashdata('success') ?>
+        </div>
     <?php endif; ?>
 
-    <table border="1" cellpadding="5" cellspacing="0">
+    <!-- TABLE -->
+    <table>
         <thead>
             <tr>
                 <th>No</th>
@@ -44,46 +180,43 @@
         </thead>
 
         <tbody>
-            <?php if (!empty($users)): ?>
-                <?php $no = 1 + (10 * ($pager->getCurrentPage() - 1)); ?>
-                <?php foreach ($users as $u): ?>
-                    <tr>
-                        <td><?= $no++ ?></td>
-                        <td><?= $u['nama'] ?></td>
-                        <td><?= $u['email'] ?></td>
-                        <td><?= $u['username'] ?></td>
-                        <td><?= ucfirst($u['role']) ?></td>
-                        <td>
-                            <?php if ($u['foto']): ?>
-                                <img src="<?= base_url('uploads/users/' . $u['foto']) ?>" width="60">
-                            <?php else: ?>
-                                -
-                            <?php endif; ?>
-                        </td>
-
-                        <?php if (session()->get('role') == 'admin') : ?>
-                            <td>
-                                <a href="<?= base_url('users/detail/' . $u['id']) ?>">Detail</a>
-                                <a href="<?= base_url('users/edit/' . $u['id']) ?>">Edit</a>
-                                <a href="<?= base_url('users/wa/' . $u['id']) ?>" target="_blank">Kirim WA</a>
-                                <a href="<?= base_url('users/delete/' . $u['id']) ?>"
-                                    onclick="return confirm('Hapus user ini?')">Hapus</a>
-                            </td>
-                        <?php endif; ?>
-                    </tr>
-                <?php endforeach; ?>
-            <?php else: ?>
+        <?php if (!empty($users)): ?>
+            <?php $no = 1 + (10 * ($pager->getCurrentPage() - 1)); ?>
+            <?php foreach ($users as $u): ?>
                 <tr>
-                    <td colspan="7">Belum ada data user</td>
+                    <td><?= $no++ ?></td>
+                    <td><?= esc($u['nama']) ?></td>
+                    <td><?= esc($u['email']) ?></td>
+                    <td><?= esc($u['username']) ?></td>
+                    <td><span class="badge"><?= ucfirst($u['role']) ?></span></td>
+                    <td>
+                        <?php if ($u['foto']): ?>
+                            <img src="<?= base_url('uploads/users/' . $u['foto']) ?>" width="50">
+                        <?php else: ?>
+                            -
+                        <?php endif; ?>
+                    </td>
+
+                    <?php if (session()->get('role') == 'admin') : ?>
+                        <td class="aksi">
+                            <a href="<?= base_url('users/detail/' . $u['id']) ?>">Detail</a>
+                            <a href="<?= base_url('users/edit/' . $u['id']) ?>">Edit</a>
+                            <a href="<?= base_url('users/wa/' . $u['id']) ?>">WA</a>
+                            <a href="<?= base_url('users/delete/' . $u['id']) ?>" onclick="return confirm('Hapus?')">Hapus</a>
+                        </td>
+                    <?php endif; ?>
                 </tr>
-            <?php endif; ?>
+            <?php endforeach; ?>
+        <?php else: ?>
+            <tr>
+                <td colspan="7" style="text-align:center;">Belum ada data user</td>
+            </tr>
+        <?php endif; ?>
         </tbody>
     </table>
 
-    <br>
-
     <!-- PAGINATION -->
-    <div>
+    <div class="pagination">
         <?= $pager->links() ?>
     </div>
 

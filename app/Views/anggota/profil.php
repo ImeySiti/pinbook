@@ -1,39 +1,110 @@
 <?= $this->extend('layouts/main') ?>
 <?= $this->section('content') ?>
 
-<h2>Profil Anggota</h2>
+<link rel="stylesheet" href="<?= base_url('assets/css/dashboard.css') ?>">
 
-<?php if (session()->getFlashdata('error')): ?>
-    <p style="color:red"><?= session()->getFlashdata('error') ?></p>
-<?php endif; ?>
+<div class="container py-4">
 
-<?php if (session()->getFlashdata('success')): ?>
-    <p style="color:green"><?= session()->getFlashdata('success') ?></p>
-<?php endif; ?>
+    <!-- HEADER -->
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <div>
+            <h3 class="mb-0">👤 Profil Anggota</h3>
+            <small class="text-muted">Kelola data diri kamu di Pinbook</small>
+        </div>
+    </div>
 
-<<form action="<?= base_url('anggota/store') ?>" method="post">
-    
-    <label>NISN</label><br>
-    <input type="text" name="nisn"
-        value="<?= esc($anggota['nisn'] ?? '') ?>"
-        required>
+    <!-- ALERT -->
+    <?php if (session()->getFlashdata('error')): ?>
+        <div class="alert alert-danger">
+            <?= session()->getFlashdata('error') ?>
+        </div>
+    <?php endif; ?>
 
-    <br><br>
+    <?php if (session()->getFlashdata('success')): ?>
+        <div class="alert alert-success">
+            <?= session()->getFlashdata('success') ?>
+        </div>
+    <?php endif; ?>
 
-    <label>Alamat</label><br>
-    <textarea name="alamat" required><?= esc($anggota['alamat'] ?? '') ?></textarea>
+    <div class="row g-4">
 
-    <br><br>
+        <!-- FORM -->
+        <div class="col-md-7">
 
-    <label>No HP</label><br>
-    <input type="text" name="no_hp"
-        value="<?= esc($anggota['no_hp'] ?? '') ?>"
-        required>
+            <div class="card shadow-sm border-0 rounded-4">
+                <div class="card-body p-4">
 
-    <br><br>
+                    <form action="<?= base_url('anggota/store') ?>" method="post">
 
-    <button type="submit">Simpan Profil</button>
+                        <!-- NISN -->
+                        <div class="mb-3">
+                            <label class="form-label">NISN</label>
+                            <input type="text"
+                                   name="nisn"
+                                   class="form-control form-control-lg"
+                                   value="<?= esc($anggota['nisn'] ?? '') ?>"
+                                   placeholder="Masukkan NISN"
+                                   required>
+                        </div>
 
-</form>
+                        <!-- ALAMAT -->
+                        <div class="mb-3">
+                            <label class="form-label">Alamat</label>
+                            <textarea name="alamat"
+                                      class="form-control form-control-lg"
+                                      rows="3"
+                                      placeholder="Masukkan alamat"
+                                      required><?= esc($anggota['alamat'] ?? '') ?></textarea>
+                        </div>
+
+                        <!-- NO HP -->
+                        <div class="mb-3">
+                            <label class="form-label">No HP</label>
+                            <input type="text"
+                                   name="no_hp"
+                                   class="form-control form-control-lg"
+                                   value="<?= esc($anggota['no_hp'] ?? '') ?>"
+                                   placeholder="08xxxxxxxxxx"
+                                   required>
+                        </div>
+
+                        <!-- BUTTON -->
+                        <button type="submit" class="btn btn-primary w-100 btn-lg rounded-3">
+                            💾 Simpan Profil
+                        </button>
+
+                    </form>
+
+                </div>
+            </div>
+
+        </div>
+
+        <!-- SIDE INFO -->
+        <div class="col-md-5">
+
+            <div class="card border-0 shadow-sm rounded-4 p-4">
+
+                <h5 class="mb-3">📌 Tips Profil</h5>
+
+                <ul class="list-unstyled mb-0">
+                    <li class="mb-2">✔ Pastikan NISN sesuai data sekolah</li>
+                    <li class="mb-2">✔ Gunakan nomor HP aktif</li>
+                    <li class="mb-2">✔ Alamat harus jelas untuk pengiriman buku</li>
+                </ul>
+
+                <hr>
+
+                <div class="text-muted small">
+                    Profil yang lengkap membantu sistem Pinbook berjalan lebih optimal 📚
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
 
 <?= $this->endSection() ?>
