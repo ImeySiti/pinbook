@@ -21,11 +21,11 @@
     <select name="kategori">
         <option value="">-- Pilih Kategori --</option>
         <?php foreach ($kategori_list as $k): ?>
-            <option value="<?= $k['id_kategori'] ?>"
-                <?= (($_GET['kategori'] ?? '') == $k['id_kategori']) ? 'selected' : '' ?>>
-                <?= esc($k['nama_kategori']) ?>
-            </option>
-        <?php endforeach; ?>
+    <option value="<?= $k['id_kategori'] ?>"
+        <?= (($_GET['kategori'] ?? '') == $k['id_kategori']) ? 'selected' : '' ?>>
+        <?= esc($k['nama_kategori']) ?>
+    </option>
+<?php endforeach; ?>
     </select>
 
     <button type="submit">Cari</button>

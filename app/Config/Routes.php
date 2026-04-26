@@ -39,115 +39,42 @@ $routes->group('users', function($routes) use ($intRole, $allRole) {
     $routes->get('print', 'Users::print', $allRole);
     $routes->get('wa/(:num)', 'Users::wa/$1', $allRole);
 });
-//anggota
-$routes->post('anggota/store', 'Anggota::store');
-$routes->get('anggota/profil', 'Anggota::profil');
-$routes->get('anggota/complete', 'Anggota::complete');
-$routes->post('anggota/complete', 'Anggota::saveComplete');
-$routes->post('anggota/updateProfil', 'Anggota::updateProfil');
 
-
-// ================== KATEGORI ==================
-$routes->group('kategori', function($routes) {
-    $routes->get('/', 'Kategori::index');
-    $routes->get('create', 'Kategori::create');
-    $routes->post('store', 'Kategori::store');
-    $routes->get('edit/(:num)', 'Kategori::edit/$1');
-    $routes->post('update/(:num)', 'Kategori::update/$1');
-    $routes->get('delete/(:num)', 'Kategori::delete/$1');
-});
-
-
-// ================== PENULIS ==================
-$routes->group('penulis', function($routes) {
-    $routes->get('/', 'Penulis::index');
-    $routes->get('create', 'Penulis::create');
-    $routes->post('store', 'Penulis::store');
-    $routes->get('edit/(:num)', 'Penulis::edit/$1');
-    $routes->post('update/(:num)', 'Penulis::update/$1');
-    $routes->get('delete/(:num)', 'Penulis::delete/$1');
-});
-
-
-// ================== PENERBIT ==================
-$routes->group('penerbit', function($routes) {
-    $routes->get('/', 'Penerbit::index');
-    $routes->get('create', 'Penerbit::create');
-    $routes->post('store', 'Penerbit::store');
-    $routes->get('edit/(:num)', 'Penerbit::edit/$1');
-    $routes->post('update/(:num)', 'Penerbit::update/$1');
-    $routes->get('delete/(:num)', 'Penerbit::delete/$1');
-});
-
-
-// ================== RAK ==================
-$routes->group('rak', function($routes) {
-    $routes->get('/', 'Rak::index');
-    $routes->get('create', 'Rak::create');
-    $routes->post('store', 'Rak::store');
-    $routes->get('edit/(:num)', 'Rak::edit/$1');
-    $routes->post('update/(:num)', 'Rak::update/$1');
-    $routes->get('delete/(:num)', 'Rak::delete/$1');
-});
-
-
-// ================== BUKU ==================
-$routes->group('buku', function($routes) {
-    $routes->get('/', 'Buku::index');
-    $routes->get('create', 'Buku::create');
-    $routes->post('store', 'Buku::store');
-    $routes->get('detail/(:num)', 'Buku::detail/$1');
-    $routes->get('edit/(:num)', 'Buku::edit/$1');
-    $routes->post('update/(:num)', 'Buku::update/$1');
-    $routes->get('delete/(:num)', 'Buku::delete/$1');
-    $routes->get('print', 'Buku::print');
-    $routes->get('wa/(:num)', 'Buku::wa/$1');
-    $routes->post('search', 'Buku::search');
-});
-
-
-// ================== PEMINJAMAN ==================
 $routes->group('peminjaman', function($routes) {
 
-    // ================= INDEX =================
     $routes->get('/', 'Peminjaman::index');
     $routes->get('create', 'Peminjaman::create');
+    
     $routes->post('pinjamMulti', 'Peminjaman::pinjamMulti');
 
     $routes->get('detail/(:num)', 'Peminjaman::detail/$1');
     $routes->get('delete/(:num)', 'Peminjaman::delete/$1');
 
-    // ================= STATUS =================
     $routes->get('kembali/(:num)', 'Peminjaman::kembali/$1');
     $routes->get('perpanjang/(:num)', 'Peminjaman::perpanjang/$1');
 
-    // ================= PEMBAYARAN =================
-    // pembayaran
     $routes->get('pembayaran/(:num)', 'Peminjaman::pembayaran/$1');
     $routes->post('prosesBayar/(:num)', 'Peminjaman::prosesBayar/$1');
-    // ================= PENGANTARAN =================
+
     $routes->get('konfirmasi/(:num)', 'Peminjaman::konfirmasi/$1');
     $routes->get('mulaiAntar/(:num)', 'Peminjaman::mulaiAntar/$1');
     $routes->get('selesai/(:num)', 'Peminjaman::selesai/$1');
 
-    // ================= PENGAJUAN =================
+    $routes->get('konfirmasiAntar/(:num)', 'Peminjaman::konfirmasiAntar/$1');
+
     $routes->get('ajukanKembali/(:num)', 'Peminjaman::ajukanKembali/$1');
     $routes->get('ajukanPerpanjang/(:num)', 'Peminjaman::ajukanPerpanjang/$1');
     $routes->get('ajukanPenarikan/(:num)', 'Peminjaman::ajukanPenarikan/$1');
 
-    // ================= KONFIRMASI =================
     $routes->get('konfirmasiPengembalian/(:num)', 'Peminjaman::konfirmasiPengembalian/$1');
     $routes->get('konfirmasiPerpanjangan/(:num)', 'Peminjaman::konfirmasiPerpanjangan/$1');
     $routes->get('konfirmasiPenarikan/(:num)', 'Peminjaman::konfirmasiPenarikan/$1');
-    $routes->get('kembali/(:num)', 'Peminjaman::kembali/$1');
+
 });
-
-
 // ================== PENGEMBALIAN ==================
 $routes->group('pengembalian', function($routes) {
 
     $routes->get('/', 'Pengembalian::index');
-
     $routes->get('create', 'Pengembalian::create');
     $routes->post('store', 'Pengembalian::store');
 
@@ -155,11 +82,13 @@ $routes->group('pengembalian', function($routes) {
     $routes->post('update/(:num)', 'Pengembalian::update/$1');
 
     $routes->get('bayar/(:num)', 'Pengembalian::bayar/$1');
-
     $routes->get('delete/(:num)', 'Pengembalian::delete/$1');
+    $routes->post('pengembalian/simpan', 'Pengembalian::simpan');
+
 });
 
 
+// ================== TRANSAKSI ==================
 $routes->group('transaksi', function($routes) {
 
     $routes->get('/', 'Transaksi::index');
@@ -173,6 +102,8 @@ $routes->group('transaksi', function($routes) {
     $routes->get('konfirmasi/(:num)', 'Transaksi::konfirmasi/$1');
     $routes->get('delete/(:num)', 'Transaksi::delete/$1');
 
-    // ✅ FIX INI
     $routes->post('bayar', 'Transaksi::bayar');
+///wiuhdgfuwefbweubf
+$routes->get('pengembalian/create/(:num)', 'Pengembalian::create/$1');
+$routes->post('pengembalian/simpan', 'Pengembalian::simpan');
 });

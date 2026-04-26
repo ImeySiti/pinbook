@@ -10,19 +10,10 @@ class PeminjamanModel extends Model
     protected $primaryKey = 'id_peminjaman';
 
     protected $allowedFields = [
-        'id_anggota',
-        'id_petugas',
-        'tanggal_pinjam',
-        'tanggal_kembali',
-        'tgl_ambil',
-        'status',
-        'status_pengantaran',
-        'status_pengajuan',
-        'status_pengembalian',
-        'bukti_bayar',
-        'metode_pengambilan',
-        'alamat_pengantaran'
-    ];
+    'id_anggota', 'id_petugas', 'tanggal_pinjam', 'tanggal_kembali', 
+    'status', 'status_pengantaran', 'status_pengajuan', 
+    'metode_pengambilan', 'alamat_pengantaran'
+];
 
     public function getWithAnggota()
     {

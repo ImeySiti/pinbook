@@ -31,11 +31,10 @@
 
 <h3>Upload Bukti Pembayaran</h3>
 
-<form method="post" enctype="multipart/form-data"
+<form method="post" enctype="multipart/form-data" 
       action="<?= base_url('peminjaman/prosesBayar/'.$id_transaksi) ?>">
-
-    <input type="file" name="bukti" required>
-
+    
+    <?= csrf_field() ?> <input type="file" name="bukti" required>
     <button type="submit">Kirim Bukti Pembayaran</button>
 </form>
 <br>
