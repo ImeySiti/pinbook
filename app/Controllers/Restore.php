@@ -6,7 +6,7 @@ use CodeIgniter\Controller;
 
 class Restore extends Controller
 {
-    private $restorePassword = 'admin123'; // GANTI PASSWORD INI!
+    private $restorePassword = '1234'; // GANTI PASSWORD INI!
 
     public function index()
     {
