@@ -1,4 +1,6 @@
-<form method="post" action="<?= base_url('anggota/simpanData') ?>">
+<a href="<?= base_url('anggota/isi_data') ?>">
+    
+<form method="post" action="<?= base_url('anggota/simpan_data') ?>">
 
     <label>NIS</label>
     <input type="text" name="nis" required>

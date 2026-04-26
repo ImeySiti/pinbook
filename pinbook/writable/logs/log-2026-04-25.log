@@ -1,0 +1,1978 @@
+ERROR - 2026-04-25 00:00:39 --> mysqli_sql_exception: Unknown column 'a.nama' in 'field list' in C:\xampp1\htdocs\pinbook\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp1\htdocs\pinbook\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `p`.*, `...', 0)
+#1 C:\xampp1\htdocs\pinbook\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `p`.*, `...')
+#2 C:\xampp1\htdocs\pinbook\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `p`.*, `...')
+#3 C:\xampp1\htdocs\pinbook\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `p`.*, `...', Array, false)
+#4 C:\xampp1\htdocs\pinbook\app\Controllers\Pengembalian.php(45): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp1\htdocs\pinbook\system\CodeIgniter.php(933): App\Controllers\Pengembalian->index()
+#6 C:\xampp1\htdocs\pinbook\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pengembalian))
+#7 C:\xampp1\htdocs\pinbook\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp1\htdocs\pinbook\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp1\htdocs\pinbook\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#10 C:\xampp1\htdocs\pinbook\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#11 {main}
+CRITICAL - 2026-04-25 00:00:39 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'a.nama' in 'field list'
+[Method: GET, Route: pengembalian]
+in SYSTEMPATH\Database\BaseConnection.php on line 684.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `p`.*, `a`.`nama` as `nama_anggota`, GROUP_CONCAT(b.judul SEPARATOR ", ") as daftar_buku, `d`.`id_denda`, `d`.`jumlah_denda`, `d`.`status` as `status_bayar`
+FROM `pengembalian` `p`
+LEFT JOIN `peminjaman` `pm` ON `pm`.`id_peminjaman` = `p`.`id_peminjaman`
+LEFT JOIN `anggota` `a` ON `a`.`id_anggota` = `pm`.`id_anggota`
+LEFT JOIN `detail_peminjaman` `dp` ON `dp`.`id_peminjaman` = `pm`.`id_peminjaman`
+LEFT JOIN `buku` `b` ON `b`.`id_buku` = `dp`.`id_buku`
+LEFT JOIN `denda` `d` ON `d`.`id_pengembalian` = `p`.`id_pengembalian`
+GROUP BY `p`.`id_pengembalian`
+ORDER BY `p`.`id_pengembalian` DESC', [], false)
+ 2 APPPATH\Controllers\Pengembalian.php(45): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Pengembalian->index()
+ 4 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pengembalian))
+ 5 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-25 00:00:39 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'a.nama' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `p`.*, `a`.`nama` as `nama_anggota`, GROUP_CONCAT(b.judul SEPARATOR ", ") as daftar_buku, `d`.`id_denda`, `d`.`jumlah_denda`, `d`.`status` as `status_bayar`
+FROM `pengembalian` `p`
+LEFT JOIN `peminjaman` `pm` ON `pm`.`id_peminjaman` = `p`.`id_peminjaman`
+LEFT JOIN `anggota` `a` ON `a`.`id_anggota` = `pm`.`id_anggota`
+LEFT JOIN `detail_peminjaman` `dp` ON `dp`.`id_peminjaman` = `pm`.`id_peminjaman`
+LEFT JOIN `buku` `b` ON `b`.`id_buku` = `dp`.`id_buku`
+LEFT JOIN `denda` `d` ON `d`.`id_pengembalian` = `p`.`id_pengembalian`
+GROUP BY `p`.`id_pengembalian`
+ORDER BY `p`.`id_pengembalian` DESC')
+ 2 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `p`.*, `a`.`nama` as `nama_anggota`, GROUP_CONCAT(b.judul SEPARATOR ", ") as daftar_buku, `d`.`id_denda`, `d`.`jumlah_denda`, `d`.`status` as `status_bayar`
+FROM `pengembalian` `p`
+LEFT JOIN `peminjaman` `pm` ON `pm`.`id_peminjaman` = `p`.`id_peminjaman`
+LEFT JOIN `anggota` `a` ON `a`.`id_anggota` = `pm`.`id_anggota`
+LEFT JOIN `detail_peminjaman` `dp` ON `dp`.`id_peminjaman` = `pm`.`id_peminjaman`
+LEFT JOIN `buku` `b` ON `b`.`id_buku` = `dp`.`id_buku`
+LEFT JOIN `denda` `d` ON `d`.`id_pengembalian` = `p`.`id_pengembalian`
+GROUP BY `p`.`id_pengembalian`
+ORDER BY `p`.`id_pengembalian` DESC')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `p`.*, `a`.`nama` as `nama_anggota`, GROUP_CONCAT(b.judul SEPARATOR ", ") as daftar_buku, `d`.`id_denda`, `d`.`jumlah_denda`, `d`.`status` as `status_bayar`
+FROM `pengembalian` `p`
+LEFT JOIN `peminjaman` `pm` ON `pm`.`id_peminjaman` = `p`.`id_peminjaman`
+LEFT JOIN `anggota` `a` ON `a`.`id_anggota` = `pm`.`id_anggota`
+LEFT JOIN `detail_peminjaman` `dp` ON `dp`.`id_peminjaman` = `pm`.`id_peminjaman`
+LEFT JOIN `buku` `b` ON `b`.`id_buku` = `dp`.`id_buku`
+LEFT JOIN `denda` `d` ON `d`.`id_pengembalian` = `p`.`id_pengembalian`
+GROUP BY `p`.`id_pengembalian`
+ORDER BY `p`.`id_pengembalian` DESC', [], false)
+ 4 APPPATH\Controllers\Pengembalian.php(45): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Pengembalian->index()
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pengembalian))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-25 00:00:39 --> [Caused by] mysqli_sql_exception: Unknown column 'a.nama' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `p`.*, `a`.`nama` as `nama_anggota`, GROUP_CONCAT(b.judul SEPARATOR ", ") as daftar_buku, `d`.`id_denda`, `d`.`jumlah_denda`, `d`.`status` as `status_bayar`
+FROM `pengembalian` `p`
+LEFT JOIN `peminjaman` `pm` ON `pm`.`id_peminjaman` = `p`.`id_peminjaman`
+LEFT JOIN `anggota` `a` ON `a`.`id_anggota` = `pm`.`id_anggota`
+LEFT JOIN `detail_peminjaman` `dp` ON `dp`.`id_peminjaman` = `pm`.`id_peminjaman`
+LEFT JOIN `buku` `b` ON `b`.`id_buku` = `dp`.`id_buku`
+LEFT JOIN `denda` `d` ON `d`.`id_pengembalian` = `p`.`id_pengembalian`
+GROUP BY `p`.`id_pengembalian`
+ORDER BY `p`.`id_pengembalian` DESC', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `p`.*, `a`.`nama` as `nama_anggota`, GROUP_CONCAT(b.judul SEPARATOR ", ") as daftar_buku, `d`.`id_denda`, `d`.`jumlah_denda`, `d`.`status` as `status_bayar`
+FROM `pengembalian` `p`
+LEFT JOIN `peminjaman` `pm` ON `pm`.`id_peminjaman` = `p`.`id_peminjaman`
+LEFT JOIN `anggota` `a` ON `a`.`id_anggota` = `pm`.`id_anggota`
+LEFT JOIN `detail_peminjaman` `dp` ON `dp`.`id_peminjaman` = `pm`.`id_peminjaman`
+LEFT JOIN `buku` `b` ON `b`.`id_buku` = `dp`.`id_buku`
+LEFT JOIN `denda` `d` ON `d`.`id_pengembalian` = `p`.`id_pengembalian`
+GROUP BY `p`.`id_pengembalian`
+ORDER BY `p`.`id_pengembalian` DESC')
+ 3 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `p`.*, `a`.`nama` as `nama_anggota`, GROUP_CONCAT(b.judul SEPARATOR ", ") as daftar_buku, `d`.`id_denda`, `d`.`jumlah_denda`, `d`.`status` as `status_bayar`
+FROM `pengembalian` `p`
+LEFT JOIN `peminjaman` `pm` ON `pm`.`id_peminjaman` = `p`.`id_peminjaman`
+LEFT JOIN `anggota` `a` ON `a`.`id_anggota` = `pm`.`id_anggota`
+LEFT JOIN `detail_peminjaman` `dp` ON `dp`.`id_peminjaman` = `pm`.`id_peminjaman`
+LEFT JOIN `buku` `b` ON `b`.`id_buku` = `dp`.`id_buku`
+LEFT JOIN `denda` `d` ON `d`.`id_pengembalian` = `p`.`id_pengembalian`
+GROUP BY `p`.`id_pengembalian`
+ORDER BY `p`.`id_pengembalian` DESC')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `p`.*, `a`.`nama` as `nama_anggota`, GROUP_CONCAT(b.judul SEPARATOR ", ") as daftar_buku, `d`.`id_denda`, `d`.`jumlah_denda`, `d`.`status` as `status_bayar`
+FROM `pengembalian` `p`
+LEFT JOIN `peminjaman` `pm` ON `pm`.`id_peminjaman` = `p`.`id_peminjaman`
+LEFT JOIN `anggota` `a` ON `a`.`id_anggota` = `pm`.`id_anggota`
+LEFT JOIN `detail_peminjaman` `dp` ON `dp`.`id_peminjaman` = `pm`.`id_peminjaman`
+LEFT JOIN `buku` `b` ON `b`.`id_buku` = `dp`.`id_buku`
+LEFT JOIN `denda` `d` ON `d`.`id_pengembalian` = `p`.`id_pengembalian`
+GROUP BY `p`.`id_pengembalian`
+ORDER BY `p`.`id_pengembalian` DESC', [], false)
+ 5 APPPATH\Controllers\Pengembalian.php(45): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Pengembalian->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pengembalian))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-25 00:03:25 --> ParseError: syntax error, unexpected variable "$this", expecting "function" or "const"
+[Method: GET, Route: pengembalian]
+in APPPATH\Controllers\Pengembalian.php on line 78.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(295): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\xampp1\\htdocs\\pinbook\\app\\Controllers\\Pengembalian.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(271): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\Pengembalian')
+ 3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\Pengembalian')
+ 4 SYSTEMPATH\CodeIgniter.php(885): class_exists('\\App\\Controllers\\Pengembalian', true)
+ 5 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->startController()
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-25 00:05:09 --> ErrorException: Cannot redeclare App\Controllers\Pengembalian::index()
+[Method: GET, Route: pengembalian]
+in APPPATH\Controllers\Pengembalian.php on line 54.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2026-04-25 00:05:11 --> ErrorException: Cannot redeclare App\Controllers\Pengembalian::index()
+[Method: GET, Route: pengembalian]
+in APPPATH\Controllers\Pengembalian.php on line 54.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2026-04-25 00:05:20 --> ErrorException: Cannot redeclare App\Controllers\Pengembalian::index()
+[Method: GET, Route: pengembalian]
+in APPPATH\Controllers\Pengembalian.php on line 54.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+ERROR - 2026-04-25 00:06:11 --> mysqli_sql_exception: Unknown column 'a.nama' in 'field list' in C:\xampp1\htdocs\pinbook\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp1\htdocs\pinbook\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `p`.*, `...', 0)
+#1 C:\xampp1\htdocs\pinbook\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `p`.*, `...')
+#2 C:\xampp1\htdocs\pinbook\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `p`.*, `...')
+#3 C:\xampp1\htdocs\pinbook\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `p`.*, `...', Array, false)
+#4 C:\xampp1\htdocs\pinbook\app\Controllers\Pengembalian.php(45): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp1\htdocs\pinbook\system\CodeIgniter.php(933): App\Controllers\Pengembalian->index()
+#6 C:\xampp1\htdocs\pinbook\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pengembalian))
+#7 C:\xampp1\htdocs\pinbook\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp1\htdocs\pinbook\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp1\htdocs\pinbook\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#10 C:\xampp1\htdocs\pinbook\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#11 {main}
+CRITICAL - 2026-04-25 00:06:11 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'a.nama' in 'field list'
+[Method: GET, Route: pengembalian]
+in SYSTEMPATH\Database\BaseConnection.php on line 684.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `p`.*, `a`.`nama` as `nama_anggota`, GROUP_CONCAT(b.judul SEPARATOR ", ") as daftar_buku, `d`.`id_denda`, `d`.`jumlah_denda`, `d`.`status` as `status_bayar`
+FROM `pengembalian` `p`
+LEFT JOIN `peminjaman` `pm` ON `pm`.`id_peminjaman` = `p`.`id_peminjaman`
+LEFT JOIN `anggota` `a` ON `a`.`id_anggota` = `pm`.`id_anggota`
+LEFT JOIN `detail_peminjaman` `dp` ON `dp`.`id_peminjaman` = `pm`.`id_peminjaman`
+LEFT JOIN `buku` `b` ON `b`.`id_buku` = `dp`.`id_buku`
+LEFT JOIN `denda` `d` ON `d`.`id_pengembalian` = `p`.`id_pengembalian`
+GROUP BY `p`.`id_pengembalian`
+ORDER BY `p`.`id_pengembalian` DESC', [], false)
+ 2 APPPATH\Controllers\Pengembalian.php(45): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Pengembalian->index()
+ 4 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pengembalian))
+ 5 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-25 00:06:11 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'a.nama' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `p`.*, `a`.`nama` as `nama_anggota`, GROUP_CONCAT(b.judul SEPARATOR ", ") as daftar_buku, `d`.`id_denda`, `d`.`jumlah_denda`, `d`.`status` as `status_bayar`
+FROM `pengembalian` `p`
+LEFT JOIN `peminjaman` `pm` ON `pm`.`id_peminjaman` = `p`.`id_peminjaman`
+LEFT JOIN `anggota` `a` ON `a`.`id_anggota` = `pm`.`id_anggota`
+LEFT JOIN `detail_peminjaman` `dp` ON `dp`.`id_peminjaman` = `pm`.`id_peminjaman`
+LEFT JOIN `buku` `b` ON `b`.`id_buku` = `dp`.`id_buku`
+LEFT JOIN `denda` `d` ON `d`.`id_pengembalian` = `p`.`id_pengembalian`
+GROUP BY `p`.`id_pengembalian`
+ORDER BY `p`.`id_pengembalian` DESC')
+ 2 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `p`.*, `a`.`nama` as `nama_anggota`, GROUP_CONCAT(b.judul SEPARATOR ", ") as daftar_buku, `d`.`id_denda`, `d`.`jumlah_denda`, `d`.`status` as `status_bayar`
+FROM `pengembalian` `p`
+LEFT JOIN `peminjaman` `pm` ON `pm`.`id_peminjaman` = `p`.`id_peminjaman`
+LEFT JOIN `anggota` `a` ON `a`.`id_anggota` = `pm`.`id_anggota`
+LEFT JOIN `detail_peminjaman` `dp` ON `dp`.`id_peminjaman` = `pm`.`id_peminjaman`
+LEFT JOIN `buku` `b` ON `b`.`id_buku` = `dp`.`id_buku`
+LEFT JOIN `denda` `d` ON `d`.`id_pengembalian` = `p`.`id_pengembalian`
+GROUP BY `p`.`id_pengembalian`
+ORDER BY `p`.`id_pengembalian` DESC')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `p`.*, `a`.`nama` as `nama_anggota`, GROUP_CONCAT(b.judul SEPARATOR ", ") as daftar_buku, `d`.`id_denda`, `d`.`jumlah_denda`, `d`.`status` as `status_bayar`
+FROM `pengembalian` `p`
+LEFT JOIN `peminjaman` `pm` ON `pm`.`id_peminjaman` = `p`.`id_peminjaman`
+LEFT JOIN `anggota` `a` ON `a`.`id_anggota` = `pm`.`id_anggota`
+LEFT JOIN `detail_peminjaman` `dp` ON `dp`.`id_peminjaman` = `pm`.`id_peminjaman`
+LEFT JOIN `buku` `b` ON `b`.`id_buku` = `dp`.`id_buku`
+LEFT JOIN `denda` `d` ON `d`.`id_pengembalian` = `p`.`id_pengembalian`
+GROUP BY `p`.`id_pengembalian`
+ORDER BY `p`.`id_pengembalian` DESC', [], false)
+ 4 APPPATH\Controllers\Pengembalian.php(45): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Pengembalian->index()
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pengembalian))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-25 00:06:11 --> [Caused by] mysqli_sql_exception: Unknown column 'a.nama' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `p`.*, `a`.`nama` as `nama_anggota`, GROUP_CONCAT(b.judul SEPARATOR ", ") as daftar_buku, `d`.`id_denda`, `d`.`jumlah_denda`, `d`.`status` as `status_bayar`
+FROM `pengembalian` `p`
+LEFT JOIN `peminjaman` `pm` ON `pm`.`id_peminjaman` = `p`.`id_peminjaman`
+LEFT JOIN `anggota` `a` ON `a`.`id_anggota` = `pm`.`id_anggota`
+LEFT JOIN `detail_peminjaman` `dp` ON `dp`.`id_peminjaman` = `pm`.`id_peminjaman`
+LEFT JOIN `buku` `b` ON `b`.`id_buku` = `dp`.`id_buku`
+LEFT JOIN `denda` `d` ON `d`.`id_pengembalian` = `p`.`id_pengembalian`
+GROUP BY `p`.`id_pengembalian`
+ORDER BY `p`.`id_pengembalian` DESC', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `p`.*, `a`.`nama` as `nama_anggota`, GROUP_CONCAT(b.judul SEPARATOR ", ") as daftar_buku, `d`.`id_denda`, `d`.`jumlah_denda`, `d`.`status` as `status_bayar`
+FROM `pengembalian` `p`
+LEFT JOIN `peminjaman` `pm` ON `pm`.`id_peminjaman` = `p`.`id_peminjaman`
+LEFT JOIN `anggota` `a` ON `a`.`id_anggota` = `pm`.`id_anggota`
+LEFT JOIN `detail_peminjaman` `dp` ON `dp`.`id_peminjaman` = `pm`.`id_peminjaman`
+LEFT JOIN `buku` `b` ON `b`.`id_buku` = `dp`.`id_buku`
+LEFT JOIN `denda` `d` ON `d`.`id_pengembalian` = `p`.`id_pengembalian`
+GROUP BY `p`.`id_pengembalian`
+ORDER BY `p`.`id_pengembalian` DESC')
+ 3 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `p`.*, `a`.`nama` as `nama_anggota`, GROUP_CONCAT(b.judul SEPARATOR ", ") as daftar_buku, `d`.`id_denda`, `d`.`jumlah_denda`, `d`.`status` as `status_bayar`
+FROM `pengembalian` `p`
+LEFT JOIN `peminjaman` `pm` ON `pm`.`id_peminjaman` = `p`.`id_peminjaman`
+LEFT JOIN `anggota` `a` ON `a`.`id_anggota` = `pm`.`id_anggota`
+LEFT JOIN `detail_peminjaman` `dp` ON `dp`.`id_peminjaman` = `pm`.`id_peminjaman`
+LEFT JOIN `buku` `b` ON `b`.`id_buku` = `dp`.`id_buku`
+LEFT JOIN `denda` `d` ON `d`.`id_pengembalian` = `p`.`id_pengembalian`
+GROUP BY `p`.`id_pengembalian`
+ORDER BY `p`.`id_pengembalian` DESC')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `p`.*, `a`.`nama` as `nama_anggota`, GROUP_CONCAT(b.judul SEPARATOR ", ") as daftar_buku, `d`.`id_denda`, `d`.`jumlah_denda`, `d`.`status` as `status_bayar`
+FROM `pengembalian` `p`
+LEFT JOIN `peminjaman` `pm` ON `pm`.`id_peminjaman` = `p`.`id_peminjaman`
+LEFT JOIN `anggota` `a` ON `a`.`id_anggota` = `pm`.`id_anggota`
+LEFT JOIN `detail_peminjaman` `dp` ON `dp`.`id_peminjaman` = `pm`.`id_peminjaman`
+LEFT JOIN `buku` `b` ON `b`.`id_buku` = `dp`.`id_buku`
+LEFT JOIN `denda` `d` ON `d`.`id_pengembalian` = `p`.`id_pengembalian`
+GROUP BY `p`.`id_pengembalian`
+ORDER BY `p`.`id_pengembalian` DESC', [], false)
+ 5 APPPATH\Controllers\Pengembalian.php(45): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Pengembalian->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pengembalian))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2026-04-25 00:06:51 --> mysqli_sql_exception: Unknown column 'a.nama' in 'field list' in C:\xampp1\htdocs\pinbook\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp1\htdocs\pinbook\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `p`.*, `...', 0)
+#1 C:\xampp1\htdocs\pinbook\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `p`.*, `...')
+#2 C:\xampp1\htdocs\pinbook\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `p`.*, `...')
+#3 C:\xampp1\htdocs\pinbook\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `p`.*, `...', Array, false)
+#4 C:\xampp1\htdocs\pinbook\app\Controllers\Pengembalian.php(45): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp1\htdocs\pinbook\system\CodeIgniter.php(933): App\Controllers\Pengembalian->index()
+#6 C:\xampp1\htdocs\pinbook\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pengembalian))
+#7 C:\xampp1\htdocs\pinbook\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp1\htdocs\pinbook\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp1\htdocs\pinbook\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#10 C:\xampp1\htdocs\pinbook\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#11 {main}
+CRITICAL - 2026-04-25 00:06:51 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'a.nama' in 'field list'
+[Method: GET, Route: pengembalian]
+in SYSTEMPATH\Database\BaseConnection.php on line 684.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `p`.*, `a`.`nama` as `nama_anggota`, GROUP_CONCAT(b.judul SEPARATOR ", ") as daftar_buku, `d`.`id_denda`, `d`.`jumlah_denda`, `d`.`status` as `status_bayar`
+FROM `pengembalian` `p`
+LEFT JOIN `peminjaman` `pm` ON `pm`.`id_peminjaman` = `p`.`id_peminjaman`
+LEFT JOIN `anggota` `a` ON `a`.`user_id` = `pm`.`user_id`
+LEFT JOIN `detail_peminjaman` `dp` ON `dp`.`id_peminjaman` = `pm`.`id_peminjaman`
+LEFT JOIN `buku` `b` ON `b`.`id_buku` = `dp`.`id_buku`
+LEFT JOIN `denda` `d` ON `d`.`id_pengembalian` = `p`.`id_pengembalian`
+GROUP BY `p`.`id_pengembalian`
+ORDER BY `p`.`id_pengembalian` DESC', [], false)
+ 2 APPPATH\Controllers\Pengembalian.php(45): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Pengembalian->index()
+ 4 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pengembalian))
+ 5 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-25 00:06:51 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'a.nama' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `p`.*, `a`.`nama` as `nama_anggota`, GROUP_CONCAT(b.judul SEPARATOR ", ") as daftar_buku, `d`.`id_denda`, `d`.`jumlah_denda`, `d`.`status` as `status_bayar`
+FROM `pengembalian` `p`
+LEFT JOIN `peminjaman` `pm` ON `pm`.`id_peminjaman` = `p`.`id_peminjaman`
+LEFT JOIN `anggota` `a` ON `a`.`user_id` = `pm`.`user_id`
+LEFT JOIN `detail_peminjaman` `dp` ON `dp`.`id_peminjaman` = `pm`.`id_peminjaman`
+LEFT JOIN `buku` `b` ON `b`.`id_buku` = `dp`.`id_buku`
+LEFT JOIN `denda` `d` ON `d`.`id_pengembalian` = `p`.`id_pengembalian`
+GROUP BY `p`.`id_pengembalian`
+ORDER BY `p`.`id_pengembalian` DESC')
+ 2 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `p`.*, `a`.`nama` as `nama_anggota`, GROUP_CONCAT(b.judul SEPARATOR ", ") as daftar_buku, `d`.`id_denda`, `d`.`jumlah_denda`, `d`.`status` as `status_bayar`
+FROM `pengembalian` `p`
+LEFT JOIN `peminjaman` `pm` ON `pm`.`id_peminjaman` = `p`.`id_peminjaman`
+LEFT JOIN `anggota` `a` ON `a`.`user_id` = `pm`.`user_id`
+LEFT JOIN `detail_peminjaman` `dp` ON `dp`.`id_peminjaman` = `pm`.`id_peminjaman`
+LEFT JOIN `buku` `b` ON `b`.`id_buku` = `dp`.`id_buku`
+LEFT JOIN `denda` `d` ON `d`.`id_pengembalian` = `p`.`id_pengembalian`
+GROUP BY `p`.`id_pengembalian`
+ORDER BY `p`.`id_pengembalian` DESC')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `p`.*, `a`.`nama` as `nama_anggota`, GROUP_CONCAT(b.judul SEPARATOR ", ") as daftar_buku, `d`.`id_denda`, `d`.`jumlah_denda`, `d`.`status` as `status_bayar`
+FROM `pengembalian` `p`
+LEFT JOIN `peminjaman` `pm` ON `pm`.`id_peminjaman` = `p`.`id_peminjaman`
+LEFT JOIN `anggota` `a` ON `a`.`user_id` = `pm`.`user_id`
+LEFT JOIN `detail_peminjaman` `dp` ON `dp`.`id_peminjaman` = `pm`.`id_peminjaman`
+LEFT JOIN `buku` `b` ON `b`.`id_buku` = `dp`.`id_buku`
+LEFT JOIN `denda` `d` ON `d`.`id_pengembalian` = `p`.`id_pengembalian`
+GROUP BY `p`.`id_pengembalian`
+ORDER BY `p`.`id_pengembalian` DESC', [], false)
+ 4 APPPATH\Controllers\Pengembalian.php(45): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Pengembalian->index()
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pengembalian))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-25 00:06:51 --> [Caused by] mysqli_sql_exception: Unknown column 'a.nama' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `p`.*, `a`.`nama` as `nama_anggota`, GROUP_CONCAT(b.judul SEPARATOR ", ") as daftar_buku, `d`.`id_denda`, `d`.`jumlah_denda`, `d`.`status` as `status_bayar`
+FROM `pengembalian` `p`
+LEFT JOIN `peminjaman` `pm` ON `pm`.`id_peminjaman` = `p`.`id_peminjaman`
+LEFT JOIN `anggota` `a` ON `a`.`user_id` = `pm`.`user_id`
+LEFT JOIN `detail_peminjaman` `dp` ON `dp`.`id_peminjaman` = `pm`.`id_peminjaman`
+LEFT JOIN `buku` `b` ON `b`.`id_buku` = `dp`.`id_buku`
+LEFT JOIN `denda` `d` ON `d`.`id_pengembalian` = `p`.`id_pengembalian`
+GROUP BY `p`.`id_pengembalian`
+ORDER BY `p`.`id_pengembalian` DESC', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `p`.*, `a`.`nama` as `nama_anggota`, GROUP_CONCAT(b.judul SEPARATOR ", ") as daftar_buku, `d`.`id_denda`, `d`.`jumlah_denda`, `d`.`status` as `status_bayar`
+FROM `pengembalian` `p`
+LEFT JOIN `peminjaman` `pm` ON `pm`.`id_peminjaman` = `p`.`id_peminjaman`
+LEFT JOIN `anggota` `a` ON `a`.`user_id` = `pm`.`user_id`
+LEFT JOIN `detail_peminjaman` `dp` ON `dp`.`id_peminjaman` = `pm`.`id_peminjaman`
+LEFT JOIN `buku` `b` ON `b`.`id_buku` = `dp`.`id_buku`
+LEFT JOIN `denda` `d` ON `d`.`id_pengembalian` = `p`.`id_pengembalian`
+GROUP BY `p`.`id_pengembalian`
+ORDER BY `p`.`id_pengembalian` DESC')
+ 3 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `p`.*, `a`.`nama` as `nama_anggota`, GROUP_CONCAT(b.judul SEPARATOR ", ") as daftar_buku, `d`.`id_denda`, `d`.`jumlah_denda`, `d`.`status` as `status_bayar`
+FROM `pengembalian` `p`
+LEFT JOIN `peminjaman` `pm` ON `pm`.`id_peminjaman` = `p`.`id_peminjaman`
+LEFT JOIN `anggota` `a` ON `a`.`user_id` = `pm`.`user_id`
+LEFT JOIN `detail_peminjaman` `dp` ON `dp`.`id_peminjaman` = `pm`.`id_peminjaman`
+LEFT JOIN `buku` `b` ON `b`.`id_buku` = `dp`.`id_buku`
+LEFT JOIN `denda` `d` ON `d`.`id_pengembalian` = `p`.`id_pengembalian`
+GROUP BY `p`.`id_pengembalian`
+ORDER BY `p`.`id_pengembalian` DESC')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `p`.*, `a`.`nama` as `nama_anggota`, GROUP_CONCAT(b.judul SEPARATOR ", ") as daftar_buku, `d`.`id_denda`, `d`.`jumlah_denda`, `d`.`status` as `status_bayar`
+FROM `pengembalian` `p`
+LEFT JOIN `peminjaman` `pm` ON `pm`.`id_peminjaman` = `p`.`id_peminjaman`
+LEFT JOIN `anggota` `a` ON `a`.`user_id` = `pm`.`user_id`
+LEFT JOIN `detail_peminjaman` `dp` ON `dp`.`id_peminjaman` = `pm`.`id_peminjaman`
+LEFT JOIN `buku` `b` ON `b`.`id_buku` = `dp`.`id_buku`
+LEFT JOIN `denda` `d` ON `d`.`id_pengembalian` = `p`.`id_pengembalian`
+GROUP BY `p`.`id_pengembalian`
+ORDER BY `p`.`id_pengembalian` DESC', [], false)
+ 5 APPPATH\Controllers\Pengembalian.php(45): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Pengembalian->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pengembalian))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2026-04-25 00:07:52 --> mysqli_sql_exception: Unknown column 'a.nama_anggota' in 'field list' in C:\xampp1\htdocs\pinbook\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp1\htdocs\pinbook\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `p`.*, `...', 0)
+#1 C:\xampp1\htdocs\pinbook\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `p`.*, `...')
+#2 C:\xampp1\htdocs\pinbook\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `p`.*, `...')
+#3 C:\xampp1\htdocs\pinbook\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `p`.*, `...', Array, false)
+#4 C:\xampp1\htdocs\pinbook\app\Controllers\Pengembalian.php(45): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp1\htdocs\pinbook\system\CodeIgniter.php(933): App\Controllers\Pengembalian->index()
+#6 C:\xampp1\htdocs\pinbook\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pengembalian))
+#7 C:\xampp1\htdocs\pinbook\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp1\htdocs\pinbook\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp1\htdocs\pinbook\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#10 C:\xampp1\htdocs\pinbook\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#11 {main}
+CRITICAL - 2026-04-25 00:07:52 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'a.nama_anggota' in 'field list'
+[Method: GET, Route: pengembalian]
+in SYSTEMPATH\Database\BaseConnection.php on line 684.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `p`.*, `a`.`nama_anggota` as `nama_anggota`, GROUP_CONCAT(b.judul SEPARATOR ", ") as daftar_buku, `d`.`id_denda`, `d`.`jumlah_denda`, `d`.`status` as `status_bayar`
+FROM `pengembalian` `p`
+LEFT JOIN `peminjaman` `pm` ON `pm`.`id_peminjaman` = `p`.`id_peminjaman`
+LEFT JOIN `anggota` `a` ON `a`.`user_id` = `pm`.`user_id`
+LEFT JOIN `detail_peminjaman` `dp` ON `dp`.`id_peminjaman` = `pm`.`id_peminjaman`
+LEFT JOIN `buku` `b` ON `b`.`id_buku` = `dp`.`id_buku`
+LEFT JOIN `denda` `d` ON `d`.`id_pengembalian` = `p`.`id_pengembalian`
+GROUP BY `p`.`id_pengembalian`
+ORDER BY `p`.`id_pengembalian` DESC', [], false)
+ 2 APPPATH\Controllers\Pengembalian.php(45): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Pengembalian->index()
+ 4 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pengembalian))
+ 5 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-25 00:07:52 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'a.nama_anggota' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `p`.*, `a`.`nama_anggota` as `nama_anggota`, GROUP_CONCAT(b.judul SEPARATOR ", ") as daftar_buku, `d`.`id_denda`, `d`.`jumlah_denda`, `d`.`status` as `status_bayar`
+FROM `pengembalian` `p`
+LEFT JOIN `peminjaman` `pm` ON `pm`.`id_peminjaman` = `p`.`id_peminjaman`
+LEFT JOIN `anggota` `a` ON `a`.`user_id` = `pm`.`user_id`
+LEFT JOIN `detail_peminjaman` `dp` ON `dp`.`id_peminjaman` = `pm`.`id_peminjaman`
+LEFT JOIN `buku` `b` ON `b`.`id_buku` = `dp`.`id_buku`
+LEFT JOIN `denda` `d` ON `d`.`id_pengembalian` = `p`.`id_pengembalian`
+GROUP BY `p`.`id_pengembalian`
+ORDER BY `p`.`id_pengembalian` DESC')
+ 2 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `p`.*, `a`.`nama_anggota` as `nama_anggota`, GROUP_CONCAT(b.judul SEPARATOR ", ") as daftar_buku, `d`.`id_denda`, `d`.`jumlah_denda`, `d`.`status` as `status_bayar`
+FROM `pengembalian` `p`
+LEFT JOIN `peminjaman` `pm` ON `pm`.`id_peminjaman` = `p`.`id_peminjaman`
+LEFT JOIN `anggota` `a` ON `a`.`user_id` = `pm`.`user_id`
+LEFT JOIN `detail_peminjaman` `dp` ON `dp`.`id_peminjaman` = `pm`.`id_peminjaman`
+LEFT JOIN `buku` `b` ON `b`.`id_buku` = `dp`.`id_buku`
+LEFT JOIN `denda` `d` ON `d`.`id_pengembalian` = `p`.`id_pengembalian`
+GROUP BY `p`.`id_pengembalian`
+ORDER BY `p`.`id_pengembalian` DESC')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `p`.*, `a`.`nama_anggota` as `nama_anggota`, GROUP_CONCAT(b.judul SEPARATOR ", ") as daftar_buku, `d`.`id_denda`, `d`.`jumlah_denda`, `d`.`status` as `status_bayar`
+FROM `pengembalian` `p`
+LEFT JOIN `peminjaman` `pm` ON `pm`.`id_peminjaman` = `p`.`id_peminjaman`
+LEFT JOIN `anggota` `a` ON `a`.`user_id` = `pm`.`user_id`
+LEFT JOIN `detail_peminjaman` `dp` ON `dp`.`id_peminjaman` = `pm`.`id_peminjaman`
+LEFT JOIN `buku` `b` ON `b`.`id_buku` = `dp`.`id_buku`
+LEFT JOIN `denda` `d` ON `d`.`id_pengembalian` = `p`.`id_pengembalian`
+GROUP BY `p`.`id_pengembalian`
+ORDER BY `p`.`id_pengembalian` DESC', [], false)
+ 4 APPPATH\Controllers\Pengembalian.php(45): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Pengembalian->index()
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pengembalian))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-25 00:07:52 --> [Caused by] mysqli_sql_exception: Unknown column 'a.nama_anggota' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `p`.*, `a`.`nama_anggota` as `nama_anggota`, GROUP_CONCAT(b.judul SEPARATOR ", ") as daftar_buku, `d`.`id_denda`, `d`.`jumlah_denda`, `d`.`status` as `status_bayar`
+FROM `pengembalian` `p`
+LEFT JOIN `peminjaman` `pm` ON `pm`.`id_peminjaman` = `p`.`id_peminjaman`
+LEFT JOIN `anggota` `a` ON `a`.`user_id` = `pm`.`user_id`
+LEFT JOIN `detail_peminjaman` `dp` ON `dp`.`id_peminjaman` = `pm`.`id_peminjaman`
+LEFT JOIN `buku` `b` ON `b`.`id_buku` = `dp`.`id_buku`
+LEFT JOIN `denda` `d` ON `d`.`id_pengembalian` = `p`.`id_pengembalian`
+GROUP BY `p`.`id_pengembalian`
+ORDER BY `p`.`id_pengembalian` DESC', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `p`.*, `a`.`nama_anggota` as `nama_anggota`, GROUP_CONCAT(b.judul SEPARATOR ", ") as daftar_buku, `d`.`id_denda`, `d`.`jumlah_denda`, `d`.`status` as `status_bayar`
+FROM `pengembalian` `p`
+LEFT JOIN `peminjaman` `pm` ON `pm`.`id_peminjaman` = `p`.`id_peminjaman`
+LEFT JOIN `anggota` `a` ON `a`.`user_id` = `pm`.`user_id`
+LEFT JOIN `detail_peminjaman` `dp` ON `dp`.`id_peminjaman` = `pm`.`id_peminjaman`
+LEFT JOIN `buku` `b` ON `b`.`id_buku` = `dp`.`id_buku`
+LEFT JOIN `denda` `d` ON `d`.`id_pengembalian` = `p`.`id_pengembalian`
+GROUP BY `p`.`id_pengembalian`
+ORDER BY `p`.`id_pengembalian` DESC')
+ 3 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `p`.*, `a`.`nama_anggota` as `nama_anggota`, GROUP_CONCAT(b.judul SEPARATOR ", ") as daftar_buku, `d`.`id_denda`, `d`.`jumlah_denda`, `d`.`status` as `status_bayar`
+FROM `pengembalian` `p`
+LEFT JOIN `peminjaman` `pm` ON `pm`.`id_peminjaman` = `p`.`id_peminjaman`
+LEFT JOIN `anggota` `a` ON `a`.`user_id` = `pm`.`user_id`
+LEFT JOIN `detail_peminjaman` `dp` ON `dp`.`id_peminjaman` = `pm`.`id_peminjaman`
+LEFT JOIN `buku` `b` ON `b`.`id_buku` = `dp`.`id_buku`
+LEFT JOIN `denda` `d` ON `d`.`id_pengembalian` = `p`.`id_pengembalian`
+GROUP BY `p`.`id_pengembalian`
+ORDER BY `p`.`id_pengembalian` DESC')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `p`.*, `a`.`nama_anggota` as `nama_anggota`, GROUP_CONCAT(b.judul SEPARATOR ", ") as daftar_buku, `d`.`id_denda`, `d`.`jumlah_denda`, `d`.`status` as `status_bayar`
+FROM `pengembalian` `p`
+LEFT JOIN `peminjaman` `pm` ON `pm`.`id_peminjaman` = `p`.`id_peminjaman`
+LEFT JOIN `anggota` `a` ON `a`.`user_id` = `pm`.`user_id`
+LEFT JOIN `detail_peminjaman` `dp` ON `dp`.`id_peminjaman` = `pm`.`id_peminjaman`
+LEFT JOIN `buku` `b` ON `b`.`id_buku` = `dp`.`id_buku`
+LEFT JOIN `denda` `d` ON `d`.`id_pengembalian` = `p`.`id_pengembalian`
+GROUP BY `p`.`id_pengembalian`
+ORDER BY `p`.`id_pengembalian` DESC', [], false)
+ 5 APPPATH\Controllers\Pengembalian.php(45): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Pengembalian->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pengembalian))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2026-04-25 00:07:54 --> mysqli_sql_exception: Unknown column 'a.nama_anggota' in 'field list' in C:\xampp1\htdocs\pinbook\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp1\htdocs\pinbook\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `p`.*, `...', 0)
+#1 C:\xampp1\htdocs\pinbook\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `p`.*, `...')
+#2 C:\xampp1\htdocs\pinbook\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `p`.*, `...')
+#3 C:\xampp1\htdocs\pinbook\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `p`.*, `...', Array, false)
+#4 C:\xampp1\htdocs\pinbook\app\Controllers\Pengembalian.php(45): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp1\htdocs\pinbook\system\CodeIgniter.php(933): App\Controllers\Pengembalian->index()
+#6 C:\xampp1\htdocs\pinbook\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pengembalian))
+#7 C:\xampp1\htdocs\pinbook\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp1\htdocs\pinbook\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp1\htdocs\pinbook\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#10 C:\xampp1\htdocs\pinbook\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#11 {main}
+CRITICAL - 2026-04-25 00:07:54 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'a.nama_anggota' in 'field list'
+[Method: GET, Route: pengembalian]
+in SYSTEMPATH\Database\BaseConnection.php on line 684.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `p`.*, `a`.`nama_anggota` as `nama_anggota`, GROUP_CONCAT(b.judul SEPARATOR ", ") as daftar_buku, `d`.`id_denda`, `d`.`jumlah_denda`, `d`.`status` as `status_bayar`
+FROM `pengembalian` `p`
+LEFT JOIN `peminjaman` `pm` ON `pm`.`id_peminjaman` = `p`.`id_peminjaman`
+LEFT JOIN `anggota` `a` ON `a`.`user_id` = `pm`.`user_id`
+LEFT JOIN `detail_peminjaman` `dp` ON `dp`.`id_peminjaman` = `pm`.`id_peminjaman`
+LEFT JOIN `buku` `b` ON `b`.`id_buku` = `dp`.`id_buku`
+LEFT JOIN `denda` `d` ON `d`.`id_pengembalian` = `p`.`id_pengembalian`
+GROUP BY `p`.`id_pengembalian`
+ORDER BY `p`.`id_pengembalian` DESC', [], false)
+ 2 APPPATH\Controllers\Pengembalian.php(45): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Pengembalian->index()
+ 4 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pengembalian))
+ 5 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-25 00:07:54 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'a.nama_anggota' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `p`.*, `a`.`nama_anggota` as `nama_anggota`, GROUP_CONCAT(b.judul SEPARATOR ", ") as daftar_buku, `d`.`id_denda`, `d`.`jumlah_denda`, `d`.`status` as `status_bayar`
+FROM `pengembalian` `p`
+LEFT JOIN `peminjaman` `pm` ON `pm`.`id_peminjaman` = `p`.`id_peminjaman`
+LEFT JOIN `anggota` `a` ON `a`.`user_id` = `pm`.`user_id`
+LEFT JOIN `detail_peminjaman` `dp` ON `dp`.`id_peminjaman` = `pm`.`id_peminjaman`
+LEFT JOIN `buku` `b` ON `b`.`id_buku` = `dp`.`id_buku`
+LEFT JOIN `denda` `d` ON `d`.`id_pengembalian` = `p`.`id_pengembalian`
+GROUP BY `p`.`id_pengembalian`
+ORDER BY `p`.`id_pengembalian` DESC')
+ 2 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `p`.*, `a`.`nama_anggota` as `nama_anggota`, GROUP_CONCAT(b.judul SEPARATOR ", ") as daftar_buku, `d`.`id_denda`, `d`.`jumlah_denda`, `d`.`status` as `status_bayar`
+FROM `pengembalian` `p`
+LEFT JOIN `peminjaman` `pm` ON `pm`.`id_peminjaman` = `p`.`id_peminjaman`
+LEFT JOIN `anggota` `a` ON `a`.`user_id` = `pm`.`user_id`
+LEFT JOIN `detail_peminjaman` `dp` ON `dp`.`id_peminjaman` = `pm`.`id_peminjaman`
+LEFT JOIN `buku` `b` ON `b`.`id_buku` = `dp`.`id_buku`
+LEFT JOIN `denda` `d` ON `d`.`id_pengembalian` = `p`.`id_pengembalian`
+GROUP BY `p`.`id_pengembalian`
+ORDER BY `p`.`id_pengembalian` DESC')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `p`.*, `a`.`nama_anggota` as `nama_anggota`, GROUP_CONCAT(b.judul SEPARATOR ", ") as daftar_buku, `d`.`id_denda`, `d`.`jumlah_denda`, `d`.`status` as `status_bayar`
+FROM `pengembalian` `p`
+LEFT JOIN `peminjaman` `pm` ON `pm`.`id_peminjaman` = `p`.`id_peminjaman`
+LEFT JOIN `anggota` `a` ON `a`.`user_id` = `pm`.`user_id`
+LEFT JOIN `detail_peminjaman` `dp` ON `dp`.`id_peminjaman` = `pm`.`id_peminjaman`
+LEFT JOIN `buku` `b` ON `b`.`id_buku` = `dp`.`id_buku`
+LEFT JOIN `denda` `d` ON `d`.`id_pengembalian` = `p`.`id_pengembalian`
+GROUP BY `p`.`id_pengembalian`
+ORDER BY `p`.`id_pengembalian` DESC', [], false)
+ 4 APPPATH\Controllers\Pengembalian.php(45): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Pengembalian->index()
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pengembalian))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-25 00:07:54 --> [Caused by] mysqli_sql_exception: Unknown column 'a.nama_anggota' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `p`.*, `a`.`nama_anggota` as `nama_anggota`, GROUP_CONCAT(b.judul SEPARATOR ", ") as daftar_buku, `d`.`id_denda`, `d`.`jumlah_denda`, `d`.`status` as `status_bayar`
+FROM `pengembalian` `p`
+LEFT JOIN `peminjaman` `pm` ON `pm`.`id_peminjaman` = `p`.`id_peminjaman`
+LEFT JOIN `anggota` `a` ON `a`.`user_id` = `pm`.`user_id`
+LEFT JOIN `detail_peminjaman` `dp` ON `dp`.`id_peminjaman` = `pm`.`id_peminjaman`
+LEFT JOIN `buku` `b` ON `b`.`id_buku` = `dp`.`id_buku`
+LEFT JOIN `denda` `d` ON `d`.`id_pengembalian` = `p`.`id_pengembalian`
+GROUP BY `p`.`id_pengembalian`
+ORDER BY `p`.`id_pengembalian` DESC', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `p`.*, `a`.`nama_anggota` as `nama_anggota`, GROUP_CONCAT(b.judul SEPARATOR ", ") as daftar_buku, `d`.`id_denda`, `d`.`jumlah_denda`, `d`.`status` as `status_bayar`
+FROM `pengembalian` `p`
+LEFT JOIN `peminjaman` `pm` ON `pm`.`id_peminjaman` = `p`.`id_peminjaman`
+LEFT JOIN `anggota` `a` ON `a`.`user_id` = `pm`.`user_id`
+LEFT JOIN `detail_peminjaman` `dp` ON `dp`.`id_peminjaman` = `pm`.`id_peminjaman`
+LEFT JOIN `buku` `b` ON `b`.`id_buku` = `dp`.`id_buku`
+LEFT JOIN `denda` `d` ON `d`.`id_pengembalian` = `p`.`id_pengembalian`
+GROUP BY `p`.`id_pengembalian`
+ORDER BY `p`.`id_pengembalian` DESC')
+ 3 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `p`.*, `a`.`nama_anggota` as `nama_anggota`, GROUP_CONCAT(b.judul SEPARATOR ", ") as daftar_buku, `d`.`id_denda`, `d`.`jumlah_denda`, `d`.`status` as `status_bayar`
+FROM `pengembalian` `p`
+LEFT JOIN `peminjaman` `pm` ON `pm`.`id_peminjaman` = `p`.`id_peminjaman`
+LEFT JOIN `anggota` `a` ON `a`.`user_id` = `pm`.`user_id`
+LEFT JOIN `detail_peminjaman` `dp` ON `dp`.`id_peminjaman` = `pm`.`id_peminjaman`
+LEFT JOIN `buku` `b` ON `b`.`id_buku` = `dp`.`id_buku`
+LEFT JOIN `denda` `d` ON `d`.`id_pengembalian` = `p`.`id_pengembalian`
+GROUP BY `p`.`id_pengembalian`
+ORDER BY `p`.`id_pengembalian` DESC')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `p`.*, `a`.`nama_anggota` as `nama_anggota`, GROUP_CONCAT(b.judul SEPARATOR ", ") as daftar_buku, `d`.`id_denda`, `d`.`jumlah_denda`, `d`.`status` as `status_bayar`
+FROM `pengembalian` `p`
+LEFT JOIN `peminjaman` `pm` ON `pm`.`id_peminjaman` = `p`.`id_peminjaman`
+LEFT JOIN `anggota` `a` ON `a`.`user_id` = `pm`.`user_id`
+LEFT JOIN `detail_peminjaman` `dp` ON `dp`.`id_peminjaman` = `pm`.`id_peminjaman`
+LEFT JOIN `buku` `b` ON `b`.`id_buku` = `dp`.`id_buku`
+LEFT JOIN `denda` `d` ON `d`.`id_pengembalian` = `p`.`id_pengembalian`
+GROUP BY `p`.`id_pengembalian`
+ORDER BY `p`.`id_pengembalian` DESC', [], false)
+ 5 APPPATH\Controllers\Pengembalian.php(45): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Pengembalian->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pengembalian))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2026-04-25 00:07:55 --> mysqli_sql_exception: Unknown column 'a.nama_anggota' in 'field list' in C:\xampp1\htdocs\pinbook\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp1\htdocs\pinbook\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `p`.*, `...', 0)
+#1 C:\xampp1\htdocs\pinbook\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `p`.*, `...')
+#2 C:\xampp1\htdocs\pinbook\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `p`.*, `...')
+#3 C:\xampp1\htdocs\pinbook\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `p`.*, `...', Array, false)
+#4 C:\xampp1\htdocs\pinbook\app\Controllers\Pengembalian.php(45): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp1\htdocs\pinbook\system\CodeIgniter.php(933): App\Controllers\Pengembalian->index()
+#6 C:\xampp1\htdocs\pinbook\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pengembalian))
+#7 C:\xampp1\htdocs\pinbook\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp1\htdocs\pinbook\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp1\htdocs\pinbook\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#10 C:\xampp1\htdocs\pinbook\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#11 {main}
+CRITICAL - 2026-04-25 00:07:55 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'a.nama_anggota' in 'field list'
+[Method: GET, Route: pengembalian]
+in SYSTEMPATH\Database\BaseConnection.php on line 684.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `p`.*, `a`.`nama_anggota` as `nama_anggota`, GROUP_CONCAT(b.judul SEPARATOR ", ") as daftar_buku, `d`.`id_denda`, `d`.`jumlah_denda`, `d`.`status` as `status_bayar`
+FROM `pengembalian` `p`
+LEFT JOIN `peminjaman` `pm` ON `pm`.`id_peminjaman` = `p`.`id_peminjaman`
+LEFT JOIN `anggota` `a` ON `a`.`user_id` = `pm`.`user_id`
+LEFT JOIN `detail_peminjaman` `dp` ON `dp`.`id_peminjaman` = `pm`.`id_peminjaman`
+LEFT JOIN `buku` `b` ON `b`.`id_buku` = `dp`.`id_buku`
+LEFT JOIN `denda` `d` ON `d`.`id_pengembalian` = `p`.`id_pengembalian`
+GROUP BY `p`.`id_pengembalian`
+ORDER BY `p`.`id_pengembalian` DESC', [], false)
+ 2 APPPATH\Controllers\Pengembalian.php(45): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Pengembalian->index()
+ 4 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pengembalian))
+ 5 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-25 00:07:55 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'a.nama_anggota' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `p`.*, `a`.`nama_anggota` as `nama_anggota`, GROUP_CONCAT(b.judul SEPARATOR ", ") as daftar_buku, `d`.`id_denda`, `d`.`jumlah_denda`, `d`.`status` as `status_bayar`
+FROM `pengembalian` `p`
+LEFT JOIN `peminjaman` `pm` ON `pm`.`id_peminjaman` = `p`.`id_peminjaman`
+LEFT JOIN `anggota` `a` ON `a`.`user_id` = `pm`.`user_id`
+LEFT JOIN `detail_peminjaman` `dp` ON `dp`.`id_peminjaman` = `pm`.`id_peminjaman`
+LEFT JOIN `buku` `b` ON `b`.`id_buku` = `dp`.`id_buku`
+LEFT JOIN `denda` `d` ON `d`.`id_pengembalian` = `p`.`id_pengembalian`
+GROUP BY `p`.`id_pengembalian`
+ORDER BY `p`.`id_pengembalian` DESC')
+ 2 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `p`.*, `a`.`nama_anggota` as `nama_anggota`, GROUP_CONCAT(b.judul SEPARATOR ", ") as daftar_buku, `d`.`id_denda`, `d`.`jumlah_denda`, `d`.`status` as `status_bayar`
+FROM `pengembalian` `p`
+LEFT JOIN `peminjaman` `pm` ON `pm`.`id_peminjaman` = `p`.`id_peminjaman`
+LEFT JOIN `anggota` `a` ON `a`.`user_id` = `pm`.`user_id`
+LEFT JOIN `detail_peminjaman` `dp` ON `dp`.`id_peminjaman` = `pm`.`id_peminjaman`
+LEFT JOIN `buku` `b` ON `b`.`id_buku` = `dp`.`id_buku`
+LEFT JOIN `denda` `d` ON `d`.`id_pengembalian` = `p`.`id_pengembalian`
+GROUP BY `p`.`id_pengembalian`
+ORDER BY `p`.`id_pengembalian` DESC')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `p`.*, `a`.`nama_anggota` as `nama_anggota`, GROUP_CONCAT(b.judul SEPARATOR ", ") as daftar_buku, `d`.`id_denda`, `d`.`jumlah_denda`, `d`.`status` as `status_bayar`
+FROM `pengembalian` `p`
+LEFT JOIN `peminjaman` `pm` ON `pm`.`id_peminjaman` = `p`.`id_peminjaman`
+LEFT JOIN `anggota` `a` ON `a`.`user_id` = `pm`.`user_id`
+LEFT JOIN `detail_peminjaman` `dp` ON `dp`.`id_peminjaman` = `pm`.`id_peminjaman`
+LEFT JOIN `buku` `b` ON `b`.`id_buku` = `dp`.`id_buku`
+LEFT JOIN `denda` `d` ON `d`.`id_pengembalian` = `p`.`id_pengembalian`
+GROUP BY `p`.`id_pengembalian`
+ORDER BY `p`.`id_pengembalian` DESC', [], false)
+ 4 APPPATH\Controllers\Pengembalian.php(45): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Pengembalian->index()
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pengembalian))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-25 00:07:55 --> [Caused by] mysqli_sql_exception: Unknown column 'a.nama_anggota' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `p`.*, `a`.`nama_anggota` as `nama_anggota`, GROUP_CONCAT(b.judul SEPARATOR ", ") as daftar_buku, `d`.`id_denda`, `d`.`jumlah_denda`, `d`.`status` as `status_bayar`
+FROM `pengembalian` `p`
+LEFT JOIN `peminjaman` `pm` ON `pm`.`id_peminjaman` = `p`.`id_peminjaman`
+LEFT JOIN `anggota` `a` ON `a`.`user_id` = `pm`.`user_id`
+LEFT JOIN `detail_peminjaman` `dp` ON `dp`.`id_peminjaman` = `pm`.`id_peminjaman`
+LEFT JOIN `buku` `b` ON `b`.`id_buku` = `dp`.`id_buku`
+LEFT JOIN `denda` `d` ON `d`.`id_pengembalian` = `p`.`id_pengembalian`
+GROUP BY `p`.`id_pengembalian`
+ORDER BY `p`.`id_pengembalian` DESC', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `p`.*, `a`.`nama_anggota` as `nama_anggota`, GROUP_CONCAT(b.judul SEPARATOR ", ") as daftar_buku, `d`.`id_denda`, `d`.`jumlah_denda`, `d`.`status` as `status_bayar`
+FROM `pengembalian` `p`
+LEFT JOIN `peminjaman` `pm` ON `pm`.`id_peminjaman` = `p`.`id_peminjaman`
+LEFT JOIN `anggota` `a` ON `a`.`user_id` = `pm`.`user_id`
+LEFT JOIN `detail_peminjaman` `dp` ON `dp`.`id_peminjaman` = `pm`.`id_peminjaman`
+LEFT JOIN `buku` `b` ON `b`.`id_buku` = `dp`.`id_buku`
+LEFT JOIN `denda` `d` ON `d`.`id_pengembalian` = `p`.`id_pengembalian`
+GROUP BY `p`.`id_pengembalian`
+ORDER BY `p`.`id_pengembalian` DESC')
+ 3 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `p`.*, `a`.`nama_anggota` as `nama_anggota`, GROUP_CONCAT(b.judul SEPARATOR ", ") as daftar_buku, `d`.`id_denda`, `d`.`jumlah_denda`, `d`.`status` as `status_bayar`
+FROM `pengembalian` `p`
+LEFT JOIN `peminjaman` `pm` ON `pm`.`id_peminjaman` = `p`.`id_peminjaman`
+LEFT JOIN `anggota` `a` ON `a`.`user_id` = `pm`.`user_id`
+LEFT JOIN `detail_peminjaman` `dp` ON `dp`.`id_peminjaman` = `pm`.`id_peminjaman`
+LEFT JOIN `buku` `b` ON `b`.`id_buku` = `dp`.`id_buku`
+LEFT JOIN `denda` `d` ON `d`.`id_pengembalian` = `p`.`id_pengembalian`
+GROUP BY `p`.`id_pengembalian`
+ORDER BY `p`.`id_pengembalian` DESC')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `p`.*, `a`.`nama_anggota` as `nama_anggota`, GROUP_CONCAT(b.judul SEPARATOR ", ") as daftar_buku, `d`.`id_denda`, `d`.`jumlah_denda`, `d`.`status` as `status_bayar`
+FROM `pengembalian` `p`
+LEFT JOIN `peminjaman` `pm` ON `pm`.`id_peminjaman` = `p`.`id_peminjaman`
+LEFT JOIN `anggota` `a` ON `a`.`user_id` = `pm`.`user_id`
+LEFT JOIN `detail_peminjaman` `dp` ON `dp`.`id_peminjaman` = `pm`.`id_peminjaman`
+LEFT JOIN `buku` `b` ON `b`.`id_buku` = `dp`.`id_buku`
+LEFT JOIN `denda` `d` ON `d`.`id_pengembalian` = `p`.`id_pengembalian`
+GROUP BY `p`.`id_pengembalian`
+ORDER BY `p`.`id_pengembalian` DESC', [], false)
+ 5 APPPATH\Controllers\Pengembalian.php(45): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Pengembalian->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pengembalian))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2026-04-25 00:08:54 --> mysqli_sql_exception: Unknown column 'a.nama' in 'field list' in C:\xampp1\htdocs\pinbook\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp1\htdocs\pinbook\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `p`.*, `...', 0)
+#1 C:\xampp1\htdocs\pinbook\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `p`.*, `...')
+#2 C:\xampp1\htdocs\pinbook\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `p`.*, `...')
+#3 C:\xampp1\htdocs\pinbook\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `p`.*, `...', Array, false)
+#4 C:\xampp1\htdocs\pinbook\app\Controllers\Pengembalian.php(45): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp1\htdocs\pinbook\system\CodeIgniter.php(933): App\Controllers\Pengembalian->index()
+#6 C:\xampp1\htdocs\pinbook\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pengembalian))
+#7 C:\xampp1\htdocs\pinbook\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp1\htdocs\pinbook\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp1\htdocs\pinbook\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#10 C:\xampp1\htdocs\pinbook\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#11 {main}
+CRITICAL - 2026-04-25 00:08:54 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'a.nama' in 'field list'
+[Method: GET, Route: pengembalian]
+in SYSTEMPATH\Database\BaseConnection.php on line 684.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `p`.*, `a`.`nama` as `nama_anggota`, GROUP_CONCAT(b.judul SEPARATOR ", ") as daftar_buku, `d`.`id_denda`, `d`.`jumlah_denda`, `d`.`status` as `status_bayar`
+FROM `pengembalian` `p`
+LEFT JOIN `peminjaman` `pm` ON `pm`.`id_peminjaman` = `p`.`id_peminjaman`
+LEFT JOIN `anggota` `a` ON `a`.`user_id` = `pm`.`user_id`
+LEFT JOIN `detail_peminjaman` `dp` ON `dp`.`id_peminjaman` = `pm`.`id_peminjaman`
+LEFT JOIN `buku` `b` ON `b`.`id_buku` = `dp`.`id_buku`
+LEFT JOIN `denda` `d` ON `d`.`id_pengembalian` = `p`.`id_pengembalian`
+GROUP BY `p`.`id_pengembalian`
+ORDER BY `p`.`id_pengembalian` DESC', [], false)
+ 2 APPPATH\Controllers\Pengembalian.php(45): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Pengembalian->index()
+ 4 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pengembalian))
+ 5 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-25 00:08:54 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'a.nama' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `p`.*, `a`.`nama` as `nama_anggota`, GROUP_CONCAT(b.judul SEPARATOR ", ") as daftar_buku, `d`.`id_denda`, `d`.`jumlah_denda`, `d`.`status` as `status_bayar`
+FROM `pengembalian` `p`
+LEFT JOIN `peminjaman` `pm` ON `pm`.`id_peminjaman` = `p`.`id_peminjaman`
+LEFT JOIN `anggota` `a` ON `a`.`user_id` = `pm`.`user_id`
+LEFT JOIN `detail_peminjaman` `dp` ON `dp`.`id_peminjaman` = `pm`.`id_peminjaman`
+LEFT JOIN `buku` `b` ON `b`.`id_buku` = `dp`.`id_buku`
+LEFT JOIN `denda` `d` ON `d`.`id_pengembalian` = `p`.`id_pengembalian`
+GROUP BY `p`.`id_pengembalian`
+ORDER BY `p`.`id_pengembalian` DESC')
+ 2 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `p`.*, `a`.`nama` as `nama_anggota`, GROUP_CONCAT(b.judul SEPARATOR ", ") as daftar_buku, `d`.`id_denda`, `d`.`jumlah_denda`, `d`.`status` as `status_bayar`
+FROM `pengembalian` `p`
+LEFT JOIN `peminjaman` `pm` ON `pm`.`id_peminjaman` = `p`.`id_peminjaman`
+LEFT JOIN `anggota` `a` ON `a`.`user_id` = `pm`.`user_id`
+LEFT JOIN `detail_peminjaman` `dp` ON `dp`.`id_peminjaman` = `pm`.`id_peminjaman`
+LEFT JOIN `buku` `b` ON `b`.`id_buku` = `dp`.`id_buku`
+LEFT JOIN `denda` `d` ON `d`.`id_pengembalian` = `p`.`id_pengembalian`
+GROUP BY `p`.`id_pengembalian`
+ORDER BY `p`.`id_pengembalian` DESC')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `p`.*, `a`.`nama` as `nama_anggota`, GROUP_CONCAT(b.judul SEPARATOR ", ") as daftar_buku, `d`.`id_denda`, `d`.`jumlah_denda`, `d`.`status` as `status_bayar`
+FROM `pengembalian` `p`
+LEFT JOIN `peminjaman` `pm` ON `pm`.`id_peminjaman` = `p`.`id_peminjaman`
+LEFT JOIN `anggota` `a` ON `a`.`user_id` = `pm`.`user_id`
+LEFT JOIN `detail_peminjaman` `dp` ON `dp`.`id_peminjaman` = `pm`.`id_peminjaman`
+LEFT JOIN `buku` `b` ON `b`.`id_buku` = `dp`.`id_buku`
+LEFT JOIN `denda` `d` ON `d`.`id_pengembalian` = `p`.`id_pengembalian`
+GROUP BY `p`.`id_pengembalian`
+ORDER BY `p`.`id_pengembalian` DESC', [], false)
+ 4 APPPATH\Controllers\Pengembalian.php(45): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Pengembalian->index()
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pengembalian))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-25 00:08:54 --> [Caused by] mysqli_sql_exception: Unknown column 'a.nama' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `p`.*, `a`.`nama` as `nama_anggota`, GROUP_CONCAT(b.judul SEPARATOR ", ") as daftar_buku, `d`.`id_denda`, `d`.`jumlah_denda`, `d`.`status` as `status_bayar`
+FROM `pengembalian` `p`
+LEFT JOIN `peminjaman` `pm` ON `pm`.`id_peminjaman` = `p`.`id_peminjaman`
+LEFT JOIN `anggota` `a` ON `a`.`user_id` = `pm`.`user_id`
+LEFT JOIN `detail_peminjaman` `dp` ON `dp`.`id_peminjaman` = `pm`.`id_peminjaman`
+LEFT JOIN `buku` `b` ON `b`.`id_buku` = `dp`.`id_buku`
+LEFT JOIN `denda` `d` ON `d`.`id_pengembalian` = `p`.`id_pengembalian`
+GROUP BY `p`.`id_pengembalian`
+ORDER BY `p`.`id_pengembalian` DESC', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `p`.*, `a`.`nama` as `nama_anggota`, GROUP_CONCAT(b.judul SEPARATOR ", ") as daftar_buku, `d`.`id_denda`, `d`.`jumlah_denda`, `d`.`status` as `status_bayar`
+FROM `pengembalian` `p`
+LEFT JOIN `peminjaman` `pm` ON `pm`.`id_peminjaman` = `p`.`id_peminjaman`
+LEFT JOIN `anggota` `a` ON `a`.`user_id` = `pm`.`user_id`
+LEFT JOIN `detail_peminjaman` `dp` ON `dp`.`id_peminjaman` = `pm`.`id_peminjaman`
+LEFT JOIN `buku` `b` ON `b`.`id_buku` = `dp`.`id_buku`
+LEFT JOIN `denda` `d` ON `d`.`id_pengembalian` = `p`.`id_pengembalian`
+GROUP BY `p`.`id_pengembalian`
+ORDER BY `p`.`id_pengembalian` DESC')
+ 3 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `p`.*, `a`.`nama` as `nama_anggota`, GROUP_CONCAT(b.judul SEPARATOR ", ") as daftar_buku, `d`.`id_denda`, `d`.`jumlah_denda`, `d`.`status` as `status_bayar`
+FROM `pengembalian` `p`
+LEFT JOIN `peminjaman` `pm` ON `pm`.`id_peminjaman` = `p`.`id_peminjaman`
+LEFT JOIN `anggota` `a` ON `a`.`user_id` = `pm`.`user_id`
+LEFT JOIN `detail_peminjaman` `dp` ON `dp`.`id_peminjaman` = `pm`.`id_peminjaman`
+LEFT JOIN `buku` `b` ON `b`.`id_buku` = `dp`.`id_buku`
+LEFT JOIN `denda` `d` ON `d`.`id_pengembalian` = `p`.`id_pengembalian`
+GROUP BY `p`.`id_pengembalian`
+ORDER BY `p`.`id_pengembalian` DESC')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `p`.*, `a`.`nama` as `nama_anggota`, GROUP_CONCAT(b.judul SEPARATOR ", ") as daftar_buku, `d`.`id_denda`, `d`.`jumlah_denda`, `d`.`status` as `status_bayar`
+FROM `pengembalian` `p`
+LEFT JOIN `peminjaman` `pm` ON `pm`.`id_peminjaman` = `p`.`id_peminjaman`
+LEFT JOIN `anggota` `a` ON `a`.`user_id` = `pm`.`user_id`
+LEFT JOIN `detail_peminjaman` `dp` ON `dp`.`id_peminjaman` = `pm`.`id_peminjaman`
+LEFT JOIN `buku` `b` ON `b`.`id_buku` = `dp`.`id_buku`
+LEFT JOIN `denda` `d` ON `d`.`id_pengembalian` = `p`.`id_pengembalian`
+GROUP BY `p`.`id_pengembalian`
+ORDER BY `p`.`id_pengembalian` DESC', [], false)
+ 5 APPPATH\Controllers\Pengembalian.php(45): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Pengembalian->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pengembalian))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2026-04-25 00:08:56 --> mysqli_sql_exception: Unknown column 'a.nama' in 'field list' in C:\xampp1\htdocs\pinbook\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp1\htdocs\pinbook\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `p`.*, `...', 0)
+#1 C:\xampp1\htdocs\pinbook\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `p`.*, `...')
+#2 C:\xampp1\htdocs\pinbook\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `p`.*, `...')
+#3 C:\xampp1\htdocs\pinbook\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `p`.*, `...', Array, false)
+#4 C:\xampp1\htdocs\pinbook\app\Controllers\Pengembalian.php(45): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp1\htdocs\pinbook\system\CodeIgniter.php(933): App\Controllers\Pengembalian->index()
+#6 C:\xampp1\htdocs\pinbook\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pengembalian))
+#7 C:\xampp1\htdocs\pinbook\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp1\htdocs\pinbook\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp1\htdocs\pinbook\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#10 C:\xampp1\htdocs\pinbook\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#11 {main}
+CRITICAL - 2026-04-25 00:08:56 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'a.nama' in 'field list'
+[Method: GET, Route: pengembalian]
+in SYSTEMPATH\Database\BaseConnection.php on line 684.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `p`.*, `a`.`nama` as `nama_anggota`, GROUP_CONCAT(b.judul SEPARATOR ", ") as daftar_buku, `d`.`id_denda`, `d`.`jumlah_denda`, `d`.`status` as `status_bayar`
+FROM `pengembalian` `p`
+LEFT JOIN `peminjaman` `pm` ON `pm`.`id_peminjaman` = `p`.`id_peminjaman`
+LEFT JOIN `anggota` `a` ON `a`.`user_id` = `pm`.`user_id`
+LEFT JOIN `detail_peminjaman` `dp` ON `dp`.`id_peminjaman` = `pm`.`id_peminjaman`
+LEFT JOIN `buku` `b` ON `b`.`id_buku` = `dp`.`id_buku`
+LEFT JOIN `denda` `d` ON `d`.`id_pengembalian` = `p`.`id_pengembalian`
+GROUP BY `p`.`id_pengembalian`
+ORDER BY `p`.`id_pengembalian` DESC', [], false)
+ 2 APPPATH\Controllers\Pengembalian.php(45): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Pengembalian->index()
+ 4 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pengembalian))
+ 5 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-25 00:08:56 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'a.nama' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `p`.*, `a`.`nama` as `nama_anggota`, GROUP_CONCAT(b.judul SEPARATOR ", ") as daftar_buku, `d`.`id_denda`, `d`.`jumlah_denda`, `d`.`status` as `status_bayar`
+FROM `pengembalian` `p`
+LEFT JOIN `peminjaman` `pm` ON `pm`.`id_peminjaman` = `p`.`id_peminjaman`
+LEFT JOIN `anggota` `a` ON `a`.`user_id` = `pm`.`user_id`
+LEFT JOIN `detail_peminjaman` `dp` ON `dp`.`id_peminjaman` = `pm`.`id_peminjaman`
+LEFT JOIN `buku` `b` ON `b`.`id_buku` = `dp`.`id_buku`
+LEFT JOIN `denda` `d` ON `d`.`id_pengembalian` = `p`.`id_pengembalian`
+GROUP BY `p`.`id_pengembalian`
+ORDER BY `p`.`id_pengembalian` DESC')
+ 2 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `p`.*, `a`.`nama` as `nama_anggota`, GROUP_CONCAT(b.judul SEPARATOR ", ") as daftar_buku, `d`.`id_denda`, `d`.`jumlah_denda`, `d`.`status` as `status_bayar`
+FROM `pengembalian` `p`
+LEFT JOIN `peminjaman` `pm` ON `pm`.`id_peminjaman` = `p`.`id_peminjaman`
+LEFT JOIN `anggota` `a` ON `a`.`user_id` = `pm`.`user_id`
+LEFT JOIN `detail_peminjaman` `dp` ON `dp`.`id_peminjaman` = `pm`.`id_peminjaman`
+LEFT JOIN `buku` `b` ON `b`.`id_buku` = `dp`.`id_buku`
+LEFT JOIN `denda` `d` ON `d`.`id_pengembalian` = `p`.`id_pengembalian`
+GROUP BY `p`.`id_pengembalian`
+ORDER BY `p`.`id_pengembalian` DESC')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `p`.*, `a`.`nama` as `nama_anggota`, GROUP_CONCAT(b.judul SEPARATOR ", ") as daftar_buku, `d`.`id_denda`, `d`.`jumlah_denda`, `d`.`status` as `status_bayar`
+FROM `pengembalian` `p`
+LEFT JOIN `peminjaman` `pm` ON `pm`.`id_peminjaman` = `p`.`id_peminjaman`
+LEFT JOIN `anggota` `a` ON `a`.`user_id` = `pm`.`user_id`
+LEFT JOIN `detail_peminjaman` `dp` ON `dp`.`id_peminjaman` = `pm`.`id_peminjaman`
+LEFT JOIN `buku` `b` ON `b`.`id_buku` = `dp`.`id_buku`
+LEFT JOIN `denda` `d` ON `d`.`id_pengembalian` = `p`.`id_pengembalian`
+GROUP BY `p`.`id_pengembalian`
+ORDER BY `p`.`id_pengembalian` DESC', [], false)
+ 4 APPPATH\Controllers\Pengembalian.php(45): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Pengembalian->index()
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pengembalian))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-25 00:08:56 --> [Caused by] mysqli_sql_exception: Unknown column 'a.nama' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `p`.*, `a`.`nama` as `nama_anggota`, GROUP_CONCAT(b.judul SEPARATOR ", ") as daftar_buku, `d`.`id_denda`, `d`.`jumlah_denda`, `d`.`status` as `status_bayar`
+FROM `pengembalian` `p`
+LEFT JOIN `peminjaman` `pm` ON `pm`.`id_peminjaman` = `p`.`id_peminjaman`
+LEFT JOIN `anggota` `a` ON `a`.`user_id` = `pm`.`user_id`
+LEFT JOIN `detail_peminjaman` `dp` ON `dp`.`id_peminjaman` = `pm`.`id_peminjaman`
+LEFT JOIN `buku` `b` ON `b`.`id_buku` = `dp`.`id_buku`
+LEFT JOIN `denda` `d` ON `d`.`id_pengembalian` = `p`.`id_pengembalian`
+GROUP BY `p`.`id_pengembalian`
+ORDER BY `p`.`id_pengembalian` DESC', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `p`.*, `a`.`nama` as `nama_anggota`, GROUP_CONCAT(b.judul SEPARATOR ", ") as daftar_buku, `d`.`id_denda`, `d`.`jumlah_denda`, `d`.`status` as `status_bayar`
+FROM `pengembalian` `p`
+LEFT JOIN `peminjaman` `pm` ON `pm`.`id_peminjaman` = `p`.`id_peminjaman`
+LEFT JOIN `anggota` `a` ON `a`.`user_id` = `pm`.`user_id`
+LEFT JOIN `detail_peminjaman` `dp` ON `dp`.`id_peminjaman` = `pm`.`id_peminjaman`
+LEFT JOIN `buku` `b` ON `b`.`id_buku` = `dp`.`id_buku`
+LEFT JOIN `denda` `d` ON `d`.`id_pengembalian` = `p`.`id_pengembalian`
+GROUP BY `p`.`id_pengembalian`
+ORDER BY `p`.`id_pengembalian` DESC')
+ 3 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `p`.*, `a`.`nama` as `nama_anggota`, GROUP_CONCAT(b.judul SEPARATOR ", ") as daftar_buku, `d`.`id_denda`, `d`.`jumlah_denda`, `d`.`status` as `status_bayar`
+FROM `pengembalian` `p`
+LEFT JOIN `peminjaman` `pm` ON `pm`.`id_peminjaman` = `p`.`id_peminjaman`
+LEFT JOIN `anggota` `a` ON `a`.`user_id` = `pm`.`user_id`
+LEFT JOIN `detail_peminjaman` `dp` ON `dp`.`id_peminjaman` = `pm`.`id_peminjaman`
+LEFT JOIN `buku` `b` ON `b`.`id_buku` = `dp`.`id_buku`
+LEFT JOIN `denda` `d` ON `d`.`id_pengembalian` = `p`.`id_pengembalian`
+GROUP BY `p`.`id_pengembalian`
+ORDER BY `p`.`id_pengembalian` DESC')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `p`.*, `a`.`nama` as `nama_anggota`, GROUP_CONCAT(b.judul SEPARATOR ", ") as daftar_buku, `d`.`id_denda`, `d`.`jumlah_denda`, `d`.`status` as `status_bayar`
+FROM `pengembalian` `p`
+LEFT JOIN `peminjaman` `pm` ON `pm`.`id_peminjaman` = `p`.`id_peminjaman`
+LEFT JOIN `anggota` `a` ON `a`.`user_id` = `pm`.`user_id`
+LEFT JOIN `detail_peminjaman` `dp` ON `dp`.`id_peminjaman` = `pm`.`id_peminjaman`
+LEFT JOIN `buku` `b` ON `b`.`id_buku` = `dp`.`id_buku`
+LEFT JOIN `denda` `d` ON `d`.`id_pengembalian` = `p`.`id_pengembalian`
+GROUP BY `p`.`id_pengembalian`
+ORDER BY `p`.`id_pengembalian` DESC', [], false)
+ 5 APPPATH\Controllers\Pengembalian.php(45): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Pengembalian->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pengembalian))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2026-04-25 00:09:52 --> mysqli_sql_exception: Unknown column 'a.nama_anggota' in 'field list' in C:\xampp1\htdocs\pinbook\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp1\htdocs\pinbook\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `p`.`id_...', 0)
+#1 C:\xampp1\htdocs\pinbook\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `p`.`id_...')
+#2 C:\xampp1\htdocs\pinbook\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `p`.`id_...')
+#3 C:\xampp1\htdocs\pinbook\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `p`.`id_...', Array, false)
+#4 C:\xampp1\htdocs\pinbook\app\Controllers\Pengembalian.php(52): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp1\htdocs\pinbook\system\CodeIgniter.php(933): App\Controllers\Pengembalian->index()
+#6 C:\xampp1\htdocs\pinbook\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pengembalian))
+#7 C:\xampp1\htdocs\pinbook\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp1\htdocs\pinbook\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp1\htdocs\pinbook\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#10 C:\xampp1\htdocs\pinbook\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#11 {main}
+CRITICAL - 2026-04-25 00:09:52 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'a.nama_anggota' in 'field list'
+[Method: GET, Route: pengembalian]
+in SYSTEMPATH\Database\BaseConnection.php on line 684.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `p`.`id_pengembalian`, `p`.`id_peminjaman`, `p`.`tanggal_dikembalikan`, `p`.`denda`, `a`.`nama_anggota`, GROUP_CONCAT(b.judul SEPARATOR ", ") as daftar_buku, `d`.`id_denda`, `d`.`jumlah_denda`, `d`.`status` as `status_bayar`
+FROM `pengembalian` `p`
+LEFT JOIN `peminjaman` `pm` ON `pm`.`id_peminjaman` = `p`.`id_peminjaman`
+LEFT JOIN `anggota` `a` ON `a`.`user_id` = `pm`.`user_id`
+LEFT JOIN `detail_peminjaman` `dp` ON `dp`.`id_peminjaman` = `pm`.`id_peminjaman`
+LEFT JOIN `buku` `b` ON `b`.`id_buku` = `dp`.`id_buku`
+LEFT JOIN `denda` `d` ON `d`.`id_pengembalian` = `p`.`id_pengembalian`
+GROUP BY `p`.`id_pengembalian`
+ORDER BY `p`.`id_pengembalian` DESC', [], false)
+ 2 APPPATH\Controllers\Pengembalian.php(52): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Pengembalian->index()
+ 4 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pengembalian))
+ 5 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-25 00:09:52 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'a.nama_anggota' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `p`.`id_pengembalian`, `p`.`id_peminjaman`, `p`.`tanggal_dikembalikan`, `p`.`denda`, `a`.`nama_anggota`, GROUP_CONCAT(b.judul SEPARATOR ", ") as daftar_buku, `d`.`id_denda`, `d`.`jumlah_denda`, `d`.`status` as `status_bayar`
+FROM `pengembalian` `p`
+LEFT JOIN `peminjaman` `pm` ON `pm`.`id_peminjaman` = `p`.`id_peminjaman`
+LEFT JOIN `anggota` `a` ON `a`.`user_id` = `pm`.`user_id`
+LEFT JOIN `detail_peminjaman` `dp` ON `dp`.`id_peminjaman` = `pm`.`id_peminjaman`
+LEFT JOIN `buku` `b` ON `b`.`id_buku` = `dp`.`id_buku`
+LEFT JOIN `denda` `d` ON `d`.`id_pengembalian` = `p`.`id_pengembalian`
+GROUP BY `p`.`id_pengembalian`
+ORDER BY `p`.`id_pengembalian` DESC')
+ 2 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `p`.`id_pengembalian`, `p`.`id_peminjaman`, `p`.`tanggal_dikembalikan`, `p`.`denda`, `a`.`nama_anggota`, GROUP_CONCAT(b.judul SEPARATOR ", ") as daftar_buku, `d`.`id_denda`, `d`.`jumlah_denda`, `d`.`status` as `status_bayar`
+FROM `pengembalian` `p`
+LEFT JOIN `peminjaman` `pm` ON `pm`.`id_peminjaman` = `p`.`id_peminjaman`
+LEFT JOIN `anggota` `a` ON `a`.`user_id` = `pm`.`user_id`
+LEFT JOIN `detail_peminjaman` `dp` ON `dp`.`id_peminjaman` = `pm`.`id_peminjaman`
+LEFT JOIN `buku` `b` ON `b`.`id_buku` = `dp`.`id_buku`
+LEFT JOIN `denda` `d` ON `d`.`id_pengembalian` = `p`.`id_pengembalian`
+GROUP BY `p`.`id_pengembalian`
+ORDER BY `p`.`id_pengembalian` DESC')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `p`.`id_pengembalian`, `p`.`id_peminjaman`, `p`.`tanggal_dikembalikan`, `p`.`denda`, `a`.`nama_anggota`, GROUP_CONCAT(b.judul SEPARATOR ", ") as daftar_buku, `d`.`id_denda`, `d`.`jumlah_denda`, `d`.`status` as `status_bayar`
+FROM `pengembalian` `p`
+LEFT JOIN `peminjaman` `pm` ON `pm`.`id_peminjaman` = `p`.`id_peminjaman`
+LEFT JOIN `anggota` `a` ON `a`.`user_id` = `pm`.`user_id`
+LEFT JOIN `detail_peminjaman` `dp` ON `dp`.`id_peminjaman` = `pm`.`id_peminjaman`
+LEFT JOIN `buku` `b` ON `b`.`id_buku` = `dp`.`id_buku`
+LEFT JOIN `denda` `d` ON `d`.`id_pengembalian` = `p`.`id_pengembalian`
+GROUP BY `p`.`id_pengembalian`
+ORDER BY `p`.`id_pengembalian` DESC', [], false)
+ 4 APPPATH\Controllers\Pengembalian.php(52): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Pengembalian->index()
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pengembalian))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-25 00:09:52 --> [Caused by] mysqli_sql_exception: Unknown column 'a.nama_anggota' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `p`.`id_pengembalian`, `p`.`id_peminjaman`, `p`.`tanggal_dikembalikan`, `p`.`denda`, `a`.`nama_anggota`, GROUP_CONCAT(b.judul SEPARATOR ", ") as daftar_buku, `d`.`id_denda`, `d`.`jumlah_denda`, `d`.`status` as `status_bayar`
+FROM `pengembalian` `p`
+LEFT JOIN `peminjaman` `pm` ON `pm`.`id_peminjaman` = `p`.`id_peminjaman`
+LEFT JOIN `anggota` `a` ON `a`.`user_id` = `pm`.`user_id`
+LEFT JOIN `detail_peminjaman` `dp` ON `dp`.`id_peminjaman` = `pm`.`id_peminjaman`
+LEFT JOIN `buku` `b` ON `b`.`id_buku` = `dp`.`id_buku`
+LEFT JOIN `denda` `d` ON `d`.`id_pengembalian` = `p`.`id_pengembalian`
+GROUP BY `p`.`id_pengembalian`
+ORDER BY `p`.`id_pengembalian` DESC', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `p`.`id_pengembalian`, `p`.`id_peminjaman`, `p`.`tanggal_dikembalikan`, `p`.`denda`, `a`.`nama_anggota`, GROUP_CONCAT(b.judul SEPARATOR ", ") as daftar_buku, `d`.`id_denda`, `d`.`jumlah_denda`, `d`.`status` as `status_bayar`
+FROM `pengembalian` `p`
+LEFT JOIN `peminjaman` `pm` ON `pm`.`id_peminjaman` = `p`.`id_peminjaman`
+LEFT JOIN `anggota` `a` ON `a`.`user_id` = `pm`.`user_id`
+LEFT JOIN `detail_peminjaman` `dp` ON `dp`.`id_peminjaman` = `pm`.`id_peminjaman`
+LEFT JOIN `buku` `b` ON `b`.`id_buku` = `dp`.`id_buku`
+LEFT JOIN `denda` `d` ON `d`.`id_pengembalian` = `p`.`id_pengembalian`
+GROUP BY `p`.`id_pengembalian`
+ORDER BY `p`.`id_pengembalian` DESC')
+ 3 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `p`.`id_pengembalian`, `p`.`id_peminjaman`, `p`.`tanggal_dikembalikan`, `p`.`denda`, `a`.`nama_anggota`, GROUP_CONCAT(b.judul SEPARATOR ", ") as daftar_buku, `d`.`id_denda`, `d`.`jumlah_denda`, `d`.`status` as `status_bayar`
+FROM `pengembalian` `p`
+LEFT JOIN `peminjaman` `pm` ON `pm`.`id_peminjaman` = `p`.`id_peminjaman`
+LEFT JOIN `anggota` `a` ON `a`.`user_id` = `pm`.`user_id`
+LEFT JOIN `detail_peminjaman` `dp` ON `dp`.`id_peminjaman` = `pm`.`id_peminjaman`
+LEFT JOIN `buku` `b` ON `b`.`id_buku` = `dp`.`id_buku`
+LEFT JOIN `denda` `d` ON `d`.`id_pengembalian` = `p`.`id_pengembalian`
+GROUP BY `p`.`id_pengembalian`
+ORDER BY `p`.`id_pengembalian` DESC')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `p`.`id_pengembalian`, `p`.`id_peminjaman`, `p`.`tanggal_dikembalikan`, `p`.`denda`, `a`.`nama_anggota`, GROUP_CONCAT(b.judul SEPARATOR ", ") as daftar_buku, `d`.`id_denda`, `d`.`jumlah_denda`, `d`.`status` as `status_bayar`
+FROM `pengembalian` `p`
+LEFT JOIN `peminjaman` `pm` ON `pm`.`id_peminjaman` = `p`.`id_peminjaman`
+LEFT JOIN `anggota` `a` ON `a`.`user_id` = `pm`.`user_id`
+LEFT JOIN `detail_peminjaman` `dp` ON `dp`.`id_peminjaman` = `pm`.`id_peminjaman`
+LEFT JOIN `buku` `b` ON `b`.`id_buku` = `dp`.`id_buku`
+LEFT JOIN `denda` `d` ON `d`.`id_pengembalian` = `p`.`id_pengembalian`
+GROUP BY `p`.`id_pengembalian`
+ORDER BY `p`.`id_pengembalian` DESC', [], false)
+ 5 APPPATH\Controllers\Pengembalian.php(52): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Pengembalian->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pengembalian))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2026-04-25 00:10:59 --> mysqli_sql_exception: Unknown column 'a.nama' in 'field list' in C:\xampp1\htdocs\pinbook\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp1\htdocs\pinbook\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `p`.`id_...', 0)
+#1 C:\xampp1\htdocs\pinbook\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `p`.`id_...')
+#2 C:\xampp1\htdocs\pinbook\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `p`.`id_...')
+#3 C:\xampp1\htdocs\pinbook\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `p`.`id_...', Array, false)
+#4 C:\xampp1\htdocs\pinbook\app\Controllers\Pengembalian.php(53): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp1\htdocs\pinbook\system\CodeIgniter.php(933): App\Controllers\Pengembalian->index()
+#6 C:\xampp1\htdocs\pinbook\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pengembalian))
+#7 C:\xampp1\htdocs\pinbook\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp1\htdocs\pinbook\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp1\htdocs\pinbook\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#10 C:\xampp1\htdocs\pinbook\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#11 {main}
+CRITICAL - 2026-04-25 00:10:59 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'a.nama' in 'field list'
+[Method: GET, Route: pengembalian]
+in SYSTEMPATH\Database\BaseConnection.php on line 684.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `p`.`id_pengembalian`, `p`.`id_peminjaman`, `p`.`tanggal_dikembalikan`, `p`.`denda`, `a`.`user_id`, `a`.`nama` as `nama_anggota`, GROUP_CONCAT(b.judul SEPARATOR ", ") as daftar_buku, `d`.`id_denda`, `d`.`jumlah_denda`, `d`.`status` as `status_bayar`
+FROM `pengembalian` `p`
+LEFT JOIN `peminjaman` `pm` ON `pm`.`id_peminjaman` = `p`.`id_peminjaman`
+LEFT JOIN `anggota` `a` ON `a`.`user_id` = `pm`.`user_id`
+LEFT JOIN `detail_peminjaman` `dp` ON `dp`.`id_peminjaman` = `pm`.`id_peminjaman`
+LEFT JOIN `buku` `b` ON `b`.`id_buku` = `dp`.`id_buku`
+LEFT JOIN `denda` `d` ON `d`.`id_pengembalian` = `p`.`id_pengembalian`
+GROUP BY `p`.`id_pengembalian`
+ORDER BY `p`.`id_pengembalian` DESC', [], false)
+ 2 APPPATH\Controllers\Pengembalian.php(53): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Pengembalian->index()
+ 4 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pengembalian))
+ 5 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-25 00:10:59 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'a.nama' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `p`.`id_pengembalian`, `p`.`id_peminjaman`, `p`.`tanggal_dikembalikan`, `p`.`denda`, `a`.`user_id`, `a`.`nama` as `nama_anggota`, GROUP_CONCAT(b.judul SEPARATOR ", ") as daftar_buku, `d`.`id_denda`, `d`.`jumlah_denda`, `d`.`status` as `status_bayar`
+FROM `pengembalian` `p`
+LEFT JOIN `peminjaman` `pm` ON `pm`.`id_peminjaman` = `p`.`id_peminjaman`
+LEFT JOIN `anggota` `a` ON `a`.`user_id` = `pm`.`user_id`
+LEFT JOIN `detail_peminjaman` `dp` ON `dp`.`id_peminjaman` = `pm`.`id_peminjaman`
+LEFT JOIN `buku` `b` ON `b`.`id_buku` = `dp`.`id_buku`
+LEFT JOIN `denda` `d` ON `d`.`id_pengembalian` = `p`.`id_pengembalian`
+GROUP BY `p`.`id_pengembalian`
+ORDER BY `p`.`id_pengembalian` DESC')
+ 2 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `p`.`id_pengembalian`, `p`.`id_peminjaman`, `p`.`tanggal_dikembalikan`, `p`.`denda`, `a`.`user_id`, `a`.`nama` as `nama_anggota`, GROUP_CONCAT(b.judul SEPARATOR ", ") as daftar_buku, `d`.`id_denda`, `d`.`jumlah_denda`, `d`.`status` as `status_bayar`
+FROM `pengembalian` `p`
+LEFT JOIN `peminjaman` `pm` ON `pm`.`id_peminjaman` = `p`.`id_peminjaman`
+LEFT JOIN `anggota` `a` ON `a`.`user_id` = `pm`.`user_id`
+LEFT JOIN `detail_peminjaman` `dp` ON `dp`.`id_peminjaman` = `pm`.`id_peminjaman`
+LEFT JOIN `buku` `b` ON `b`.`id_buku` = `dp`.`id_buku`
+LEFT JOIN `denda` `d` ON `d`.`id_pengembalian` = `p`.`id_pengembalian`
+GROUP BY `p`.`id_pengembalian`
+ORDER BY `p`.`id_pengembalian` DESC')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `p`.`id_pengembalian`, `p`.`id_peminjaman`, `p`.`tanggal_dikembalikan`, `p`.`denda`, `a`.`user_id`, `a`.`nama` as `nama_anggota`, GROUP_CONCAT(b.judul SEPARATOR ", ") as daftar_buku, `d`.`id_denda`, `d`.`jumlah_denda`, `d`.`status` as `status_bayar`
+FROM `pengembalian` `p`
+LEFT JOIN `peminjaman` `pm` ON `pm`.`id_peminjaman` = `p`.`id_peminjaman`
+LEFT JOIN `anggota` `a` ON `a`.`user_id` = `pm`.`user_id`
+LEFT JOIN `detail_peminjaman` `dp` ON `dp`.`id_peminjaman` = `pm`.`id_peminjaman`
+LEFT JOIN `buku` `b` ON `b`.`id_buku` = `dp`.`id_buku`
+LEFT JOIN `denda` `d` ON `d`.`id_pengembalian` = `p`.`id_pengembalian`
+GROUP BY `p`.`id_pengembalian`
+ORDER BY `p`.`id_pengembalian` DESC', [], false)
+ 4 APPPATH\Controllers\Pengembalian.php(53): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Pengembalian->index()
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pengembalian))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-25 00:10:59 --> [Caused by] mysqli_sql_exception: Unknown column 'a.nama' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `p`.`id_pengembalian`, `p`.`id_peminjaman`, `p`.`tanggal_dikembalikan`, `p`.`denda`, `a`.`user_id`, `a`.`nama` as `nama_anggota`, GROUP_CONCAT(b.judul SEPARATOR ", ") as daftar_buku, `d`.`id_denda`, `d`.`jumlah_denda`, `d`.`status` as `status_bayar`
+FROM `pengembalian` `p`
+LEFT JOIN `peminjaman` `pm` ON `pm`.`id_peminjaman` = `p`.`id_peminjaman`
+LEFT JOIN `anggota` `a` ON `a`.`user_id` = `pm`.`user_id`
+LEFT JOIN `detail_peminjaman` `dp` ON `dp`.`id_peminjaman` = `pm`.`id_peminjaman`
+LEFT JOIN `buku` `b` ON `b`.`id_buku` = `dp`.`id_buku`
+LEFT JOIN `denda` `d` ON `d`.`id_pengembalian` = `p`.`id_pengembalian`
+GROUP BY `p`.`id_pengembalian`
+ORDER BY `p`.`id_pengembalian` DESC', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `p`.`id_pengembalian`, `p`.`id_peminjaman`, `p`.`tanggal_dikembalikan`, `p`.`denda`, `a`.`user_id`, `a`.`nama` as `nama_anggota`, GROUP_CONCAT(b.judul SEPARATOR ", ") as daftar_buku, `d`.`id_denda`, `d`.`jumlah_denda`, `d`.`status` as `status_bayar`
+FROM `pengembalian` `p`
+LEFT JOIN `peminjaman` `pm` ON `pm`.`id_peminjaman` = `p`.`id_peminjaman`
+LEFT JOIN `anggota` `a` ON `a`.`user_id` = `pm`.`user_id`
+LEFT JOIN `detail_peminjaman` `dp` ON `dp`.`id_peminjaman` = `pm`.`id_peminjaman`
+LEFT JOIN `buku` `b` ON `b`.`id_buku` = `dp`.`id_buku`
+LEFT JOIN `denda` `d` ON `d`.`id_pengembalian` = `p`.`id_pengembalian`
+GROUP BY `p`.`id_pengembalian`
+ORDER BY `p`.`id_pengembalian` DESC')
+ 3 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `p`.`id_pengembalian`, `p`.`id_peminjaman`, `p`.`tanggal_dikembalikan`, `p`.`denda`, `a`.`user_id`, `a`.`nama` as `nama_anggota`, GROUP_CONCAT(b.judul SEPARATOR ", ") as daftar_buku, `d`.`id_denda`, `d`.`jumlah_denda`, `d`.`status` as `status_bayar`
+FROM `pengembalian` `p`
+LEFT JOIN `peminjaman` `pm` ON `pm`.`id_peminjaman` = `p`.`id_peminjaman`
+LEFT JOIN `anggota` `a` ON `a`.`user_id` = `pm`.`user_id`
+LEFT JOIN `detail_peminjaman` `dp` ON `dp`.`id_peminjaman` = `pm`.`id_peminjaman`
+LEFT JOIN `buku` `b` ON `b`.`id_buku` = `dp`.`id_buku`
+LEFT JOIN `denda` `d` ON `d`.`id_pengembalian` = `p`.`id_pengembalian`
+GROUP BY `p`.`id_pengembalian`
+ORDER BY `p`.`id_pengembalian` DESC')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `p`.`id_pengembalian`, `p`.`id_peminjaman`, `p`.`tanggal_dikembalikan`, `p`.`denda`, `a`.`user_id`, `a`.`nama` as `nama_anggota`, GROUP_CONCAT(b.judul SEPARATOR ", ") as daftar_buku, `d`.`id_denda`, `d`.`jumlah_denda`, `d`.`status` as `status_bayar`
+FROM `pengembalian` `p`
+LEFT JOIN `peminjaman` `pm` ON `pm`.`id_peminjaman` = `p`.`id_peminjaman`
+LEFT JOIN `anggota` `a` ON `a`.`user_id` = `pm`.`user_id`
+LEFT JOIN `detail_peminjaman` `dp` ON `dp`.`id_peminjaman` = `pm`.`id_peminjaman`
+LEFT JOIN `buku` `b` ON `b`.`id_buku` = `dp`.`id_buku`
+LEFT JOIN `denda` `d` ON `d`.`id_pengembalian` = `p`.`id_pengembalian`
+GROUP BY `p`.`id_pengembalian`
+ORDER BY `p`.`id_pengembalian` DESC', [], false)
+ 5 APPPATH\Controllers\Pengembalian.php(53): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Pengembalian->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pengembalian))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2026-04-25 00:12:12 --> mysqli_sql_exception: Unknown column 'pm.user_id' in 'field list' in C:\xampp1\htdocs\pinbook\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp1\htdocs\pinbook\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `p`.`id_...', 0)
+#1 C:\xampp1\htdocs\pinbook\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `p`.`id_...')
+#2 C:\xampp1\htdocs\pinbook\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `p`.`id_...')
+#3 C:\xampp1\htdocs\pinbook\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `p`.`id_...', Array, false)
+#4 C:\xampp1\htdocs\pinbook\app\Controllers\Pengembalian.php(56): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp1\htdocs\pinbook\system\CodeIgniter.php(933): App\Controllers\Pengembalian->index()
+#6 C:\xampp1\htdocs\pinbook\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pengembalian))
+#7 C:\xampp1\htdocs\pinbook\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp1\htdocs\pinbook\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp1\htdocs\pinbook\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#10 C:\xampp1\htdocs\pinbook\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#11 {main}
+CRITICAL - 2026-04-25 00:12:12 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'pm.user_id' in 'field list'
+[Method: GET, Route: pengembalian]
+in SYSTEMPATH\Database\BaseConnection.php on line 684.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `p`.`id_pengembalian`, `p`.`id_peminjaman`, `p`.`tanggal_dikembalikan`, `p`.`denda`, `pm`.`user_id`, `a`.`nama` as `nama_anggota`, GROUP_CONCAT(b.judul SEPARATOR ", ") as daftar_buku, `d`.`id_denda`, `d`.`jumlah_denda`, `d`.`status` as `status_bayar`
+FROM `pengembalian` `p`
+LEFT JOIN `peminjaman` `pm` ON `pm`.`id_peminjaman` = `p`.`id_peminjaman`
+LEFT JOIN `anggota` `a` ON `a`.`user_id` = `pm`.`user_id`
+LEFT JOIN `detail_peminjaman` `dp` ON `dp`.`id_peminjaman` = `pm`.`id_peminjaman`
+LEFT JOIN `buku` `b` ON `b`.`id_buku` = `dp`.`id_buku`
+LEFT JOIN `denda` `d` ON `d`.`id_pengembalian` = `p`.`id_pengembalian`
+GROUP BY `p`.`id_pengembalian`
+ORDER BY `p`.`id_pengembalian` DESC', [], false)
+ 2 APPPATH\Controllers\Pengembalian.php(56): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Pengembalian->index()
+ 4 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pengembalian))
+ 5 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-25 00:12:12 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'pm.user_id' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `p`.`id_pengembalian`, `p`.`id_peminjaman`, `p`.`tanggal_dikembalikan`, `p`.`denda`, `pm`.`user_id`, `a`.`nama` as `nama_anggota`, GROUP_CONCAT(b.judul SEPARATOR ", ") as daftar_buku, `d`.`id_denda`, `d`.`jumlah_denda`, `d`.`status` as `status_bayar`
+FROM `pengembalian` `p`
+LEFT JOIN `peminjaman` `pm` ON `pm`.`id_peminjaman` = `p`.`id_peminjaman`
+LEFT JOIN `anggota` `a` ON `a`.`user_id` = `pm`.`user_id`
+LEFT JOIN `detail_peminjaman` `dp` ON `dp`.`id_peminjaman` = `pm`.`id_peminjaman`
+LEFT JOIN `buku` `b` ON `b`.`id_buku` = `dp`.`id_buku`
+LEFT JOIN `denda` `d` ON `d`.`id_pengembalian` = `p`.`id_pengembalian`
+GROUP BY `p`.`id_pengembalian`
+ORDER BY `p`.`id_pengembalian` DESC')
+ 2 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `p`.`id_pengembalian`, `p`.`id_peminjaman`, `p`.`tanggal_dikembalikan`, `p`.`denda`, `pm`.`user_id`, `a`.`nama` as `nama_anggota`, GROUP_CONCAT(b.judul SEPARATOR ", ") as daftar_buku, `d`.`id_denda`, `d`.`jumlah_denda`, `d`.`status` as `status_bayar`
+FROM `pengembalian` `p`
+LEFT JOIN `peminjaman` `pm` ON `pm`.`id_peminjaman` = `p`.`id_peminjaman`
+LEFT JOIN `anggota` `a` ON `a`.`user_id` = `pm`.`user_id`
+LEFT JOIN `detail_peminjaman` `dp` ON `dp`.`id_peminjaman` = `pm`.`id_peminjaman`
+LEFT JOIN `buku` `b` ON `b`.`id_buku` = `dp`.`id_buku`
+LEFT JOIN `denda` `d` ON `d`.`id_pengembalian` = `p`.`id_pengembalian`
+GROUP BY `p`.`id_pengembalian`
+ORDER BY `p`.`id_pengembalian` DESC')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `p`.`id_pengembalian`, `p`.`id_peminjaman`, `p`.`tanggal_dikembalikan`, `p`.`denda`, `pm`.`user_id`, `a`.`nama` as `nama_anggota`, GROUP_CONCAT(b.judul SEPARATOR ", ") as daftar_buku, `d`.`id_denda`, `d`.`jumlah_denda`, `d`.`status` as `status_bayar`
+FROM `pengembalian` `p`
+LEFT JOIN `peminjaman` `pm` ON `pm`.`id_peminjaman` = `p`.`id_peminjaman`
+LEFT JOIN `anggota` `a` ON `a`.`user_id` = `pm`.`user_id`
+LEFT JOIN `detail_peminjaman` `dp` ON `dp`.`id_peminjaman` = `pm`.`id_peminjaman`
+LEFT JOIN `buku` `b` ON `b`.`id_buku` = `dp`.`id_buku`
+LEFT JOIN `denda` `d` ON `d`.`id_pengembalian` = `p`.`id_pengembalian`
+GROUP BY `p`.`id_pengembalian`
+ORDER BY `p`.`id_pengembalian` DESC', [], false)
+ 4 APPPATH\Controllers\Pengembalian.php(56): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Pengembalian->index()
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pengembalian))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-25 00:12:12 --> [Caused by] mysqli_sql_exception: Unknown column 'pm.user_id' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `p`.`id_pengembalian`, `p`.`id_peminjaman`, `p`.`tanggal_dikembalikan`, `p`.`denda`, `pm`.`user_id`, `a`.`nama` as `nama_anggota`, GROUP_CONCAT(b.judul SEPARATOR ", ") as daftar_buku, `d`.`id_denda`, `d`.`jumlah_denda`, `d`.`status` as `status_bayar`
+FROM `pengembalian` `p`
+LEFT JOIN `peminjaman` `pm` ON `pm`.`id_peminjaman` = `p`.`id_peminjaman`
+LEFT JOIN `anggota` `a` ON `a`.`user_id` = `pm`.`user_id`
+LEFT JOIN `detail_peminjaman` `dp` ON `dp`.`id_peminjaman` = `pm`.`id_peminjaman`
+LEFT JOIN `buku` `b` ON `b`.`id_buku` = `dp`.`id_buku`
+LEFT JOIN `denda` `d` ON `d`.`id_pengembalian` = `p`.`id_pengembalian`
+GROUP BY `p`.`id_pengembalian`
+ORDER BY `p`.`id_pengembalian` DESC', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `p`.`id_pengembalian`, `p`.`id_peminjaman`, `p`.`tanggal_dikembalikan`, `p`.`denda`, `pm`.`user_id`, `a`.`nama` as `nama_anggota`, GROUP_CONCAT(b.judul SEPARATOR ", ") as daftar_buku, `d`.`id_denda`, `d`.`jumlah_denda`, `d`.`status` as `status_bayar`
+FROM `pengembalian` `p`
+LEFT JOIN `peminjaman` `pm` ON `pm`.`id_peminjaman` = `p`.`id_peminjaman`
+LEFT JOIN `anggota` `a` ON `a`.`user_id` = `pm`.`user_id`
+LEFT JOIN `detail_peminjaman` `dp` ON `dp`.`id_peminjaman` = `pm`.`id_peminjaman`
+LEFT JOIN `buku` `b` ON `b`.`id_buku` = `dp`.`id_buku`
+LEFT JOIN `denda` `d` ON `d`.`id_pengembalian` = `p`.`id_pengembalian`
+GROUP BY `p`.`id_pengembalian`
+ORDER BY `p`.`id_pengembalian` DESC')
+ 3 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `p`.`id_pengembalian`, `p`.`id_peminjaman`, `p`.`tanggal_dikembalikan`, `p`.`denda`, `pm`.`user_id`, `a`.`nama` as `nama_anggota`, GROUP_CONCAT(b.judul SEPARATOR ", ") as daftar_buku, `d`.`id_denda`, `d`.`jumlah_denda`, `d`.`status` as `status_bayar`
+FROM `pengembalian` `p`
+LEFT JOIN `peminjaman` `pm` ON `pm`.`id_peminjaman` = `p`.`id_peminjaman`
+LEFT JOIN `anggota` `a` ON `a`.`user_id` = `pm`.`user_id`
+LEFT JOIN `detail_peminjaman` `dp` ON `dp`.`id_peminjaman` = `pm`.`id_peminjaman`
+LEFT JOIN `buku` `b` ON `b`.`id_buku` = `dp`.`id_buku`
+LEFT JOIN `denda` `d` ON `d`.`id_pengembalian` = `p`.`id_pengembalian`
+GROUP BY `p`.`id_pengembalian`
+ORDER BY `p`.`id_pengembalian` DESC')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `p`.`id_pengembalian`, `p`.`id_peminjaman`, `p`.`tanggal_dikembalikan`, `p`.`denda`, `pm`.`user_id`, `a`.`nama` as `nama_anggota`, GROUP_CONCAT(b.judul SEPARATOR ", ") as daftar_buku, `d`.`id_denda`, `d`.`jumlah_denda`, `d`.`status` as `status_bayar`
+FROM `pengembalian` `p`
+LEFT JOIN `peminjaman` `pm` ON `pm`.`id_peminjaman` = `p`.`id_peminjaman`
+LEFT JOIN `anggota` `a` ON `a`.`user_id` = `pm`.`user_id`
+LEFT JOIN `detail_peminjaman` `dp` ON `dp`.`id_peminjaman` = `pm`.`id_peminjaman`
+LEFT JOIN `buku` `b` ON `b`.`id_buku` = `dp`.`id_buku`
+LEFT JOIN `denda` `d` ON `d`.`id_pengembalian` = `p`.`id_pengembalian`
+GROUP BY `p`.`id_pengembalian`
+ORDER BY `p`.`id_pengembalian` DESC', [], false)
+ 5 APPPATH\Controllers\Pengembalian.php(56): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Pengembalian->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pengembalian))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2026-04-25 00:13:54 --> mysqli_sql_exception: Unknown column 'pm.user_id' in 'field list' in C:\xampp1\htdocs\pinbook\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp1\htdocs\pinbook\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `p`.`id_...', 0)
+#1 C:\xampp1\htdocs\pinbook\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `p`.`id_...')
+#2 C:\xampp1\htdocs\pinbook\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `p`.`id_...')
+#3 C:\xampp1\htdocs\pinbook\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `p`.`id_...', Array, false)
+#4 C:\xampp1\htdocs\pinbook\app\Controllers\Pengembalian.php(56): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp1\htdocs\pinbook\system\CodeIgniter.php(933): App\Controllers\Pengembalian->index()
+#6 C:\xampp1\htdocs\pinbook\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pengembalian))
+#7 C:\xampp1\htdocs\pinbook\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp1\htdocs\pinbook\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp1\htdocs\pinbook\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#10 C:\xampp1\htdocs\pinbook\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#11 {main}
+CRITICAL - 2026-04-25 00:13:54 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'pm.user_id' in 'field list'
+[Method: GET, Route: pengembalian]
+in SYSTEMPATH\Database\BaseConnection.php on line 684.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `p`.`id_pengembalian`, `p`.`id_peminjaman`, `p`.`tanggal_dikembalikan`, `p`.`denda`, `pm`.`user_id`, `a`.`nama` as `nama_anggota`, GROUP_CONCAT(b.judul SEPARATOR ", ") as daftar_buku, `d`.`id_denda`, `d`.`jumlah_denda`, `d`.`status` as `status_bayar`
+FROM `pengembalian` `p`
+LEFT JOIN `peminjaman` `pm` ON `pm`.`id_peminjaman` = `p`.`id_peminjaman`
+LEFT JOIN `anggota` `a` ON `a`.`user_id` = `pm`.`user_id`
+LEFT JOIN `detail_peminjaman` `dp` ON `dp`.`id_peminjaman` = `pm`.`id_peminjaman`
+LEFT JOIN `buku` `b` ON `b`.`id_buku` = `dp`.`id_buku`
+LEFT JOIN `denda` `d` ON `d`.`id_pengembalian` = `p`.`id_pengembalian`
+GROUP BY `p`.`id_pengembalian`
+ORDER BY `p`.`id_pengembalian` DESC', [], false)
+ 2 APPPATH\Controllers\Pengembalian.php(56): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Pengembalian->index()
+ 4 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pengembalian))
+ 5 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-25 00:13:54 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'pm.user_id' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `p`.`id_pengembalian`, `p`.`id_peminjaman`, `p`.`tanggal_dikembalikan`, `p`.`denda`, `pm`.`user_id`, `a`.`nama` as `nama_anggota`, GROUP_CONCAT(b.judul SEPARATOR ", ") as daftar_buku, `d`.`id_denda`, `d`.`jumlah_denda`, `d`.`status` as `status_bayar`
+FROM `pengembalian` `p`
+LEFT JOIN `peminjaman` `pm` ON `pm`.`id_peminjaman` = `p`.`id_peminjaman`
+LEFT JOIN `anggota` `a` ON `a`.`user_id` = `pm`.`user_id`
+LEFT JOIN `detail_peminjaman` `dp` ON `dp`.`id_peminjaman` = `pm`.`id_peminjaman`
+LEFT JOIN `buku` `b` ON `b`.`id_buku` = `dp`.`id_buku`
+LEFT JOIN `denda` `d` ON `d`.`id_pengembalian` = `p`.`id_pengembalian`
+GROUP BY `p`.`id_pengembalian`
+ORDER BY `p`.`id_pengembalian` DESC')
+ 2 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `p`.`id_pengembalian`, `p`.`id_peminjaman`, `p`.`tanggal_dikembalikan`, `p`.`denda`, `pm`.`user_id`, `a`.`nama` as `nama_anggota`, GROUP_CONCAT(b.judul SEPARATOR ", ") as daftar_buku, `d`.`id_denda`, `d`.`jumlah_denda`, `d`.`status` as `status_bayar`
+FROM `pengembalian` `p`
+LEFT JOIN `peminjaman` `pm` ON `pm`.`id_peminjaman` = `p`.`id_peminjaman`
+LEFT JOIN `anggota` `a` ON `a`.`user_id` = `pm`.`user_id`
+LEFT JOIN `detail_peminjaman` `dp` ON `dp`.`id_peminjaman` = `pm`.`id_peminjaman`
+LEFT JOIN `buku` `b` ON `b`.`id_buku` = `dp`.`id_buku`
+LEFT JOIN `denda` `d` ON `d`.`id_pengembalian` = `p`.`id_pengembalian`
+GROUP BY `p`.`id_pengembalian`
+ORDER BY `p`.`id_pengembalian` DESC')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `p`.`id_pengembalian`, `p`.`id_peminjaman`, `p`.`tanggal_dikembalikan`, `p`.`denda`, `pm`.`user_id`, `a`.`nama` as `nama_anggota`, GROUP_CONCAT(b.judul SEPARATOR ", ") as daftar_buku, `d`.`id_denda`, `d`.`jumlah_denda`, `d`.`status` as `status_bayar`
+FROM `pengembalian` `p`
+LEFT JOIN `peminjaman` `pm` ON `pm`.`id_peminjaman` = `p`.`id_peminjaman`
+LEFT JOIN `anggota` `a` ON `a`.`user_id` = `pm`.`user_id`
+LEFT JOIN `detail_peminjaman` `dp` ON `dp`.`id_peminjaman` = `pm`.`id_peminjaman`
+LEFT JOIN `buku` `b` ON `b`.`id_buku` = `dp`.`id_buku`
+LEFT JOIN `denda` `d` ON `d`.`id_pengembalian` = `p`.`id_pengembalian`
+GROUP BY `p`.`id_pengembalian`
+ORDER BY `p`.`id_pengembalian` DESC', [], false)
+ 4 APPPATH\Controllers\Pengembalian.php(56): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Pengembalian->index()
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pengembalian))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-25 00:13:54 --> [Caused by] mysqli_sql_exception: Unknown column 'pm.user_id' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `p`.`id_pengembalian`, `p`.`id_peminjaman`, `p`.`tanggal_dikembalikan`, `p`.`denda`, `pm`.`user_id`, `a`.`nama` as `nama_anggota`, GROUP_CONCAT(b.judul SEPARATOR ", ") as daftar_buku, `d`.`id_denda`, `d`.`jumlah_denda`, `d`.`status` as `status_bayar`
+FROM `pengembalian` `p`
+LEFT JOIN `peminjaman` `pm` ON `pm`.`id_peminjaman` = `p`.`id_peminjaman`
+LEFT JOIN `anggota` `a` ON `a`.`user_id` = `pm`.`user_id`
+LEFT JOIN `detail_peminjaman` `dp` ON `dp`.`id_peminjaman` = `pm`.`id_peminjaman`
+LEFT JOIN `buku` `b` ON `b`.`id_buku` = `dp`.`id_buku`
+LEFT JOIN `denda` `d` ON `d`.`id_pengembalian` = `p`.`id_pengembalian`
+GROUP BY `p`.`id_pengembalian`
+ORDER BY `p`.`id_pengembalian` DESC', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `p`.`id_pengembalian`, `p`.`id_peminjaman`, `p`.`tanggal_dikembalikan`, `p`.`denda`, `pm`.`user_id`, `a`.`nama` as `nama_anggota`, GROUP_CONCAT(b.judul SEPARATOR ", ") as daftar_buku, `d`.`id_denda`, `d`.`jumlah_denda`, `d`.`status` as `status_bayar`
+FROM `pengembalian` `p`
+LEFT JOIN `peminjaman` `pm` ON `pm`.`id_peminjaman` = `p`.`id_peminjaman`
+LEFT JOIN `anggota` `a` ON `a`.`user_id` = `pm`.`user_id`
+LEFT JOIN `detail_peminjaman` `dp` ON `dp`.`id_peminjaman` = `pm`.`id_peminjaman`
+LEFT JOIN `buku` `b` ON `b`.`id_buku` = `dp`.`id_buku`
+LEFT JOIN `denda` `d` ON `d`.`id_pengembalian` = `p`.`id_pengembalian`
+GROUP BY `p`.`id_pengembalian`
+ORDER BY `p`.`id_pengembalian` DESC')
+ 3 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `p`.`id_pengembalian`, `p`.`id_peminjaman`, `p`.`tanggal_dikembalikan`, `p`.`denda`, `pm`.`user_id`, `a`.`nama` as `nama_anggota`, GROUP_CONCAT(b.judul SEPARATOR ", ") as daftar_buku, `d`.`id_denda`, `d`.`jumlah_denda`, `d`.`status` as `status_bayar`
+FROM `pengembalian` `p`
+LEFT JOIN `peminjaman` `pm` ON `pm`.`id_peminjaman` = `p`.`id_peminjaman`
+LEFT JOIN `anggota` `a` ON `a`.`user_id` = `pm`.`user_id`
+LEFT JOIN `detail_peminjaman` `dp` ON `dp`.`id_peminjaman` = `pm`.`id_peminjaman`
+LEFT JOIN `buku` `b` ON `b`.`id_buku` = `dp`.`id_buku`
+LEFT JOIN `denda` `d` ON `d`.`id_pengembalian` = `p`.`id_pengembalian`
+GROUP BY `p`.`id_pengembalian`
+ORDER BY `p`.`id_pengembalian` DESC')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `p`.`id_pengembalian`, `p`.`id_peminjaman`, `p`.`tanggal_dikembalikan`, `p`.`denda`, `pm`.`user_id`, `a`.`nama` as `nama_anggota`, GROUP_CONCAT(b.judul SEPARATOR ", ") as daftar_buku, `d`.`id_denda`, `d`.`jumlah_denda`, `d`.`status` as `status_bayar`
+FROM `pengembalian` `p`
+LEFT JOIN `peminjaman` `pm` ON `pm`.`id_peminjaman` = `p`.`id_peminjaman`
+LEFT JOIN `anggota` `a` ON `a`.`user_id` = `pm`.`user_id`
+LEFT JOIN `detail_peminjaman` `dp` ON `dp`.`id_peminjaman` = `pm`.`id_peminjaman`
+LEFT JOIN `buku` `b` ON `b`.`id_buku` = `dp`.`id_buku`
+LEFT JOIN `denda` `d` ON `d`.`id_pengembalian` = `p`.`id_pengembalian`
+GROUP BY `p`.`id_pengembalian`
+ORDER BY `p`.`id_pengembalian` DESC', [], false)
+ 5 APPPATH\Controllers\Pengembalian.php(56): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Pengembalian->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pengembalian))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2026-04-25 00:13:56 --> mysqli_sql_exception: Unknown column 'pm.user_id' in 'field list' in C:\xampp1\htdocs\pinbook\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp1\htdocs\pinbook\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `p`.`id_...', 0)
+#1 C:\xampp1\htdocs\pinbook\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `p`.`id_...')
+#2 C:\xampp1\htdocs\pinbook\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `p`.`id_...')
+#3 C:\xampp1\htdocs\pinbook\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `p`.`id_...', Array, false)
+#4 C:\xampp1\htdocs\pinbook\app\Controllers\Pengembalian.php(56): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp1\htdocs\pinbook\system\CodeIgniter.php(933): App\Controllers\Pengembalian->index()
+#6 C:\xampp1\htdocs\pinbook\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pengembalian))
+#7 C:\xampp1\htdocs\pinbook\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp1\htdocs\pinbook\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp1\htdocs\pinbook\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#10 C:\xampp1\htdocs\pinbook\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#11 {main}
+CRITICAL - 2026-04-25 00:13:56 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'pm.user_id' in 'field list'
+[Method: GET, Route: pengembalian]
+in SYSTEMPATH\Database\BaseConnection.php on line 684.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `p`.`id_pengembalian`, `p`.`id_peminjaman`, `p`.`tanggal_dikembalikan`, `p`.`denda`, `pm`.`user_id`, `a`.`nama` as `nama_anggota`, GROUP_CONCAT(b.judul SEPARATOR ", ") as daftar_buku, `d`.`id_denda`, `d`.`jumlah_denda`, `d`.`status` as `status_bayar`
+FROM `pengembalian` `p`
+LEFT JOIN `peminjaman` `pm` ON `pm`.`id_peminjaman` = `p`.`id_peminjaman`
+LEFT JOIN `anggota` `a` ON `a`.`user_id` = `pm`.`user_id`
+LEFT JOIN `detail_peminjaman` `dp` ON `dp`.`id_peminjaman` = `pm`.`id_peminjaman`
+LEFT JOIN `buku` `b` ON `b`.`id_buku` = `dp`.`id_buku`
+LEFT JOIN `denda` `d` ON `d`.`id_pengembalian` = `p`.`id_pengembalian`
+GROUP BY `p`.`id_pengembalian`
+ORDER BY `p`.`id_pengembalian` DESC', [], false)
+ 2 APPPATH\Controllers\Pengembalian.php(56): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Pengembalian->index()
+ 4 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pengembalian))
+ 5 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-25 00:13:56 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'pm.user_id' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `p`.`id_pengembalian`, `p`.`id_peminjaman`, `p`.`tanggal_dikembalikan`, `p`.`denda`, `pm`.`user_id`, `a`.`nama` as `nama_anggota`, GROUP_CONCAT(b.judul SEPARATOR ", ") as daftar_buku, `d`.`id_denda`, `d`.`jumlah_denda`, `d`.`status` as `status_bayar`
+FROM `pengembalian` `p`
+LEFT JOIN `peminjaman` `pm` ON `pm`.`id_peminjaman` = `p`.`id_peminjaman`
+LEFT JOIN `anggota` `a` ON `a`.`user_id` = `pm`.`user_id`
+LEFT JOIN `detail_peminjaman` `dp` ON `dp`.`id_peminjaman` = `pm`.`id_peminjaman`
+LEFT JOIN `buku` `b` ON `b`.`id_buku` = `dp`.`id_buku`
+LEFT JOIN `denda` `d` ON `d`.`id_pengembalian` = `p`.`id_pengembalian`
+GROUP BY `p`.`id_pengembalian`
+ORDER BY `p`.`id_pengembalian` DESC')
+ 2 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `p`.`id_pengembalian`, `p`.`id_peminjaman`, `p`.`tanggal_dikembalikan`, `p`.`denda`, `pm`.`user_id`, `a`.`nama` as `nama_anggota`, GROUP_CONCAT(b.judul SEPARATOR ", ") as daftar_buku, `d`.`id_denda`, `d`.`jumlah_denda`, `d`.`status` as `status_bayar`
+FROM `pengembalian` `p`
+LEFT JOIN `peminjaman` `pm` ON `pm`.`id_peminjaman` = `p`.`id_peminjaman`
+LEFT JOIN `anggota` `a` ON `a`.`user_id` = `pm`.`user_id`
+LEFT JOIN `detail_peminjaman` `dp` ON `dp`.`id_peminjaman` = `pm`.`id_peminjaman`
+LEFT JOIN `buku` `b` ON `b`.`id_buku` = `dp`.`id_buku`
+LEFT JOIN `denda` `d` ON `d`.`id_pengembalian` = `p`.`id_pengembalian`
+GROUP BY `p`.`id_pengembalian`
+ORDER BY `p`.`id_pengembalian` DESC')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `p`.`id_pengembalian`, `p`.`id_peminjaman`, `p`.`tanggal_dikembalikan`, `p`.`denda`, `pm`.`user_id`, `a`.`nama` as `nama_anggota`, GROUP_CONCAT(b.judul SEPARATOR ", ") as daftar_buku, `d`.`id_denda`, `d`.`jumlah_denda`, `d`.`status` as `status_bayar`
+FROM `pengembalian` `p`
+LEFT JOIN `peminjaman` `pm` ON `pm`.`id_peminjaman` = `p`.`id_peminjaman`
+LEFT JOIN `anggota` `a` ON `a`.`user_id` = `pm`.`user_id`
+LEFT JOIN `detail_peminjaman` `dp` ON `dp`.`id_peminjaman` = `pm`.`id_peminjaman`
+LEFT JOIN `buku` `b` ON `b`.`id_buku` = `dp`.`id_buku`
+LEFT JOIN `denda` `d` ON `d`.`id_pengembalian` = `p`.`id_pengembalian`
+GROUP BY `p`.`id_pengembalian`
+ORDER BY `p`.`id_pengembalian` DESC', [], false)
+ 4 APPPATH\Controllers\Pengembalian.php(56): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Pengembalian->index()
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pengembalian))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-25 00:13:56 --> [Caused by] mysqli_sql_exception: Unknown column 'pm.user_id' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `p`.`id_pengembalian`, `p`.`id_peminjaman`, `p`.`tanggal_dikembalikan`, `p`.`denda`, `pm`.`user_id`, `a`.`nama` as `nama_anggota`, GROUP_CONCAT(b.judul SEPARATOR ", ") as daftar_buku, `d`.`id_denda`, `d`.`jumlah_denda`, `d`.`status` as `status_bayar`
+FROM `pengembalian` `p`
+LEFT JOIN `peminjaman` `pm` ON `pm`.`id_peminjaman` = `p`.`id_peminjaman`
+LEFT JOIN `anggota` `a` ON `a`.`user_id` = `pm`.`user_id`
+LEFT JOIN `detail_peminjaman` `dp` ON `dp`.`id_peminjaman` = `pm`.`id_peminjaman`
+LEFT JOIN `buku` `b` ON `b`.`id_buku` = `dp`.`id_buku`
+LEFT JOIN `denda` `d` ON `d`.`id_pengembalian` = `p`.`id_pengembalian`
+GROUP BY `p`.`id_pengembalian`
+ORDER BY `p`.`id_pengembalian` DESC', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `p`.`id_pengembalian`, `p`.`id_peminjaman`, `p`.`tanggal_dikembalikan`, `p`.`denda`, `pm`.`user_id`, `a`.`nama` as `nama_anggota`, GROUP_CONCAT(b.judul SEPARATOR ", ") as daftar_buku, `d`.`id_denda`, `d`.`jumlah_denda`, `d`.`status` as `status_bayar`
+FROM `pengembalian` `p`
+LEFT JOIN `peminjaman` `pm` ON `pm`.`id_peminjaman` = `p`.`id_peminjaman`
+LEFT JOIN `anggota` `a` ON `a`.`user_id` = `pm`.`user_id`
+LEFT JOIN `detail_peminjaman` `dp` ON `dp`.`id_peminjaman` = `pm`.`id_peminjaman`
+LEFT JOIN `buku` `b` ON `b`.`id_buku` = `dp`.`id_buku`
+LEFT JOIN `denda` `d` ON `d`.`id_pengembalian` = `p`.`id_pengembalian`
+GROUP BY `p`.`id_pengembalian`
+ORDER BY `p`.`id_pengembalian` DESC')
+ 3 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `p`.`id_pengembalian`, `p`.`id_peminjaman`, `p`.`tanggal_dikembalikan`, `p`.`denda`, `pm`.`user_id`, `a`.`nama` as `nama_anggota`, GROUP_CONCAT(b.judul SEPARATOR ", ") as daftar_buku, `d`.`id_denda`, `d`.`jumlah_denda`, `d`.`status` as `status_bayar`
+FROM `pengembalian` `p`
+LEFT JOIN `peminjaman` `pm` ON `pm`.`id_peminjaman` = `p`.`id_peminjaman`
+LEFT JOIN `anggota` `a` ON `a`.`user_id` = `pm`.`user_id`
+LEFT JOIN `detail_peminjaman` `dp` ON `dp`.`id_peminjaman` = `pm`.`id_peminjaman`
+LEFT JOIN `buku` `b` ON `b`.`id_buku` = `dp`.`id_buku`
+LEFT JOIN `denda` `d` ON `d`.`id_pengembalian` = `p`.`id_pengembalian`
+GROUP BY `p`.`id_pengembalian`
+ORDER BY `p`.`id_pengembalian` DESC')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `p`.`id_pengembalian`, `p`.`id_peminjaman`, `p`.`tanggal_dikembalikan`, `p`.`denda`, `pm`.`user_id`, `a`.`nama` as `nama_anggota`, GROUP_CONCAT(b.judul SEPARATOR ", ") as daftar_buku, `d`.`id_denda`, `d`.`jumlah_denda`, `d`.`status` as `status_bayar`
+FROM `pengembalian` `p`
+LEFT JOIN `peminjaman` `pm` ON `pm`.`id_peminjaman` = `p`.`id_peminjaman`
+LEFT JOIN `anggota` `a` ON `a`.`user_id` = `pm`.`user_id`
+LEFT JOIN `detail_peminjaman` `dp` ON `dp`.`id_peminjaman` = `pm`.`id_peminjaman`
+LEFT JOIN `buku` `b` ON `b`.`id_buku` = `dp`.`id_buku`
+LEFT JOIN `denda` `d` ON `d`.`id_pengembalian` = `p`.`id_pengembalian`
+GROUP BY `p`.`id_pengembalian`
+ORDER BY `p`.`id_pengembalian` DESC', [], false)
+ 5 APPPATH\Controllers\Pengembalian.php(56): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Pengembalian->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pengembalian))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2026-04-25 00:13:57 --> mysqli_sql_exception: Unknown column 'pm.user_id' in 'field list' in C:\xampp1\htdocs\pinbook\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp1\htdocs\pinbook\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `p`.`id_...', 0)
+#1 C:\xampp1\htdocs\pinbook\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `p`.`id_...')
+#2 C:\xampp1\htdocs\pinbook\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `p`.`id_...')
+#3 C:\xampp1\htdocs\pinbook\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `p`.`id_...', Array, false)
+#4 C:\xampp1\htdocs\pinbook\app\Controllers\Pengembalian.php(56): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp1\htdocs\pinbook\system\CodeIgniter.php(933): App\Controllers\Pengembalian->index()
+#6 C:\xampp1\htdocs\pinbook\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pengembalian))
+#7 C:\xampp1\htdocs\pinbook\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp1\htdocs\pinbook\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp1\htdocs\pinbook\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#10 C:\xampp1\htdocs\pinbook\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#11 {main}
+CRITICAL - 2026-04-25 00:13:57 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'pm.user_id' in 'field list'
+[Method: GET, Route: pengembalian]
+in SYSTEMPATH\Database\BaseConnection.php on line 684.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `p`.`id_pengembalian`, `p`.`id_peminjaman`, `p`.`tanggal_dikembalikan`, `p`.`denda`, `pm`.`user_id`, `a`.`nama` as `nama_anggota`, GROUP_CONCAT(b.judul SEPARATOR ", ") as daftar_buku, `d`.`id_denda`, `d`.`jumlah_denda`, `d`.`status` as `status_bayar`
+FROM `pengembalian` `p`
+LEFT JOIN `peminjaman` `pm` ON `pm`.`id_peminjaman` = `p`.`id_peminjaman`
+LEFT JOIN `anggota` `a` ON `a`.`user_id` = `pm`.`user_id`
+LEFT JOIN `detail_peminjaman` `dp` ON `dp`.`id_peminjaman` = `pm`.`id_peminjaman`
+LEFT JOIN `buku` `b` ON `b`.`id_buku` = `dp`.`id_buku`
+LEFT JOIN `denda` `d` ON `d`.`id_pengembalian` = `p`.`id_pengembalian`
+GROUP BY `p`.`id_pengembalian`
+ORDER BY `p`.`id_pengembalian` DESC', [], false)
+ 2 APPPATH\Controllers\Pengembalian.php(56): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Pengembalian->index()
+ 4 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pengembalian))
+ 5 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-25 00:13:57 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'pm.user_id' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `p`.`id_pengembalian`, `p`.`id_peminjaman`, `p`.`tanggal_dikembalikan`, `p`.`denda`, `pm`.`user_id`, `a`.`nama` as `nama_anggota`, GROUP_CONCAT(b.judul SEPARATOR ", ") as daftar_buku, `d`.`id_denda`, `d`.`jumlah_denda`, `d`.`status` as `status_bayar`
+FROM `pengembalian` `p`
+LEFT JOIN `peminjaman` `pm` ON `pm`.`id_peminjaman` = `p`.`id_peminjaman`
+LEFT JOIN `anggota` `a` ON `a`.`user_id` = `pm`.`user_id`
+LEFT JOIN `detail_peminjaman` `dp` ON `dp`.`id_peminjaman` = `pm`.`id_peminjaman`
+LEFT JOIN `buku` `b` ON `b`.`id_buku` = `dp`.`id_buku`
+LEFT JOIN `denda` `d` ON `d`.`id_pengembalian` = `p`.`id_pengembalian`
+GROUP BY `p`.`id_pengembalian`
+ORDER BY `p`.`id_pengembalian` DESC')
+ 2 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `p`.`id_pengembalian`, `p`.`id_peminjaman`, `p`.`tanggal_dikembalikan`, `p`.`denda`, `pm`.`user_id`, `a`.`nama` as `nama_anggota`, GROUP_CONCAT(b.judul SEPARATOR ", ") as daftar_buku, `d`.`id_denda`, `d`.`jumlah_denda`, `d`.`status` as `status_bayar`
+FROM `pengembalian` `p`
+LEFT JOIN `peminjaman` `pm` ON `pm`.`id_peminjaman` = `p`.`id_peminjaman`
+LEFT JOIN `anggota` `a` ON `a`.`user_id` = `pm`.`user_id`
+LEFT JOIN `detail_peminjaman` `dp` ON `dp`.`id_peminjaman` = `pm`.`id_peminjaman`
+LEFT JOIN `buku` `b` ON `b`.`id_buku` = `dp`.`id_buku`
+LEFT JOIN `denda` `d` ON `d`.`id_pengembalian` = `p`.`id_pengembalian`
+GROUP BY `p`.`id_pengembalian`
+ORDER BY `p`.`id_pengembalian` DESC')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `p`.`id_pengembalian`, `p`.`id_peminjaman`, `p`.`tanggal_dikembalikan`, `p`.`denda`, `pm`.`user_id`, `a`.`nama` as `nama_anggota`, GROUP_CONCAT(b.judul SEPARATOR ", ") as daftar_buku, `d`.`id_denda`, `d`.`jumlah_denda`, `d`.`status` as `status_bayar`
+FROM `pengembalian` `p`
+LEFT JOIN `peminjaman` `pm` ON `pm`.`id_peminjaman` = `p`.`id_peminjaman`
+LEFT JOIN `anggota` `a` ON `a`.`user_id` = `pm`.`user_id`
+LEFT JOIN `detail_peminjaman` `dp` ON `dp`.`id_peminjaman` = `pm`.`id_peminjaman`
+LEFT JOIN `buku` `b` ON `b`.`id_buku` = `dp`.`id_buku`
+LEFT JOIN `denda` `d` ON `d`.`id_pengembalian` = `p`.`id_pengembalian`
+GROUP BY `p`.`id_pengembalian`
+ORDER BY `p`.`id_pengembalian` DESC', [], false)
+ 4 APPPATH\Controllers\Pengembalian.php(56): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Pengembalian->index()
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pengembalian))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-25 00:13:57 --> [Caused by] mysqli_sql_exception: Unknown column 'pm.user_id' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `p`.`id_pengembalian`, `p`.`id_peminjaman`, `p`.`tanggal_dikembalikan`, `p`.`denda`, `pm`.`user_id`, `a`.`nama` as `nama_anggota`, GROUP_CONCAT(b.judul SEPARATOR ", ") as daftar_buku, `d`.`id_denda`, `d`.`jumlah_denda`, `d`.`status` as `status_bayar`
+FROM `pengembalian` `p`
+LEFT JOIN `peminjaman` `pm` ON `pm`.`id_peminjaman` = `p`.`id_peminjaman`
+LEFT JOIN `anggota` `a` ON `a`.`user_id` = `pm`.`user_id`
+LEFT JOIN `detail_peminjaman` `dp` ON `dp`.`id_peminjaman` = `pm`.`id_peminjaman`
+LEFT JOIN `buku` `b` ON `b`.`id_buku` = `dp`.`id_buku`
+LEFT JOIN `denda` `d` ON `d`.`id_pengembalian` = `p`.`id_pengembalian`
+GROUP BY `p`.`id_pengembalian`
+ORDER BY `p`.`id_pengembalian` DESC', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `p`.`id_pengembalian`, `p`.`id_peminjaman`, `p`.`tanggal_dikembalikan`, `p`.`denda`, `pm`.`user_id`, `a`.`nama` as `nama_anggota`, GROUP_CONCAT(b.judul SEPARATOR ", ") as daftar_buku, `d`.`id_denda`, `d`.`jumlah_denda`, `d`.`status` as `status_bayar`
+FROM `pengembalian` `p`
+LEFT JOIN `peminjaman` `pm` ON `pm`.`id_peminjaman` = `p`.`id_peminjaman`
+LEFT JOIN `anggota` `a` ON `a`.`user_id` = `pm`.`user_id`
+LEFT JOIN `detail_peminjaman` `dp` ON `dp`.`id_peminjaman` = `pm`.`id_peminjaman`
+LEFT JOIN `buku` `b` ON `b`.`id_buku` = `dp`.`id_buku`
+LEFT JOIN `denda` `d` ON `d`.`id_pengembalian` = `p`.`id_pengembalian`
+GROUP BY `p`.`id_pengembalian`
+ORDER BY `p`.`id_pengembalian` DESC')
+ 3 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `p`.`id_pengembalian`, `p`.`id_peminjaman`, `p`.`tanggal_dikembalikan`, `p`.`denda`, `pm`.`user_id`, `a`.`nama` as `nama_anggota`, GROUP_CONCAT(b.judul SEPARATOR ", ") as daftar_buku, `d`.`id_denda`, `d`.`jumlah_denda`, `d`.`status` as `status_bayar`
+FROM `pengembalian` `p`
+LEFT JOIN `peminjaman` `pm` ON `pm`.`id_peminjaman` = `p`.`id_peminjaman`
+LEFT JOIN `anggota` `a` ON `a`.`user_id` = `pm`.`user_id`
+LEFT JOIN `detail_peminjaman` `dp` ON `dp`.`id_peminjaman` = `pm`.`id_peminjaman`
+LEFT JOIN `buku` `b` ON `b`.`id_buku` = `dp`.`id_buku`
+LEFT JOIN `denda` `d` ON `d`.`id_pengembalian` = `p`.`id_pengembalian`
+GROUP BY `p`.`id_pengembalian`
+ORDER BY `p`.`id_pengembalian` DESC')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `p`.`id_pengembalian`, `p`.`id_peminjaman`, `p`.`tanggal_dikembalikan`, `p`.`denda`, `pm`.`user_id`, `a`.`nama` as `nama_anggota`, GROUP_CONCAT(b.judul SEPARATOR ", ") as daftar_buku, `d`.`id_denda`, `d`.`jumlah_denda`, `d`.`status` as `status_bayar`
+FROM `pengembalian` `p`
+LEFT JOIN `peminjaman` `pm` ON `pm`.`id_peminjaman` = `p`.`id_peminjaman`
+LEFT JOIN `anggota` `a` ON `a`.`user_id` = `pm`.`user_id`
+LEFT JOIN `detail_peminjaman` `dp` ON `dp`.`id_peminjaman` = `pm`.`id_peminjaman`
+LEFT JOIN `buku` `b` ON `b`.`id_buku` = `dp`.`id_buku`
+LEFT JOIN `denda` `d` ON `d`.`id_pengembalian` = `p`.`id_pengembalian`
+GROUP BY `p`.`id_pengembalian`
+ORDER BY `p`.`id_pengembalian` DESC', [], false)
+ 5 APPPATH\Controllers\Pengembalian.php(56): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Pengembalian->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pengembalian))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2026-04-25 00:13:57 --> mysqli_sql_exception: Unknown column 'pm.user_id' in 'field list' in C:\xampp1\htdocs\pinbook\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp1\htdocs\pinbook\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `p`.`id_...', 0)
+#1 C:\xampp1\htdocs\pinbook\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `p`.`id_...')
+#2 C:\xampp1\htdocs\pinbook\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `p`.`id_...')
+#3 C:\xampp1\htdocs\pinbook\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `p`.`id_...', Array, false)
+#4 C:\xampp1\htdocs\pinbook\app\Controllers\Pengembalian.php(56): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp1\htdocs\pinbook\system\CodeIgniter.php(933): App\Controllers\Pengembalian->index()
+#6 C:\xampp1\htdocs\pinbook\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pengembalian))
+#7 C:\xampp1\htdocs\pinbook\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp1\htdocs\pinbook\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp1\htdocs\pinbook\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#10 C:\xampp1\htdocs\pinbook\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#11 {main}
+CRITICAL - 2026-04-25 00:13:57 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'pm.user_id' in 'field list'
+[Method: GET, Route: pengembalian]
+in SYSTEMPATH\Database\BaseConnection.php on line 684.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `p`.`id_pengembalian`, `p`.`id_peminjaman`, `p`.`tanggal_dikembalikan`, `p`.`denda`, `pm`.`user_id`, `a`.`nama` as `nama_anggota`, GROUP_CONCAT(b.judul SEPARATOR ", ") as daftar_buku, `d`.`id_denda`, `d`.`jumlah_denda`, `d`.`status` as `status_bayar`
+FROM `pengembalian` `p`
+LEFT JOIN `peminjaman` `pm` ON `pm`.`id_peminjaman` = `p`.`id_peminjaman`
+LEFT JOIN `anggota` `a` ON `a`.`user_id` = `pm`.`user_id`
+LEFT JOIN `detail_peminjaman` `dp` ON `dp`.`id_peminjaman` = `pm`.`id_peminjaman`
+LEFT JOIN `buku` `b` ON `b`.`id_buku` = `dp`.`id_buku`
+LEFT JOIN `denda` `d` ON `d`.`id_pengembalian` = `p`.`id_pengembalian`
+GROUP BY `p`.`id_pengembalian`
+ORDER BY `p`.`id_pengembalian` DESC', [], false)
+ 2 APPPATH\Controllers\Pengembalian.php(56): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Pengembalian->index()
+ 4 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pengembalian))
+ 5 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-25 00:13:57 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'pm.user_id' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `p`.`id_pengembalian`, `p`.`id_peminjaman`, `p`.`tanggal_dikembalikan`, `p`.`denda`, `pm`.`user_id`, `a`.`nama` as `nama_anggota`, GROUP_CONCAT(b.judul SEPARATOR ", ") as daftar_buku, `d`.`id_denda`, `d`.`jumlah_denda`, `d`.`status` as `status_bayar`
+FROM `pengembalian` `p`
+LEFT JOIN `peminjaman` `pm` ON `pm`.`id_peminjaman` = `p`.`id_peminjaman`
+LEFT JOIN `anggota` `a` ON `a`.`user_id` = `pm`.`user_id`
+LEFT JOIN `detail_peminjaman` `dp` ON `dp`.`id_peminjaman` = `pm`.`id_peminjaman`
+LEFT JOIN `buku` `b` ON `b`.`id_buku` = `dp`.`id_buku`
+LEFT JOIN `denda` `d` ON `d`.`id_pengembalian` = `p`.`id_pengembalian`
+GROUP BY `p`.`id_pengembalian`
+ORDER BY `p`.`id_pengembalian` DESC')
+ 2 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `p`.`id_pengembalian`, `p`.`id_peminjaman`, `p`.`tanggal_dikembalikan`, `p`.`denda`, `pm`.`user_id`, `a`.`nama` as `nama_anggota`, GROUP_CONCAT(b.judul SEPARATOR ", ") as daftar_buku, `d`.`id_denda`, `d`.`jumlah_denda`, `d`.`status` as `status_bayar`
+FROM `pengembalian` `p`
+LEFT JOIN `peminjaman` `pm` ON `pm`.`id_peminjaman` = `p`.`id_peminjaman`
+LEFT JOIN `anggota` `a` ON `a`.`user_id` = `pm`.`user_id`
+LEFT JOIN `detail_peminjaman` `dp` ON `dp`.`id_peminjaman` = `pm`.`id_peminjaman`
+LEFT JOIN `buku` `b` ON `b`.`id_buku` = `dp`.`id_buku`
+LEFT JOIN `denda` `d` ON `d`.`id_pengembalian` = `p`.`id_pengembalian`
+GROUP BY `p`.`id_pengembalian`
+ORDER BY `p`.`id_pengembalian` DESC')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `p`.`id_pengembalian`, `p`.`id_peminjaman`, `p`.`tanggal_dikembalikan`, `p`.`denda`, `pm`.`user_id`, `a`.`nama` as `nama_anggota`, GROUP_CONCAT(b.judul SEPARATOR ", ") as daftar_buku, `d`.`id_denda`, `d`.`jumlah_denda`, `d`.`status` as `status_bayar`
+FROM `pengembalian` `p`
+LEFT JOIN `peminjaman` `pm` ON `pm`.`id_peminjaman` = `p`.`id_peminjaman`
+LEFT JOIN `anggota` `a` ON `a`.`user_id` = `pm`.`user_id`
+LEFT JOIN `detail_peminjaman` `dp` ON `dp`.`id_peminjaman` = `pm`.`id_peminjaman`
+LEFT JOIN `buku` `b` ON `b`.`id_buku` = `dp`.`id_buku`
+LEFT JOIN `denda` `d` ON `d`.`id_pengembalian` = `p`.`id_pengembalian`
+GROUP BY `p`.`id_pengembalian`
+ORDER BY `p`.`id_pengembalian` DESC', [], false)
+ 4 APPPATH\Controllers\Pengembalian.php(56): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Pengembalian->index()
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pengembalian))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-25 00:13:57 --> [Caused by] mysqli_sql_exception: Unknown column 'pm.user_id' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `p`.`id_pengembalian`, `p`.`id_peminjaman`, `p`.`tanggal_dikembalikan`, `p`.`denda`, `pm`.`user_id`, `a`.`nama` as `nama_anggota`, GROUP_CONCAT(b.judul SEPARATOR ", ") as daftar_buku, `d`.`id_denda`, `d`.`jumlah_denda`, `d`.`status` as `status_bayar`
+FROM `pengembalian` `p`
+LEFT JOIN `peminjaman` `pm` ON `pm`.`id_peminjaman` = `p`.`id_peminjaman`
+LEFT JOIN `anggota` `a` ON `a`.`user_id` = `pm`.`user_id`
+LEFT JOIN `detail_peminjaman` `dp` ON `dp`.`id_peminjaman` = `pm`.`id_peminjaman`
+LEFT JOIN `buku` `b` ON `b`.`id_buku` = `dp`.`id_buku`
+LEFT JOIN `denda` `d` ON `d`.`id_pengembalian` = `p`.`id_pengembalian`
+GROUP BY `p`.`id_pengembalian`
+ORDER BY `p`.`id_pengembalian` DESC', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `p`.`id_pengembalian`, `p`.`id_peminjaman`, `p`.`tanggal_dikembalikan`, `p`.`denda`, `pm`.`user_id`, `a`.`nama` as `nama_anggota`, GROUP_CONCAT(b.judul SEPARATOR ", ") as daftar_buku, `d`.`id_denda`, `d`.`jumlah_denda`, `d`.`status` as `status_bayar`
+FROM `pengembalian` `p`
+LEFT JOIN `peminjaman` `pm` ON `pm`.`id_peminjaman` = `p`.`id_peminjaman`
+LEFT JOIN `anggota` `a` ON `a`.`user_id` = `pm`.`user_id`
+LEFT JOIN `detail_peminjaman` `dp` ON `dp`.`id_peminjaman` = `pm`.`id_peminjaman`
+LEFT JOIN `buku` `b` ON `b`.`id_buku` = `dp`.`id_buku`
+LEFT JOIN `denda` `d` ON `d`.`id_pengembalian` = `p`.`id_pengembalian`
+GROUP BY `p`.`id_pengembalian`
+ORDER BY `p`.`id_pengembalian` DESC')
+ 3 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `p`.`id_pengembalian`, `p`.`id_peminjaman`, `p`.`tanggal_dikembalikan`, `p`.`denda`, `pm`.`user_id`, `a`.`nama` as `nama_anggota`, GROUP_CONCAT(b.judul SEPARATOR ", ") as daftar_buku, `d`.`id_denda`, `d`.`jumlah_denda`, `d`.`status` as `status_bayar`
+FROM `pengembalian` `p`
+LEFT JOIN `peminjaman` `pm` ON `pm`.`id_peminjaman` = `p`.`id_peminjaman`
+LEFT JOIN `anggota` `a` ON `a`.`user_id` = `pm`.`user_id`
+LEFT JOIN `detail_peminjaman` `dp` ON `dp`.`id_peminjaman` = `pm`.`id_peminjaman`
+LEFT JOIN `buku` `b` ON `b`.`id_buku` = `dp`.`id_buku`
+LEFT JOIN `denda` `d` ON `d`.`id_pengembalian` = `p`.`id_pengembalian`
+GROUP BY `p`.`id_pengembalian`
+ORDER BY `p`.`id_pengembalian` DESC')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `p`.`id_pengembalian`, `p`.`id_peminjaman`, `p`.`tanggal_dikembalikan`, `p`.`denda`, `pm`.`user_id`, `a`.`nama` as `nama_anggota`, GROUP_CONCAT(b.judul SEPARATOR ", ") as daftar_buku, `d`.`id_denda`, `d`.`jumlah_denda`, `d`.`status` as `status_bayar`
+FROM `pengembalian` `p`
+LEFT JOIN `peminjaman` `pm` ON `pm`.`id_peminjaman` = `p`.`id_peminjaman`
+LEFT JOIN `anggota` `a` ON `a`.`user_id` = `pm`.`user_id`
+LEFT JOIN `detail_peminjaman` `dp` ON `dp`.`id_peminjaman` = `pm`.`id_peminjaman`
+LEFT JOIN `buku` `b` ON `b`.`id_buku` = `dp`.`id_buku`
+LEFT JOIN `denda` `d` ON `d`.`id_pengembalian` = `p`.`id_pengembalian`
+GROUP BY `p`.`id_pengembalian`
+ORDER BY `p`.`id_pengembalian` DESC', [], false)
+ 5 APPPATH\Controllers\Pengembalian.php(56): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Pengembalian->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pengembalian))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2026-04-25 00:13:58 --> mysqli_sql_exception: Unknown column 'pm.user_id' in 'field list' in C:\xampp1\htdocs\pinbook\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp1\htdocs\pinbook\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `p`.`id_...', 0)
+#1 C:\xampp1\htdocs\pinbook\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `p`.`id_...')
+#2 C:\xampp1\htdocs\pinbook\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `p`.`id_...')
+#3 C:\xampp1\htdocs\pinbook\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `p`.`id_...', Array, false)
+#4 C:\xampp1\htdocs\pinbook\app\Controllers\Pengembalian.php(56): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp1\htdocs\pinbook\system\CodeIgniter.php(933): App\Controllers\Pengembalian->index()
+#6 C:\xampp1\htdocs\pinbook\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pengembalian))
+#7 C:\xampp1\htdocs\pinbook\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp1\htdocs\pinbook\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp1\htdocs\pinbook\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#10 C:\xampp1\htdocs\pinbook\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#11 {main}
+CRITICAL - 2026-04-25 00:13:58 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'pm.user_id' in 'field list'
+[Method: GET, Route: pengembalian]
+in SYSTEMPATH\Database\BaseConnection.php on line 684.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `p`.`id_pengembalian`, `p`.`id_peminjaman`, `p`.`tanggal_dikembalikan`, `p`.`denda`, `pm`.`user_id`, `a`.`nama` as `nama_anggota`, GROUP_CONCAT(b.judul SEPARATOR ", ") as daftar_buku, `d`.`id_denda`, `d`.`jumlah_denda`, `d`.`status` as `status_bayar`
+FROM `pengembalian` `p`
+LEFT JOIN `peminjaman` `pm` ON `pm`.`id_peminjaman` = `p`.`id_peminjaman`
+LEFT JOIN `anggota` `a` ON `a`.`user_id` = `pm`.`user_id`
+LEFT JOIN `detail_peminjaman` `dp` ON `dp`.`id_peminjaman` = `pm`.`id_peminjaman`
+LEFT JOIN `buku` `b` ON `b`.`id_buku` = `dp`.`id_buku`
+LEFT JOIN `denda` `d` ON `d`.`id_pengembalian` = `p`.`id_pengembalian`
+GROUP BY `p`.`id_pengembalian`
+ORDER BY `p`.`id_pengembalian` DESC', [], false)
+ 2 APPPATH\Controllers\Pengembalian.php(56): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Pengembalian->index()
+ 4 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pengembalian))
+ 5 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-25 00:13:58 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'pm.user_id' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `p`.`id_pengembalian`, `p`.`id_peminjaman`, `p`.`tanggal_dikembalikan`, `p`.`denda`, `pm`.`user_id`, `a`.`nama` as `nama_anggota`, GROUP_CONCAT(b.judul SEPARATOR ", ") as daftar_buku, `d`.`id_denda`, `d`.`jumlah_denda`, `d`.`status` as `status_bayar`
+FROM `pengembalian` `p`
+LEFT JOIN `peminjaman` `pm` ON `pm`.`id_peminjaman` = `p`.`id_peminjaman`
+LEFT JOIN `anggota` `a` ON `a`.`user_id` = `pm`.`user_id`
+LEFT JOIN `detail_peminjaman` `dp` ON `dp`.`id_peminjaman` = `pm`.`id_peminjaman`
+LEFT JOIN `buku` `b` ON `b`.`id_buku` = `dp`.`id_buku`
+LEFT JOIN `denda` `d` ON `d`.`id_pengembalian` = `p`.`id_pengembalian`
+GROUP BY `p`.`id_pengembalian`
+ORDER BY `p`.`id_pengembalian` DESC')
+ 2 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `p`.`id_pengembalian`, `p`.`id_peminjaman`, `p`.`tanggal_dikembalikan`, `p`.`denda`, `pm`.`user_id`, `a`.`nama` as `nama_anggota`, GROUP_CONCAT(b.judul SEPARATOR ", ") as daftar_buku, `d`.`id_denda`, `d`.`jumlah_denda`, `d`.`status` as `status_bayar`
+FROM `pengembalian` `p`
+LEFT JOIN `peminjaman` `pm` ON `pm`.`id_peminjaman` = `p`.`id_peminjaman`
+LEFT JOIN `anggota` `a` ON `a`.`user_id` = `pm`.`user_id`
+LEFT JOIN `detail_peminjaman` `dp` ON `dp`.`id_peminjaman` = `pm`.`id_peminjaman`
+LEFT JOIN `buku` `b` ON `b`.`id_buku` = `dp`.`id_buku`
+LEFT JOIN `denda` `d` ON `d`.`id_pengembalian` = `p`.`id_pengembalian`
+GROUP BY `p`.`id_pengembalian`
+ORDER BY `p`.`id_pengembalian` DESC')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `p`.`id_pengembalian`, `p`.`id_peminjaman`, `p`.`tanggal_dikembalikan`, `p`.`denda`, `pm`.`user_id`, `a`.`nama` as `nama_anggota`, GROUP_CONCAT(b.judul SEPARATOR ", ") as daftar_buku, `d`.`id_denda`, `d`.`jumlah_denda`, `d`.`status` as `status_bayar`
+FROM `pengembalian` `p`
+LEFT JOIN `peminjaman` `pm` ON `pm`.`id_peminjaman` = `p`.`id_peminjaman`
+LEFT JOIN `anggota` `a` ON `a`.`user_id` = `pm`.`user_id`
+LEFT JOIN `detail_peminjaman` `dp` ON `dp`.`id_peminjaman` = `pm`.`id_peminjaman`
+LEFT JOIN `buku` `b` ON `b`.`id_buku` = `dp`.`id_buku`
+LEFT JOIN `denda` `d` ON `d`.`id_pengembalian` = `p`.`id_pengembalian`
+GROUP BY `p`.`id_pengembalian`
+ORDER BY `p`.`id_pengembalian` DESC', [], false)
+ 4 APPPATH\Controllers\Pengembalian.php(56): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Pengembalian->index()
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pengembalian))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-25 00:13:58 --> [Caused by] mysqli_sql_exception: Unknown column 'pm.user_id' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `p`.`id_pengembalian`, `p`.`id_peminjaman`, `p`.`tanggal_dikembalikan`, `p`.`denda`, `pm`.`user_id`, `a`.`nama` as `nama_anggota`, GROUP_CONCAT(b.judul SEPARATOR ", ") as daftar_buku, `d`.`id_denda`, `d`.`jumlah_denda`, `d`.`status` as `status_bayar`
+FROM `pengembalian` `p`
+LEFT JOIN `peminjaman` `pm` ON `pm`.`id_peminjaman` = `p`.`id_peminjaman`
+LEFT JOIN `anggota` `a` ON `a`.`user_id` = `pm`.`user_id`
+LEFT JOIN `detail_peminjaman` `dp` ON `dp`.`id_peminjaman` = `pm`.`id_peminjaman`
+LEFT JOIN `buku` `b` ON `b`.`id_buku` = `dp`.`id_buku`
+LEFT JOIN `denda` `d` ON `d`.`id_pengembalian` = `p`.`id_pengembalian`
+GROUP BY `p`.`id_pengembalian`
+ORDER BY `p`.`id_pengembalian` DESC', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `p`.`id_pengembalian`, `p`.`id_peminjaman`, `p`.`tanggal_dikembalikan`, `p`.`denda`, `pm`.`user_id`, `a`.`nama` as `nama_anggota`, GROUP_CONCAT(b.judul SEPARATOR ", ") as daftar_buku, `d`.`id_denda`, `d`.`jumlah_denda`, `d`.`status` as `status_bayar`
+FROM `pengembalian` `p`
+LEFT JOIN `peminjaman` `pm` ON `pm`.`id_peminjaman` = `p`.`id_peminjaman`
+LEFT JOIN `anggota` `a` ON `a`.`user_id` = `pm`.`user_id`
+LEFT JOIN `detail_peminjaman` `dp` ON `dp`.`id_peminjaman` = `pm`.`id_peminjaman`
+LEFT JOIN `buku` `b` ON `b`.`id_buku` = `dp`.`id_buku`
+LEFT JOIN `denda` `d` ON `d`.`id_pengembalian` = `p`.`id_pengembalian`
+GROUP BY `p`.`id_pengembalian`
+ORDER BY `p`.`id_pengembalian` DESC')
+ 3 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `p`.`id_pengembalian`, `p`.`id_peminjaman`, `p`.`tanggal_dikembalikan`, `p`.`denda`, `pm`.`user_id`, `a`.`nama` as `nama_anggota`, GROUP_CONCAT(b.judul SEPARATOR ", ") as daftar_buku, `d`.`id_denda`, `d`.`jumlah_denda`, `d`.`status` as `status_bayar`
+FROM `pengembalian` `p`
+LEFT JOIN `peminjaman` `pm` ON `pm`.`id_peminjaman` = `p`.`id_peminjaman`
+LEFT JOIN `anggota` `a` ON `a`.`user_id` = `pm`.`user_id`
+LEFT JOIN `detail_peminjaman` `dp` ON `dp`.`id_peminjaman` = `pm`.`id_peminjaman`
+LEFT JOIN `buku` `b` ON `b`.`id_buku` = `dp`.`id_buku`
+LEFT JOIN `denda` `d` ON `d`.`id_pengembalian` = `p`.`id_pengembalian`
+GROUP BY `p`.`id_pengembalian`
+ORDER BY `p`.`id_pengembalian` DESC')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `p`.`id_pengembalian`, `p`.`id_peminjaman`, `p`.`tanggal_dikembalikan`, `p`.`denda`, `pm`.`user_id`, `a`.`nama` as `nama_anggota`, GROUP_CONCAT(b.judul SEPARATOR ", ") as daftar_buku, `d`.`id_denda`, `d`.`jumlah_denda`, `d`.`status` as `status_bayar`
+FROM `pengembalian` `p`
+LEFT JOIN `peminjaman` `pm` ON `pm`.`id_peminjaman` = `p`.`id_peminjaman`
+LEFT JOIN `anggota` `a` ON `a`.`user_id` = `pm`.`user_id`
+LEFT JOIN `detail_peminjaman` `dp` ON `dp`.`id_peminjaman` = `pm`.`id_peminjaman`
+LEFT JOIN `buku` `b` ON `b`.`id_buku` = `dp`.`id_buku`
+LEFT JOIN `denda` `d` ON `d`.`id_pengembalian` = `p`.`id_pengembalian`
+GROUP BY `p`.`id_pengembalian`
+ORDER BY `p`.`id_pengembalian` DESC', [], false)
+ 5 APPPATH\Controllers\Pengembalian.php(56): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Pengembalian->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pengembalian))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-25 00:14:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2026-04-25 00:14:14 --> mysqli_sql_exception: Unknown column 'pm.user_id' in 'field list' in C:\xampp1\htdocs\pinbook\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp1\htdocs\pinbook\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `p`.`id_...', 0)
+#1 C:\xampp1\htdocs\pinbook\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `p`.`id_...')
+#2 C:\xampp1\htdocs\pinbook\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `p`.`id_...')
+#3 C:\xampp1\htdocs\pinbook\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `p`.`id_...', Array, false)
+#4 C:\xampp1\htdocs\pinbook\app\Controllers\Pengembalian.php(56): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp1\htdocs\pinbook\system\CodeIgniter.php(933): App\Controllers\Pengembalian->index()
+#6 C:\xampp1\htdocs\pinbook\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pengembalian))
+#7 C:\xampp1\htdocs\pinbook\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp1\htdocs\pinbook\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp1\htdocs\pinbook\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#10 C:\xampp1\htdocs\pinbook\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#11 {main}
+CRITICAL - 2026-04-25 00:14:14 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'pm.user_id' in 'field list'
+[Method: GET, Route: pengembalian]
+in SYSTEMPATH\Database\BaseConnection.php on line 684.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `p`.`id_pengembalian`, `p`.`id_peminjaman`, `p`.`tanggal_dikembalikan`, `p`.`denda`, `pm`.`user_id`, `a`.`nama` as `nama_anggota`, GROUP_CONCAT(b.judul SEPARATOR ", ") as daftar_buku, `d`.`id_denda`, `d`.`jumlah_denda`, `d`.`status` as `status_bayar`
+FROM `pengembalian` `p`
+LEFT JOIN `peminjaman` `pm` ON `pm`.`id_peminjaman` = `p`.`id_peminjaman`
+LEFT JOIN `anggota` `a` ON `a`.`user_id` = `pm`.`user_id`
+LEFT JOIN `detail_peminjaman` `dp` ON `dp`.`id_peminjaman` = `pm`.`id_peminjaman`
+LEFT JOIN `buku` `b` ON `b`.`id_buku` = `dp`.`id_buku`
+LEFT JOIN `denda` `d` ON `d`.`id_pengembalian` = `p`.`id_pengembalian`
+GROUP BY `p`.`id_pengembalian`
+ORDER BY `p`.`id_pengembalian` DESC', [], false)
+ 2 APPPATH\Controllers\Pengembalian.php(56): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Pengembalian->index()
+ 4 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pengembalian))
+ 5 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-25 00:14:14 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'pm.user_id' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `p`.`id_pengembalian`, `p`.`id_peminjaman`, `p`.`tanggal_dikembalikan`, `p`.`denda`, `pm`.`user_id`, `a`.`nama` as `nama_anggota`, GROUP_CONCAT(b.judul SEPARATOR ", ") as daftar_buku, `d`.`id_denda`, `d`.`jumlah_denda`, `d`.`status` as `status_bayar`
+FROM `pengembalian` `p`
+LEFT JOIN `peminjaman` `pm` ON `pm`.`id_peminjaman` = `p`.`id_peminjaman`
+LEFT JOIN `anggota` `a` ON `a`.`user_id` = `pm`.`user_id`
+LEFT JOIN `detail_peminjaman` `dp` ON `dp`.`id_peminjaman` = `pm`.`id_peminjaman`
+LEFT JOIN `buku` `b` ON `b`.`id_buku` = `dp`.`id_buku`
+LEFT JOIN `denda` `d` ON `d`.`id_pengembalian` = `p`.`id_pengembalian`
+GROUP BY `p`.`id_pengembalian`
+ORDER BY `p`.`id_pengembalian` DESC')
+ 2 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `p`.`id_pengembalian`, `p`.`id_peminjaman`, `p`.`tanggal_dikembalikan`, `p`.`denda`, `pm`.`user_id`, `a`.`nama` as `nama_anggota`, GROUP_CONCAT(b.judul SEPARATOR ", ") as daftar_buku, `d`.`id_denda`, `d`.`jumlah_denda`, `d`.`status` as `status_bayar`
+FROM `pengembalian` `p`
+LEFT JOIN `peminjaman` `pm` ON `pm`.`id_peminjaman` = `p`.`id_peminjaman`
+LEFT JOIN `anggota` `a` ON `a`.`user_id` = `pm`.`user_id`
+LEFT JOIN `detail_peminjaman` `dp` ON `dp`.`id_peminjaman` = `pm`.`id_peminjaman`
+LEFT JOIN `buku` `b` ON `b`.`id_buku` = `dp`.`id_buku`
+LEFT JOIN `denda` `d` ON `d`.`id_pengembalian` = `p`.`id_pengembalian`
+GROUP BY `p`.`id_pengembalian`
+ORDER BY `p`.`id_pengembalian` DESC')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `p`.`id_pengembalian`, `p`.`id_peminjaman`, `p`.`tanggal_dikembalikan`, `p`.`denda`, `pm`.`user_id`, `a`.`nama` as `nama_anggota`, GROUP_CONCAT(b.judul SEPARATOR ", ") as daftar_buku, `d`.`id_denda`, `d`.`jumlah_denda`, `d`.`status` as `status_bayar`
+FROM `pengembalian` `p`
+LEFT JOIN `peminjaman` `pm` ON `pm`.`id_peminjaman` = `p`.`id_peminjaman`
+LEFT JOIN `anggota` `a` ON `a`.`user_id` = `pm`.`user_id`
+LEFT JOIN `detail_peminjaman` `dp` ON `dp`.`id_peminjaman` = `pm`.`id_peminjaman`
+LEFT JOIN `buku` `b` ON `b`.`id_buku` = `dp`.`id_buku`
+LEFT JOIN `denda` `d` ON `d`.`id_pengembalian` = `p`.`id_pengembalian`
+GROUP BY `p`.`id_pengembalian`
+ORDER BY `p`.`id_pengembalian` DESC', [], false)
+ 4 APPPATH\Controllers\Pengembalian.php(56): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Pengembalian->index()
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pengembalian))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-25 00:14:14 --> [Caused by] mysqli_sql_exception: Unknown column 'pm.user_id' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `p`.`id_pengembalian`, `p`.`id_peminjaman`, `p`.`tanggal_dikembalikan`, `p`.`denda`, `pm`.`user_id`, `a`.`nama` as `nama_anggota`, GROUP_CONCAT(b.judul SEPARATOR ", ") as daftar_buku, `d`.`id_denda`, `d`.`jumlah_denda`, `d`.`status` as `status_bayar`
+FROM `pengembalian` `p`
+LEFT JOIN `peminjaman` `pm` ON `pm`.`id_peminjaman` = `p`.`id_peminjaman`
+LEFT JOIN `anggota` `a` ON `a`.`user_id` = `pm`.`user_id`
+LEFT JOIN `detail_peminjaman` `dp` ON `dp`.`id_peminjaman` = `pm`.`id_peminjaman`
+LEFT JOIN `buku` `b` ON `b`.`id_buku` = `dp`.`id_buku`
+LEFT JOIN `denda` `d` ON `d`.`id_pengembalian` = `p`.`id_pengembalian`
+GROUP BY `p`.`id_pengembalian`
+ORDER BY `p`.`id_pengembalian` DESC', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `p`.`id_pengembalian`, `p`.`id_peminjaman`, `p`.`tanggal_dikembalikan`, `p`.`denda`, `pm`.`user_id`, `a`.`nama` as `nama_anggota`, GROUP_CONCAT(b.judul SEPARATOR ", ") as daftar_buku, `d`.`id_denda`, `d`.`jumlah_denda`, `d`.`status` as `status_bayar`
+FROM `pengembalian` `p`
+LEFT JOIN `peminjaman` `pm` ON `pm`.`id_peminjaman` = `p`.`id_peminjaman`
+LEFT JOIN `anggota` `a` ON `a`.`user_id` = `pm`.`user_id`
+LEFT JOIN `detail_peminjaman` `dp` ON `dp`.`id_peminjaman` = `pm`.`id_peminjaman`
+LEFT JOIN `buku` `b` ON `b`.`id_buku` = `dp`.`id_buku`
+LEFT JOIN `denda` `d` ON `d`.`id_pengembalian` = `p`.`id_pengembalian`
+GROUP BY `p`.`id_pengembalian`
+ORDER BY `p`.`id_pengembalian` DESC')
+ 3 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `p`.`id_pengembalian`, `p`.`id_peminjaman`, `p`.`tanggal_dikembalikan`, `p`.`denda`, `pm`.`user_id`, `a`.`nama` as `nama_anggota`, GROUP_CONCAT(b.judul SEPARATOR ", ") as daftar_buku, `d`.`id_denda`, `d`.`jumlah_denda`, `d`.`status` as `status_bayar`
+FROM `pengembalian` `p`
+LEFT JOIN `peminjaman` `pm` ON `pm`.`id_peminjaman` = `p`.`id_peminjaman`
+LEFT JOIN `anggota` `a` ON `a`.`user_id` = `pm`.`user_id`
+LEFT JOIN `detail_peminjaman` `dp` ON `dp`.`id_peminjaman` = `pm`.`id_peminjaman`
+LEFT JOIN `buku` `b` ON `b`.`id_buku` = `dp`.`id_buku`
+LEFT JOIN `denda` `d` ON `d`.`id_pengembalian` = `p`.`id_pengembalian`
+GROUP BY `p`.`id_pengembalian`
+ORDER BY `p`.`id_pengembalian` DESC')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `p`.`id_pengembalian`, `p`.`id_peminjaman`, `p`.`tanggal_dikembalikan`, `p`.`denda`, `pm`.`user_id`, `a`.`nama` as `nama_anggota`, GROUP_CONCAT(b.judul SEPARATOR ", ") as daftar_buku, `d`.`id_denda`, `d`.`jumlah_denda`, `d`.`status` as `status_bayar`
+FROM `pengembalian` `p`
+LEFT JOIN `peminjaman` `pm` ON `pm`.`id_peminjaman` = `p`.`id_peminjaman`
+LEFT JOIN `anggota` `a` ON `a`.`user_id` = `pm`.`user_id`
+LEFT JOIN `detail_peminjaman` `dp` ON `dp`.`id_peminjaman` = `pm`.`id_peminjaman`
+LEFT JOIN `buku` `b` ON `b`.`id_buku` = `dp`.`id_buku`
+LEFT JOIN `denda` `d` ON `d`.`id_pengembalian` = `p`.`id_pengembalian`
+GROUP BY `p`.`id_pengembalian`
+ORDER BY `p`.`id_pengembalian` DESC', [], false)
+ 5 APPPATH\Controllers\Pengembalian.php(56): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Pengembalian->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pengembalian))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-25 00:15:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2026-04-25 00:15:08 --> [DEPRECATED] number_format(): Passing null to parameter #1 ($num) of type float is deprecated in APPPATH\Views\pengembalian\bayar.php on line 21.
+ 1 APPPATH\Views\pengembalian\bayar.php(21): number_format(null, 0, ',', '.')
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\xampp1\\htdocs\\pinbook\\app\\Views\\pengembalian\\bayar.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('pengembalian/bayar', [], true)
+ 5 APPPATH\Controllers\Pengembalian.php(126): view('pengembalian/bayar', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Pengembalian->bayar('64')
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pengembalian))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-25 00:15:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-25 00:15:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.

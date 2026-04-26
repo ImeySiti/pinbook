@@ -2,89 +2,39 @@
 
 namespace App\Controllers;
 
-use App\Models\AnggotaModel;
-use App\Models\UsersModel;
-
 class Anggota extends BaseController
 {
-    protected $anggotaModel;
-    protected $usersModel;
-    protected $db;
-
-    public function __construct()
+    // ================= HALAMAN PROFIL =================
+    public function profil()
     {
-        $this->anggotaModel = new AnggotaModel();
-        $this->usersModel = new UsersModel();
+        $id_anggota = session()->get('id_anggota');
 
-        // 🔥 FIX PENTING
-        $this->db = \Config\Database::connect();
+        $db = \Config\Database::connect();
+
+        $data['anggota'] = $db->table('anggota')
+            ->where('id_anggota', $id_anggota)
+            ->get()
+            ->getRowArray();
+
+        return view('anggota/profil', $data);
     }
 
-    // ================= LIST =================
-    public function index()
-    {
-        $data['anggota'] = $this->db->table('anggota a')
-            ->select('a.*, u.nama')
-            ->join('users u', 'u.id = a.user_id', 'left')
-            ->get()->getResultArray();
-
-        return view('anggota/index', $data);
-    }
-
-    public function print()
-{
-    $data['anggota'] = $this->db->table('anggota a')
-        ->select('a.*, u.nama')
-        ->join('users u', 'u.id = a.user_id', 'left')
-        ->get()->getResultArray();
-
-    return view('anggota/print', $data);
-}
-    // ================= WA =================
-    public function wa($id)
-    {
-        $a = $this->db->table('anggota a')
-            ->select('a.*, u.nama')
-            ->join('users u', 'u.id = a.user_id', 'left')
-            ->where('a.id_anggota', $id)
-            ->get()->getRowArray();
-
-        if (!$a) {
-            return redirect()->to('/anggota');
-        }
-
-        // 🔥 FIX AMAN NO HP
-        $no = preg_replace('/[^0-9]/', '', $a['no_hp']);
-        if (substr($no, 0, 1) == '0') {
-            $no = '62' . substr($no, 1);
-        }
-
-        $pesan = "DATA ANGGOTA\n\n";
-        $pesan .= "Nama: " . $a['nama'] . "\n";
-        $pesan .= "NIS: " . $a['nis'] . "\n";
-        $pesan .= "Alamat: " . $a['alamat'] . "\n";
-        $pesan .= "No HP: " . $a['no_hp'] . "\n";
-
-        return redirect()->to("https://wa.me/".$no."?text=".urlencode($pesan));
-    }
-
-    // ================= STORE =================
+    // ================= SIMPAN PROFIL =================
     public function store()
     {
-        $this->anggotaModel->insert([
-            'user_id' => $this->request->getPost('user_id'),
-            'nis'     => $this->request->getPost('nis'),
-            'alamat'  => $this->request->getPost('alamat'),
-            'no_hp'   => $this->request->getPost('no_hp')
-        ]);
+        $id_anggota = session()->get('id_anggota');
 
-        return redirect()->to('/anggota')->with('success', 'Berhasil tambah');
-    }
+        $db = \Config\Database::connect();
 
-    // ================= DELETE =================
-    public function delete($id)
-    {
-        $this->anggotaModel->delete($id);
-        return redirect()->to('/anggota');
+        $db->table('anggota')
+            ->where('id_anggota', $id_anggota)
+            ->update([
+                'nisn'   => $this->request->getPost('nisn'),
+                'alamat' => $this->request->getPost('alamat'),
+                'no_hp'  => $this->request->getPost('no_hp')
+            ]);
+
+        return redirect()->to('/peminjaman/create')
+            ->with('success', 'Profil berhasil dilengkapi');
     }
 }

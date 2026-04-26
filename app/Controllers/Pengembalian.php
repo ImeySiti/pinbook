@@ -2,151 +2,101 @@
 
 namespace App\Controllers;
 
-use App\Models\PengembalianModel;
 use App\Models\PeminjamanModel;
+use App\Models\PengembalianModel;
+use App\Models\DendaModel;
+use CodeIgniter\Controller;
+use chillerlan\QRCode\QRCode;
+use chillerlan\QRCode\QROptions;
 
-class Pengembalian extends BaseController
+class Pengembalian extends Controller
 {
-    protected $pengembalian;
-    protected $peminjaman;
+    protected $db;
+    protected $peminjamanModel;
+    protected $pengembalianModel;
+    protected $dendaModel;
 
     public function __construct()
     {
-        $this->pengembalian = new PengembalianModel();
-        $this->peminjaman   = new PeminjamanModel();
+        $this->db = \Config\Database::connect();
+        $this->peminjamanModel = new PeminjamanModel();
+        $this->pengembalianModel = new PengembalianModel();
+        $this->dendaModel = new DendaModel();
     }
 
-    // =========================
-    // LIST
-    // =========================
-   public function index()
+    // ================= INDEX =================
+    public function index()
 {
-    $session = session();
-    $role = $session->get('role');
-    $id_anggota = $session->get('id_anggota');
-
-    $db = \Config\Database::connect();
-
-    $builder = $db->table('pengembalian')
+    $data['pengembalian'] = $this->db->table('pengembalian')
         ->select('
-            pengembalian.id_pengembalian,
-            pengembalian.tanggal_dikembalikan,
-            pengembalian.denda,
-
-            peminjaman.id_peminjaman,
-            peminjaman.tanggal_pinjam,
-            peminjaman.tanggal_kembali as batas_kembali,
-
-            u.nama as nama_anggota,
-            GROUP_CONCAT(buku.judul SEPARATOR ", ") as daftar_buku
+            pengembalian.*,
+            peminjaman.id_anggota,
+            users.nama as nama_anggota
         ')
-        ->join('peminjaman', 'peminjaman.id_peminjaman = pengembalian.id_peminjaman', 'left')
+        ->join('peminjaman', 'peminjaman.id_peminjaman = pengembalian.id_peminjaman')
         ->join('anggota', 'anggota.id_anggota = peminjaman.id_anggota', 'left')
-        ->join('users u', 'u.id = anggota.user_id', 'left')
-        ->join('detail_peminjaman', 'detail_peminjaman.id_peminjaman = peminjaman.id_peminjaman', 'left')
-        ->join('buku', 'buku.id_buku = detail_peminjaman.id_buku', 'left')
-        ->groupBy('pengembalian.id_pengembalian');
-
-    // 🔥 INI YANG KAMU LUPA
-    if ($role != 'admin') {
-        $builder->where('peminjaman.id_anggota', $id_anggota);
-    }
-
-    $data['pengembalian'] = $builder->get()->getResultArray();
-
-    // hitung denda otomatis
-    foreach ($data['pengembalian'] as &$p) {
-        $p['denda_otomatis'] = 0;
-
-        if (!empty($p['batas_kembali']) && !empty($p['tanggal_dikembalikan'])) {
-
-            $batas = strtotime($p['batas_kembali']);
-            $kembali = strtotime($p['tanggal_dikembalikan']);
-
-            if ($kembali > $batas) {
-                $telat = ($kembali - $batas) / 86400;
-                $p['denda_otomatis'] = $telat * 15000;
-            }
-        }
-    }
+        ->join('users', 'users.id = anggota.user_id', 'left')
+        ->get()
+        ->getResultArray();
 
     return view('pengembalian/index', $data);
 }
-    // =========================
-    // CREATE FORM
-    // =========================
-    public function create()
-    {
-        return view('pengembalian/create', [
-            'peminjaman' => $this->peminjaman->findAll()
-        ]);
-    }
 
-    // =========================
-    // STORE
-    // =========================
-    public function store()
+    // ================= SIMPAN PENGEMBALIAN =================
+    public function simpan()
     {
         $id_peminjaman = $this->request->getPost('id_peminjaman');
-        $tanggal_kembali = $this->request->getPost('tanggal_dikembalikan');
+        $denda_input   = $this->request->getPost('denda');
 
-        $pinjam = $this->peminjaman->find($id_peminjaman);
+        if (!$id_peminjaman) {
+            return redirect()->back()->with('error', 'ID peminjaman tidak valid');
+        }
 
-        $denda = $this->hitungDenda($pinjam['tanggal_kembali'], $tanggal_kembali);
+        $this->db->transStart();
 
-        $this->pengembalian->save([
-            'id_peminjaman'        => $id_peminjaman,
-            'tanggal_dikembalikan' => $tanggal_kembali,
-            'denda'                => $denda
+        // insert pengembalian
+        $this->pengembalianModel->insert([
+            'id_peminjaman' => $id_peminjaman,
+            'tanggal_dikembalikan' => date('Y-m-d'),
+            'denda' => $denda_input
         ]);
 
-        return redirect()->to('/pengembalian');
-    }
+        $id_pengembalian = $this->pengembalianModel->insertID();
 
-    // =========================
-    // UPDATE
-    // =========================
-    public function update($id)
-    {
-        $id_peminjaman = $this->request->getPost('id_peminjaman');
-        $tanggal_kembali = $this->request->getPost('tanggal_dikembalikan');
-
-        $pinjam = $this->peminjaman->find($id_peminjaman);
-
-        $denda = $this->hitungDenda($pinjam['tanggal_kembali'], $tanggal_kembali);
-
-        $this->pengembalian->update($id, [
-            'id_peminjaman'        => $id_peminjaman,
-            'tanggal_dikembalikan' => $tanggal_kembali,
-            'denda'                => $denda
+        // insert denda
+        $this->dendaModel->insert([
+            'id_pengembalian' => $id_pengembalian,
+            'jumlah_denda' => $denda_input,
+            'status' => ($denda_input > 0) ? 'belum' : 'lunas'
         ]);
 
-        return redirect()->to('/pengembalian');
+        // update status peminjaman
+        $this->peminjamanModel->update($id_peminjaman, [
+            'status' => 'dikembalikan'
+        ]);
+
+        $this->db->transComplete();
+
+        return redirect()->to('/pengembalian')
+            ->with('success', 'Pengembalian berhasil disimpan');
     }
 
-    // =========================
-    // FUNCTION DENDA
-    // =========================
-    private function hitungDenda($batas, $kembali)
-    {
-        if (empty($batas) || empty($kembali)) return 0;
+  // ================= BAYAR DENDA =================
+public function bayar($id)
+{
+    $p = $this->db->table('pengembalian')
+        ->select('pengembalian.*, denda.id_denda, denda.jumlah_denda')
+        ->join('denda', 'denda.id_pengembalian = pengembalian.id_pengembalian', 'left')
+        ->where('pengembalian.id_pengembalian', $id)
+        ->get()
+        ->getRowArray();
 
-        $batas = strtotime($batas);
-        $kembali = strtotime($kembali);
-
-        if ($kembali <= $batas) return 0;
-
-        $telat = ($kembali - $batas) / 86400;
-
-        return $telat * 15000;
+    if (!$p) {
+        return redirect()->back()->with('error', 'Data tidak ditemukan');
     }
 
-    // =========================
-    // DELETE
-    // =========================
-    public function delete($id)
-    {
-        $this->pengembalian->delete($id);
-        return redirect()->to('/pengembalian');
-    }
+    return view('pengembalian/bayar', [
+        'p' => $p
+    ]);
+}
 }

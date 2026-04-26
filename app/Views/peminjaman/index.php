@@ -3,52 +3,26 @@
 
 <h2>Data Peminjaman</h2>
 
-<form method="get" action="<?= base_url('peminjaman') ?>">
-    <label>Filter Pengantaran:</label>
-
-    <select name="filter_pengantaran">
-        <option value="">-- Semua --</option>
-        <option value="ambil" <?= (($_GET['filter_pengantaran'] ?? '') == 'ambil') ? 'selected' : '' ?>>Ambil Sendiri</option>
-        <option value="antar" <?= (($_GET['filter_pengantaran'] ?? '') == 'antar') ? 'selected' : '' ?>>Diantar</option>
-        <option value="selesai" <?= (($_GET['filter_pengantaran'] ?? '') == 'selesai') ? 'selected' : '' ?>>Selesai Diantar</option>
-        <option value="proses" <?= (($_GET['filter_pengantaran'] ?? '') == 'proses') ? 'selected' : '' ?>>Proses / Sedang Jalan</option>
-        <option value="konfirmasi" <?= (($_GET['filter_pengantaran'] ?? '') == 'konfirmasi') ? 'selected' : '' ?>>Menunggu Konfirmasi</option>
-    </select>
-
-    <button type="submit">Cari</button>
-</form>
-
-<br>
-
 <?php if (session()->get('role') == 'anggota'): ?>
     <a href="<?= base_url('peminjaman/create') ?>">+ Pinjam Buku</a>
 <?php endif; ?>
 
 <br><br>
-<?php if (session()->get('role') == 'admin'): ?>
-    <a href="<?= base_url('peminjaman/print') ?>" target="_blank">🖨 Print Semua</a>
-<?php endif; ?>
+
 <?php
-// ================= STATUS UTAMA =================
 $statusText = [
     'menunggu' => 'Diproses',
-    'menunggu_pembayaran' => 'Menunggu Pembayaran',
-    'menunggu_konfirmasi' => 'Menunggu Konfirmasi',
-    'diproses' => 'Diproses',
     'dipinjam' => 'Dipinjam',
     'diperpanjang' => 'Diperpanjang',
-    'kembali' => 'Dikembalikan',
+    'kembali'  => 'Dikembalikan',
     'terlambat' => 'Terlambat'
 ];
 
 $statusColor = [
     'menunggu' => 'orange',
-    'menunggu_pembayaran' => 'red',
-    'menunggu_konfirmasi' => 'purple',
-    'diproses' => 'blue',
-    'dipinjam' => 'green',
+    'dipinjam' => 'blue',
     'diperpanjang' => 'purple',
-    'kembali' => 'green',
+    'kembali'  => 'green',
     'terlambat' => 'red'
 ];
 ?>
@@ -62,6 +36,7 @@ $statusColor = [
     <th>Jatuh Tempo</th>
     <th>Status</th>
     <th>Pengantaran</th>
+    <th>Pengajuan</th>
     <th>Aksi</th>
 </tr>
 
@@ -69,150 +44,229 @@ $statusColor = [
 <?php $no = 1; foreach ($peminjaman as $p): ?>
 
 <?php
-// ================= STATUS FINAL (FIX UTAMA DI SINI) =================
-$status = $p['status'];
-$sp = $p['status_pengantaran'] ?? '';
-$metode = $p['metode_pengambilan'] ?? '';
+$today = date('Y-m-d');
 
-// 🔥 GABUNGKAN STATUS PENGANTARAN KE STATUS UTAMA
-if ($metode == 'antar') {
-
-    if ($sp == 'menunggu_pembayaran') {
-        $status = 'menunggu_pembayaran';
-
-    } elseif ($sp == 'menunggu_konfirmasi') {
-        $status = 'menunggu_konfirmasi';
-
-    } elseif ($sp == 'siap_diantar') {
-        $status = 'diproses';
-
-    } elseif ($sp == 'dalam_pengantaran') {
-        $status = 'dipinjam';
-
-    } elseif ($sp == 'selesai') {
-        $status = 'dipinjam';
-    }
-}
-
-// auto terlambat
-if ($status != 'kembali' && !empty($p['tanggal_kembali']) && $p['tanggal_kembali'] < date('Y-m-d')) {
-    $status = 'terlambat';
-}
-// auto terlambat
-if ($status != 'kembali' && !empty($p['tanggal_kembali']) && $p['tanggal_kembali'] < date('Y-m-d')) {
+$status = $p['status'] ?? 'dipinjam';
+if ($status != 'kembali' && !empty($p['tanggal_kembali']) && $p['tanggal_kembali'] < $today) {
     $status = 'terlambat';
 }
 
-$metode = $p['metode_pengambilan'] ?? '';
-$sp = $p['status_pengantaran'] ?? '';
+$metode   = $p['metode_pengambilan'] ?? '';
+$sp       = $p['status_pengantaran'] ?? '';
+$pengajuan = $p['status_pengajuan'] ?? '';
 ?>
 
 <tr>
-    <td><?= $no++ ?></td>
-    <td><?= esc($p['nama_anggota'] ?? '-') ?></td>
-    <td><?= esc($p['daftar_buku'] ?? '-') ?></td>
-    <td><?= esc($p['tanggal_pinjam'] ?? '-') ?></td>
-    <td><?= esc($p['tanggal_kembali'] ?? '-') ?></td>
+<td><?= $no++ ?></td>
+<td><?= esc($p['nama_anggota'] ?? '-') ?></td>
+<td><?= esc($p['daftar_buku'] ?? '-') ?></td>
+<td><?= esc($p['tanggal_pinjam'] ?? '-') ?></td>
+<td><?= esc($p['tanggal_kembali'] ?? '-') ?></td>
 
-    <!-- STATUS UTAMA -->
-    <td>
-        <?php
-        $text = $statusText[$status] ?? $status;
-        $color = $statusColor[$status] ?? 'black';
-        ?>
-        <font color="<?= $color ?>">
-            <?= $text ?>
-        </font>
-    </td>
-
-    <!-- STATUS PENGANTARAN -->
-  <td>
-<?php
-$sp = $p['status_pengantaran'] ?? '';
-$metode = $p['metode_pengambilan'] ?? '';
-
-$map = [
-    'menunggu_pembayaran' => ['Menunggu Bayar', 'orange'],
-    'menunggu_konfirmasi' => ['Menunggu Konfirmasi', 'purple'],
-    'siap_diantar' => ['Siap Diantar', 'blue'],
-    'dalam_pengantaran' => ['Sedang Diantar', 'green'],
-    'selesai' => ['Selesai', 'black'],
-];
-?>
-
-<?php if ($metode == 'antar'): ?>
-
+<!-- STATUS -->
+<td>
     <?php
-    // 🔥 FIX FALLBACK LOGIC (INI PENTING)
-    if (!isset($map[$sp])) {
-        $label = 'Diproses';
-        $color = 'gray';
-    } else {
-        $label = $map[$sp][0];
-        $color = $map[$sp][1];
-    }
+    $text = $statusText[$status] ?? 'Diproses';
+    $color = $statusColor[$status] ?? 'black';
     ?>
+    <span style="color:<?= $color ?>"><?= $text ?></span>
+</td>
 
-    <font color="<?= $color ?>">
-        <?= $label ?>
-    </font>
-
+<!-- PENGANTARAN -->
+<td>
+<?php if ($metode == 'antar'): ?>
+    <?php
+    $map = [
+        'menunggu_pembayaran' => ['Menunggu Bayar', 'orange'],
+        'menunggu_konfirmasi' => ['Menunggu Konfirmasi', 'purple'],
+        'siap_diantar' => ['Siap Diantar', 'blue'],
+        'dalam_pengantaran' => ['Sedang Diantar', 'green'],
+        'selesai' => ['Selesai', 'black']
+    ];
+    ?>
+    <span style="color:<?= $map[$sp][1] ?? 'gray' ?>">
+        <?= $map[$sp][0] ?? 'Diproses' ?>
+    </span>
 <?php else: ?>
-    <font color="gray">Ambil Sendiri</font>
+    <span style="color:gray">Ambil Sendiri</span>
 <?php endif; ?>
 </td>
 
+<!-- PENGAJUAN -->
+<td>
+<?php if ($pengajuan == 'kembali'): ?>
+    <span style="color:red">Pengembalian</span>
 
-    <!-- AKSI -->
-    <td>
+<?php elseif ($pengajuan == 'perpanjang'): ?>
+    <span style="color:purple">Perpanjangan</span>
 
-        <a href="<?= base_url('peminjaman/detail/'.$p['id_peminjaman']) ?>">Detail</a>
+<?php elseif ($pengajuan == 'penarikan'): ?>
+    <span style="color:blue">Penarikan</span>
 
-        <?php if (session()->get('role') == 'anggota'): ?>
-            <?php if ($metode == 'antar' && $sp == 'menunggu_pembayaran'): ?>
-                | <a href="<?= base_url('peminjaman/pembayaran/'.$p['id_peminjaman']) ?>">Bayar</a>
-            <?php endif; ?>
+<?php else: ?>
+    <span style="color:gray">-</span>
+<?php endif; ?>
+</td>
+
+<!-- ================= AKSI ================= -->
+<td>
+
+<a href="<?= base_url('peminjaman/detail/'.$p['id_peminjaman']) ?>">Detail</a>
+
+<?php
+$metode    = $p['metode_pengambilan'] ?? '';
+$sp        = $p['status_pengantaran'] ?? '';
+$pengajuan = $p['status_pengajuan'] ?? '';
+$status    = $p['status'] ?? '';
+?>
+
+<!-- ================= ANGGOTA ================= -->
+<?php if (session()->get('role') == 'anggota'): ?>
+
+    <?php 
+        $metode   = $p['metode_pengambilan'] ?? '';
+        $status   = $p['status'] ?? '';
+        $pengajuan = $p['status_pengajuan'] ?? null;
+    ?>
+
+    <!-- BAYAR (khusus antar rumah) -->
+    <?php if ($metode == 'antar' && $p['status_pengantaran'] == 'menunggu_pembayaran'): ?>
+        | <a href="<?= base_url('peminjaman/pembayaran/'.$p['id_peminjaman']) ?>">Bayar</a>
+    <?php endif; ?>
+
+    <!-- JIKA BELUM ADA PENGAJUAN -->
+    <?php if ($pengajuan === null || $pengajuan == ''): ?>
+
+        <!-- PERPANJANG (SEMUA METODE) -->
+        <?php if (in_array($status, ['menunggu','dipinjam','diproses','terlambat'])): ?>
+            | <a href="<?= base_url('peminjaman/ajukanPerpanjang/'.$p['id_peminjaman']) ?>">Perpanjang</a>
         <?php endif; ?>
 
-        <?php if (session()->get('role') == 'petugas'): ?>
+        <!-- PENGEMBALIAN (SEMUA METODE) -->
+        <?php if (in_array($status, ['menunggu','dipinjam','diproses','terlambat'])): ?>
+            | <a href="<?= base_url('peminjaman/ajukanKembali/'.$p['id_peminjaman']) ?>">Pengembalian</a>
+        <?php endif; ?>
 
-            <?php if ($metode == 'antar'): ?>
+        <!-- PENARIKAN (KHUSUS ANTAR RUMAH SAJA) -->
+        <?php if ($metode == 'antar'): ?>
+            | <a href="<?= base_url('peminjaman/ajukanPenarikan/'.$p['id_peminjaman']) ?>">Penarikan</a>
+        <?php endif; ?>
 
-                <?php if ($sp == 'menunggu_konfirmasi'): ?>
-                    | <a href="<?= base_url('peminjaman/konfirmasi/'.$p['id_peminjaman']) ?>">Konfirmasi</a>
+    <?php else: ?>
+        <span style="color:gray">Menunggu konfirmasi petugas</span>
+    <?php endif; ?>
 
-                <?php elseif ($sp == 'siap_diantar'): ?>
-                    | <a href="<?= base_url('peminjaman/mulaiAntar/'.$p['id_peminjaman']) ?>">Mulai Antar</a>
+<?php endif; ?>
+<!-- ================= PETUGAS ================= -->
+<?php if (session()->get('role') == 'petugas'): ?>
 
-                <?php elseif ($sp == 'dalam_pengantaran'): ?>
-                    | <a href="<?= base_url('peminjaman/selesai/'.$p['id_peminjaman']) ?>">Selesai</a>
-                <?php endif; ?>
+    <?php
+        $metode   = $p['metode_pengambilan'] ?? '';
+        $status   = $p['status'] ?? '';
+        $sp       = $p['status_pengantaran'] ?? '';
+        $pengajuan = $p['status_pengajuan'] ?? null;
+    ?>
 
-            <?php endif; ?>
+    <!-- 📍 MAPS (KHUSUS ANTAR RUMAH) -->
+    <?php if ($metode == 'antar' && !empty($p['alamat_pengantaran'])): ?>
+        | <a target="_blank"
+             href="https://www.google.com/maps/search/?api=1&query=<?= urlencode($p['alamat_pengantaran']) ?>">
+             📍 Maps
+          </a>
+    <?php endif; ?>
 
-            <?php if (!empty($p['alamat_pengantaran'])): ?>
-                | <a href="https://www.google.com/maps/search/?api=1&query=<?= urlencode($p['alamat_pengantaran']) ?>" target="_blank">🗺 Maps</a>
-            <?php endif; ?>
+    <!-- ================= PENGAJUAN ================= -->
+    <?php if (!empty($pengajuan)): ?>
 
-            <?php if ($status != 'kembali'): ?>
-                | <a href="<?= base_url('peminjaman/perpanjang/'.$p['id_peminjaman']) ?>">Perpanjang</a>
-                | <a href="<?= base_url('peminjaman/kembali/'.$p['id_peminjaman']) ?>">Kembalikan</a>
+        <?php if ($pengajuan == 'kembali'): ?>
+            | <a href="<?= base_url('peminjaman/konfirmasiPengembalian/'.$p['id_peminjaman']) ?>">
+                Konfirmasi Pengembalian
+              </a>
+
+        <?php elseif ($pengajuan == 'perpanjang'): ?>
+            | <a href="<?= base_url('peminjaman/konfirmasiPerpanjangan/'.$p['id_peminjaman']) ?>">
+                Konfirmasi Perpanjangan
+              </a>
+
+        <?php elseif ($pengajuan == 'penarikan'): ?>
+            | <a href="<?= base_url('peminjaman/konfirmasiPenarikan/'.$p['id_peminjaman']) ?>">
+                Konfirmasi Penarikan
+              </a>
+        <?php endif; ?>
+
+    <?php else: ?>
+
+        <!-- ================= AMBIL DI PERPUS ================= -->
+        <?php if ($metode == 'ambil' && $status == 'menunggu'): ?>
+            | <a href="<?= base_url('peminjaman/konfirmasiAmbilPerpus/'.$p['id_peminjaman']) ?>">
+                ✔ Konfirmasi Ambil (Perpus)
+              </a>
+        <?php endif; ?>
+
+        <!-- ================= ANTAR RUMAH ================= -->
+        <?php if ($metode == 'antar'): ?>
+
+            <?php if ($sp == 'menunggu_konfirmasi'): ?>
+                | <a href="<?= base_url('peminjaman/konfirmasiAntar/'.$p['id_peminjaman']) ?>">
+                    ✔ Konfirmasi Antar
+                  </a>
+
+            <?php elseif ($sp == 'diproses'): ?>
+                | <a href="<?= base_url('peminjaman/mulaiAntar/'.$p['id_peminjaman']) ?>">
+                    🚚 Mulai Antar
+                  </a>
+
+            <?php elseif ($sp == 'dalam_pengantaran'): ?>
+                | <a href="<?= base_url('peminjaman/selesai/'.$p['id_peminjaman']) ?>">
+                    ✔ Selesai (jadi dipinjam)
+                  </a>
             <?php endif; ?>
 
         <?php endif; ?>
 
-        <?php if (session()->get('role') == 'admin'): ?>
-            | <a href="<?= base_url('peminjaman/delete/'.$p['id_peminjaman']) ?>">Hapus</a>
+        <!-- ================= KEMBALI ================= -->
+        <?php if ($status != 'kembali'): ?>
+            | <a href="<?= base_url('peminjaman/kembali/'.$p['id_peminjaman']) ?>">
+                ↩ Kembalikan
+              </a>
         <?php endif; ?>
-        | <a href="<?= base_url('peminjaman/wa/'.$p['id_peminjaman']) ?>" target="_blank">📱 WA</a>
 
-    </td>
+        <!-- ================= ANTAR RUMAH ================= -->
+        <?php if ($metode == 'antar'): ?>
+
+            <?php if ($sp == 'menunggu_konfirmasi'): ?>
+                | <a href="<?= base_url('peminjaman/konfirmasiAntar/'.$p['id_peminjaman']) ?>">Konfirmasi Antar</a>
+
+            <?php elseif ($sp == 'diproses'): ?>
+                | <a href="<?= base_url('peminjaman/mulaiAntar/'.$p['id_peminjaman']) ?>">Mulai Antar</a>
+
+            <?php elseif ($sp == 'dalam_pengantaran'): ?>
+                | <a href="<?= base_url('peminjaman/selesai/'.$p['id_peminjaman']) ?>">Selesai</a>
+            <?php endif; ?>
+
+        <?php endif; ?>
+
+        <!-- ================= KEMBALI ================= -->
+        <?php if ($status != 'kembali'): ?>
+            | <a href="<?= base_url('peminjaman/kembali/'.$p['id_peminjaman']) ?>">Kembalikan</a>
+        <?php endif; ?>
+
+    <?php endif; ?>
+
+<?php endif; ?>
+
+<!-- ================= ADMIN ================= -->
+<?php if (session()->get('role') == 'admin'): ?>
+    | <a href="<?= base_url('peminjaman/delete/'.$p['id_peminjaman']) ?>">Hapus</a>
+<?php endif; ?>
+
+</td>
 </tr>
 
 <?php endforeach; ?>
 <?php else: ?>
 <tr>
-    <td colspan="8" align="center">Belum ada data</td>
+    <td colspan="9" align="center">Belum ada data</td>
 </tr>
 <?php endif; ?>
 

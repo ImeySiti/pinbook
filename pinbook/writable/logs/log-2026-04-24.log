@@ -1,0 +1,1717 @@
+DEBUG - 2026-04-24 05:17:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 05:17:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 05:17:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 05:18:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 05:18:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 05:18:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 05:18:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 08:45:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 08:45:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 08:45:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 08:45:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 08:45:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 08:45:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 08:46:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 08:46:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 09:49:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 09:49:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 09:49:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 09:49:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 09:49:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 09:49:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 09:49:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 09:55:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-04-24 09:57:17 --> ErrorException: Undefined property: App\Controllers\Buku::$db
+[Method: POST, Route: buku/store]
+in APPPATH\Controllers\Buku.php on line 110.
+ 1 APPPATH\Controllers\Buku.php(110): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: App\\Controllers\\Buku::$db', 'C:\\xampp1\\htdocs\\pinbook\\app\\Controllers\\Buku.php', 110)
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Buku->store()
+ 3 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Buku))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-24 10:01:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 10:01:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 10:01:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 10:20:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-04-24 10:20:23 --> ParseError: syntax error, unexpected token "endforeach", expecting "elseif" or "else" or "endif"
+[Method: GET, Route: peminjaman]
+in APPPATH\Views\peminjaman\index.php on line 167.
+ 1 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 2 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('peminjaman/index', [], true)
+ 3 APPPATH\Controllers\Peminjaman.php(67): view('peminjaman/index', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Peminjaman->index()
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Peminjaman))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-24 10:20:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-04-24 10:20:48 --> ParseError: syntax error, unexpected token "endforeach", expecting "elseif" or "else" or "endif"
+[Method: GET, Route: peminjaman]
+in APPPATH\Views\peminjaman\index.php on line 167.
+ 1 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 2 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('peminjaman/index', [], true)
+ 3 APPPATH\Controllers\Peminjaman.php(67): view('peminjaman/index', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Peminjaman->index()
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Peminjaman))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-24 10:21:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-04-24 10:21:26 --> ParseError: syntax error, unexpected end of file
+[Method: GET, Route: peminjaman]
+in APPPATH\Views\peminjaman\index.php on line 174.
+ 1 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 2 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('peminjaman/index', [], true)
+ 3 APPPATH\Controllers\Peminjaman.php(67): view('peminjaman/index', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Peminjaman->index()
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Peminjaman))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-24 10:21:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-04-24 10:21:49 --> ParseError: syntax error, unexpected end of file, expecting "elseif" or "else" or "endif"
+[Method: GET, Route: peminjaman]
+in APPPATH\Views\peminjaman\index.php on line 173.
+ 1 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 2 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('peminjaman/index', [], true)
+ 3 APPPATH\Controllers\Peminjaman.php(67): view('peminjaman/index', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Peminjaman->index()
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Peminjaman))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-24 10:23:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-04-24 10:23:54 --> ParseError: syntax error, unexpected end of file, expecting "elseif" or "else" or "endif"
+[Method: GET, Route: peminjaman]
+in APPPATH\Views\peminjaman\index.php on line 173.
+ 1 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 2 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('peminjaman/index', [], true)
+ 3 APPPATH\Controllers\Peminjaman.php(67): view('peminjaman/index', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Peminjaman->index()
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Peminjaman))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-24 10:33:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 10:34:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 10:34:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 10:34:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 10:35:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 10:35:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 10:36:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 10:36:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 10:36:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 10:36:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 10:36:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 10:36:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 10:36:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 10:36:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 10:41:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 10:44:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 10:44:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 10:44:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 10:44:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 10:44:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 10:44:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 10:44:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 10:45:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 10:45:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 10:45:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 10:46:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 10:46:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 10:47:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 10:47:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 10:47:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 10:47:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 10:47:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 10:47:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 10:47:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 10:47:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 10:47:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 10:47:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 10:47:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 10:47:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 10:47:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 10:47:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 10:47:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 10:47:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 10:47:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 10:47:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 10:47:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 10:47:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 10:48:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 10:48:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 10:48:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 10:48:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 10:48:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 10:48:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 10:48:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 10:48:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 10:48:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 10:48:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 10:48:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 10:48:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 10:48:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 10:48:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 10:48:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 10:48:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 10:48:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 10:48:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 10:48:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 10:48:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 10:52:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 10:52:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 10:57:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 10:58:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 10:58:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 10:58:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 10:58:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 10:58:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 11:01:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 11:20:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 11:25:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 11:25:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 11:26:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 11:26:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 11:26:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 11:26:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 11:26:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 11:29:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 11:35:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-04-24 11:35:33 --> ParseError: syntax error, unexpected token "|"
+[Method: GET, Route: peminjaman]
+in APPPATH\Views\peminjaman\index.php on line 125.
+ 1 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 2 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('peminjaman/index', [], true)
+ 3 APPPATH\Controllers\Peminjaman.php(52): view('peminjaman/index', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Peminjaman->index()
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Peminjaman))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-24 11:36:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 11:36:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 11:36:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 11:36:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 11:36:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 11:36:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 11:37:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 11:38:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-04-24 11:38:31 --> ErrorException: Undefined array key "jabatan"
+[Method: GET, Route: peminjaman/create]
+in APPPATH\Views\peminjaman\create.php on line 47.
+ 1 APPPATH\Views\peminjaman\create.php(47): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "jabatan"', 'C:\\xampp1\\htdocs\\pinbook\\app\\Views\\peminjaman\\create.php', 47)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\xampp1\\htdocs\\pinbook\\app\\Views\\peminjaman\\create.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('peminjaman/create', [], true)
+ 5 APPPATH\Controllers\Peminjaman.php(94): view('peminjaman/create', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Peminjaman->create()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Peminjaman))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-24 11:41:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-04-24 11:41:17 --> ErrorException: Undefined variable $kategori_list
+[Method: GET, Route: peminjaman/create]
+in APPPATH\Views\peminjaman\create.php on line 23.
+ 1 APPPATH\Views\peminjaman\create.php(23): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $kategori_list', 'C:\\xampp1\\htdocs\\pinbook\\app\\Views\\peminjaman\\create.php', 23)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\xampp1\\htdocs\\pinbook\\app\\Views\\peminjaman\\create.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('peminjaman/create', [], true)
+ 5 APPPATH\Controllers\Peminjaman.php(73): view('peminjaman/create', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Peminjaman->create()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Peminjaman))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-24 11:43:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-04-24 11:43:28 --> ErrorException: Undefined variable $kategori_list
+[Method: GET, Route: peminjaman/create]
+in APPPATH\Views\peminjaman\create.php on line 23.
+ 1 APPPATH\Views\peminjaman\create.php(23): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $kategori_list', 'C:\\xampp1\\htdocs\\pinbook\\app\\Views\\peminjaman\\create.php', 23)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\xampp1\\htdocs\\pinbook\\app\\Views\\peminjaman\\create.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('peminjaman/create', [], true)
+ 5 APPPATH\Controllers\Peminjaman.php(73): view('peminjaman/create', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Peminjaman->create()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Peminjaman))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-24 11:44:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 11:45:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 11:45:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-04-24 11:45:53 --> Error: Call to undefined method App\Controllers\Peminjaman::hitungOngkir()
+[Method: GET, Route: peminjaman/pembayaran/121]
+in APPPATH\Controllers\Peminjaman.php on line 121.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Peminjaman->pembayaran('121')
+ 2 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Peminjaman))
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-24 11:47:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 11:48:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 11:48:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 11:48:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 11:48:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 11:48:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 11:48:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 11:48:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 11:48:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 11:48:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 11:48:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 11:49:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 11:49:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 11:50:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 11:50:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 11:56:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 11:58:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 11:59:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-04-24 11:59:45 --> ParseError: syntax error, unexpected token "endforeach", expecting "elseif" or "else" or "endif"
+[Method: GET, Route: peminjaman]
+in APPPATH\Views\peminjaman\index.php on line 202.
+ 1 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 2 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('peminjaman/index', [], true)
+ 3 APPPATH\Controllers\Peminjaman.php(53): view('peminjaman/index', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Peminjaman->index()
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Peminjaman))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-24 12:00:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-04-24 12:00:02 --> ParseError: syntax error, unexpected token "endforeach", expecting "elseif" or "else" or "endif"
+[Method: GET, Route: peminjaman]
+in APPPATH\Views\peminjaman\index.php on line 201.
+ 1 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 2 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('peminjaman/index', [], true)
+ 3 APPPATH\Controllers\Peminjaman.php(53): view('peminjaman/index', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Peminjaman->index()
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Peminjaman))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-24 12:00:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-04-24 12:00:05 --> ParseError: syntax error, unexpected token "endforeach", expecting "elseif" or "else" or "endif"
+[Method: GET, Route: peminjaman]
+in APPPATH\Views\peminjaman\index.php on line 201.
+ 1 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 2 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('peminjaman/index', [], true)
+ 3 APPPATH\Controllers\Peminjaman.php(53): view('peminjaman/index', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Peminjaman->index()
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Peminjaman))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-24 12:00:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-04-24 12:00:39 --> ParseError: syntax error, unexpected token "endforeach"
+[Method: GET, Route: peminjaman]
+in APPPATH\Views\peminjaman\index.php on line 200.
+ 1 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 2 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('peminjaman/index', [], true)
+ 3 APPPATH\Controllers\Peminjaman.php(53): view('peminjaman/index', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Peminjaman->index()
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Peminjaman))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-24 12:03:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-04-24 12:03:34 --> CodeIgniter\Database\Exceptions\DataException: There is no data to update.
+[Method: GET, Route: peminjaman/ajukanKembali/121]
+in SYSTEMPATH\BaseModel.php on line 1008.
+ 1 SYSTEMPATH\BaseModel.php(1008): CodeIgniter\Database\Exceptions\DataException::forEmptyDataset('update')
+ 2 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [])
+ 3 APPPATH\Controllers\Peminjaman.php(279): CodeIgniter\Model->update('121', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Peminjaman->ajukanKembali('121')
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Peminjaman))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-24 12:04:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-04-24 12:04:34 --> CodeIgniter\Database\Exceptions\DataException: There is no data to update.
+[Method: GET, Route: peminjaman/ajukanPenarikan/121]
+in SYSTEMPATH\BaseModel.php on line 1008.
+ 1 SYSTEMPATH\BaseModel.php(1008): CodeIgniter\Database\Exceptions\DataException::forEmptyDataset('update')
+ 2 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [])
+ 3 APPPATH\Controllers\Peminjaman.php(297): CodeIgniter\Model->update('121', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Peminjaman->ajukanPenarikan('121')
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Peminjaman))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-24 12:05:57 --> CodeIgniter\Database\Exceptions\DataException: There is no data to update.
+[Method: GET, Route: peminjaman/ajukanPenarikan/121]
+in SYSTEMPATH\BaseModel.php on line 1008.
+ 1 SYSTEMPATH\BaseModel.php(1008): CodeIgniter\Database\Exceptions\DataException::forEmptyDataset('update')
+ 2 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [])
+ 3 APPPATH\Controllers\Peminjaman.php(297): CodeIgniter\Model->update('121', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Peminjaman->ajukanPenarikan('121')
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Peminjaman))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-24 12:05:59 --> CodeIgniter\Database\Exceptions\DataException: There is no data to update.
+[Method: GET, Route: peminjaman/ajukanPenarikan/121]
+in SYSTEMPATH\BaseModel.php on line 1008.
+ 1 SYSTEMPATH\BaseModel.php(1008): CodeIgniter\Database\Exceptions\DataException::forEmptyDataset('update')
+ 2 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [])
+ 3 APPPATH\Controllers\Peminjaman.php(297): CodeIgniter\Model->update('121', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Peminjaman->ajukanPenarikan('121')
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Peminjaman))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-24 12:08:14 --> ParseError: syntax error, unexpected single-quoted string "status_pengajuan", expecting "]"
+[Method: GET, Route: peminjaman/ajukanPenarikan/121]
+in APPPATH\Models\PeminjamanModel.php on line 21.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(295): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\xampp1\\htdocs\\pinbook\\app\\Models\\PeminjamanModel.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(271): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Models\\PeminjamanModel')
+ 3 APPPATH\Controllers\Peminjaman.php(24): CodeIgniter\Autoloader\Autoloader->loadClass('App\\Models\\PeminjamanModel')
+ 4 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Peminjaman->__construct()
+ 5 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-24 12:08:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 12:08:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 12:09:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 12:09:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 12:09:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 12:09:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 12:09:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 12:09:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 12:09:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 12:10:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 12:10:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 12:10:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 12:10:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 12:10:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 12:11:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 12:11:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 12:11:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 12:11:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 12:11:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 12:11:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 12:11:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 12:11:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 12:11:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 12:11:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 12:12:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 12:12:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 12:12:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 12:12:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 12:12:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 12:12:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 12:12:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 12:12:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 12:12:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 12:12:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 12:13:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 12:13:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 12:13:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 12:13:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 12:13:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 12:13:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 12:14:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 12:14:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 12:29:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-04-24 12:29:58 --> ParseError: syntax error, unexpected token "public"
+[Method: GET, Route: peminjaman]
+in APPPATH\Controllers\Peminjaman.php on line 342.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(295): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\xampp1\\htdocs\\pinbook\\app\\Controllers\\Peminjaman.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(271): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\Peminjaman')
+ 3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\Peminjaman')
+ 4 SYSTEMPATH\CodeIgniter.php(885): class_exists('\\App\\Controllers\\Peminjaman', true)
+ 5 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->startController()
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-24 12:31:03 --> ParseError: syntax error, unexpected variable "$peminjaman", expecting "function" or "const"
+[Method: GET, Route: peminjaman]
+in APPPATH\Controllers\Peminjaman.php on line 373.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(295): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\xampp1\\htdocs\\pinbook\\app\\Controllers\\Peminjaman.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(271): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\Peminjaman')
+ 3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\Peminjaman')
+ 4 SYSTEMPATH\CodeIgniter.php(885): class_exists('\\App\\Controllers\\Peminjaman', true)
+ 5 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->startController()
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-24 12:33:10 --> ParseError: syntax error, unexpected token "{", expecting "function" or "const"
+[Method: GET, Route: peminjaman]
+in APPPATH\Controllers\Peminjaman.php on line 373.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(295): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\xampp1\\htdocs\\pinbook\\app\\Controllers\\Peminjaman.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(271): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\Peminjaman')
+ 3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\Peminjaman')
+ 4 SYSTEMPATH\CodeIgniter.php(885): class_exists('\\App\\Controllers\\Peminjaman', true)
+ 5 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->startController()
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-24 12:34:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 12:34:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 12:34:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 12:35:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 12:35:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 12:36:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 12:39:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 13:01:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 13:01:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 13:01:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 13:01:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 13:03:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 13:03:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 13:05:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 13:05:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 13:05:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 13:05:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 13:06:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 13:06:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 13:06:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 13:07:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 13:09:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-04-24 13:12:49 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "pengembalian/detail.php"
+[Method: GET, Route: pengembalian/detail/63]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(214): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('pengembalian/detail.php')
+ 2 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('pengembalian/detail', [], true)
+ 3 APPPATH\Controllers\Pengembalian.php(143): view('pengembalian/detail', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Pengembalian->detail('63')
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pengembalian))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-24 13:13:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 13:13:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 14:29:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 14:29:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 14:29:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 14:38:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 14:38:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 14:38:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 14:38:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 14:38:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 14:38:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 14:38:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 14:39:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 14:39:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 14:39:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 14:45:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 14:48:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-04-24 14:52:45 --> CodeIgniter\Database\Exceptions\DataException: There is no data to update.
+[Method: GET, Route: peminjaman/konfirmasiPengembalian/123]
+in SYSTEMPATH\BaseModel.php on line 1008.
+ 1 SYSTEMPATH\BaseModel.php(1008): CodeIgniter\Database\Exceptions\DataException::forEmptyDataset('update')
+ 2 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [])
+ 3 APPPATH\Controllers\Peminjaman.php(415): CodeIgniter\Model->update('123', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Peminjaman->konfirmasiPengembalian('123')
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Peminjaman))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-24 14:53:46 --> CodeIgniter\Database\Exceptions\DataException: There is no data to update.
+[Method: GET, Route: peminjaman/konfirmasiPengembalian/123]
+in SYSTEMPATH\BaseModel.php on line 1008.
+ 1 SYSTEMPATH\BaseModel.php(1008): CodeIgniter\Database\Exceptions\DataException::forEmptyDataset('update')
+ 2 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [])
+ 3 APPPATH\Controllers\Peminjaman.php(423): CodeIgniter\Model->update('123', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Peminjaman->konfirmasiPengembalian('123')
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Peminjaman))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2026-04-24 14:55:16 --> mysqli_sql_exception: Unknown column 'status_pengembalian' in 'field list' in C:\xampp1\htdocs\pinbook\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp1\htdocs\pinbook\system\Database\MySQLi\Connection.php(327): mysqli->query('UPDATE `peminja...', 0)
+#1 C:\xampp1\htdocs\pinbook\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `peminja...')
+#2 C:\xampp1\htdocs\pinbook\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `peminja...')
+#3 C:\xampp1\htdocs\pinbook\system\Database\BaseBuilder.php(2521): CodeIgniter\Database\BaseConnection->query('UPDATE `peminja...', Array, false)
+#4 C:\xampp1\htdocs\pinbook\system\Model.php(461): CodeIgniter\Database\BaseBuilder->update()
+#5 C:\xampp1\htdocs\pinbook\system\BaseModel.php(1025): CodeIgniter\Model->doUpdate(Array, Array)
+#6 C:\xampp1\htdocs\pinbook\system\Model.php(860): CodeIgniter\BaseModel->update(Array, Array)
+#7 C:\xampp1\htdocs\pinbook\app\Controllers\Peminjaman.php(423): CodeIgniter\Model->update('123', Array)
+#8 C:\xampp1\htdocs\pinbook\system\CodeIgniter.php(933): App\Controllers\Peminjaman->konfirmasiPengembalian('123')
+#9 C:\xampp1\htdocs\pinbook\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Peminjaman))
+#10 C:\xampp1\htdocs\pinbook\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp1\htdocs\pinbook\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#12 C:\xampp1\htdocs\pinbook\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 C:\xampp1\htdocs\pinbook\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 {main}
+CRITICAL - 2026-04-24 14:55:16 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'status_pengembalian' in 'field list'
+[Method: GET, Route: peminjaman/konfirmasiPengembalian/123]
+in SYSTEMPATH\Database\BaseConnection.php on line 684.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2521): CodeIgniter\Database\BaseConnection->query('UPDATE `peminjaman` SET `status_pengembalian` = :status_pengembalian:
+WHERE `peminjaman`.`id_peminjaman` IN :peminjaman.id_peminjaman:', [...], false)
+ 2 SYSTEMPATH\Model.php(461): CodeIgniter\Database\BaseBuilder->update()
+ 3 SYSTEMPATH\BaseModel.php(1025): CodeIgniter\Model->doUpdate([...], [...])
+ 4 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+ 5 APPPATH\Controllers\Peminjaman.php(423): CodeIgniter\Model->update('123', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Peminjaman->konfirmasiPengembalian('123')
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Peminjaman))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-24 14:55:16 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'status_pengembalian' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `peminjaman` SET `status_pengembalian` = \'dikembalikan\'
+WHERE `peminjaman`.`id_peminjaman` IN (\'123\')')
+ 2 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `peminjaman` SET `status_pengembalian` = \'dikembalikan\'
+WHERE `peminjaman`.`id_peminjaman` IN (\'123\')')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2521): CodeIgniter\Database\BaseConnection->query('UPDATE `peminjaman` SET `status_pengembalian` = :status_pengembalian:
+WHERE `peminjaman`.`id_peminjaman` IN :peminjaman.id_peminjaman:', [...], false)
+ 4 SYSTEMPATH\Model.php(461): CodeIgniter\Database\BaseBuilder->update()
+ 5 SYSTEMPATH\BaseModel.php(1025): CodeIgniter\Model->doUpdate([...], [...])
+ 6 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+ 7 APPPATH\Controllers\Peminjaman.php(423): CodeIgniter\Model->update('123', [...])
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Peminjaman->konfirmasiPengembalian('123')
+ 9 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Peminjaman))
+10 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-24 14:55:16 --> [Caused by] mysqli_sql_exception: Unknown column 'status_pengembalian' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('UPDATE `peminjaman` SET `status_pengembalian` = \'dikembalikan\'
+WHERE `peminjaman`.`id_peminjaman` IN (\'123\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `peminjaman` SET `status_pengembalian` = \'dikembalikan\'
+WHERE `peminjaman`.`id_peminjaman` IN (\'123\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `peminjaman` SET `status_pengembalian` = \'dikembalikan\'
+WHERE `peminjaman`.`id_peminjaman` IN (\'123\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2521): CodeIgniter\Database\BaseConnection->query('UPDATE `peminjaman` SET `status_pengembalian` = :status_pengembalian:
+WHERE `peminjaman`.`id_peminjaman` IN :peminjaman.id_peminjaman:', [...], false)
+ 5 SYSTEMPATH\Model.php(461): CodeIgniter\Database\BaseBuilder->update()
+ 6 SYSTEMPATH\BaseModel.php(1025): CodeIgniter\Model->doUpdate([...], [...])
+ 7 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+ 8 APPPATH\Controllers\Peminjaman.php(423): CodeIgniter\Model->update('123', [...])
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Peminjaman->konfirmasiPengembalian('123')
+10 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Peminjaman))
+11 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-24 14:56:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-04-24 14:56:35 --> CodeIgniter\Database\Exceptions\DataException: There is no data to update.
+[Method: GET, Route: peminjaman/konfirmasiPengembalian/123]
+in SYSTEMPATH\BaseModel.php on line 1008.
+ 1 SYSTEMPATH\BaseModel.php(1008): CodeIgniter\Database\Exceptions\DataException::forEmptyDataset('update')
+ 2 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [])
+ 3 APPPATH\Controllers\Peminjaman.php(423): CodeIgniter\Model->update('123', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Peminjaman->konfirmasiPengembalian('123')
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Peminjaman))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-24 15:00:00 --> CodeIgniter\Database\Exceptions\DataException: There is no data to update.
+[Method: GET, Route: peminjaman/konfirmasiPengembalian/123]
+in SYSTEMPATH\BaseModel.php on line 1008.
+ 1 SYSTEMPATH\BaseModel.php(1008): CodeIgniter\Database\Exceptions\DataException::forEmptyDataset('update')
+ 2 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [])
+ 3 APPPATH\Controllers\Peminjaman.php(423): CodeIgniter\Model->update('123', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Peminjaman->konfirmasiPengembalian('123')
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Peminjaman))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-24 15:00:36 --> ParseError: syntax error, unexpected token "else"
+[Method: GET, Route: peminjaman/konfirmasiPengembalian/123]
+in APPPATH\Controllers\Peminjaman.php on line 335.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(295): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\xampp1\\htdocs\\pinbook\\app\\Controllers\\Peminjaman.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(271): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\Peminjaman')
+ 3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\Peminjaman')
+ 4 SYSTEMPATH\CodeIgniter.php(885): class_exists('\\App\\Controllers\\Peminjaman', true)
+ 5 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->startController()
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-24 15:01:29 --> CodeIgniter\Database\Exceptions\DataException: There is no data to update.
+[Method: GET, Route: peminjaman/konfirmasiPengembalian/123]
+in SYSTEMPATH\BaseModel.php on line 1008.
+ 1 SYSTEMPATH\BaseModel.php(1008): CodeIgniter\Database\Exceptions\DataException::forEmptyDataset('update')
+ 2 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [])
+ 3 APPPATH\Controllers\Peminjaman.php(423): CodeIgniter\Model->update('123', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Peminjaman->konfirmasiPengembalian('123')
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Peminjaman))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-24 15:02:34 --> CodeIgniter\Database\Exceptions\DataException: There is no data to update.
+[Method: GET, Route: peminjaman/konfirmasiPengembalian/123]
+in SYSTEMPATH\BaseModel.php on line 1008.
+ 1 SYSTEMPATH\BaseModel.php(1008): CodeIgniter\Database\Exceptions\DataException::forEmptyDataset('update')
+ 2 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [])
+ 3 APPPATH\Controllers\Peminjaman.php(423): CodeIgniter\Model->update('123', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Peminjaman->konfirmasiPengembalian('123')
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Peminjaman))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-24 15:05:33 --> CodeIgniter\Database\Exceptions\DataException: There is no data to update.
+[Method: GET, Route: peminjaman/konfirmasiPengembalian/123]
+in SYSTEMPATH\BaseModel.php on line 1008.
+ 1 SYSTEMPATH\BaseModel.php(1008): CodeIgniter\Database\Exceptions\DataException::forEmptyDataset('update')
+ 2 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [])
+ 3 APPPATH\Controllers\Peminjaman.php(423): CodeIgniter\Model->update('123', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Peminjaman->konfirmasiPengembalian('123')
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Peminjaman))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-24 15:08:51 --> ErrorException: Cannot redeclare App\Controllers\Peminjaman::create()
+[Method: GET, Route: peminjaman/konfirmasiPengembalian/123]
+in APPPATH\Controllers\Peminjaman.php on line 186.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+ERROR - 2026-04-24 15:11:55 --> mysqli_sql_exception: Unknown column 'status_pengembalian' in 'field list' in C:\xampp1\htdocs\pinbook\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp1\htdocs\pinbook\system\Database\MySQLi\Connection.php(327): mysqli->query('UPDATE `peminja...', 0)
+#1 C:\xampp1\htdocs\pinbook\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `peminja...')
+#2 C:\xampp1\htdocs\pinbook\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `peminja...')
+#3 C:\xampp1\htdocs\pinbook\system\Database\BaseBuilder.php(2521): CodeIgniter\Database\BaseConnection->query('UPDATE `peminja...', Array, false)
+#4 C:\xampp1\htdocs\pinbook\system\Model.php(461): CodeIgniter\Database\BaseBuilder->update()
+#5 C:\xampp1\htdocs\pinbook\system\BaseModel.php(1025): CodeIgniter\Model->doUpdate(Array, Array)
+#6 C:\xampp1\htdocs\pinbook\system\Model.php(860): CodeIgniter\BaseModel->update(Array, Array)
+#7 C:\xampp1\htdocs\pinbook\app\Controllers\Peminjaman.php(423): CodeIgniter\Model->update('123', Array)
+#8 C:\xampp1\htdocs\pinbook\system\CodeIgniter.php(933): App\Controllers\Peminjaman->konfirmasiPengembalian('123')
+#9 C:\xampp1\htdocs\pinbook\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Peminjaman))
+#10 C:\xampp1\htdocs\pinbook\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp1\htdocs\pinbook\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#12 C:\xampp1\htdocs\pinbook\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 C:\xampp1\htdocs\pinbook\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 {main}
+CRITICAL - 2026-04-24 15:11:55 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'status_pengembalian' in 'field list'
+[Method: GET, Route: peminjaman/konfirmasiPengembalian/123]
+in SYSTEMPATH\Database\BaseConnection.php on line 684.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2521): CodeIgniter\Database\BaseConnection->query('UPDATE `peminjaman` SET `status_pengembalian` = :status_pengembalian:
+WHERE `peminjaman`.`id_peminjaman` IN :peminjaman.id_peminjaman:', [...], false)
+ 2 SYSTEMPATH\Model.php(461): CodeIgniter\Database\BaseBuilder->update()
+ 3 SYSTEMPATH\BaseModel.php(1025): CodeIgniter\Model->doUpdate([...], [...])
+ 4 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+ 5 APPPATH\Controllers\Peminjaman.php(423): CodeIgniter\Model->update('123', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Peminjaman->konfirmasiPengembalian('123')
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Peminjaman))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-24 15:11:55 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'status_pengembalian' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `peminjaman` SET `status_pengembalian` = \'dikembalikan\'
+WHERE `peminjaman`.`id_peminjaman` IN (\'123\')')
+ 2 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `peminjaman` SET `status_pengembalian` = \'dikembalikan\'
+WHERE `peminjaman`.`id_peminjaman` IN (\'123\')')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2521): CodeIgniter\Database\BaseConnection->query('UPDATE `peminjaman` SET `status_pengembalian` = :status_pengembalian:
+WHERE `peminjaman`.`id_peminjaman` IN :peminjaman.id_peminjaman:', [...], false)
+ 4 SYSTEMPATH\Model.php(461): CodeIgniter\Database\BaseBuilder->update()
+ 5 SYSTEMPATH\BaseModel.php(1025): CodeIgniter\Model->doUpdate([...], [...])
+ 6 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+ 7 APPPATH\Controllers\Peminjaman.php(423): CodeIgniter\Model->update('123', [...])
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Peminjaman->konfirmasiPengembalian('123')
+ 9 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Peminjaman))
+10 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-24 15:11:55 --> [Caused by] mysqli_sql_exception: Unknown column 'status_pengembalian' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('UPDATE `peminjaman` SET `status_pengembalian` = \'dikembalikan\'
+WHERE `peminjaman`.`id_peminjaman` IN (\'123\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `peminjaman` SET `status_pengembalian` = \'dikembalikan\'
+WHERE `peminjaman`.`id_peminjaman` IN (\'123\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `peminjaman` SET `status_pengembalian` = \'dikembalikan\'
+WHERE `peminjaman`.`id_peminjaman` IN (\'123\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2521): CodeIgniter\Database\BaseConnection->query('UPDATE `peminjaman` SET `status_pengembalian` = :status_pengembalian:
+WHERE `peminjaman`.`id_peminjaman` IN :peminjaman.id_peminjaman:', [...], false)
+ 5 SYSTEMPATH\Model.php(461): CodeIgniter\Database\BaseBuilder->update()
+ 6 SYSTEMPATH\BaseModel.php(1025): CodeIgniter\Model->doUpdate([...], [...])
+ 7 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+ 8 APPPATH\Controllers\Peminjaman.php(423): CodeIgniter\Model->update('123', [...])
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Peminjaman->konfirmasiPengembalian('123')
+10 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Peminjaman))
+11 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-24 15:17:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2026-04-24 15:17:07 --> mysqli_sql_exception: Unknown column 'status_pengembalian' in 'field list' in C:\xampp1\htdocs\pinbook\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp1\htdocs\pinbook\system\Database\MySQLi\Connection.php(327): mysqli->query('UPDATE `peminja...', 0)
+#1 C:\xampp1\htdocs\pinbook\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `peminja...')
+#2 C:\xampp1\htdocs\pinbook\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `peminja...')
+#3 C:\xampp1\htdocs\pinbook\system\Database\BaseBuilder.php(2521): CodeIgniter\Database\BaseConnection->query('UPDATE `peminja...', Array, false)
+#4 C:\xampp1\htdocs\pinbook\system\Model.php(461): CodeIgniter\Database\BaseBuilder->update()
+#5 C:\xampp1\htdocs\pinbook\system\BaseModel.php(1025): CodeIgniter\Model->doUpdate(Array, Array)
+#6 C:\xampp1\htdocs\pinbook\system\Model.php(860): CodeIgniter\BaseModel->update(Array, Array)
+#7 C:\xampp1\htdocs\pinbook\app\Controllers\Peminjaman.php(423): CodeIgniter\Model->update('123', Array)
+#8 C:\xampp1\htdocs\pinbook\system\CodeIgniter.php(933): App\Controllers\Peminjaman->konfirmasiPengembalian('123')
+#9 C:\xampp1\htdocs\pinbook\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Peminjaman))
+#10 C:\xampp1\htdocs\pinbook\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp1\htdocs\pinbook\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#12 C:\xampp1\htdocs\pinbook\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 C:\xampp1\htdocs\pinbook\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 {main}
+CRITICAL - 2026-04-24 15:17:07 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'status_pengembalian' in 'field list'
+[Method: GET, Route: peminjaman/konfirmasiPengembalian/123]
+in SYSTEMPATH\Database\BaseConnection.php on line 684.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2521): CodeIgniter\Database\BaseConnection->query('UPDATE `peminjaman` SET `status_pengembalian` = :status_pengembalian:
+WHERE `peminjaman`.`id_peminjaman` IN :peminjaman.id_peminjaman:', [...], false)
+ 2 SYSTEMPATH\Model.php(461): CodeIgniter\Database\BaseBuilder->update()
+ 3 SYSTEMPATH\BaseModel.php(1025): CodeIgniter\Model->doUpdate([...], [...])
+ 4 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+ 5 APPPATH\Controllers\Peminjaman.php(423): CodeIgniter\Model->update('123', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Peminjaman->konfirmasiPengembalian('123')
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Peminjaman))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-24 15:17:07 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'status_pengembalian' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `peminjaman` SET `status_pengembalian` = \'dikembalikan\'
+WHERE `peminjaman`.`id_peminjaman` IN (\'123\')')
+ 2 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `peminjaman` SET `status_pengembalian` = \'dikembalikan\'
+WHERE `peminjaman`.`id_peminjaman` IN (\'123\')')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2521): CodeIgniter\Database\BaseConnection->query('UPDATE `peminjaman` SET `status_pengembalian` = :status_pengembalian:
+WHERE `peminjaman`.`id_peminjaman` IN :peminjaman.id_peminjaman:', [...], false)
+ 4 SYSTEMPATH\Model.php(461): CodeIgniter\Database\BaseBuilder->update()
+ 5 SYSTEMPATH\BaseModel.php(1025): CodeIgniter\Model->doUpdate([...], [...])
+ 6 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+ 7 APPPATH\Controllers\Peminjaman.php(423): CodeIgniter\Model->update('123', [...])
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Peminjaman->konfirmasiPengembalian('123')
+ 9 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Peminjaman))
+10 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-24 15:17:07 --> [Caused by] mysqli_sql_exception: Unknown column 'status_pengembalian' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('UPDATE `peminjaman` SET `status_pengembalian` = \'dikembalikan\'
+WHERE `peminjaman`.`id_peminjaman` IN (\'123\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `peminjaman` SET `status_pengembalian` = \'dikembalikan\'
+WHERE `peminjaman`.`id_peminjaman` IN (\'123\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `peminjaman` SET `status_pengembalian` = \'dikembalikan\'
+WHERE `peminjaman`.`id_peminjaman` IN (\'123\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2521): CodeIgniter\Database\BaseConnection->query('UPDATE `peminjaman` SET `status_pengembalian` = :status_pengembalian:
+WHERE `peminjaman`.`id_peminjaman` IN :peminjaman.id_peminjaman:', [...], false)
+ 5 SYSTEMPATH\Model.php(461): CodeIgniter\Database\BaseBuilder->update()
+ 6 SYSTEMPATH\BaseModel.php(1025): CodeIgniter\Model->doUpdate([...], [...])
+ 7 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+ 8 APPPATH\Controllers\Peminjaman.php(423): CodeIgniter\Model->update('123', [...])
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Peminjaman->konfirmasiPengembalian('123')
+10 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Peminjaman))
+11 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2026-04-24 15:19:05 --> mysqli_sql_exception: Unknown column 'status_pengembalian' in 'field list' in C:\xampp1\htdocs\pinbook\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp1\htdocs\pinbook\system\Database\MySQLi\Connection.php(327): mysqli->query('UPDATE `peminja...', 0)
+#1 C:\xampp1\htdocs\pinbook\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `peminja...')
+#2 C:\xampp1\htdocs\pinbook\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `peminja...')
+#3 C:\xampp1\htdocs\pinbook\system\Database\BaseBuilder.php(2521): CodeIgniter\Database\BaseConnection->query('UPDATE `peminja...', Array, false)
+#4 C:\xampp1\htdocs\pinbook\system\Model.php(461): CodeIgniter\Database\BaseBuilder->update()
+#5 C:\xampp1\htdocs\pinbook\system\BaseModel.php(1025): CodeIgniter\Model->doUpdate(Array, Array)
+#6 C:\xampp1\htdocs\pinbook\system\Model.php(860): CodeIgniter\BaseModel->update(Array, Array)
+#7 C:\xampp1\htdocs\pinbook\app\Controllers\Peminjaman.php(423): CodeIgniter\Model->update('123', Array)
+#8 C:\xampp1\htdocs\pinbook\system\CodeIgniter.php(933): App\Controllers\Peminjaman->konfirmasiPengembalian('123')
+#9 C:\xampp1\htdocs\pinbook\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Peminjaman))
+#10 C:\xampp1\htdocs\pinbook\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp1\htdocs\pinbook\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#12 C:\xampp1\htdocs\pinbook\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 C:\xampp1\htdocs\pinbook\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 {main}
+CRITICAL - 2026-04-24 15:19:05 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'status_pengembalian' in 'field list'
+[Method: GET, Route: peminjaman/konfirmasiPengembalian/123]
+in SYSTEMPATH\Database\BaseConnection.php on line 684.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2521): CodeIgniter\Database\BaseConnection->query('UPDATE `peminjaman` SET `status_pengembalian` = :status_pengembalian:
+WHERE `peminjaman`.`id_peminjaman` IN :peminjaman.id_peminjaman:', [...], false)
+ 2 SYSTEMPATH\Model.php(461): CodeIgniter\Database\BaseBuilder->update()
+ 3 SYSTEMPATH\BaseModel.php(1025): CodeIgniter\Model->doUpdate([...], [...])
+ 4 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+ 5 APPPATH\Controllers\Peminjaman.php(423): CodeIgniter\Model->update('123', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Peminjaman->konfirmasiPengembalian('123')
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Peminjaman))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-24 15:19:05 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'status_pengembalian' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `peminjaman` SET `status_pengembalian` = \'dikembalikan\'
+WHERE `peminjaman`.`id_peminjaman` IN (\'123\')')
+ 2 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `peminjaman` SET `status_pengembalian` = \'dikembalikan\'
+WHERE `peminjaman`.`id_peminjaman` IN (\'123\')')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2521): CodeIgniter\Database\BaseConnection->query('UPDATE `peminjaman` SET `status_pengembalian` = :status_pengembalian:
+WHERE `peminjaman`.`id_peminjaman` IN :peminjaman.id_peminjaman:', [...], false)
+ 4 SYSTEMPATH\Model.php(461): CodeIgniter\Database\BaseBuilder->update()
+ 5 SYSTEMPATH\BaseModel.php(1025): CodeIgniter\Model->doUpdate([...], [...])
+ 6 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+ 7 APPPATH\Controllers\Peminjaman.php(423): CodeIgniter\Model->update('123', [...])
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Peminjaman->konfirmasiPengembalian('123')
+ 9 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Peminjaman))
+10 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-24 15:19:05 --> [Caused by] mysqli_sql_exception: Unknown column 'status_pengembalian' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('UPDATE `peminjaman` SET `status_pengembalian` = \'dikembalikan\'
+WHERE `peminjaman`.`id_peminjaman` IN (\'123\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `peminjaman` SET `status_pengembalian` = \'dikembalikan\'
+WHERE `peminjaman`.`id_peminjaman` IN (\'123\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `peminjaman` SET `status_pengembalian` = \'dikembalikan\'
+WHERE `peminjaman`.`id_peminjaman` IN (\'123\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2521): CodeIgniter\Database\BaseConnection->query('UPDATE `peminjaman` SET `status_pengembalian` = :status_pengembalian:
+WHERE `peminjaman`.`id_peminjaman` IN :peminjaman.id_peminjaman:', [...], false)
+ 5 SYSTEMPATH\Model.php(461): CodeIgniter\Database\BaseBuilder->update()
+ 6 SYSTEMPATH\BaseModel.php(1025): CodeIgniter\Model->doUpdate([...], [...])
+ 7 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+ 8 APPPATH\Controllers\Peminjaman.php(423): CodeIgniter\Model->update('123', [...])
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Peminjaman->konfirmasiPengembalian('123')
+10 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Peminjaman))
+11 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-24 15:20:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 15:20:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 15:21:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 15:21:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 15:21:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 15:21:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 15:26:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 15:26:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 15:26:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 15:27:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 15:31:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 15:31:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 15:36:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 15:36:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 15:51:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 15:51:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 15:52:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 15:52:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 15:52:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-04-24 15:57:32 --> ParseError: syntax error, unexpected token "else", expecting "function" or "const"
+[Method: GET, Route: peminjaman/konfirmasiPengembalian/123]
+in APPPATH\Controllers\Peminjaman.php on line 369.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(295): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\xampp1\\htdocs\\pinbook\\app\\Controllers\\Peminjaman.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(271): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\Peminjaman')
+ 3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\Peminjaman')
+ 4 SYSTEMPATH\CodeIgniter.php(885): class_exists('\\App\\Controllers\\Peminjaman', true)
+ 5 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->startController()
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-24 15:59:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 15:59:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 15:59:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 15:59:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 16:00:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 16:00:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-04-24 16:04:26 --> ParseError: syntax error, unexpected token "public"
+[Method: GET, Route: peminjaman/detail/123]
+in APPPATH\Controllers\Peminjaman.php on line 326.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(295): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\xampp1\\htdocs\\pinbook\\app\\Controllers\\Peminjaman.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(271): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\Peminjaman')
+ 3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\Peminjaman')
+ 4 SYSTEMPATH\CodeIgniter.php(885): class_exists('\\App\\Controllers\\Peminjaman', true)
+ 5 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->startController()
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-24 16:06:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 16:06:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 16:06:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 16:06:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 16:07:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 16:07:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 16:07:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 16:07:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 16:07:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 16:07:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 16:07:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 16:08:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 16:08:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 16:08:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 16:08:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 16:12:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 16:12:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 16:12:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 16:12:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 16:12:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 16:12:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 16:12:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 16:12:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2026-04-24 16:12:35 --> mysqli_sql_exception: Cannot delete or update a parent row: a foreign key constraint fails (`pinbook`.`pengembalian`, CONSTRAINT `pengembalian_ibfk_1` FOREIGN KEY (`id_peminjaman`) REFERENCES `peminjaman` (`id_peminjaman`)) in C:\xampp1\htdocs\pinbook\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp1\htdocs\pinbook\system\Database\MySQLi\Connection.php(327): mysqli->query('DELETE FROM `pe...', 0)
+#1 C:\xampp1\htdocs\pinbook\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('DELETE FROM `pe...')
+#2 C:\xampp1\htdocs\pinbook\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('DELETE FROM `pe...')
+#3 C:\xampp1\htdocs\pinbook\system\Database\BaseBuilder.php(2848): CodeIgniter\Database\BaseConnection->query('DELETE FROM `pe...', Array, false)
+#4 C:\xampp1\htdocs\pinbook\system\Model.php(521): CodeIgniter\Database\BaseBuilder->delete()
+#5 C:\xampp1\htdocs\pinbook\system\BaseModel.php(1152): CodeIgniter\Model->doDelete(Array, false)
+#6 C:\xampp1\htdocs\pinbook\app\Controllers\Peminjaman.php(386): CodeIgniter\BaseModel->delete(Array)
+#7 C:\xampp1\htdocs\pinbook\system\CodeIgniter.php(933): App\Controllers\Peminjaman->delete('120')
+#8 C:\xampp1\htdocs\pinbook\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Peminjaman))
+#9 C:\xampp1\htdocs\pinbook\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp1\htdocs\pinbook\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#11 C:\xampp1\htdocs\pinbook\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\xampp1\htdocs\pinbook\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 {main}
+CRITICAL - 2026-04-24 16:12:35 --> CodeIgniter\Database\Exceptions\DatabaseException: Cannot delete or update a parent row: a foreign key constraint fails (`pinbook`.`pengembalian`, CONSTRAINT `pengembalian_ibfk_1` FOREIGN KEY (`id_peminjaman`) REFERENCES `peminjaman` (`id_peminjaman`))
+[Method: GET, Route: peminjaman/delete/120]
+in SYSTEMPATH\Database\BaseConnection.php on line 684.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2848): CodeIgniter\Database\BaseConnection->query('DELETE FROM `peminjaman`
+WHERE `id_peminjaman` IN :id_peminjaman:', [...], false)
+ 2 SYSTEMPATH\Model.php(521): CodeIgniter\Database\BaseBuilder->delete()
+ 3 SYSTEMPATH\BaseModel.php(1152): CodeIgniter\Model->doDelete([...], false)
+ 4 APPPATH\Controllers\Peminjaman.php(386): CodeIgniter\BaseModel->delete([...])
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Peminjaman->delete('120')
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Peminjaman))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-24 16:12:35 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Cannot delete or update a parent row: a foreign key constraint fails (`pinbook`.`pengembalian`, CONSTRAINT `pengembalian_ibfk_1` FOREIGN KEY (`id_peminjaman`) REFERENCES `peminjaman` (`id_peminjaman`))
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('DELETE FROM `peminjaman`
+WHERE `id_peminjaman` IN (\'120\')')
+ 2 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('DELETE FROM `peminjaman`
+WHERE `id_peminjaman` IN (\'120\')')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2848): CodeIgniter\Database\BaseConnection->query('DELETE FROM `peminjaman`
+WHERE `id_peminjaman` IN :id_peminjaman:', [...], false)
+ 4 SYSTEMPATH\Model.php(521): CodeIgniter\Database\BaseBuilder->delete()
+ 5 SYSTEMPATH\BaseModel.php(1152): CodeIgniter\Model->doDelete([...], false)
+ 6 APPPATH\Controllers\Peminjaman.php(386): CodeIgniter\BaseModel->delete([...])
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Peminjaman->delete('120')
+ 8 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Peminjaman))
+ 9 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-24 16:12:35 --> [Caused by] mysqli_sql_exception: Cannot delete or update a parent row: a foreign key constraint fails (`pinbook`.`pengembalian`, CONSTRAINT `pengembalian_ibfk_1` FOREIGN KEY (`id_peminjaman`) REFERENCES `peminjaman` (`id_peminjaman`))
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('DELETE FROM `peminjaman`
+WHERE `id_peminjaman` IN (\'120\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('DELETE FROM `peminjaman`
+WHERE `id_peminjaman` IN (\'120\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('DELETE FROM `peminjaman`
+WHERE `id_peminjaman` IN (\'120\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2848): CodeIgniter\Database\BaseConnection->query('DELETE FROM `peminjaman`
+WHERE `id_peminjaman` IN :id_peminjaman:', [...], false)
+ 5 SYSTEMPATH\Model.php(521): CodeIgniter\Database\BaseBuilder->delete()
+ 6 SYSTEMPATH\BaseModel.php(1152): CodeIgniter\Model->doDelete([...], false)
+ 7 APPPATH\Controllers\Peminjaman.php(386): CodeIgniter\BaseModel->delete([...])
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Peminjaman->delete('120')
+ 9 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Peminjaman))
+10 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2026-04-24 16:12:43 --> mysqli_sql_exception: Cannot delete or update a parent row: a foreign key constraint fails (`pinbook`.`pengembalian`, CONSTRAINT `pengembalian_ibfk_1` FOREIGN KEY (`id_peminjaman`) REFERENCES `peminjaman` (`id_peminjaman`)) in C:\xampp1\htdocs\pinbook\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp1\htdocs\pinbook\system\Database\MySQLi\Connection.php(327): mysqli->query('DELETE FROM `pe...', 0)
+#1 C:\xampp1\htdocs\pinbook\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('DELETE FROM `pe...')
+#2 C:\xampp1\htdocs\pinbook\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('DELETE FROM `pe...')
+#3 C:\xampp1\htdocs\pinbook\system\Database\BaseBuilder.php(2848): CodeIgniter\Database\BaseConnection->query('DELETE FROM `pe...', Array, false)
+#4 C:\xampp1\htdocs\pinbook\system\Model.php(521): CodeIgniter\Database\BaseBuilder->delete()
+#5 C:\xampp1\htdocs\pinbook\system\BaseModel.php(1152): CodeIgniter\Model->doDelete(Array, false)
+#6 C:\xampp1\htdocs\pinbook\app\Controllers\Peminjaman.php(386): CodeIgniter\BaseModel->delete(Array)
+#7 C:\xampp1\htdocs\pinbook\system\CodeIgniter.php(933): App\Controllers\Peminjaman->delete('119')
+#8 C:\xampp1\htdocs\pinbook\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Peminjaman))
+#9 C:\xampp1\htdocs\pinbook\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp1\htdocs\pinbook\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#11 C:\xampp1\htdocs\pinbook\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\xampp1\htdocs\pinbook\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 {main}
+CRITICAL - 2026-04-24 16:12:43 --> CodeIgniter\Database\Exceptions\DatabaseException: Cannot delete or update a parent row: a foreign key constraint fails (`pinbook`.`pengembalian`, CONSTRAINT `pengembalian_ibfk_1` FOREIGN KEY (`id_peminjaman`) REFERENCES `peminjaman` (`id_peminjaman`))
+[Method: GET, Route: peminjaman/delete/119]
+in SYSTEMPATH\Database\BaseConnection.php on line 684.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2848): CodeIgniter\Database\BaseConnection->query('DELETE FROM `peminjaman`
+WHERE `id_peminjaman` IN :id_peminjaman:', [...], false)
+ 2 SYSTEMPATH\Model.php(521): CodeIgniter\Database\BaseBuilder->delete()
+ 3 SYSTEMPATH\BaseModel.php(1152): CodeIgniter\Model->doDelete([...], false)
+ 4 APPPATH\Controllers\Peminjaman.php(386): CodeIgniter\BaseModel->delete([...])
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Peminjaman->delete('119')
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Peminjaman))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-24 16:12:43 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Cannot delete or update a parent row: a foreign key constraint fails (`pinbook`.`pengembalian`, CONSTRAINT `pengembalian_ibfk_1` FOREIGN KEY (`id_peminjaman`) REFERENCES `peminjaman` (`id_peminjaman`))
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('DELETE FROM `peminjaman`
+WHERE `id_peminjaman` IN (\'119\')')
+ 2 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('DELETE FROM `peminjaman`
+WHERE `id_peminjaman` IN (\'119\')')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2848): CodeIgniter\Database\BaseConnection->query('DELETE FROM `peminjaman`
+WHERE `id_peminjaman` IN :id_peminjaman:', [...], false)
+ 4 SYSTEMPATH\Model.php(521): CodeIgniter\Database\BaseBuilder->delete()
+ 5 SYSTEMPATH\BaseModel.php(1152): CodeIgniter\Model->doDelete([...], false)
+ 6 APPPATH\Controllers\Peminjaman.php(386): CodeIgniter\BaseModel->delete([...])
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Peminjaman->delete('119')
+ 8 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Peminjaman))
+ 9 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-24 16:12:43 --> [Caused by] mysqli_sql_exception: Cannot delete or update a parent row: a foreign key constraint fails (`pinbook`.`pengembalian`, CONSTRAINT `pengembalian_ibfk_1` FOREIGN KEY (`id_peminjaman`) REFERENCES `peminjaman` (`id_peminjaman`))
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('DELETE FROM `peminjaman`
+WHERE `id_peminjaman` IN (\'119\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('DELETE FROM `peminjaman`
+WHERE `id_peminjaman` IN (\'119\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('DELETE FROM `peminjaman`
+WHERE `id_peminjaman` IN (\'119\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2848): CodeIgniter\Database\BaseConnection->query('DELETE FROM `peminjaman`
+WHERE `id_peminjaman` IN :id_peminjaman:', [...], false)
+ 5 SYSTEMPATH\Model.php(521): CodeIgniter\Database\BaseBuilder->delete()
+ 6 SYSTEMPATH\BaseModel.php(1152): CodeIgniter\Model->doDelete([...], false)
+ 7 APPPATH\Controllers\Peminjaman.php(386): CodeIgniter\BaseModel->delete([...])
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Peminjaman->delete('119')
+ 9 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Peminjaman))
+10 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-24 16:19:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 16:19:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 16:23:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 16:24:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 16:24:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 16:24:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 16:24:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 16:24:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 16:24:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 16:24:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 16:24:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 16:24:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 16:24:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 16:24:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 16:24:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 16:25:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 16:25:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 16:25:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 16:28:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-04-24 16:28:25 --> ParseError: syntax error, unexpected end of file
+[Method: GET, Route: peminjaman]
+in APPPATH\Views\peminjaman\index.php on line 214.
+ 1 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 2 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('peminjaman/index', [], true)
+ 3 APPPATH\Controllers\Peminjaman.php(66): view('peminjaman/index', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Peminjaman->index()
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Peminjaman))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-24 16:32:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-04-24 16:32:18 --> ParseError: syntax error, unexpected token "namespace"
+[Method: GET, Route: peminjaman]
+in APPPATH\Views\peminjaman\index.php on line 154.
+ 1 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 2 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('peminjaman/index', [], true)
+ 3 APPPATH\Controllers\Peminjaman.php(66): view('peminjaman/index', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Peminjaman->index()
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Peminjaman))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-24 16:33:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-04-24 16:33:35 --> ParseError: syntax error, unexpected token "namespace"
+[Method: GET, Route: peminjaman]
+in APPPATH\Views\peminjaman\index.php on line 154.
+ 1 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 2 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('peminjaman/index', [], true)
+ 3 APPPATH\Controllers\Peminjaman.php(66): view('peminjaman/index', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Peminjaman->index()
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Peminjaman))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-24 16:36:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-04-24 16:36:04 --> ParseError: syntax error, unexpected token "namespace"
+[Method: GET, Route: peminjaman]
+in APPPATH\Views\peminjaman\index.php on line 154.
+ 1 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 2 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('peminjaman/index', [], true)
+ 3 APPPATH\Controllers\Peminjaman.php(66): view('peminjaman/index', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Peminjaman->index()
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Peminjaman))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-24 17:21:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-04-24 17:21:30 --> ParseError: syntax error, unexpected token "namespace"
+[Method: GET, Route: peminjaman]
+in APPPATH\Views\peminjaman\index.php on line 154.
+ 1 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 2 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('peminjaman/index', [], true)
+ 3 APPPATH\Controllers\Peminjaman.php(66): view('peminjaman/index', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Peminjaman->index()
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Peminjaman))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-24 17:26:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-04-24 17:26:41 --> ParseError: syntax error, unexpected token "namespace"
+[Method: GET, Route: peminjaman]
+in APPPATH\Views\peminjaman\index.php on line 154.
+ 1 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 2 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('peminjaman/index', [], true)
+ 3 APPPATH\Controllers\Peminjaman.php(66): view('peminjaman/index', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Peminjaman->index()
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Peminjaman))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-24 17:28:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 17:36:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 17:37:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 17:38:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 17:39:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 17:39:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 17:40:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-04-24 17:42:33 --> ErrorException: Cannot redeclare App\Controllers\Peminjaman::konfirmasiPerpanjangan()
+[Method: GET, Route: peminjaman]
+in APPPATH\Controllers\Peminjaman.php on line 357.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+DEBUG - 2026-04-24 17:43:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-04-24 17:46:20 --> ErrorException: Cannot redeclare App\Controllers\Peminjaman::konfirmasiPerpanjangan()
+[Method: GET, Route: peminjaman]
+in APPPATH\Controllers\Peminjaman.php on line 357.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2026-04-24 17:49:10 --> ErrorException: Cannot redeclare App\Controllers\Peminjaman::konfirmasiPerpanjangan()
+[Method: GET, Route: peminjaman]
+in APPPATH\Controllers\Peminjaman.php on line 357.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2026-04-24 17:49:12 --> ErrorException: Cannot redeclare App\Controllers\Peminjaman::konfirmasiPerpanjangan()
+[Method: GET, Route: peminjaman]
+in APPPATH\Controllers\Peminjaman.php on line 357.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2026-04-24 17:55:11 --> ErrorException: Cannot redeclare App\Controllers\Peminjaman::konfirmasiPerpanjangan()
+[Method: GET, Route: peminjaman]
+in APPPATH\Controllers\Peminjaman.php on line 357.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2026-04-24 17:55:41 --> ErrorException: Cannot redeclare App\Controllers\Peminjaman::konfirmasiPerpanjangan()
+[Method: GET, Route: peminjaman]
+in APPPATH\Controllers\Peminjaman.php on line 357.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2026-04-24 18:00:16 --> Error: Call to undefined method CodeIgniter\Autoloader\Autoloader::extend()
+[Method: GET, Route: peminjaman]
+in APPPATH\Controllers\Peminjaman.php on line 1.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(315): include_once()
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(295): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\xampp1\\htdocs\\pinbook\\app\\Controllers\\Peminjaman.php')
+ 3 SYSTEMPATH\Autoloader\Autoloader.php(271): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\Peminjaman')
+ 4 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\Peminjaman')
+ 5 SYSTEMPATH\CodeIgniter.php(885): class_exists('\\App\\Controllers\\Peminjaman', true)
+ 6 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->startController()
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-24 18:08:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-04-24 18:08:29 --> ParseError: syntax error, unexpected token "endforeach", expecting "elseif" or "else" or "endif"
+[Method: GET, Route: peminjaman]
+in APPPATH\Views\peminjaman\index.php on line 214.
+ 1 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 2 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('peminjaman/index', [], true)
+ 3 APPPATH\Controllers\Peminjaman.php(67): view('peminjaman/index', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Peminjaman->index()
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Peminjaman))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-24 18:10:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 18:11:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-04-24 18:11:04 --> ParseError: syntax error, unexpected token "endforeach", expecting "elseif" or "else" or "endif"
+[Method: GET, Route: peminjaman]
+in APPPATH\Views\peminjaman\index.php on line 214.
+ 1 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 2 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('peminjaman/index', [], true)
+ 3 APPPATH\Controllers\Peminjaman.php(67): view('peminjaman/index', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Peminjaman->index()
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Peminjaman))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-24 18:13:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-04-24 18:13:02 --> ParseError: syntax error, unexpected token "endforeach", expecting "elseif" or "else" or "endif"
+[Method: GET, Route: peminjaman]
+in APPPATH\Views\peminjaman\index.php on line 214.
+ 1 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 2 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('peminjaman/index', [], true)
+ 3 APPPATH\Controllers\Peminjaman.php(67): view('peminjaman/index', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Peminjaman->index()
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Peminjaman))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-24 18:13:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-04-24 18:13:06 --> ParseError: syntax error, unexpected token "endforeach", expecting "elseif" or "else" or "endif"
+[Method: GET, Route: peminjaman]
+in APPPATH\Views\peminjaman\index.php on line 214.
+ 1 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 2 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('peminjaman/index', [], true)
+ 3 APPPATH\Controllers\Peminjaman.php(67): view('peminjaman/index', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Peminjaman->index()
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Peminjaman))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-24 18:13:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-04-24 18:13:26 --> ParseError: syntax error, unexpected token "endforeach", expecting "elseif" or "else" or "endif"
+[Method: GET, Route: peminjaman]
+in APPPATH\Views\peminjaman\index.php on line 214.
+ 1 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 2 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('peminjaman/index', [], true)
+ 3 APPPATH\Controllers\Peminjaman.php(53): view('peminjaman/index', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Peminjaman->index()
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Peminjaman))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-24 18:14:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 18:14:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-04-24 18:14:38 --> ParseError: syntax error, unexpected token "endforeach", expecting "elseif" or "else" or "endif"
+[Method: GET, Route: peminjaman]
+in APPPATH\Views\peminjaman\index.php on line 214.
+ 1 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 2 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('peminjaman/index', [], true)
+ 3 APPPATH\Controllers\Peminjaman.php(67): view('peminjaman/index', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Peminjaman->index()
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Peminjaman))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-24 18:16:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 18:17:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 18:17:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 18:21:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 18:21:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 18:22:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 18:22:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 18:22:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 18:22:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 18:25:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-04-24 18:26:31 --> ParseError: Unclosed '{' on line 12
+[Method: GET, Route: peminjaman]
+in APPPATH\Controllers\Peminjaman.php on line 441.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(295): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\xampp1\\htdocs\\pinbook\\app\\Controllers\\Peminjaman.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(271): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\Peminjaman')
+ 3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\Peminjaman')
+ 4 SYSTEMPATH\CodeIgniter.php(885): class_exists('\\App\\Controllers\\Peminjaman', true)
+ 5 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->startController()
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-24 18:26:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-04-24 18:34:35 --> ParseError: syntax error, unexpected token "<", expecting "function" or "const"
+[Method: GET, Route: peminjaman]
+in APPPATH\Controllers\Peminjaman.php on line 270.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(295): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\xampp1\\htdocs\\pinbook\\app\\Controllers\\Peminjaman.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(271): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\Peminjaman')
+ 3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\Peminjaman')
+ 4 SYSTEMPATH\CodeIgniter.php(885): class_exists('\\App\\Controllers\\Peminjaman', true)
+ 5 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->startController()
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-24 18:35:43 --> ParseError: syntax error, unexpected token "<", expecting "function" or "const"
+[Method: GET, Route: peminjaman]
+in APPPATH\Controllers\Peminjaman.php on line 270.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(295): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\xampp1\\htdocs\\pinbook\\app\\Controllers\\Peminjaman.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(271): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\Peminjaman')
+ 3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\Peminjaman')
+ 4 SYSTEMPATH\CodeIgniter.php(885): class_exists('\\App\\Controllers\\Peminjaman', true)
+ 5 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->startController()
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-24 18:37:19 --> ParseError: syntax error, unexpected token "<", expecting "function" or "const"
+[Method: GET, Route: peminjaman]
+in APPPATH\Controllers\Peminjaman.php on line 270.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(295): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\xampp1\\htdocs\\pinbook\\app\\Controllers\\Peminjaman.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(271): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\Peminjaman')
+ 3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\Peminjaman')
+ 4 SYSTEMPATH\CodeIgniter.php(885): class_exists('\\App\\Controllers\\Peminjaman', true)
+ 5 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->startController()
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-24 18:40:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 18:41:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 18:41:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 18:41:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2026-04-24 18:41:14 --> mysqli_sql_exception: Cannot delete or update a parent row: a foreign key constraint fails (`pinbook`.`pengembalian`, CONSTRAINT `pengembalian_ibfk_1` FOREIGN KEY (`id_peminjaman`) REFERENCES `peminjaman` (`id_peminjaman`)) in C:\xampp1\htdocs\pinbook\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp1\htdocs\pinbook\system\Database\MySQLi\Connection.php(327): mysqli->query('DELETE FROM `pe...', 0)
+#1 C:\xampp1\htdocs\pinbook\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('DELETE FROM `pe...')
+#2 C:\xampp1\htdocs\pinbook\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('DELETE FROM `pe...')
+#3 C:\xampp1\htdocs\pinbook\system\Database\BaseBuilder.php(2848): CodeIgniter\Database\BaseConnection->query('DELETE FROM `pe...', Array, false)
+#4 C:\xampp1\htdocs\pinbook\system\Model.php(521): CodeIgniter\Database\BaseBuilder->delete()
+#5 C:\xampp1\htdocs\pinbook\system\BaseModel.php(1152): CodeIgniter\Model->doDelete(Array, false)
+#6 C:\xampp1\htdocs\pinbook\app\Controllers\Peminjaman.php(231): CodeIgniter\BaseModel->delete(Array)
+#7 C:\xampp1\htdocs\pinbook\system\CodeIgniter.php(933): App\Controllers\Peminjaman->delete('120')
+#8 C:\xampp1\htdocs\pinbook\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Peminjaman))
+#9 C:\xampp1\htdocs\pinbook\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp1\htdocs\pinbook\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#11 C:\xampp1\htdocs\pinbook\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\xampp1\htdocs\pinbook\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 {main}
+CRITICAL - 2026-04-24 18:41:14 --> CodeIgniter\Database\Exceptions\DatabaseException: Cannot delete or update a parent row: a foreign key constraint fails (`pinbook`.`pengembalian`, CONSTRAINT `pengembalian_ibfk_1` FOREIGN KEY (`id_peminjaman`) REFERENCES `peminjaman` (`id_peminjaman`))
+[Method: GET, Route: peminjaman/delete/120]
+in SYSTEMPATH\Database\BaseConnection.php on line 684.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2848): CodeIgniter\Database\BaseConnection->query('DELETE FROM `peminjaman`
+WHERE `id_peminjaman` IN :id_peminjaman:', [...], false)
+ 2 SYSTEMPATH\Model.php(521): CodeIgniter\Database\BaseBuilder->delete()
+ 3 SYSTEMPATH\BaseModel.php(1152): CodeIgniter\Model->doDelete([...], false)
+ 4 APPPATH\Controllers\Peminjaman.php(231): CodeIgniter\BaseModel->delete([...])
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Peminjaman->delete('120')
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Peminjaman))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-24 18:41:14 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Cannot delete or update a parent row: a foreign key constraint fails (`pinbook`.`pengembalian`, CONSTRAINT `pengembalian_ibfk_1` FOREIGN KEY (`id_peminjaman`) REFERENCES `peminjaman` (`id_peminjaman`))
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('DELETE FROM `peminjaman`
+WHERE `id_peminjaman` IN (\'120\')')
+ 2 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('DELETE FROM `peminjaman`
+WHERE `id_peminjaman` IN (\'120\')')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2848): CodeIgniter\Database\BaseConnection->query('DELETE FROM `peminjaman`
+WHERE `id_peminjaman` IN :id_peminjaman:', [...], false)
+ 4 SYSTEMPATH\Model.php(521): CodeIgniter\Database\BaseBuilder->delete()
+ 5 SYSTEMPATH\BaseModel.php(1152): CodeIgniter\Model->doDelete([...], false)
+ 6 APPPATH\Controllers\Peminjaman.php(231): CodeIgniter\BaseModel->delete([...])
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Peminjaman->delete('120')
+ 8 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Peminjaman))
+ 9 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-24 18:41:14 --> [Caused by] mysqli_sql_exception: Cannot delete or update a parent row: a foreign key constraint fails (`pinbook`.`pengembalian`, CONSTRAINT `pengembalian_ibfk_1` FOREIGN KEY (`id_peminjaman`) REFERENCES `peminjaman` (`id_peminjaman`))
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('DELETE FROM `peminjaman`
+WHERE `id_peminjaman` IN (\'120\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('DELETE FROM `peminjaman`
+WHERE `id_peminjaman` IN (\'120\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('DELETE FROM `peminjaman`
+WHERE `id_peminjaman` IN (\'120\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2848): CodeIgniter\Database\BaseConnection->query('DELETE FROM `peminjaman`
+WHERE `id_peminjaman` IN :id_peminjaman:', [...], false)
+ 5 SYSTEMPATH\Model.php(521): CodeIgniter\Database\BaseBuilder->delete()
+ 6 SYSTEMPATH\BaseModel.php(1152): CodeIgniter\Model->doDelete([...], false)
+ 7 APPPATH\Controllers\Peminjaman.php(231): CodeIgniter\BaseModel->delete([...])
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Peminjaman->delete('120')
+ 9 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Peminjaman))
+10 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-24 18:41:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 18:46:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 18:48:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 18:48:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 18:48:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 18:49:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 18:49:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 18:49:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-04-24 18:49:07 --> ErrorException: Undefined variable $dataQR
+[Method: GET, Route: peminjaman/pembayaran/127]
+in APPPATH\Views\peminjaman\pembayaran.php on line 20.
+ 1 APPPATH\Views\peminjaman\pembayaran.php(20): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $dataQR', 'C:\\xampp1\\htdocs\\pinbook\\app\\Views\\peminjaman\\pembayaran.php', 20)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\xampp1\\htdocs\\pinbook\\app\\Views\\peminjaman\\pembayaran.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('peminjaman/pembayaran', [], true)
+ 5 APPPATH\Controllers\Peminjaman.php(158): view('peminjaman/pembayaran', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Peminjaman->pembayaran('127')
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Peminjaman))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-24 18:51:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 18:52:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 18:52:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 18:52:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 18:52:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 18:52:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 18:52:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 18:52:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 18:52:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 18:52:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 18:52:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 18:52:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 18:52:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 18:53:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 18:53:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 18:53:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 18:53:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 18:53:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 18:53:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 18:53:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 18:53:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 18:54:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 18:54:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 18:54:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 18:54:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 18:54:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 18:54:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 18:54:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 18:55:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 18:59:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 18:59:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 18:59:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 19:00:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 19:00:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 19:00:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 19:00:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 19:00:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 19:12:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2026-04-24 19:12:40 --> mysqli_sql_exception: Unknown column 'transaksi.id_pengembalian' in 'on clause' in C:\xampp1\htdocs\pinbook\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp1\htdocs\pinbook\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `pengemb...', 0)
+#1 C:\xampp1\htdocs\pinbook\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `pengemb...')
+#2 C:\xampp1\htdocs\pinbook\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `pengemb...')
+#3 C:\xampp1\htdocs\pinbook\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `pengemb...', Array, false)
+#4 C:\xampp1\htdocs\pinbook\app\Controllers\Pengembalian.php(48): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp1\htdocs\pinbook\system\CodeIgniter.php(933): App\Controllers\Pengembalian->index()
+#6 C:\xampp1\htdocs\pinbook\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pengembalian))
+#7 C:\xampp1\htdocs\pinbook\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp1\htdocs\pinbook\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp1\htdocs\pinbook\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#10 C:\xampp1\htdocs\pinbook\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#11 {main}
+CRITICAL - 2026-04-24 19:12:40 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'transaksi.id_pengembalian' in 'on clause'
+[Method: GET, Route: pengembalian]
+in SYSTEMPATH\Database\BaseConnection.php on line 684.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `pengembalian`.*, `peminjaman`.`tanggal_pinjam`, `peminjaman`.`tanggal_kembali` as `batas_kembali`, `u`.`nama` as `nama_anggota`, GROUP_CONCAT(buku.judul SEPARATOR ", ") as daftar_buku, `transaksi`.`status` as `status_denda`
+FROM `pengembalian`
+LEFT JOIN `peminjaman` ON `peminjaman`.`id_peminjaman` = `pengembalian`.`id_peminjaman`
+LEFT JOIN `anggota` ON `anggota`.`id_anggota` = `peminjaman`.`id_anggota`
+LEFT JOIN `users` `u` ON `u`.`id` = `anggota`.`user_id`
+LEFT JOIN `detail_peminjaman` ON `detail_peminjaman`.`id_peminjaman` = `peminjaman`.`id_peminjaman`
+LEFT JOIN `buku` ON `buku`.`id_buku` = `detail_peminjaman`.`id_buku`
+LEFT JOIN `transaksi` ON `transaksi`.`id_pengembalian` = `pengembalian`.`id_pengembalian` AND `transaksi`.`jenis`="denda"
+WHERE `peminjaman`.`id_anggota` IS NULL
+GROUP BY `pengembalian`.`id_pengembalian`', [], false)
+ 2 APPPATH\Controllers\Pengembalian.php(48): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Pengembalian->index()
+ 4 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pengembalian))
+ 5 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-24 19:12:40 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'transaksi.id_pengembalian' in 'on clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `pengembalian`.*, `peminjaman`.`tanggal_pinjam`, `peminjaman`.`tanggal_kembali` as `batas_kembali`, `u`.`nama` as `nama_anggota`, GROUP_CONCAT(buku.judul SEPARATOR ", ") as daftar_buku, `transaksi`.`status` as `status_denda`
+FROM `pengembalian`
+LEFT JOIN `peminjaman` ON `peminjaman`.`id_peminjaman` = `pengembalian`.`id_peminjaman`
+LEFT JOIN `anggota` ON `anggota`.`id_anggota` = `peminjaman`.`id_anggota`
+LEFT JOIN `users` `u` ON `u`.`id` = `anggota`.`user_id`
+LEFT JOIN `detail_peminjaman` ON `detail_peminjaman`.`id_peminjaman` = `peminjaman`.`id_peminjaman`
+LEFT JOIN `buku` ON `buku`.`id_buku` = `detail_peminjaman`.`id_buku`
+LEFT JOIN `transaksi` ON `transaksi`.`id_pengembalian` = `pengembalian`.`id_pengembalian` AND `transaksi`.`jenis`="denda"
+WHERE `peminjaman`.`id_anggota` IS NULL
+GROUP BY `pengembalian`.`id_pengembalian`')
+ 2 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `pengembalian`.*, `peminjaman`.`tanggal_pinjam`, `peminjaman`.`tanggal_kembali` as `batas_kembali`, `u`.`nama` as `nama_anggota`, GROUP_CONCAT(buku.judul SEPARATOR ", ") as daftar_buku, `transaksi`.`status` as `status_denda`
+FROM `pengembalian`
+LEFT JOIN `peminjaman` ON `peminjaman`.`id_peminjaman` = `pengembalian`.`id_peminjaman`
+LEFT JOIN `anggota` ON `anggota`.`id_anggota` = `peminjaman`.`id_anggota`
+LEFT JOIN `users` `u` ON `u`.`id` = `anggota`.`user_id`
+LEFT JOIN `detail_peminjaman` ON `detail_peminjaman`.`id_peminjaman` = `peminjaman`.`id_peminjaman`
+LEFT JOIN `buku` ON `buku`.`id_buku` = `detail_peminjaman`.`id_buku`
+LEFT JOIN `transaksi` ON `transaksi`.`id_pengembalian` = `pengembalian`.`id_pengembalian` AND `transaksi`.`jenis`="denda"
+WHERE `peminjaman`.`id_anggota` IS NULL
+GROUP BY `pengembalian`.`id_pengembalian`')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `pengembalian`.*, `peminjaman`.`tanggal_pinjam`, `peminjaman`.`tanggal_kembali` as `batas_kembali`, `u`.`nama` as `nama_anggota`, GROUP_CONCAT(buku.judul SEPARATOR ", ") as daftar_buku, `transaksi`.`status` as `status_denda`
+FROM `pengembalian`
+LEFT JOIN `peminjaman` ON `peminjaman`.`id_peminjaman` = `pengembalian`.`id_peminjaman`
+LEFT JOIN `anggota` ON `anggota`.`id_anggota` = `peminjaman`.`id_anggota`
+LEFT JOIN `users` `u` ON `u`.`id` = `anggota`.`user_id`
+LEFT JOIN `detail_peminjaman` ON `detail_peminjaman`.`id_peminjaman` = `peminjaman`.`id_peminjaman`
+LEFT JOIN `buku` ON `buku`.`id_buku` = `detail_peminjaman`.`id_buku`
+LEFT JOIN `transaksi` ON `transaksi`.`id_pengembalian` = `pengembalian`.`id_pengembalian` AND `transaksi`.`jenis`="denda"
+WHERE `peminjaman`.`id_anggota` IS NULL
+GROUP BY `pengembalian`.`id_pengembalian`', [], false)
+ 4 APPPATH\Controllers\Pengembalian.php(48): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Pengembalian->index()
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pengembalian))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-24 19:12:40 --> [Caused by] mysqli_sql_exception: Unknown column 'transaksi.id_pengembalian' in 'on clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `pengembalian`.*, `peminjaman`.`tanggal_pinjam`, `peminjaman`.`tanggal_kembali` as `batas_kembali`, `u`.`nama` as `nama_anggota`, GROUP_CONCAT(buku.judul SEPARATOR ", ") as daftar_buku, `transaksi`.`status` as `status_denda`
+FROM `pengembalian`
+LEFT JOIN `peminjaman` ON `peminjaman`.`id_peminjaman` = `pengembalian`.`id_peminjaman`
+LEFT JOIN `anggota` ON `anggota`.`id_anggota` = `peminjaman`.`id_anggota`
+LEFT JOIN `users` `u` ON `u`.`id` = `anggota`.`user_id`
+LEFT JOIN `detail_peminjaman` ON `detail_peminjaman`.`id_peminjaman` = `peminjaman`.`id_peminjaman`
+LEFT JOIN `buku` ON `buku`.`id_buku` = `detail_peminjaman`.`id_buku`
+LEFT JOIN `transaksi` ON `transaksi`.`id_pengembalian` = `pengembalian`.`id_pengembalian` AND `transaksi`.`jenis`="denda"
+WHERE `peminjaman`.`id_anggota` IS NULL
+GROUP BY `pengembalian`.`id_pengembalian`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `pengembalian`.*, `peminjaman`.`tanggal_pinjam`, `peminjaman`.`tanggal_kembali` as `batas_kembali`, `u`.`nama` as `nama_anggota`, GROUP_CONCAT(buku.judul SEPARATOR ", ") as daftar_buku, `transaksi`.`status` as `status_denda`
+FROM `pengembalian`
+LEFT JOIN `peminjaman` ON `peminjaman`.`id_peminjaman` = `pengembalian`.`id_peminjaman`
+LEFT JOIN `anggota` ON `anggota`.`id_anggota` = `peminjaman`.`id_anggota`
+LEFT JOIN `users` `u` ON `u`.`id` = `anggota`.`user_id`
+LEFT JOIN `detail_peminjaman` ON `detail_peminjaman`.`id_peminjaman` = `peminjaman`.`id_peminjaman`
+LEFT JOIN `buku` ON `buku`.`id_buku` = `detail_peminjaman`.`id_buku`
+LEFT JOIN `transaksi` ON `transaksi`.`id_pengembalian` = `pengembalian`.`id_pengembalian` AND `transaksi`.`jenis`="denda"
+WHERE `peminjaman`.`id_anggota` IS NULL
+GROUP BY `pengembalian`.`id_pengembalian`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `pengembalian`.*, `peminjaman`.`tanggal_pinjam`, `peminjaman`.`tanggal_kembali` as `batas_kembali`, `u`.`nama` as `nama_anggota`, GROUP_CONCAT(buku.judul SEPARATOR ", ") as daftar_buku, `transaksi`.`status` as `status_denda`
+FROM `pengembalian`
+LEFT JOIN `peminjaman` ON `peminjaman`.`id_peminjaman` = `pengembalian`.`id_peminjaman`
+LEFT JOIN `anggota` ON `anggota`.`id_anggota` = `peminjaman`.`id_anggota`
+LEFT JOIN `users` `u` ON `u`.`id` = `anggota`.`user_id`
+LEFT JOIN `detail_peminjaman` ON `detail_peminjaman`.`id_peminjaman` = `peminjaman`.`id_peminjaman`
+LEFT JOIN `buku` ON `buku`.`id_buku` = `detail_peminjaman`.`id_buku`
+LEFT JOIN `transaksi` ON `transaksi`.`id_pengembalian` = `pengembalian`.`id_pengembalian` AND `transaksi`.`jenis`="denda"
+WHERE `peminjaman`.`id_anggota` IS NULL
+GROUP BY `pengembalian`.`id_pengembalian`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `pengembalian`.*, `peminjaman`.`tanggal_pinjam`, `peminjaman`.`tanggal_kembali` as `batas_kembali`, `u`.`nama` as `nama_anggota`, GROUP_CONCAT(buku.judul SEPARATOR ", ") as daftar_buku, `transaksi`.`status` as `status_denda`
+FROM `pengembalian`
+LEFT JOIN `peminjaman` ON `peminjaman`.`id_peminjaman` = `pengembalian`.`id_peminjaman`
+LEFT JOIN `anggota` ON `anggota`.`id_anggota` = `peminjaman`.`id_anggota`
+LEFT JOIN `users` `u` ON `u`.`id` = `anggota`.`user_id`
+LEFT JOIN `detail_peminjaman` ON `detail_peminjaman`.`id_peminjaman` = `peminjaman`.`id_peminjaman`
+LEFT JOIN `buku` ON `buku`.`id_buku` = `detail_peminjaman`.`id_buku`
+LEFT JOIN `transaksi` ON `transaksi`.`id_pengembalian` = `pengembalian`.`id_pengembalian` AND `transaksi`.`jenis`="denda"
+WHERE `peminjaman`.`id_anggota` IS NULL
+GROUP BY `pengembalian`.`id_pengembalian`', [], false)
+ 5 APPPATH\Controllers\Pengembalian.php(48): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Pengembalian->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pengembalian))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-24 19:32:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 22:27:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 22:27:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 22:27:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 22:27:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 22:27:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 22:27:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 22:27:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 22:29:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 22:30:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 22:30:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 22:30:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 22:30:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 22:30:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 22:30:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 22:30:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 22:33:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 22:33:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 23:23:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 23:27:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 23:27:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 23:27:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 23:27:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 23:27:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 23:27:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 23:27:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 23:27:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 23:36:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 23:36:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 23:36:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 23:36:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 23:39:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 23:39:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 23:39:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 23:39:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-04-24 23:42:19 --> Error: Class "App\Models\DendaModel" not found
+[Method: GET, Route: pengembalian]
+in APPPATH\Controllers\Pengembalian.php on line 19.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Pengembalian->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-24 23:42:33 --> Error: Class "App\Models\DendaModel" not found
+[Method: GET, Route: pengembalian]
+in APPPATH\Controllers\Pengembalian.php on line 19.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Pengembalian->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-24 23:43:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 23:43:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 23:43:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 23:43:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 23:43:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 23:47:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 23:47:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 23:47:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-24 23:47:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-04-24 23:57:57 --> ParseError: Unmatched '}'
+[Method: GET, Route: pengembalian]
+in APPPATH\Config\Routes.php on line 152.
+ 1 SYSTEMPATH\CodeIgniter.php(821): CodeIgniter\Router\RouteCollection->loadRoutes()
+ 2 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\CodeIgniter->tryToRouteIt(null)
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-24 23:59:21 --> ErrorException: Cannot redeclare App\Controllers\Pengembalian::bayar()
+[Method: GET, Route: pengembalian]
+in APPPATH\Controllers\Pengembalian.php on line 103.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
