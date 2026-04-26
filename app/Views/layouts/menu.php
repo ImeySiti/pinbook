@@ -112,8 +112,9 @@
     <a href="<?= base_url('/backup') ?>" class="btn btn-success">Backup Database</a>
     <?php endif; ?>
 
-    <a href="<?= base_url('users/edit/' . session('id')) ?>" class="nav-link-custom mt-2">
-        <i class="bi bi-gear"></i> Settings
+    <a href="<?= base_url('profile') ?>" class="nav-link-custom mt-2">
+    <i class="bi bi-gear"></i> Settings
+</a>
     </a>
     <a href="<?= base_url('/logout') ?>" class="nav-link-custom text-danger">
         <i class="bi bi-box-arrow-right"></i> Log Out

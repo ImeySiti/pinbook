@@ -22,7 +22,7 @@
 
             <div class="card border-0 shadow-sm rounded-4 overflow-hidden">
                 <div class="card-body p-4 p-md-5">
-                    <form action="<?= base_url('users/update/' . $user['id']) ?>" method="post" enctype="multipart/form-data">
+                    <form action="<?= base_url('profile/update/' . $user['id']) ?>" method="post" enctype="multipart/form-data">
                         <?= csrf_field() ?>
 
                         <div class="row g-4">
@@ -63,14 +63,7 @@
                                         <input type="email" name="email" class="form-control bg-light border-0" value="<?= esc($user['email']) ?>" required>
                                     </div>
 
-                                    <div class="col-md-6">
-                                        <label class="form-label fw-bold small text-muted">HAK AKSES / ROLE</label>
-                                        <select name="role" class="form-select bg-light border-0">
-                                            <option value="admin" <?= $user['role'] == 'admin' ? 'selected' : '' ?>>🛡️ Admin</option>
-                                            <option value="petugas" <?= $user['role'] == 'petugas' ? 'selected' : '' ?>>🔑 Petugas</option>
-                                            <option value="anggota" <?= $user['role'] == 'anggota' ? 'selected' : '' ?>>📖 Anggota</option>
-                                        </select>
-                                    </div>
+                
 
                                     <div class="col-12"><hr class="my-2 opacity-25"></div>
 

@@ -27,17 +27,25 @@ $routes->get('logout', 'Auth::logout');
 $routes->get('dashboard', 'Home::index', $authFilter);
 
 
-// ================== USERS ==================
+// ================== PUBLIC (REGISTER) ==================
+$routes->get('users/create', 'Users::create');
+$routes->post('users/store', 'Users::store');
+
+// ================== PROFILE (SEMUA USER LOGIN) ==================
+$routes->get('profile', 'Users::profile', ['filter' => 'auth']);
+$routes->post('profile/update', 'Users::updateProfile', ['filter' => 'auth']);
+
+// ================== USERS (KHUSUS ADMIN/PETUGAS) ==================
 $routes->group('users', ['filter' => 'role:admin,petugas'], function($routes) {
+
     $routes->get('/', 'Users::index');
-    $routes->get('create', 'Users::create');
-    $routes->post('store', 'Users::store');
     $routes->get('edit/(:num)', 'Users::edit/$1');
     $routes->post('update/(:num)', 'Users::update/$1');
     $routes->get('delete/(:num)', 'Users::delete/$1');
     $routes->get('detail/(:num)', 'Users::detail/$1');
     $routes->get('print', 'Users::print');
     $routes->get('wa/(:num)', 'Users::wa/$1');
+
 });
 
 //Anggota
@@ -96,10 +104,9 @@ $routes->group('buku', $authFilter, function($routes) {
     $routes->get('create', 'Buku::create');
     $routes->post('store', 'Buku::store');
 
-    $routes->get('detail/(:num)', 'Buku::detail/$1');
+   $routes->get('detail/(:num)', 'Buku::detail/$1');
     $routes->get('edit/(:num)', 'Buku::edit/$1');
     $routes->post('update/(:num)', 'Buku::update/$1');
-
     $routes->get('delete/(:num)', 'Buku::delete/$1');
 
     // tambahan
@@ -170,3 +177,4 @@ $routes->get('/backup', 'Backup::index');
 
 
 // ================== EXTRA (FIX DUPLIKASI) ==================
+m

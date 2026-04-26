@@ -59,7 +59,6 @@ class Auth extends Controller
                     'nama' => $users['nama'],
                     'email' => $users['email'],
                     'username' => $users['username'],
-                    'role' => $users['role'],
                     'foto' => $users['foto'],
                     'logged_in' => true
                 ]);

@@ -219,9 +219,7 @@ a:hover {
                         <td><?= esc($b['tersedia'] ?? 0) ?> / <?= esc($b['jumlah'] ?? 0) ?></td>
 
                         <td>
-                            
-                
-            <td>
+            
                 <a href="<?= base_url('buku/detail/' . $b['id_buku']) ?>">Detail</a> |
 
                 <form action="<?= base_url('peminjaman/simpan') ?>" method="post" style="display:inline;">
