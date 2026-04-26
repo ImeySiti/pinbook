@@ -220,36 +220,47 @@ a:hover {
 
                         <td>
                             
-                <a href="<?= base_url('buku/detail/' . $b['id_buku']) ?>">Detail</a>
+                
+            <td>
+                <a href="<?= base_url('buku/detail/' . $b['id_buku']) ?>">Detail</a> |
 
-             <!-- PINJAM -->
-            <form action="<?= base_url('peminjaman/simpan') ?>" method="post" style="display:inline;">
-              <?= csrf_field() ?>
-             <input type="hidden" name="id_buku" value="<?= $b['id_buku'] ?>">
-            <button type="submit" class="btn btn-green" style="padding:4px 8px; font-size:12px;">
-            Pinjam
-             </button>
-            </form>
+                <form action="<?= base_url('peminjaman/simpan') ?>" method="post" style="display:inline;">
+                    <?= csrf_field() ?>
+                    <input type="hidden" name="id_buku" value="<?= $b['id_buku'] ?>">
+                    <button type="submit" class="btn btn-green" style="padding:4px 8px; font-size:12px;">
+                        Pinjam
+                    </button>
+                </form>
 
-             <?php if (in_array(session()->get('role'), ['admin', 'petugas'])): ?>
-              | <a href="<?= base_url('buku/edit/' . $b['id_buku']) ?>">Edit</a>
-             <?php endif; ?>
+                <?php if (in_array(session()->get('role'), ['admin', 'petugas'])): ?>
+                    | <a href="<?= base_url('buku/edit/' . $b['id_buku']) ?>">Edit</a>
+                <?php endif; ?>
 
-             | <a href="<?= base_url('buku/wa/' . $b['id_buku']) ?>" target="_blank">WA</a>
+                | <a href="<?= base_url('buku/wa/' . $b['id_buku']) ?>" target="_blank">WA</a>
 
-            <?php if (session()->get('role') == 'admin'): ?>
-              | <a href="<?= base_url('buku/delete/' . $b['id_buku']) ?>"
-             onclick="return confirm('Hapus buku ini?')">
-               Hapus
-                </a>
-            <?php endif; ?>
+                <?php if (session()->get('role') == 'admin'): ?>
+                    | <a href="<?= base_url('buku/delete/' . $b['id_buku']) ?>"
+                         onclick="return confirm('Hapus buku ini?')">
+                        Hapus
+                    </a>
+                <?php endif; ?>
             </td>
 
-            <?php else: ?>
+        </tr>
+    <?php endforeach; ?>
+
+<?php else: ?>
+    <tr>
+        <td colspan="8" style="text-align:center;">Tidak ada data buku</td>
+    </tr>
+<?php endif; ?>
+
+
+</td>
                 <tr>
                     <td colspan="8" style="text-align:center;">Tidak ada data buku</td>
                 </tr>
-            <?php endif; ?>
+
 
             </tbody>
         </table>
