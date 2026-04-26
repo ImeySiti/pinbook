@@ -174,7 +174,9 @@ $routes->group('transaksi', $authFilter, function($routes) {
 
  //Backup
 $routes->get('/backup', 'Backup::index');
-
+$routes->get('/restore', 'Restore::index');
+$routes->post('/restore/auth', 'Restore::auth');
+$routes->get('/restore/form', 'Restore::form');
+$routes->post('/restore/process', 'Restore::process');
 
 // ================== EXTRA (FIX DUPLIKASI) ==================
-m
