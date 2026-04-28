@@ -8,10 +8,18 @@
 
     <link href="<?= base_url('assets/css/bootstrap.min.css') ?>" rel="stylesheet">
     <link href="<?= base_url('assets/bootstrap-icons-1.13.1/bootstrap-icons.css') ?>" rel="stylesheet">
-    
+
     <style>
         body {
-            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+            /* 📚 Background perpustakaan */
+            background:
+                linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.65)),
+                url('https://images.unsplash.com/photo-1521587760476-6c12a4b040da?auto=format&fit=crop&w=1600&q=80');
+
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+
             min-height: 100vh;
             display: flex;
             align-items: center;
@@ -23,58 +31,55 @@
         .register-card {
             border: none;
             border-radius: 24px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
             width: 100%;
             max-width: 500px;
             background: #ffffff;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.35);
             overflow: hidden;
         }
 
         .register-header {
-            background-color: #f8fdfa;
+            background: #f6fffb;
             padding: 30px;
             text-align: center;
-            border-bottom: 1px solid #eef2f0;
+            border-bottom: 1px solid #e6f5ef;
         }
 
         .icon-box {
-            width: 60px;
-            height: 60px;
-            background: #11998e;
+            width: 65px;
+            height: 65px;
+            background: #0f766e;
             color: white;
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            border-radius: 18px;
-            font-size: 28px;
+            border-radius: 16px;
+            font-size: 30px;
             margin-bottom: 15px;
-            box-shadow: 0 10px 20px rgba(17, 153, 142, 0.2);
         }
 
         .form-label {
-            font-size: 0.8rem;
+            font-size: 12px;
             font-weight: 700;
             color: #555;
             letter-spacing: 0.5px;
-            margin-bottom: 8px;
         }
 
         .form-control, .form-select {
             border-radius: 12px;
-            padding: 12px 15px;
+            padding: 12px 14px;
             background-color: #f1f3f5;
             border: 2px solid transparent;
-            transition: all 0.3s ease;
         }
 
         .form-control:focus, .form-select:focus {
             background-color: #fff;
-            border-color: #11998e;
-            box-shadow: 0 0 0 4px rgba(17, 153, 142, 0.1);
+            border-color: #0f766e;
+            box-shadow: 0 0 0 4px rgba(15,118,110,0.12);
         }
 
         .btn-register {
-            background: linear-gradient(to right, #11998e, #38ef7d);
+            background: linear-gradient(135deg, #0f766e, #14b8a6);
             border: none;
             border-radius: 12px;
             padding: 14px;
@@ -82,20 +87,17 @@
             color: white;
             text-transform: uppercase;
             letter-spacing: 1px;
-            transition: all 0.3s ease;
         }
 
         .btn-register:hover {
             transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(17, 153, 142, 0.3);
-            filter: brightness(1.1);
-            color: white;
+            box-shadow: 0 10px 25px rgba(15,118,110,0.3);
         }
 
         .login-link {
-            color: #11998e;
-            text-decoration: none;
+            color: #0f766e;
             font-weight: 700;
+            text-decoration: none;
         }
 
         .login-link:hover {
@@ -103,28 +105,29 @@
         }
 
         .custom-file-upload {
-            font-size: 0.75rem;
-            color: #888;
-            margin-top: 5px;
+            font-size: 11px;
+            color: #777;
         }
     </style>
 </head>
 
 <body>
 
-    <div class="register-card shadow-lg">
+    <div class="register-card">
+
         <div class="register-header">
             <div class="icon-box">
                 <i class="bi bi-person-plus-fill"></i>
             </div>
+
             <h4 class="fw-bold mb-1">Bergabung Sekarang</h4>
-            <p class="text-muted small mb-0">Lengkapi data untuk akses perpustakaan</p>
+            <p class="text-muted small mb-0">Daftar untuk akses perpustakaan</p>
         </div>
 
         <div class="card-body p-4 p-md-5">
+
             <?php if (session()->getFlashdata('error')): ?>
                 <div class="alert alert-danger border-0 small rounded-3 mb-4">
-                    <i class="bi bi-exclamation-triangle-fill me-2"></i>
                     <?= session()->getFlashdata('error') ?>
                 </div>
             <?php endif; ?>
@@ -133,52 +136,53 @@
                 <?= csrf_field() ?>
 
                 <div class="row g-3">
+
                     <div class="col-12">
                         <label class="form-label">NAMA LENGKAP</label>
-                        <input type="text" name="nama" class="form-control" placeholder="Nama sesuai identitas" required>
+                        <input type="text" name="nama" class="form-control" required>
                     </div>
 
                     <div class="col-12">
-                        <label class="form-label">EMAIL AKTIF</label>
-                        <input type="email" name="email" class="form-control" placeholder="nama@email.com" required>
+                        <label class="form-label">EMAIL</label>
+                        <input type="email" name="email" class="form-control" required>
                     </div>
 
                     <div class="col-md-6">
                         <label class="form-label">USERNAME</label>
-                        <input type="text" name="username" class="form-control" placeholder="Username unik" required>
+                        <input type="text" name="username" class="form-control" required>
                     </div>
-              
+
+                    <div class="col-md-6">
                         <label class="form-label">PASSWORD</label>
-                        <input type="password" name="password" class="form-control" placeholder="Min. 8 karakter" required>
+                        <input type="password" name="password" class="form-control" required>
                     </div>
 
                     <div class="col-12">
-                        <label class="form-label text-success">FOTO PROFIL (OPSIONAL)</label>
+                        <label class="form-label text-success">FOTO (OPSIONAL)</label>
                         <input type="file" name="foto" class="form-control" accept="image/*">
-                        <div class="custom-file-upload italic">
-                            <i class="bi bi-info-circle me-1"></i> Format: JPG, PNG, atau WEBP.
+                        <div class="custom-file-upload mt-1">
+                            JPG / PNG / WEBP
                         </div>
                     </div>
 
-                    <div class="col-12 d-grid mt-4">
+                    <div class="col-12 d-grid mt-3">
                         <button type="submit" class="btn btn-register">
-                            Daftar Akun <i class="bi bi-arrow-right-short ms-1"></i>
+                            Daftar Akun
                         </button>
-                        
                     </div>
-                    
+
                 </div>
 
                 <div class="text-center mt-4 small text-muted">
-                    Sudah memiliki akun? <a href="<?= base_url('login') ?>" class="login-link">Masuk di sini</a>
+                    Sudah punya akun?
+                    <a href="<?= base_url('login') ?>" class="login-link">Masuk</a>
                 </div>
+
             </form>
         </div>
-        
 
     </div>
 
-    <script src="<?= base_url('assets/js/bootstrap.bundle.min.js') ?>"></script>
 </body>
 
 </html>

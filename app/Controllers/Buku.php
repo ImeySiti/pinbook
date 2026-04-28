@@ -69,27 +69,35 @@ class Buku extends BaseController
         $penulisModel  = new PenulisModel();
         $penerbitModel = new PenerbitModel();
 
-        $id_kategori = $this->request->getPost('id_kategori');
-        if ($this->request->getPost('kategori_baru')) {
-            $id_kategori = $kategoriModel->insert([
-                'nama_kategori' => $this->request->getPost('kategori_baru')
-            ], true);
-        }
+       // KATEGORI
+$id_kategori = $this->request->getPost('id_kategori');
+if ($this->request->getPost('kategori_baru')) {
+    $id_kategori = $kategoriModel->insert([
+        'nama_kategori' => $this->request->getPost('kategori_baru')
+    ], true);
+}
 
-        $id_penulis = $this->request->getPost('id_penulis');
-        if ($this->request->getPost('penulis_baru')) {
-            $id_penulis = $penulisModel->insert([
-                'nama_penulis' => $this->request->getPost('penulis_baru')
-            ], true);
-        }
+// PENULIS
+$id_penulis = $this->request->getPost('id_penulis');
+if ($this->request->getPost('penulis_baru')) {
+    $id_penulis = $penulisModel->insert([
+        'nama_penulis' => $this->request->getPost('penulis_baru')
+    ], true);
+}
 
-        $id_penerbit = $this->request->getPost('id_penerbit');
-        if ($this->request->getPost('penerbit_baru')) {
-            $id_penerbit = $penerbitModel->insert([
-                'nama_penerbit' => $this->request->getPost('penerbit_baru'),
-                'alamat'        => $this->request->getPost('alamat_penerbit_baru')
-            ], true);
-        }
+// PENERBIT
+$id_penerbit = $this->request->getPost('id_penerbit');
+if ($this->request->getPost('penerbit_baru')) {
+    $id_penerbit = $penerbitModel->insert([
+        'nama_penerbit' => $this->request->getPost('penerbit_baru'),
+        'alamat'        => $this->request->getPost('alamat_penerbit_baru')
+    ], true);
+}
+
+// VALIDASI WAJIB
+if (!$id_kategori || !$id_penulis || !$id_penerbit) {
+    return redirect()->back()->withInput()->with('error', 'Kategori, Penulis, dan Penerbit wajib diisi!');
+}
 
         $cover = $this->request->getFile('cover');
         $namaCover = null;
@@ -135,14 +143,74 @@ class Buku extends BaseController
 
     // ================= UPDATE =================
     public function update($id)
-    {
-        $this->bukuModel->update($id, [
-            'judul' => $this->request->getPost('judul'),
-            'isbn'  => $this->request->getPost('isbn')
-        ]);
+{
+    $kategoriModel = new KategoriModel();
+    $penulisModel  = new PenulisModel();
+    $penerbitModel = new PenerbitModel();
 
-        return redirect()->to('/buku')->with('success', 'Data berhasil diupdate');
+    // ================= RELASI =================
+
+    // KATEGORI
+    $id_kategori = $this->request->getPost('id_kategori');
+    if ($this->request->getPost('kategori_baru')) {
+        $id_kategori = $kategoriModel->insert([
+            'nama_kategori' => $this->request->getPost('kategori_baru')
+        ], true);
     }
+
+    // PENULIS
+    $id_penulis = $this->request->getPost('id_penulis');
+    if ($this->request->getPost('penulis_baru')) {
+        $id_penulis = $penulisModel->insert([
+            'nama_penulis' => $this->request->getPost('penulis_baru')
+        ], true);
+    }
+
+    // PENERBIT
+    $id_penerbit = $this->request->getPost('id_penerbit');
+    if ($this->request->getPost('penerbit_baru')) {
+        $id_penerbit = $penerbitModel->insert([
+            'nama_penerbit' => $this->request->getPost('penerbit_baru'),
+            'alamat'        => $this->request->getPost('alamat_penerbit_baru')
+        ], true);
+    }
+
+    // VALIDASI
+    if (!$id_kategori || !$id_penulis || !$id_penerbit) {
+        return redirect()->back()->withInput()->with('error', 'Kategori, Penulis, dan Penerbit wajib diisi!');
+    }
+
+    // ================= COVER =================
+    $cover = $this->request->getFile('cover');
+    $namaCover = $this->request->getPost('old_cover');
+
+    if ($cover && $cover->isValid() && !$cover->hasMoved()) {
+
+        // hapus cover lama
+        if ($namaCover && file_exists('uploads/buku/' . $namaCover)) {
+            unlink('uploads/buku/' . $namaCover);
+        }
+
+        $namaCover = $cover->getRandomName();
+        $cover->move('uploads/buku', $namaCover);
+    }
+
+    // ================= UPDATE =================
+    $this->bukuModel->update($id, [
+        'judul'         => $this->request->getPost('judul'),
+        'isbn'          => $this->request->getPost('isbn'),
+        'id_kategori'   => $id_kategori,
+        'id_penulis'    => $id_penulis,
+        'id_penerbit'   => $id_penerbit,
+        'tahun_terbit'  => $this->request->getPost('tahun_terbit'),
+        'jumlah'        => $this->request->getPost('jumlah'),
+        'tersedia'      => $this->request->getPost('tersedia'),
+        'deskripsi'     => $this->request->getPost('deskripsi'),
+        'cover'         => $namaCover
+    ]);
+
+    return redirect()->to('/buku')->with('success', 'Data berhasil diupdate');
+}
 
     // ================= DETAIL =================
     public function detail($id)
@@ -187,6 +255,47 @@ class Buku extends BaseController
 
         return redirect()->to('/buku')->with('success', 'Buku berhasil dihapus');
     }
+
+    // print
+    public function print($id = null)
+{
+    $builder = $this->bukuModel
+        ->select('buku.*, kategori.nama_kategori, penulis.nama_penulis, penerbit.nama_penerbit')
+        ->join('kategori', 'kategori.id_kategori = buku.id_kategori', 'left')
+        ->join('penulis', 'penulis.id_penulis = buku.id_penulis', 'left')
+        ->join('penerbit', 'penerbit.id_penerbit = buku.id_penerbit', 'left');
+
+    // kalau ada ID → detail
+    if ($id) {
+        $builder->where('buku.id_buku', $id);
+        $buku = $builder->first();
+
+        if (!$buku) {
+            return redirect()->to('/buku')->with('error', 'Data tidak ditemukan');
+        }
+
+        return view('buku/print', ['buku' => [$buku]]);
+    }
+
+    // kalau TANPA ID → ambil filter
+    $keyword  = $this->request->getGet('keyword');
+    $kategori = $this->request->getGet('kategori');
+
+    if ($keyword) {
+        $builder->groupStart()
+            ->like('buku.judul', $keyword)
+            ->orLike('buku.isbn', $keyword)
+        ->groupEnd();
+    }
+
+    if ($kategori) {
+        $builder->where('buku.id_kategori', $kategori);
+    }
+
+    $buku = $builder->findAll();
+
+    return view('buku/print', ['buku' => $buku]);
+}
 
     // ================= WA =================
     public function wa($id)

@@ -33,7 +33,6 @@ input, select {
     padding: 10px;
     border-radius: 10px;
     border: 1px solid #e5e7eb;
-    outline: none;
     font-size: 14px;
 }
 
@@ -42,41 +41,22 @@ input:focus, select:focus {
 }
 
 .btn {
-    padding: 10px 14px;
-    border-radius: 10px;
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-size: 13px;
+    text-decoration: none;
     border: none;
     cursor: pointer;
-    font-size: 14px;
-    text-decoration: none;
-    display: inline-block;
 }
 
-.btn-green {
-    background: #0f766e;
-    color: #fff;
-}
+.btn-green { background: #0f766e; color: #fff; }
+.btn-green:hover { background: #115e59; }
 
-.btn-green:hover {
-    background: #115e59;
-}
+.btn-red { background: #dc2626; color: #fff; }
+.btn-red:hover { background: #b91c1c; }
 
-.btn-red {
-    background: #dc2626;
-    color: #fff;
-}
-
-.btn-red:hover {
-    background: #b91c1c;
-}
-
-.btn-gray {
-    background: #f3f4f6;
-    color: #111827;
-}
-
-.btn-gray:hover {
-    background: #e5e7eb;
-}
+.btn-gray { background: #f3f4f6; color: #111827; }
+.btn-gray:hover { background: #e5e7eb; }
 
 .table-box {
     background: #fff;
@@ -105,26 +85,16 @@ tbody tr:hover {
     background: #f9fafb;
 }
 
-img {
-    border-radius: 6px;
-}
-
-a {
-    color: #0f766e;
-    text-decoration: none;
-    font-weight: 500;
-}
-
-a:hover {
-    text-decoration: underline;
-}
-
 .badge {
     background: #d1fae5;
     color: #065f46;
     padding: 4px 10px;
     border-radius: 20px;
     font-size: 12px;
+}
+
+.aksi a, .aksi button {
+    margin-right: 6px;
 }
 </style>
 
@@ -152,7 +122,6 @@ a:hover {
             </select>
 
             <button class="btn btn-green">Cari</button>
-
             <a href="<?= base_url('buku') ?>" class="btn btn-gray">Reset</a>
 
             <a href="<?= base_url('buku/print?' . http_build_query($_GET)) ?>"
@@ -169,13 +138,6 @@ a:hover {
         <a href="<?= base_url('buku/create') ?>" class="btn btn-green mb-3">
             + Tambah Buku
         </a>
-    <?php endif; ?>
-
-    <!-- ALERT -->
-    <?php if (session()->getFlashdata('success')): ?>
-        <div class="card-box" style="color:green;">
-            <?= session()->getFlashdata('success') ?>
-        </div>
     <?php endif; ?>
 
     <!-- TABLE -->
@@ -198,7 +160,6 @@ a:hover {
 
             <?php if (!empty($buku)): ?>
                 <?php $no = 1; ?>
-
                 <?php foreach ($buku as $b): ?>
                     <tr>
 
@@ -218,47 +179,44 @@ a:hover {
                         <td><?= esc($b['nama_rak'] ?? '-') ?></td>
                         <td><?= esc($b['tersedia'] ?? 0) ?> / <?= esc($b['jumlah'] ?? 0) ?></td>
 
-                        <td>
-            
-                <a href="<?= base_url('buku/detail/' . $b['id_buku']) ?>">Detail</a> |
+                        <td class="aksi">
 
-                <form action="<?= base_url('peminjaman/simpan') ?>" method="post" style="display:inline;">
-                    <?= csrf_field() ?>
-                    <input type="hidden" name="id_buku" value="<?= $b['id_buku'] ?>">
-                    <button type="submit" class="btn btn-green" style="padding:4px 8px; font-size:12px;">
-                        Pinjam
-                    </button>
-                </form>
+                            <!-- DETAIL -->
+                            <a href="<?= base_url('buku/detail/' . $b['id_buku']) ?>" class="btn btn-gray">
+                                Detail
+                            </a>
 
-                <?php if (in_array(session()->get('role'), ['admin', 'petugas'])): ?>
-                    | <a href="<?= base_url('buku/edit/' . $b['id_buku']) ?>">Edit</a>
-                <?php endif; ?>
+                            <!-- EDIT -->
+                            <?php if (in_array(session()->get('role'), ['admin', 'petugas'])): ?>
+                                <a href="<?= base_url('buku/edit/' . $b['id_buku']) ?>" class="btn btn-gray">
+                                    Edit
+                                </a>
+                            <?php endif; ?>
 
-                | <a href="<?= base_url('buku/wa/' . $b['id_buku']) ?>" target="_blank">WA</a>
+                            <!-- WA -->
+                            <a href="<?= base_url('buku/wa/' . $b['id_buku']) ?>" target="_blank" class="btn btn-gray">
+                                WA
+                            </a>
 
-                <?php if (session()->get('role') == 'admin'): ?>
-                    | <a href="<?= base_url('buku/delete/' . $b['id_buku']) ?>"
-                         onclick="return confirm('Hapus buku ini?')">
-                        Hapus
-                    </a>
-                <?php endif; ?>
-            </td>
+                            <!-- HAPUS -->
+                            <?php if (session()->get('role') == 'admin'): ?>
+                                <a href="<?= base_url('buku/delete/' . $b['id_buku']) ?>"
+                                   onclick="return confirm('Hapus buku ini?')"
+                                   class="btn btn-red">
+                                    Hapus
+                                </a>
+                            <?php endif; ?>
 
-        </tr>
-    <?php endforeach; ?>
+                        </td>
 
-<?php else: ?>
-    <tr>
-        <td colspan="8" style="text-align:center;">Tidak ada data buku</td>
-    </tr>
-<?php endif; ?>
+                    </tr>
+                <?php endforeach; ?>
 
-
-</td>
+            <?php else: ?>
                 <tr>
                     <td colspan="8" style="text-align:center;">Tidak ada data buku</td>
                 </tr>
-
+            <?php endif; ?>
 
             </tbody>
         </table>

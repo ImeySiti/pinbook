@@ -17,45 +17,56 @@ $allRole = ['filter' => 'role:admin,petugas,anggota'];
 
 
 // ================== AUTH ==================
-$routes->get('/', 'Auth::login');
+$routes->get('/', function () {
+    return redirect()->to('dashboard');
+});
+
 $routes->get('login', 'Auth::login');
 $routes->post('login/auth', 'Auth::prosesLogin');
 $routes->get('logout', 'Auth::logout');
 
 
 // ================== DASHBOARD ==================
-$routes->get('dashboard', 'Home::index', $authFilter);
+$routes->get('dashboard/stats', 'Home::stats');
+$routes->get('dashboard', 'Home::index');
+$routes->get('dashboard/realtime', 'Home::realtime');
 
 
-// ================== PUBLIC (REGISTER) ==================
+// ================== REGISTER ==================
 $routes->get('users/create', 'Users::create');
 $routes->post('users/store', 'Users::store');
 
-// ================== PROFILE (SEMUA USER LOGIN) ==================
-$routes->get('profile', 'Users::profile', ['filter' => 'auth']);
-$routes->post('profile/update', 'Users::updateProfile', ['filter' => 'auth']);
 
-// ================== USERS (KHUSUS ADMIN/PETUGAS) ==================
-$routes->group('users', ['filter' => 'role:admin,petugas'], function($routes) {
+// ================== PROFILE (FIXED - NO PROFILE CONTROLLER) ==================
+$routes->group('', $authFilter, function ($routes) {
+$routes->get('profile', 'Users::profile');
+$routes->post('profile/update', 'Users::updateProfile');
+});
+
+
+// ================== USERS (ADMIN & PETUGAS) ==================
+$routes->group('users', $intRole, function ($routes) {
 
     $routes->get('/', 'Users::index');
     $routes->get('edit/(:num)', 'Users::edit/$1');
     $routes->post('update/(:num)', 'Users::update/$1');
+
+    // FIX INI
     $routes->get('delete/(:num)', 'Users::delete/$1');
+
     $routes->get('detail/(:num)', 'Users::detail/$1');
     $routes->get('print', 'Users::print');
     $routes->get('wa/(:num)', 'Users::wa/$1');
-
 });
 
-//Anggota
-$routes->group('anggota', function($routes) use ($allRole) {
-$routes->get('profil', 'Anggota::profil');
-
+// ================== ANGGOTA ==================
+$routes->group('anggota', $allRole, function ($routes) {
+    $routes->get('profil', 'Anggota::profil');
+    $routes->post('store', 'Anggota::store');
 });
 
 // ================== KATEGORI ==================
-$routes->group('kategori', $authFilter, function($routes) {
+$routes->group('kategori', $authFilter, function ($routes) {
     $routes->get('/', 'Kategori::index');
     $routes->get('create', 'Kategori::create');
     $routes->post('store', 'Kategori::store');
@@ -66,7 +77,7 @@ $routes->group('kategori', $authFilter, function($routes) {
 
 
 // ================== PENULIS ==================
-$routes->group('penulis', $authFilter, function($routes) {
+$routes->group('penulis', $authFilter, function ($routes) {
     $routes->get('/', 'Penulis::index');
     $routes->get('create', 'Penulis::create');
     $routes->post('store', 'Penulis::store');
@@ -77,7 +88,7 @@ $routes->group('penulis', $authFilter, function($routes) {
 
 
 // ================== PENERBIT ==================
-$routes->group('penerbit', $authFilter, function($routes) {
+$routes->group('penerbit', $authFilter, function ($routes) {
     $routes->get('/', 'Penerbit::index');
     $routes->get('create', 'Penerbit::create');
     $routes->post('store', 'Penerbit::store');
@@ -88,7 +99,7 @@ $routes->group('penerbit', $authFilter, function($routes) {
 
 
 // ================== RAK ==================
-$routes->group('rak', $authFilter, function($routes) {
+$routes->group('rak', $authFilter, function ($routes) {
     $routes->get('/', 'Rak::index');
     $routes->get('create', 'Rak::create');
     $routes->post('store', 'Rak::store');
@@ -99,47 +110,52 @@ $routes->group('rak', $authFilter, function($routes) {
 
 
 // ================== BUKU ==================
-$routes->group('buku', $authFilter, function($routes) {
+$routes->group('buku', $authFilter, function ($routes) {
     $routes->get('/', 'Buku::index');
     $routes->get('create', 'Buku::create');
     $routes->post('store', 'Buku::store');
-
-   $routes->get('detail/(:num)', 'Buku::detail/$1');
+    $routes->get('detail/(:num)', 'Buku::detail/$1');
     $routes->get('edit/(:num)', 'Buku::edit/$1');
     $routes->post('update/(:num)', 'Buku::update/$1');
     $routes->get('delete/(:num)', 'Buku::delete/$1');
-
-    // tambahan
     $routes->get('print', 'Buku::print');
     $routes->get('wa/(:num)', 'Buku::wa/$1');
 });
 
 
-$routes->group('peminjaman', $authFilter, function($routes) {
+$routes->group('peminjaman', $authFilter, function ($routes) {
 
+    // ================= BASIC =================
     $routes->get('/', 'Peminjaman::index');
     $routes->get('create', 'Peminjaman::create');
-
     $routes->post('pinjamMulti', 'Peminjaman::pinjamMulti');
-
+    $routes->get('pinjam/(:num)', 'Peminjaman::pinjam/$1');
     $routes->post('simpan', 'Peminjaman::simpan');
-
+    // ================= DETAIL =================
     $routes->get('detail/(:num)', 'Peminjaman::detail/$1');
     $routes->get('delete/(:num)', 'Peminjaman::delete/$1');
-
-    $routes->get('kembali/(:num)', 'Peminjaman::kembali/$1');
+    // ================= TRANSAKSI =================
+    $routes->get('kembalikan/(:num)', 'Peminjaman::kembali/$1');
     $routes->get('perpanjang/(:num)', 'Peminjaman::perpanjang/$1');
-
+    // ================= PEMBAYARAN =================
     $routes->get('pembayaran/(:num)', 'Peminjaman::pembayaran/$1');
     $routes->post('prosesBayar/(:num)', 'Peminjaman::prosesBayar/$1');
-
+    // ================= KONFIRMASI =================
     $routes->get('konfirmasi/(:num)', 'Peminjaman::konfirmasi/$1');
-
+    // ================= PENGANTARAN FLOW BARU =================
+    // anggota bayar antar rumah
+    $routes->get('bayar/(:num)', 'Peminjaman::bayar/$1');
+    // petugas konfirmasi pembayaran
+    $routes->get('konfirmasi-bayar/(:num)', 'Peminjaman::konfirmasiBayar/$1');
+    // proses pengantaran
+    $routes->get('antar/siap/(:num)', 'Peminjaman::antarSiap/$1');
+    $routes->get('antar/kirim/(:num)', 'Peminjaman::antarKirim/$1');
+    $routes->get('antar/selesai/(:num)', 'Peminjaman::antarSelesai/$1');
+    $routes->get('peminjaman/kembalikan/(:num)', 'Peminjaman::kembalikan/$1');
 });
 
-
 // ================== PENGEMBALIAN ==================
-$routes->group('pengembalian', $authFilter, function($routes) {
+$routes->group('pengembalian', $authFilter, function ($routes) {
 
     $routes->get('/', 'Pengembalian::index');
     $routes->get('create', 'Pengembalian::create');
@@ -156,7 +172,7 @@ $routes->group('pengembalian', $authFilter, function($routes) {
 
 
 // ================== TRANSAKSI ==================
-$routes->group('transaksi', $authFilter, function($routes) {
+$routes->group('transaksi', $authFilter, function ($routes) {
 
     $routes->get('/', 'Transaksi::index');
     $routes->get('create', 'Transaksi::create');
@@ -172,11 +188,10 @@ $routes->group('transaksi', $authFilter, function($routes) {
     $routes->post('bayar', 'Transaksi::bayar');
 });
 
- //Backup
-$routes->get('/backup', 'Backup::index');
-$routes->get('/restore', 'Restore::index');
-$routes->post('/restore/auth', 'Restore::auth');
-$routes->get('/restore/form', 'Restore::form');
-$routes->post('/restore/process', 'Restore::process');
 
-// ================== EXTRA (FIX DUPLIKASI) ==================
+// ================== BACKUP ==================
+$routes->get('backup', 'Backup::index');
+$routes->get('restore', 'Restore::index');
+$routes->post('restore/auth', 'Restore::auth');
+$routes->get('restore/form', 'Restore::form');
+$routes->post('restore/process', 'Restore::process');

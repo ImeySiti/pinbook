@@ -52,16 +52,17 @@ class Auth extends Controller
                 }
 
                 // ================= SET SESSION =================
-                $session->set([
-                    'id' => $users['id'],
-                    'id_anggota' => $idAnggota, // <-- TAMBAHAN
-                    'id_petugas' => $idPetugas, // <-- TAMBAHAN
-                    'nama' => $users['nama'],
-                    'email' => $users['email'],
-                    'username' => $users['username'],
-                    'foto' => $users['foto'],
-                    'logged_in' => true
-                ]);
+             $session->set([
+            'id' => $users['id'],
+            'id_anggota' => $idAnggota,
+            'id_petugas' => $idPetugas,
+            'nama' => $users['nama'],
+            'email' => $users['email'],
+            'username' => $users['username'],
+            'foto' => $users['foto'],
+            'role' => $users['role'],   //  INI WAJIB
+            'logged_in' => true
+            ]);
 
                 return redirect()->to('/dashboard');
             } else {

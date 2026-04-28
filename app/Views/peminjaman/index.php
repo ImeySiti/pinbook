@@ -1,50 +1,107 @@
 <?= $this->extend('layouts/main') ?>
 <?= $this->section('content') ?>
 
+<style>
+:root{
+    --primary:#0f766e;
+    --primary-soft:#14b8a6;
+    --bg:#f4f7fb;
+}
+
+body{
+    background:var(--bg);
+}
+
+/* CARD */
+.table-card{
+    border:0;
+    border-radius:14px;
+    overflow:hidden;
+    box-shadow:0 6px 18px rgba(0,0,0,0.06);
+}
+
+/* BUTTON */
+.btn-action{
+    font-size:12px;
+    padding:6px 10px;
+    border-radius:8px;
+    margin-left:4px;
+}
+
+/* HEADER TABLE */
+thead{
+    background: var(--primary);
+    color:#fff;
+}
+
+/* TITLE */
+h4.fw-bold{
+    color: var(--primary);
+}
+
+/* BADGE */
+.badge{
+    padding:6px 10px;
+    border-radius:8px;
+    font-size:11px;
+    font-weight:600;
+}
+
+/* STATUS COLOR */
+.bg-warning { background:#fbbf24 !important; color:#111 !important; }
+.bg-primary { background:var(--primary-soft) !important; }
+.bg-success { background:#10b981 !important; }
+.bg-danger { background:#ef4444 !important; }
+.bg-info { background:#38bdf8 !important; }
+.bg-secondary { background:#6b7280 !important; }
+
+/* hover */
+table tbody tr:hover{
+    background:#ecfdf5;
+}
+
+/* PRIMARY BUTTON */
+.btn-primary{
+    background: var(--primary) !important;
+    border: none !important;
+}
+
+.btn-primary:hover{
+    background: var(--primary-soft) !important;
+}
+</style>
+
 <div class="container py-4">
 
-    <!-- HEADER -->
-    <div class="d-flex justify-content-between align-items-center mb-4">
+    <div class="d-flex justify-content-between align-items-center mb-3">
         <div>
-            <h3 class="fw-bold mb-0">📑 Transaksi Peminjaman</h3>
-            <p class="text-muted small mb-0">Kelola sirkulasi buku, pengantaran, dan pengajuan anggota</p>
+            <h4 class="fw-bold mb-0">Data Peminjaman</h4>
+            <small class="text-muted">Daftar transaksi peminjaman buku</small>
         </div>
 
-        <?php if (session()->get('role') == 'anggota'): ?>
-            <a href="<?= base_url('peminjaman/create') ?>" class="btn btn-success rounded-pill px-4 shadow-sm">
-                <i class="bi bi-plus-lg me-1"></i> Pinjam Buku
+        <?php if(session()->get('role')=='anggota'): ?>
+            <a href="<?= base_url('peminjaman/create') ?>" class="btn btn-primary btn-action">
+                + Pinjam
             </a>
         <?php endif; ?>
     </div>
 
     <?php
     $statusMap = [
-        'menunggu'     => ['text' => 'Diproses', 'class' => 'bg-warning text-dark'],
-        'dipinjam'     => ['text' => 'Dipinjam', 'class' => 'bg-primary'],
-        'diperpanjang' => ['text' => 'Diperpanjang', 'class' => 'bg-info'],
-        'kembali'      => ['text' => 'Selesai', 'class' => 'bg-success'],
-        'dikembalikan' => ['text' => 'Selesai', 'class' => 'bg-success'],
-        'terlambat'    => ['text' => 'Terlambat', 'class' => 'bg-danger']
-    ];
-
-    $pengantaranMap = [
-        'menunggu_pembayaran' => ['text' => 'Menunggu Bayar', 'class' => 'bg-warning text-dark'],
-        'menunggu_konfirmasi' => ['text' => 'Konfirmasi', 'class' => 'bg-secondary'],
-        'siap_diantar'        => ['text' => 'Siap Diantar', 'class' => 'bg-info'],
-        'dalam_pengantaran'   => ['text' => 'Diantar', 'class' => 'bg-success'],
-        'sudah_bayar'         => ['text' => 'Sudah Bayar', 'class' => 'bg-primary'],
-        'selesai'             => ['text' => 'Selesai', 'class' => 'bg-dark']
+        'menunggu'  => ['text'=>'Menunggu','class'=>'bg-warning'],
+        'dipinjam'  => ['text'=>'Dipinjam','class'=>'bg-primary'],
+        'kembali'   => ['text'=>'Selesai','class'=>'bg-success'],
+        'terlambat' => ['text'=>'Terlambat','class'=>'bg-danger']
     ];
     ?>
 
-    <!-- TABLE -->
-    <div class="card border-0 shadow-sm rounded-4 overflow-hidden">
+    <div class="card table-card">
         <div class="table-responsive">
 
-            <table class="table table-hover align-middle mb-0">
+        <table class="table table-hover align-middle mb-0">
 
-                <thead class="table-light">
-                <tr class="text-uppercase small">
+            <thead>
+                <tr>
                     <th>No</th>
                     <th>Peminjam</th>
                     <th>Tanggal</th>
@@ -52,102 +109,123 @@
                     <th>Layanan</th>
                     <th class="text-end">Aksi</th>
                 </tr>
-                </thead>
+            </thead>
 
-                <tbody>
+            <tbody>
 
-                <?php if (!empty($peminjaman)): ?>
-                    <?php $no = 1; foreach ($peminjaman as $p): ?>
+            <?php if(!empty($peminjaman)): ?>
+            <?php $no=1; foreach($peminjaman as $p): ?>
 
-                        <?php
-                        $status = $p['status'] ?? 'dipinjam';
-                        $st = $statusMap[$status] ?? $statusMap['menunggu'];
-                        $sp = $p['status_pengantaran'] ?? '';
-                        $metode = $p['metode_pengambilan'] ?? '';
-                        ?>
+                <?php
+                $status = strtolower($p['status'] ?? 'menunggu');
+                $st = $statusMap[$status] ?? $statusMap['menunggu'];
 
-                        <tr>
+                $metode = $p['metode_pengambilan'] ?? '';
+                $status_pengiriman = $p['status_pengiriman'] ?? 'ambil';
+                ?>
 
-                            <td><?= $no++ ?></td>
+                <tr>
 
-                            <td>
-                                <div class="fw-semibold"><?= esc($p['nama_anggota']) ?></div>
-                                <div class="text-muted small">ID #<?= $p['id_peminjaman'] ?></div>
-                            </td>
+                    <td><?= $no++ ?></td>
 
+                    <!-- PEMINJAM -->
+                    <td>
+                        <div class="fw-semibold">
+                            <?= esc($p['nama_anggota'] ?? '-') ?>
+                        </div>
+                        <small class="text-muted">#<?= $p['id_peminjaman'] ?></small>
+                    </td>
 
-                            <td>
-                                <div class="small">Pinjam: <?= $p['tanggal_pinjam'] ?></div>
-                                <div class="small text-danger">Kembali: <?= $p['tanggal_kembali'] ?></div>
-                            </td>
+                    <!-- TANGGAL -->
+                    <td>
+                        <small>Pinjam: <?= $p['tanggal_pinjam'] ?? '-' ?></small><br>
+                        <small class="text-danger">Kembali: <?= $p['tanggal_kembali'] ?? '-' ?></small>
+                    </td>
 
-                            <td>
-                                <span class="badge <?= $st['class'] ?>">
-                                    <?= $st['text'] ?>
-                                </span>
-                            </td>
+                    <!-- STATUS -->
+                    <td>
+                        <span class="badge <?= $st['class'] ?>">
+                            <?= $st['text'] ?>
+                        </span>
+                    </td>
 
-                            <td>
-                                <?php if ($metode == 'antar'): ?>
-                                    <span class="badge <?= $pengantaranMap[$sp]['class'] ?? 'bg-secondary' ?>">
-                                        <?= $pengantaranMap[$sp]['text'] ?? 'Proses' ?>
-                                    </span>
-                                <?php else: ?>
-                                    <span class="badge bg-light text-dark border">Mandiri</span>
-                                <?php endif; ?>
-                            </td>
+                    <!-- LAYANAN -->
+                    <td>
+                        <?php if(strtolower($metode) == 'antar'): ?>
 
-                            <td class="text-end">
+                            <?php if($status_pengiriman == 'menunggu_konfirmasi'): ?>
+                                <span class="badge bg-warning">Menunggu Konfirmasi</span>
 
-                                <div class="dropdown">
-                                    <button class="btn btn-light btn-sm" data-bs-toggle="dropdown">
-                                        <i class="bi bi-three-dots"></i>
-                                    </button>
+                            <?php elseif($status_pengiriman == 'siap_diantar'): ?>
+                                <span class="badge bg-info">Siap Diantar</span>
 
-                                    <ul class="dropdown-menu dropdown-menu-end">
-                                     
-                                        <li>
-                                            <a class="dropdown-item" href="<?= base_url('peminjaman/detail/'.$p['id_peminjaman']) ?>">
-                                                Detail
-                                            </a>
-                                        </li>
+                            <?php elseif($status_pengiriman == 'selesai'): ?>
+                                <span class="badge bg-success">Selesai</span>
 
-                                        <?php if (session()->get('role') == 'admin'): ?>
-                                            <li><hr class="dropdown-divider"></li>
-                                            <li>
-                                                <a class="dropdown-item text-danger"
-                                                   onclick="return confirm('Hapus data?')"
-                                                   href="<?= base_url('peminjaman/delete/'.$p['id_peminjaman']) ?>">
-                                                    Hapus
-                                                </a>
-                                            </li>
-                                        <?php endif; ?>
+                            <?php else: ?>
+                                <span class="badge bg-secondary">Pengantaran</span>
+                            <?php endif; ?>
 
-                                    </ul>
-                                </div>
+                        <?php else: ?>
+                            <span class="badge bg-secondary">Ambil di Tempat</span>
+                        <?php endif; ?>
+                    </td>
 
-                            </td>
+                    <!-- AKSI -->
+                    <td class="text-end">
 
-                        </tr>
+                        <a href="<?= base_url('peminjaman/detail/'.$p['id_peminjaman']) ?>"
+                           class="btn btn-light border btn-action">
+                            Detail
+                        </a>
 
-                    <?php endforeach; ?>
-                <?php else: ?>
+                        <?php if(session()->get('role')=='petugas' && $status=='menunggu'): ?>
+                            <a href="<?= base_url('peminjaman/konfirmasi/'.$p['id_peminjaman']) ?>"
+                               class="btn btn-primary btn-action">
+                                Konfirmasi
+                            </a>
+                        <?php endif; ?>
 
-                    <tr>
-                        <td colspan="7" class="text-center py-4 text-muted">
-                            Belum ada data peminjaman
-                        </td>
-                    </tr>
+                        <?php if(in_array(session()->get('role'), ['petugas','admin'])
+                            && in_array($status, ['dipinjam','terlambat'])): ?>
 
-                <?php endif; ?>
+                            <a href="<?= base_url('peminjaman/kembalikan/'.$p['id_peminjaman']) ?>"
+                               class="btn btn-success btn-action"
+                               onclick="return confirm('Kembalikan buku ini?')">
+                                Kembalikan
+                            </a>
 
-                </tbody>
+                        <?php endif; ?>
 
-            </table>
+                        <?php if(session()->get('role')=='admin'): ?>
+                            <a href="<?= base_url('peminjaman/delete/'.$p['id_peminjaman']) ?>"
+                               class="btn btn-danger btn-action"
+                               onclick="return confirm('Yakin hapus data ini?')">
+                                Hapus
+                            </a>
+                        <?php endif; ?>
+
+                    </td>
+
+                </tr>
+
+            <?php endforeach; ?>
+            <?php else: ?>
+
+                <tr>
+                    <td colspan="6" class="text-center py-4 text-muted">
+                        Tidak ada data peminjaman
+                    </td>
+                </tr>
+
+            <?php endif; ?>
+
+            </tbody>
+
+        </table>
 
         </div>
     </div>
-
 </div>
 
 <?= $this->endSection() ?>

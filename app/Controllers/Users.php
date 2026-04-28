@@ -3,6 +3,8 @@
 namespace App\Controllers;
 
 use App\Models\UsersModel;
+use App\Models\AnggotaModel;
+use CodeIgniter\Exceptions\PageNotFoundException;
 
 class Users extends BaseController
 {
@@ -13,7 +15,7 @@ class Users extends BaseController
         $this->users = new UsersModel();
     }
 
-    // ================= REGISTER (PUBLIK) =================
+    // ================= REGISTER =================
     public function create()
     {
         return view('users/create');
@@ -23,7 +25,6 @@ class Users extends BaseController
     {
         $validation = \Config\Services::validation();
 
-        // ❌ HAPUS role dari validasi
         $validation->setRules([
             'nama'     => 'required',
             'email'    => 'required|valid_email',
@@ -32,7 +33,8 @@ class Users extends BaseController
         ]);
 
         if (!$validation->withRequest($this->request)->run()) {
-            return redirect()->back()->with('error', implode('<br>', $validation->getErrors()));
+            return redirect()->back()
+                ->with('error', implode('<br>', $validation->getErrors()));
         }
 
         // ================= FOTO =================
@@ -50,14 +52,15 @@ class Users extends BaseController
             'email'    => $this->request->getPost('email'),
             'username' => $this->request->getPost('username'),
             'password' => password_hash($this->request->getPost('password'), PASSWORD_DEFAULT),
-            'role'     => 'anggota', // ✅ AUTO ROLE
+            'role'     => 'anggota',
             'foto'     => $namaFoto
         ]);
 
         $userId = $this->users->insertID();
 
-        // ================= AUTO MASUK KE TABEL ANGGOTA =================
-        $anggotaModel = new \App\Models\AnggotaModel();
+        // ================= ANGGOTA =================
+        $anggotaModel = new AnggotaModel();
+
         $anggotaModel->insert([
             'user_id' => $userId,
             'alamat'  => $this->request->getPost('alamat'),
@@ -65,14 +68,24 @@ class Users extends BaseController
             'tanggal_daftar' => date('Y-m-d')
         ]);
 
-        return redirect()->to('/login')->with('success', 'User berhasil daftar!');
+        return redirect()->to('/login')
+            ->with('success', 'User berhasil daftar!');
     }
 
-    // ================= PROFILE =================
+    // ================= PROFILE (SESSION BASED) =================
     public function profile()
     {
         $id = session()->get('id');
+
+        if (!$id) {
+            return redirect()->to('/login');
+        }
+
         $user = $this->users->find($id);
+
+        if (!$user) {
+            throw PageNotFoundException::forPageNotFound('User tidak ditemukan');
+        }
 
         return view('users/edit', ['user' => $user]);
     }
@@ -80,13 +93,22 @@ class Users extends BaseController
     public function updateProfile()
     {
         $id = session()->get('id');
+
+        if (!$id) {
+            return redirect()->to('/login');
+        }
+
         $user = $this->users->find($id);
+
+        if (!$user) {
+            throw PageNotFoundException::forPageNotFound('User tidak ditemukan');
+        }
 
         // ================= FOTO =================
         $fotoBaru = $this->request->getFile('foto');
         $namaFoto = $user['foto'];
 
-        if ($fotoBaru && $fotoBaru->isValid() && $fotoBaru->getName() != '') {
+        if ($fotoBaru && $fotoBaru->isValid() && !$fotoBaru->hasMoved()) {
 
             if (!empty($user['foto']) && file_exists(FCPATH . 'uploads/users/' . $user['foto'])) {
                 unlink(FCPATH . 'uploads/users/' . $user['foto']);
@@ -96,6 +118,7 @@ class Users extends BaseController
             $fotoBaru->move(FCPATH . 'uploads/users', $namaFoto);
         }
 
+        // ================= UPDATE DATA =================
         $data = [
             'nama'     => $this->request->getPost('nama'),
             'email'    => $this->request->getPost('email'),
@@ -103,14 +126,17 @@ class Users extends BaseController
             'foto'     => $namaFoto
         ];
 
-        // password opsional
         if ($this->request->getPost('password')) {
-            $data['password'] = password_hash($this->request->getPost('password'), PASSWORD_DEFAULT);
+            $data['password'] = password_hash(
+                $this->request->getPost('password'),
+                PASSWORD_DEFAULT
+            );
         }
 
         $this->users->update($id, $data);
 
-        return redirect()->to('/profile')->with('success', 'Profil berhasil diupdate');
+        return redirect()->to('/profile')
+            ->with('success', 'Profil berhasil diupdate');
     }
 
     // ================= ADMIN AREA =================
@@ -125,7 +151,19 @@ class Users extends BaseController
     public function edit($id)
     {
         $data['user'] = $this->users->find($id);
+
         return view('users/edit', $data);
+    }
+
+    public function detail($id)
+    {
+        $user = $this->users->find($id);
+
+        if (!$user) {
+            throw PageNotFoundException::forPageNotFound('User tidak ditemukan');
+        }
+
+        return view('users/detail', ['user' => $user]);
     }
 
     public function update($id)
@@ -137,17 +175,27 @@ class Users extends BaseController
         ];
 
         if ($this->request->getPost('password')) {
-            $data['password'] = password_hash($this->request->getPost('password'), PASSWORD_DEFAULT);
+            $data['password'] = password_hash(
+                $this->request->getPost('password'),
+                PASSWORD_DEFAULT
+            );
         }
 
         $this->users->update($id, $data);
 
-        return redirect()->to('/users')->with('success', 'Data berhasil diupdate');
+        return redirect()->to('/users')
+            ->with('success', 'Data berhasil diupdate');
     }
 
     public function delete($id)
     {
-        $this->users->delete($id);
-        return redirect()->to('/users')->with('success', 'User dihapus');
+        $this->db = \Config\Database::connect();
+
+        $this->db->table('users')
+            ->where('id', $id)
+            ->delete();
+
+        return redirect()->to(base_url('users'))
+            ->with('success', 'User berhasil dihapus');
     }
 }
