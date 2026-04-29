@@ -25,13 +25,20 @@ public function index()
 {
     $db = \Config\Database::connect();
 
-    $data['peminjaman'] = $db->table('peminjaman p')
+    $builder = $db->table('peminjaman p')
         ->select('p.*, u.nama as nama_anggota')
         ->join('anggota a', 'a.id_anggota = p.id_anggota', 'left')
-        ->join('users u', 'u.id = a.user_id', 'left') // 🔥 FIX UTAMA
-        ->orderBy('p.id_peminjaman', 'DESC')
-        ->get()
-        ->getResultArray();
+        ->join('users u', 'u.id = a.user_id', 'left')
+        ->orderBy('p.id_peminjaman', 'DESC');
+
+    //  FILTER BERDASARKAN ROLE
+    if (session()->get('role') == 'anggota') {
+        $idAnggota = session()->get('id_anggota');
+
+        $builder->where('p.id_anggota', $idAnggota);
+    }
+
+    $data['peminjaman'] = $builder->get()->getResultArray();
 
     return view('peminjaman/index', $data);
 }

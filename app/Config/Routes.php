@@ -17,9 +17,8 @@ $allRole = ['filter' => 'role:admin,petugas,anggota'];
 
 
 // ================== AUTH ==================
-$routes->get('/', function () {
-    return redirect()->to('dashboard');
-});
+$routes->get('/', 'Auth::login');
+$routes->get('dashboard', 'Home::index', ['filter' => 'auth']);
 
 $routes->get('login', 'Auth::login');
 $routes->post('login/auth', 'Auth::prosesLogin');
